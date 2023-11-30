@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client'
 import './sass/app.scss'
 import { Navigate, RouterProvider, createBrowserRouter } from 'react-router-dom'
 import { ContactPage, LandingPage, TeamPage } from './pages'
-import { Layout } from './layouts'
+import { Layout } from './layout'
 
 const router = createBrowserRouter([
   {

@@ -1,0 +1,72 @@
+@use '../core/variables';
+
+.footer {
+    display: flex;
+    height: 25rem;
+    padding: 3.2rem;
+    background-color: black;
+    color: white;
+}
+
+.footer > * {
+    flex: 1;
+}
+
+.footer__section__copyright {
+    display: flex;
+    align-items: end;
+}
+
+.footer__section__contact {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+
+.footer__section__contact img {
+    width: 2rem;
+}
+
+.footer__section__social {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.footer__copyright {
+    display: flex;
+    flex-direction: column;
+    gap: .3rem;
+    font-size: 1.4rem;
+    font-family: variables.$secondary-font;
+}
+
+.footer__copyright img {
+    display: inline;
+    width: 2rem;
+}
+
+.footer__copyright__copy {
+    display: flex;
+    align-items: center;
+    gap: .7rem;
+}
+
+.contact__info {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.social__bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.8rem;
+}
+
+.contact__element {
+    display: flex;
+    gap: 1rem;
+}

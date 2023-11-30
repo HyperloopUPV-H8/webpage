@@ -1,7 +1,9 @@
 @use '../core/variables' as variables;
 
 .navbar {
+    width: 100%;
     display: flex;
+    position: fixed;
     align-items: center;
     justify-content: space-between;
     padding: 2.5rem 4.2rem;

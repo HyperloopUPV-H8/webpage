@@ -1,6 +1,7 @@
 
 export const LandingPage = () => {
   return (
-    <div>LandingPage</div>
+    <section className="landing__section">
+    </section>
   )
 }

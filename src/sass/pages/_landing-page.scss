@@ -11,11 +11,13 @@
     }
 
     &.section-2 {
+        position: relative;
         background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5)), 
         url("#{var.$assets-dir}/backgrounds/landing-2.jpeg");
     }
 
     &.section-3 {
+        position: relative;
         background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5)), 
         url("#{var.$assets-dir}/backgrounds/landing-3.jpeg");
     }
@@ -24,4 +26,20 @@
         background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5)), 
         url("#{var.$assets-dir}/backgrounds/landing-5.jpeg");
     }
+}
+
+.landing__titled-text-box {
+
+    &-1 {
+        position: absolute;
+        right: 5rem;
+        top: 20%;
+    }
+
+    &-2 {
+        position: absolute;
+        left: 5rem;
+        top: 20%;
+    }
+
 }

@@ -1,3 +1,11 @@
+import InstagramIcon from '../assets/icons/instagram.svg';
+import XIcon from '../assets/icons/x.svg';
+import YoutubeIcon from '../assets/icons/youtube.svg';
+import LinkedinIcon from '../assets/icons/linkedin.svg';
+import LocationIcon from '../assets/icons/location.svg';
+import MailIcon from '../assets/icons/mail.svg';
+import TelephoneIcon from '../assets/icons/telephone.svg';
+import CopyrightIcon from '../assets/icons/copyright.svg';
 
 export const Footer = () => {
   return (
@@ -5,7 +13,7 @@ export const Footer = () => {
       <div className="footer__section__copyright">
         <div className="footer__copyright">
           <div className="footer__copyright__copy">
-            <img src="src/assets/icons/copyright.svg" alt="Copyright" />
+            <img src={CopyrightIcon} alt="Copyright" />
             <p>2015 - 2023 Hyperloop UPV</p>
           </div>
           <p>All rights reserved</p>
@@ -15,16 +23,16 @@ export const Footer = () => {
       <div className="footer__section__social">
         <div className="social__bar">
           <a href="https://www.instagram.com/hyperloopupv/">
-            <img src="src/assets/icons/instagram.svg" alt="HyperloopUPV Instagram" />
+            <img src={InstagramIcon} alt="HyperloopUPV Instagram" />
           </a>
           <a href="https://twitter.com/hyperloopupv">
-            <img src="src/assets/icons/x.svg" alt="HyperloopUPV X" />
+            <img src={XIcon} alt="HyperloopUPV X" />
           </a>
           <a href="https://www.youtube.com/@HyperloopUPVYT">
-            <img src="src/assets/icons/youtube.svg" alt="HyperloopUPV Youtube" />
+            <img src={YoutubeIcon} alt="HyperloopUPV Youtube" />
           </a>
           <a href="https://www.linkedin.com/company/hyperloopupv">
-            <img src="src/assets/icons/linkedin.svg" alt="HyperloopUPV Linkedin" />
+            <img src={LinkedinIcon} alt="HyperloopUPV Linkedin" />
           </a>
         </div>
         <p>@hyperloopupv</p>
@@ -34,15 +42,15 @@ export const Footer = () => {
       <div className="footer__section__contact">
         <div className="contact__info">
           <div className="contact__element">
-            <img src="src/assets/icons/location.svg" alt="" />
+            <img src={LocationIcon} alt="" />
             <a href="#">Av. Dels Tarongers, 6</a>
           </div>
           <div className="contact__element">
-            <img src="src/assets/icons/mail.svg" alt="" />
+            <img src={MailIcon} alt="" />
             <a href="#">hyperloopupv@gmail.com</a>
           </div>
           <div className="contact__element">
-            <img src="src/assets/icons/telephone.svg" alt="" />
+            <img src={TelephoneIcon} alt="" />
             <a href="#">123456789</a>
           </div>
         </div>

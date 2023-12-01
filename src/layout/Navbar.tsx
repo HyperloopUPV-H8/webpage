@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom"
+import NavbarLogo from "../assets/corporative/navbar-logo.svg"
 
 export const Navbar = () => {
   return (
     <div className="navbar">
       <div className="navbar__logo">
         <Link to={"/"}>
-          <img src="src/assets/corporative/navbar-logo.svg" alt="Hyperloop Logo" />
+          <img src={NavbarLogo} alt="Hyperloop Logo" />
         </Link>
       </div>
 

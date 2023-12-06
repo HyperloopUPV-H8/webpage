@@ -1,3 +1,5 @@
+@use "../core/shadows";
+
 .titled-image-box {
     display: flex;
     flex-direction: column;
@@ -15,50 +17,15 @@
         margin: 1rem;
 
         &.orange-border {
-            position: relative;
-            z-index: 0;
-
-            &::before {
-                z-index: -1;
-                content: "";
-                position: absolute;
-                inset: -7px;
-                background: #ce8058;
-                filter: blur(12px);
-            }
+            @include shadows.gradient(#ce8058);
         }
 
         &.blue-border {
-            position: relative;
-            z-index: 0;
-
-            &::before {
-                z-index: -1;
-                content: "";
-                position: absolute;
-                inset: -7px;
-                background: #2486a4;
-                filter: blur(12px);
-            }
+            @include shadows.gradient(#2486a4);
         }
 
         &.multicolor-border {
-            position: relative;
-            z-index: 0;
-
-            &::before {
-                z-index: -1;
-                content: "";
-                position: absolute;
-                inset: -7px;
-                background: linear-gradient(300deg, #2486a4, #ce8058);
-                filter: blur(12px);
-            }
+            @include shadows.gradient(linear-gradient(300deg, #2486a4, #ce8058));
         }
-
-        img {
-            position: absolute;
-        }
-
     }
 }

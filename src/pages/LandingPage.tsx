@@ -1,4 +1,4 @@
-import { TitledTextBox, MediaNew } from "../components"
+import { TitledTextBox, MediaNew, TitleUnderlined } from "../components"
 import landingVideo from "../assets/backgrounds/landing-video.mp4"
 import kenosRender from "../assets/renders/kenos.png"
 import kenosHover from "../assets/renders/kenos-hover.png"
@@ -52,10 +52,12 @@ export const LandingPage = () => {
       </section>
 
       <section className="landing__section section-5">
-        <div className="title-underlined">
-          <h3 className="title-underlined__title">Último prototipo</h3>
-          <div className="title-underlined__line"></div>
-        </div>
+
+        <TitleUnderlined 
+          text="Último prototipo" 
+          color="white" 
+        />
+
       </section>
 
       <section className="landing__section section-6">
@@ -124,13 +126,10 @@ export const LandingPage = () => {
 
         <div className="news__section__container">
 
-          <div className="title__container">
-            <div className="title-underlined">
-              <h3 className="title-underlined__title-black">Últimas noticias</h3>
-            <div/>
-              <div className="title-underlined__line-black"></div>
-            </div>
-          </div>{/* title */}
+          <TitleUnderlined 
+            text="Últimas noticias" 
+            color="black" 
+          />
     
           <div className="news__container">
     

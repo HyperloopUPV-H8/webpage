@@ -9,6 +9,12 @@
     justify-content: space-between;
     padding: 2.5rem 4.2rem;
     font-family: variables.$secondary-font;
+    transition: all 0.2s;
+}
+
+.navbar__hidden {
+    transform: translateY(-100%);
+    transition: all 0.2s;
 }
 
 .navbar__logo {

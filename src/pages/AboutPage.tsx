@@ -1,7 +1,10 @@
 
 export const AboutPage = () => {
-    return (
-      <div>AboutPage</div>
-    )
-  }
-  
+  return (
+    <>
+      <div className="about__section section-1">
+        <div className="about__title">Acerca</div>
+      </div>
+    </>
+  )
+}

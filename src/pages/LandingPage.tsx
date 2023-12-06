@@ -1,5 +1,4 @@
-import { MouseEventHandler } from "react"
-import { TitledTextBox } from "../components"
+import { TitledTextBox, MediaNew } from "../components"
 import landingVideo from "../assets/backgrounds/landing-video.mp4"
 import kenosRender from "../assets/renders/kenos.png"
 import kenosHover from "../assets/renders/kenos-hover.png"
@@ -7,7 +6,9 @@ import atlasRender from "../assets/renders/atlas.png"
 import atlasHover from "../assets/renders/atlas-hover.png"
 import atlasTitle from "../assets/corporative/atlas.svg"
 import kenosTitle from "../assets/corporative/kenos.svg"
-import arrow from "../assets/icons/arrow.svg"
+import premiumNewImage from "../assets/media/premium-new.jpeg"
+import goldNewImage from "../assets/media/gold-new.jpeg"
+import silverNewImage from "../assets/media/silver-new.jpeg"
 
 export const LandingPage = () => {
   return (
@@ -133,64 +134,25 @@ export const LandingPage = () => {
     
           <div className="news__container">
     
-                <div className="new__container">
-                  <div className="new__title">
-                    <p>Noticias PREMIUM</p>
-                  </div>
+                <MediaNew 
+                  image={premiumNewImage}
+                  category="premium"
+                  url={"https://www.upv.es/noticias-upv/noticia-14191-hyperloop-2023-es.html"}
+                />
+
+                <MediaNew 
+                  image={goldNewImage}
+                  category="gold"
+                  url="https://www.mudinmar.com/es/noticias/mudinmar-participa-european-hyperloop-week/"
+                />
+
+                <MediaNew 
+                  image={silverNewImage}
+                  category="silver"
+                  url="https://www.linkedin.com/posts/power-electronics_movilidad-sostenible-inversi%C3%B3n-activity-7072859290838941696-gPnn/?originalSubdomain=pe"
+                />
     
-                  <a href="https://www.upv.es/noticias-upv/noticia-14191-hyperloop-2023-es.html" target="_blank">
-                    <div className="new__image premium"></div>
-                  </a>
-    
-                  <div className="new__footer">
-                    <a href="https://www.upv.es/noticias-upv/noticia-14191-hyperloop-2023-es.html" target="_blank">
-                      <div className="new__footer__container">
-                        <p>Leer Más</p>
-                        <img src={arrow} alt="Arrow right" />
-                      </div>
-                    </a>
-                  </div>
-                </div>{/* new premium */}
-    
-                <div className="new__container">
-                  <div className="new__title">
-                    <p>Noticias GOLD</p>
-                  </div>
-    
-                  <a href="https://www.mudinmar.com/es/noticias/mudinmar-participa-european-hyperloop-week/" target="_blank">
-                    <div className="new__image gold"></div>
-                  </a>
-    
-                  <div className="new__footer">
-                    <a href="https://www.mudinmar.com/es/noticias/mudinmar-participa-european-hyperloop-week/" target="_blank">
-                      <div className="new__footer__container">
-                        <p>Leer Más</p>
-                        <img src={arrow} alt="Arrow right" />
-                      </div>
-                    </a>
-                  </div>
-                </div>{/* new gold */}
-    
-                <div className="new__container">
-                  <div className="new__title">
-                    <p>Noticias SILVER</p>
-                  </div>
-    
-                  <a href="https://www.linkedin.com/posts/power-electronics_movilidad-sostenible-inversi%C3%B3n-activity-7072859290838941696-gPnn/?originalSubdomain=pe" target="_blank">
-                    <div className="new__image silver"></div>
-                  </a>
-    
-                  <div className="new__footer">
-                    <a href="https://www.linkedin.com/posts/power-electronics_movilidad-sostenible-inversi%C3%B3n-activity-7072859290838941696-gPnn/?originalSubdomain=pe" target="_blank">
-                      <div className="new__footer__container">
-                        <p>Leer Más</p>
-                        <img src={arrow} alt="Arrow right" />
-                      </div>
-                    </a>
-                  </div>
-                </div>{/* new silver */}
-    
-            </div>{/* news */}
+            </div>{/* news section */}
 
           </div>
 

@@ -9,11 +9,6 @@ import atlasTitle from "../assets/corporative/atlas.svg"
 import kenosTitle from "../assets/corporative/kenos.svg"
 import arrow from "../assets/icons/arrow.svg"
 
-const changeToKenosHover : MouseEventHandler<HTMLImageElement> = (event) => { event.currentTarget.src = kenosHover; };
-const changeToKenosRender : MouseEventHandler<HTMLImageElement> = (event) => { event.currentTarget.src = kenosRender; };
-const changeToAtlasHover : MouseEventHandler<HTMLImageElement> = (event) => { event.currentTarget.src = atlasHover; };
-const changeToAtlasRender : MouseEventHandler<HTMLImageElement> = (event) => { event.currentTarget.src = atlasRender; };
-
 export const LandingPage = () => {
   return (
     <>
@@ -66,9 +61,12 @@ export const LandingPage = () => {
         <div id="gaussian-blur__1"></div>
         <div className="kenos__container">
           <div className="kenos__render__container">
-            <div className="kenos__render__content">
-              <img src={kenosRender} alt="Kénos Vehicle" onMouseOver={changeToKenosHover} onMouseOut={changeToKenosRender}/>
+            <div className="kenos__render__content img-normal">
+              <img src={kenosRender} alt="Kénos Vehicle" />
             </div>{/* kenos__render */}
+            <div className="kenos__render__content img-hover">
+              <img src={kenosHover} alt="Kénos Vehicle" />
+            </div>
           </div>
           <div className="prototype__text__container">
             <div className="prototype__text__content">
@@ -106,9 +104,12 @@ export const LandingPage = () => {
           </div>
           </div>
           <div className="atlas__render__container">
-            <div className="atlas__render__content">
-              <img src={atlasRender} alt="Atlas Tube" onMouseOver={changeToAtlasHover} onMouseOut={changeToAtlasRender}/>
+            <div className="atlas__render__content img-normal">
+              <img src={atlasRender} alt="Atlas Tube" />
             </div>{/* atlas__render */}
+            <div className="atlas__render__content img-hover">
+              <img src={atlasHover} alt="Atlas Tube" />
+            </div>
           </div>
         </div>
         <div className="prototype__footnote">
@@ -120,74 +121,78 @@ export const LandingPage = () => {
 
       <section className="landing__section section-8">
 
-        <div className="title__container">
-          <div className="title-underlined">
-            <h3 className="title-underlined__title-black">Últimas noticias</h3>
-          <div/>
-            <div className="title-underlined__line-black"></div>
-          </div>
-        </div>{/* title */}
+        <div className="news__section__container">
 
-        <div className="news__container">
-
-              <div className="new__container">
-                <div className="new__title">
-                  <p>Noticias PREMIUM</p>
-                </div>
-
-                <a href="https://www.upv.es/noticias-upv/noticia-14191-hyperloop-2023-es.html" target="_blank">
-                  <div className="new__image premium"></div>
-                </a>
-
-                <div className="new__footer">
+          <div className="title__container">
+            <div className="title-underlined">
+              <h3 className="title-underlined__title-black">Últimas noticias</h3>
+            <div/>
+              <div className="title-underlined__line-black"></div>
+            </div>
+          </div>{/* title */}
+    
+          <div className="news__container">
+    
+                <div className="new__container">
+                  <div className="new__title">
+                    <p>Noticias PREMIUM</p>
+                  </div>
+    
                   <a href="https://www.upv.es/noticias-upv/noticia-14191-hyperloop-2023-es.html" target="_blank">
-                    <div className="new__footer__container">
-                      <p>Leer Más</p>
-                      <img src={arrow} alt="Arrow right" />
-                    </div>
+                    <div className="new__image premium"></div>
                   </a>
-                </div>
-              </div>{/* new premium */}
-
-              <div className="new__container">
-                <div className="new__title">
-                  <p>Noticias GOLD</p>
-                </div>
-
-                <a href="https://www.mudinmar.com/es/noticias/mudinmar-participa-european-hyperloop-week/" target="_blank">
-                  <div className="new__image gold"></div>
-                </a>
-
-                <div className="new__footer">
+    
+                  <div className="new__footer">
+                    <a href="https://www.upv.es/noticias-upv/noticia-14191-hyperloop-2023-es.html" target="_blank">
+                      <div className="new__footer__container">
+                        <p>Leer Más</p>
+                        <img src={arrow} alt="Arrow right" />
+                      </div>
+                    </a>
+                  </div>
+                </div>{/* new premium */}
+    
+                <div className="new__container">
+                  <div className="new__title">
+                    <p>Noticias GOLD</p>
+                  </div>
+    
                   <a href="https://www.mudinmar.com/es/noticias/mudinmar-participa-european-hyperloop-week/" target="_blank">
-                    <div className="new__footer__container">
-                      <p>Leer Más</p>
-                      <img src={arrow} alt="Arrow right" />
-                    </div>
+                    <div className="new__image gold"></div>
                   </a>
-                </div>
-              </div>{/* new gold */}
-
-              <div className="new__container">
-                <div className="new__title">
-                  <p>Noticias SILVER</p>
-                </div>
-
-                <a href="https://www.linkedin.com/posts/power-electronics_movilidad-sostenible-inversi%C3%B3n-activity-7072859290838941696-gPnn/?originalSubdomain=pe" target="_blank">
-                  <div className="new__image silver"></div>
-                </a>
-
-                <div className="new__footer">
+    
+                  <div className="new__footer">
+                    <a href="https://www.mudinmar.com/es/noticias/mudinmar-participa-european-hyperloop-week/" target="_blank">
+                      <div className="new__footer__container">
+                        <p>Leer Más</p>
+                        <img src={arrow} alt="Arrow right" />
+                      </div>
+                    </a>
+                  </div>
+                </div>{/* new gold */}
+    
+                <div className="new__container">
+                  <div className="new__title">
+                    <p>Noticias SILVER</p>
+                  </div>
+    
                   <a href="https://www.linkedin.com/posts/power-electronics_movilidad-sostenible-inversi%C3%B3n-activity-7072859290838941696-gPnn/?originalSubdomain=pe" target="_blank">
-                    <div className="new__footer__container">
-                      <p>Leer Más</p>
-                      <img src={arrow} alt="Arrow right" />
-                    </div>
+                    <div className="new__image silver"></div>
                   </a>
-                </div>
-              </div>{/* new silver */}
+    
+                  <div className="new__footer">
+                    <a href="https://www.linkedin.com/posts/power-electronics_movilidad-sostenible-inversi%C3%B3n-activity-7072859290838941696-gPnn/?originalSubdomain=pe" target="_blank">
+                      <div className="new__footer__container">
+                        <p>Leer Más</p>
+                        <img src={arrow} alt="Arrow right" />
+                      </div>
+                    </a>
+                  </div>
+                </div>{/* new silver */}
+    
+            </div>{/* news */}
 
-          </div>{/* news */}
+          </div>
 
       </section>
     </>

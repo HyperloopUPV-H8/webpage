@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import './sass/app.scss'
 import { Navigate, RouterProvider, createBrowserRouter } from 'react-router-dom'
-import { ContactPage, LandingPage, TeamPage } from './pages'
+import { AboutPage, ContactPage, LandingPage, TeamPage } from './pages'
 import { Layout } from './layout'
 
 const router = createBrowserRouter([
@@ -13,6 +13,10 @@ const router = createBrowserRouter([
       {
         element: <LandingPage />,
         index: true,
+      },
+      {
+        element: <AboutPage />,
+        path: "/about",
       },
       {
         element: <ContactPage />,

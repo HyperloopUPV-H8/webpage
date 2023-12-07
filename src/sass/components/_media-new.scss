@@ -16,15 +16,21 @@
             position: relative;
             border-radius: 1rem;
             margin: 1rem 0;
-        }
 
-        &.premium::after {
-            content: "";
-            position: absolute;
-            z-index: -100;
-            background: linear-gradient(to right, #2486A4, #CE8058);
-            inset: -0.4rem;
-            filter: blur(.5rem);
+            &::after {
+                content: "";
+                position: absolute;
+                z-index: -100;
+                background: linear-gradient(to right, #2486A4, #CE8058);
+                inset: -0.4rem;
+                filter: blur(.6rem);
+                transition: all .3s ease-in-out;
+            }
+
+            &:hover::after {
+                filter: blur(.8rem);
+                inset: -0.8rem;
+            }
         }
 
         &.gold {
@@ -32,15 +38,21 @@
             border-radius: 1rem;
             background-image: url("#{var.$assets-dir}/media/gold-new.jpeg");
             margin: 1rem 0;
-        }
 
-        &.gold::after {
-            content: "";
-            position: absolute;
-            z-index: -100;
-            background: #DCA25D;
-            inset: -0.4rem;
-            filter: blur(.5rem);
+            &::after {
+                content: "";
+                position: absolute;
+                z-index: -100;
+                background: #DCA25D;
+                inset: -0.4rem;
+                filter: blur(.6rem);
+                transition: all .3s ease-in-out;
+            }
+
+            &:hover::after {
+                filter: blur(.8rem);
+                inset: -0.8rem;
+            }
         }
 
         &.silver {
@@ -48,15 +60,21 @@
             border-radius: 1rem;
             background-image: url("#{var.$assets-dir}/media/silver-new.jpeg");
             margin: 1rem 0;
-        }
 
-        &.silver::after {
-            content: "";
-            position: absolute;
-            z-index: -100;
-            background: #746F6C;
-            inset: -0.4rem;
-            filter: blur(.5rem);
+            &::after {
+                content: "";
+                position: absolute;
+                z-index: -100;
+                background: #746F6C;
+                inset: -0.4rem;
+                filter: blur(.6rem);
+                transition: all .3s ease-in-out;
+            }
+
+            &:hover::after {
+                filter: blur(.8rem);
+                inset: -0.8rem;
+            }
         }
 
     }

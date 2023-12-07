@@ -1,0 +1,31 @@
+@use "../core/shadows";
+
+.titled-image-box {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 50vw;
+    align-items: center;
+
+    &__title {
+        text-align: center;
+        font-size: 4rem;
+        color: white;
+    }
+
+    &__image {
+        margin: 1rem;
+
+        &.orange-border {
+            @include shadows.gradient(#ce8058);
+        }
+
+        &.blue-border {
+            @include shadows.gradient(#2486a4);
+        }
+
+        &.multicolor-border {
+            @include shadows.gradient(linear-gradient(300deg, #2486a4, #ce8058));
+        }
+    }
+}

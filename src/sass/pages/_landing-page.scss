@@ -1,4 +1,5 @@
 @use '../core/variables' as var;
+@use '../core/media-queries';
 
 .landing__section {
     width: 100%;
@@ -50,6 +51,10 @@
 
     &.section-8 {
         height: 70vh;
+
+        @include media-queries.tablet {
+            height: 100%;
+        }
     }
 }
 
@@ -86,7 +91,7 @@
     padding: 2rem;
     font-size: 2rem;
     font-weight: 100;
-    background-color: rgba(255, 255, 255, 0.8);;
+    background-color: rgba(255, 255, 255, 0.85);;
     color: rgb(0, 0, 0);
     text-align: center;
 }
@@ -282,6 +287,11 @@
         display: flex;
         flex-direction: column;
         height: 100%;
+
+        @include media-queries.tablet {
+            gap: 2rem;
+        }
+
     }
 
     &__container {
@@ -291,5 +301,10 @@
         align-items: center;
         padding: 0 0 2rem 0;
         gap: 2rem;
+
+        @include media-queries.tablet {
+            flex-direction: column;
+        }
+
     }
 }

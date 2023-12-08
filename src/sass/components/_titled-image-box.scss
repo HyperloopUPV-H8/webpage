@@ -1,16 +1,19 @@
 @use "../core/shadows";
+@use "../core/variables" as var;
 
 .titled-image-box {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
-    width: 50vw;
+    gap: 1.5rem;
+    width: fit-content;
     align-items: center;
 
     &__title {
         text-align: center;
         font-size: 4rem;
         color: white;
+        font: #{var.$primary-font};
+        font-weight: 500;
     }
 
     &__image {

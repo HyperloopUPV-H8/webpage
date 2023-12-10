@@ -1,0 +1,13 @@
+@mixin gradient($gradient, $blur: 12px, $radius: 7px) {
+    position: relative;
+    z-index: 0;
+
+    &::after {
+        z-index: -1;
+        content: "";
+        position: absolute;
+        inset: -$radius;
+        background: $gradient;
+        filter: blur($blur);
+    }
+}

@@ -1,11 +1,18 @@
 @use '../core/variables';
+@use '../core/media-queries';
 
 .footer {
     display: flex;
-    height: 25rem;
+    height: 15rem;
     padding: 3.2rem;
     background-color: black;
     color: white;
+
+    @include media-queries.mobile {
+        flex-direction: column-reverse;
+        gap: 3rem;
+        height: 100%;
+    }
 }
 
 .footer > * {
@@ -15,12 +22,21 @@
 .footer__section__copyright {
     display: flex;
     align-items: end;
+
+    @include media-queries.mobile {
+        justify-content: center;
+    }
+
 }
 
 .footer__section__contact {
     display: flex;
     align-items: center;
     justify-content: end;
+
+    @include media-queries.mobile {
+        justify-content: center;
+    }
 }
 
 .footer__section__contact img {

@@ -7,8 +7,6 @@ interface Props {
 }
 
 export const MediaNew = ({ image, category, url }: Props) => {
-    
-    console.log(image)
 
   return (
     <div className="new__container">

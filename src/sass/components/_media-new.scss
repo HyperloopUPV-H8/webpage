@@ -1,4 +1,5 @@
 @use '../core/variables' as var;
+@use '../core/shadows';
 
 .new {
 
@@ -13,67 +14,44 @@
         height: 20rem;
 
         &.premium {
-            position: relative;
-            border-radius: 1rem;
+            @include shadows.gradient(linear-gradient(90deg, #2486A4, #CE8058), 5px, 4px);
             margin: 1rem 0;
 
-            &::after {
-                content: "";
-                position: absolute;
-                z-index: -100;
-                background: linear-gradient(to right, #2486A4, #CE8058);
-                inset: -0.4rem;
-                filter: blur(.6rem);
-                transition: all .3s ease-in-out;
+            &:hover {
+                @include shadows.gradient(linear-gradient(90deg, #2486A4, #CE8058), 8px, 4px);
             }
 
-            &:hover::after {
-                filter: blur(.8rem);
-                inset: -0.8rem;
+            img {
+                border-radius: 1rem;
+                height: 100%;
             }
         }
 
         &.gold {
-            position: relative;
-            border-radius: 1rem;
-            background-image: url("#{var.$assets-dir}/media/gold-new.jpeg");
+            @include shadows.gradient(#DCA25D, 5px, 4px);
             margin: 1rem 0;
 
-            &::after {
-                content: "";
-                position: absolute;
-                z-index: -100;
-                background: #DCA25D;
-                inset: -0.4rem;
-                filter: blur(.6rem);
-                transition: all .3s ease-in-out;
+            &:hover {
+                @include shadows.gradient(#DCA25D, 8px, 4px);
             }
 
-            &:hover::after {
-                filter: blur(.8rem);
-                inset: -0.8rem;
+            img {
+                border-radius: 1rem;
+                height: 100%;
             }
         }
 
         &.silver {
-            position: relative;
-            border-radius: 1rem;
-            background-image: url("#{var.$assets-dir}/media/silver-new.jpeg");
+            @include shadows.gradient(#746F6C, 5px, 4px);
             margin: 1rem 0;
 
-            &::after {
-                content: "";
-                position: absolute;
-                z-index: -100;
-                background: #746F6C;
-                inset: -0.4rem;
-                filter: blur(.6rem);
-                transition: all .3s ease-in-out;
+            &:hover {
+                @include shadows.gradient(#746F6C, 8px, 4px);
             }
-
-            &:hover::after {
-                filter: blur(.8rem);
-                inset: -0.8rem;
+            
+            img {
+                border-radius: 1rem;
+                height: 100%;
             }
         }
 

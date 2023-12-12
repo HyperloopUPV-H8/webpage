@@ -11,6 +11,10 @@
         gap: 2.5rem;
         height: calc(100vh - 15rem);
         background-color: black;
+
+        @include media-queries.tablet {
+            height: 100vh;
+        }
     }
 
     &__title {
@@ -39,6 +43,19 @@
         }
     }
 
+    &__name-email__container {
+        display: flex;
+        gap: 2rem;
+
+        & > * {
+            width: 100%;
+        }
+
+        @include media-queries.tablet {
+            flex-direction: column;
+        }
+    }
+
 }
 
 .form {
@@ -63,7 +80,7 @@
             position: absolute;
             top: -.8rem;
             left: 2rem;
-            padding: 0 .2rem;
+            padding: 0 .5rem;
             background-color: white;
         }
 

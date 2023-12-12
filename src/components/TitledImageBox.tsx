@@ -10,6 +10,7 @@ const styleToClass: Record<borderStyle, string> = {
 interface TitledTextBoxProps {
   title: string,
   imageURL: string,
+  imageClassName?: string,
   borderColor?: borderStyle,
   imageStyle?: React.CSSProperties,
   children?: ReactNode,
@@ -17,14 +18,14 @@ interface TitledTextBoxProps {
 
 
 
-export const TitledImageBox: React.FC<TitledTextBoxProps> = ({ title, imageURL, imageStyle, borderColor = "orange", children }) => {
+export const TitledImageBox: React.FC<TitledTextBoxProps> = ({ title, imageURL, imageClassName = "", imageStyle, borderColor = "orange", children }) => {
   return (
     <div className="titled-image-box">
       <h2 className="titled-image-box__title">
         {title}
       </h2>
-      <div className={"titled-image-box__image" + styleToClass[borderColor]} style={imageStyle}>
-        <img src={imageURL} ></img>
+      <div className={"titled-image-box__image" + styleToClass[borderColor] + " " + imageClassName} style={imageStyle}>
+        <img src={imageURL}></img>
       </div>
       {children}
     </div>

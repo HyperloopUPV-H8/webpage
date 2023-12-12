@@ -1,67 +1,87 @@
 import { TitledImageBox } from "../components"
+import aboutVideo from "../assets/backgrounds/about.mp4"
+import compromiso from "../assets/icons/compromiso.svg"
+import innovacion from "../assets/icons/innovacion.svg"
+import aprendizaje from "../assets/icons/aprendizaje.svg"
+import sostenibilidad from "../assets/icons/sostenibilidad.svg"
 
 export const AboutPage = () => {
   return (
     <>
       <div className="about__section section-1">
+        <video autoPlay loop muted>
+          <source src={aboutVideo} type="video/mp4" />
+        </video>
         <h1 className="about__title">Acerca</h1>
       </div>
 
-      <div className="about__section section-2">
-        <div id="about__mission">
-          <TitledImageBox title="Misión" imageURL="https://placekitten.com/400/200" borderColor="orange" imageStyle={
-            {
-              width: "400px",
-              height: "200px",
-            }
-          }>
-            <p className="about__mission__content">
-              Desarrollar investigación en la universidad a través de la innovación en la tecnología hyperloop con el
-              objetivo de construir un futuro sostenible.
-            </p>
-          </TitledImageBox>
-        </div>
-        <div id="about__vision">
-          <TitledImageBox title="Visión" imageURL="https://placekitten.com/400/200" borderColor="blue" imageStyle={
-            {
-              width: "400px",
-              height: "200px",
-            }
-          }>
-            <p className="about__vision__content">
-              Diseñar, desarrollar y fabricar tecnología hyperloop escalable, posicionándonos como equipo universitario
-              referente a nivel internacional al solucionar los retos que plantea la tecnología del transporte del futuro.
-            </p>
-          </TitledImageBox> {/* Vision */}
-        </div>
-        <div id="about__values">
-          <TitledImageBox title="Valores" imageURL="https://placekitten.com/600/300" borderColor="multicolor" imageStyle={
-            {
-              width: "600px",
-              height: "300px",
-            }
-          }>
-            <div className="about__values__content">
-              <p className="about__values__item">
-                <b>Compromiso:</b> un equipo marcado por la lealtad y responsabilidad hacia nuestros miembros, la
-                comunidad universitaria y las empresas que nos apoyan, y con una tenaz dedicación por alcanzar los
-                objetivos que nos impulsan a innovar.
+      <div className="about__section__shadow">
+        <div className="about__section section-2">
+          <div id="about__mission">
+            <TitledImageBox title="Misión" imageClassName="about__image__box__mission" imageURL="/src/assets/media/mission.png" borderColor="orange" imageStyle={
+              {
+                width: "400px",
+                height: "200px",
+              }
+            }>
+              <p className="about__mission__content">
+                Desarrollar investigación en la universidad a través de la innovación en la tecnología hyperloop con el
+                objetivo de construir un futuro sostenible.
               </p>
-              <p className="about__values__item">
-                <b>Innovación:</b> fuerza impulsora detrás de Hyperloop UPV. Nos esforzamos por ir más allá de los
-                límites establecidos, explorando nuevas soluciones y tecnologías con el fin de llevar a cabo nuestro
-                proyecto.
+            </TitledImageBox>
+          </div>
+          <div id="about__vision">
+            <TitledImageBox title="Visión" imageClassName="about__image__box__vision" imageURL="/src/assets/media/vision.png" borderColor="blue" imageStyle={
+              {
+                width: "400px",
+                height: "200px",
+              }
+            }>
+              <p className="about__vision__content">
+                Diseñar, desarrollar y fabricar tecnología hyperloop escalable, posicionándonos como equipo universitario
+                referente a nivel internacional al solucionar los retos que plantea la tecnología del transporte del futuro.
               </p>
-              <p className="about__values__item">
-                <b>Aprendizaje:</b> la base de nuestro crecimiento. El desarrollo del talento joven es de vital importancia,
-                es un recurso valioso y esencial en nuestro equipo.
-              </p>
-              <p className="about__values__item">
-                <b>Sostenibilidad:</b> Desde el diseño a la implementación, la sostenibilidad es un principio rector en
-                cada fase del proyecto, siendo la eficiencia energética un objetivo prioritario
-              </p>
-            </div>
-          </TitledImageBox> {/* Valores */}
+            </TitledImageBox> {/* Vision */}
+          </div>
+          <div id="about__values">
+            <TitledImageBox title="Valores" imageClassName="about__image__box__values" imageURL="/src/assets/media/values.png" borderColor="multicolor" imageStyle={
+              {
+                width: "600px",
+                height: "300px",
+              }
+            }>
+              <div className="about__values__content">
+                <div className="about__values__item">
+                  <h3><img src={compromiso} /> Compromiso</h3>
+                  <p>
+                    Un equipo marcado por la lealtad y responsabilidad hacia nuestros miembros, la comunidad universitaria y las empresas que nos apoyan, y con una tenaz dedicación por alcanzar los objetivos que nos impulsan a innovar.
+                  </p>
+                </div>
+                <div className="about__values__item">
+                  <h3><img src={innovacion} /> Innovación</h3>
+                  <p>
+                    Fuerza impulsora detrás de Hyperloop UPV. Nos esforzamos por ir más allá de los
+                    límites establecidos, explorando nuevas soluciones y tecnologías con el fin de llevar a cabo nuestro
+                    proyecto.
+                  </p>
+                </div>
+                <div className="about__values__item">
+                  <h3><img src={aprendizaje} /> Aprendizaje</h3>
+                  <p>
+                    La base de nuestro crecimiento. El desarrollo del talento joven es de vital importancia,
+                    es un recurso valioso y esencial en nuestro equipo.
+                  </p>
+                </div>
+                <div className="about__values__item">
+                  <h3><img src={sostenibilidad} /> Sostenibilidad</h3>
+                  <p>
+                    Desde el diseño a la implementación, la sostenibilidad es un principio rector en
+                    cada fase del proyecto, siendo la eficiencia energética un objetivo prioritario
+                  </p>
+                </div>
+              </div>
+            </TitledImageBox> {/* Valores */}
+          </div>
         </div>
       </div>
 
@@ -84,15 +104,15 @@ export const AboutPage = () => {
             </p>
           </div>
           <div className="about__ehw__image">
-            <img src="https://placekitten.com/600/300" style={{
+            <img src="/src/assets/media/ehw.png" style={{
               width: "600px",
               height: "300px",
             }} />
           </div>
           <div className="about__ehw__banner">
-            <img src="https://placekitten.com/300/600" style={{
-              width: "300px",
-              height: "600px",
+            <img src="/src/assets/media/banner.png" style={{
+              width: "400px",
+              height: "650px",
             }} />
           </div>
         </div>
@@ -113,15 +133,15 @@ export const AboutPage = () => {
             para desarrollar el transporte del futuro.
           </p>
           <div className="about__hyperloop__competition__image-left">
-            <img src="https://placekitten.com/500/400" style={{
-              width: 500,
-              height: 400,
+            <img src="/src/assets/media/pod-competition-1.png" style={{
+              width: "700px",
+              height: "400px",
             }} />
           </div>
           <div className="about__hyperloop__competition__image-right">
-            <img src="https://placekitten.com/500/400" style={{
-              width: 500,
-              height: 400,
+            <img src="/src/assets/media/pod-competition-2.png" style={{
+              width: "700px",
+              height: "400px",
             }} />
           </div>
         </div>

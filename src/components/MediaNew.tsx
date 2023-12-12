@@ -15,7 +15,9 @@ export const MediaNew = ({ image, category, url }: Props) => {
         </div>
 
         <a href={url} target="_blank">
-            <div className={`new__image ${category}`} style={{backgroundImage: `url(${image})`}}></div>
+            <div className={`new__image ${category}`} >
+                <img src={image} />
+            </div>
         </a>
 
         <div className="new__footer">

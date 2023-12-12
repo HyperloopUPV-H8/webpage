@@ -46,8 +46,8 @@ export const AboutPage = () => {
           <div id="about__values">
             <TitledImageBox title="Valores" imageClassName="about__image__box__values" imageURL="/src/assets/media/values.png" borderColor="multicolor" imageStyle={
               {
-                width: "600px",
-                height: "300px",
+                width: "60rem",
+                height: "30rem",
               }
             }>
               <div className="about__values__content">

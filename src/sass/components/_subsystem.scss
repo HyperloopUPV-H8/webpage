@@ -1,0 +1,26 @@
+
+.subsystem {
+
+    &__container {
+        display: flex;
+        flex-basis: calc(25% - 12rem);
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+    }
+
+    &__image {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex: 1;
+    }
+
+    &__name {
+        text-align: center;
+        color: white;
+        font-size: 2rem;
+        font-weight: 100;
+    }
+
+}

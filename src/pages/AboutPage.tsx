@@ -105,8 +105,8 @@ export const AboutPage = () => {
           </div>
           <div className="about__ehw__image">
             <img src="/src/assets/media/ehw.png" style={{
-              width: "600px",
-              height: "300px",
+              width: "60rem",
+              height: "30rem",
             }} />
           </div>
           <div className="about__ehw__banner">

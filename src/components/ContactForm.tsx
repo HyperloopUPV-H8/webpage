@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import toast from "react-hot-toast";
 import isEmail from "validator/lib/isEmail";
+import ReCAPTCHA from "react-google-recaptcha";
 // @ts-ignore
 import Email from '../utils/smtp.js';
 
@@ -12,19 +13,21 @@ interface FormState {
 }
 
 const emailParams = {
-    secureToken: "cf365b6f-4379-4fa8-9582-f526b54892d4",
     toEmails: ["direction@hyperloopupv.com", "partners@hyperloopupv.com"],
     fromEmail: "webpage@hyperloopupv.com",
 }
 
+const initialState = {
+  name: '',
+  email: '',
+  subject: '',
+  message: '',
+};
+
 export const ContactForm = () => {
 
-    const [formState, setFormState] = useState<FormState>({
-      name: '',
-      email: '',
-      subject: '',
-      message: ''
-    });
+    const [formState, setFormState] = useState<FormState>(initialState);
+    const captchaRef = useRef<ReCAPTCHA>(null);
 
     const onChangeInput = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
       setFormState({
@@ -43,12 +46,20 @@ export const ContactForm = () => {
         if(error) {
             toast.error(error);
             return;
+        };
+
+        if(!captchaRef.current?.getValue()) {
+          toast.error('Por favor, valide el captcha.');
+          return;
         }
+
+        captchaRef.current?.reset();
+        setFormState(initialState);
 
         toast.promise(
             Promise.any(toEmails.map(toEmail => {
                 Email.send({
-                    SecureToken: emailParams.secureToken,
+                    SecureToken: import.meta.env.VITE_SECURE_TOKEN_SMTP,
                     To : toEmail,
                     From : emailParams.fromEmail,
                     Subject : `[webpage] ${name} - ${subject}`,
@@ -84,7 +95,13 @@ export const ContactForm = () => {
           <textarea name="message" id="message" onChange={onChangeInput} value={formState.message}></textarea>
         </div>
         <div className="form__submit__container">
-          <input type="submit" className="form__submit" onChange={onChangeInput}/>
+          
+          <ReCAPTCHA 
+            ref={captchaRef}
+            sitekey={import.meta.env.VITE_RECAPTCHA_KEY}
+          />
+
+          <input type="submit" className="form__submit" onChange={onChangeInput} />
         </div>
       </form>
     )

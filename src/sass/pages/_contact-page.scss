@@ -117,6 +117,7 @@
         padding: 1rem 2rem;
         border: 1px solid black;
         border-radius: 5px;
+        height: 4rem;
 
         @include media-queries.mobile {
             width: 100%;
@@ -133,6 +134,8 @@
 
         &__container {
             display: flex;
+            align-items: center;
+            gap: 2rem;
             justify-content: end;
 
             @include media-queries.mobile {

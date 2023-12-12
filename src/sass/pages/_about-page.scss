@@ -31,7 +31,7 @@
     }
 
     &.section-2 {
-        border-radius: 10px;
+        border-radius: 1rem;
         display: grid;
         grid-template-columns: 40% auto;
         grid-template-rows: 40% 60%;
@@ -76,7 +76,7 @@
 .about__image__box {
     &__mission {
         img {
-            border-radius: 10px;
+            border-radius: 1rem;
         }
 
         &:hover {
@@ -86,7 +86,7 @@
 
     &__vision {
         img {
-            border-radius: 10px;
+            border-radius: 1rem;
         }
 
         &:hover {
@@ -96,7 +96,7 @@
 
     &__values {
         img {
-            border-radius: 10px;
+            border-radius: 1rem;
         }
 
         &:hover {
@@ -260,7 +260,7 @@
         }
 
         img {
-            border-radius: 10px;
+            border-radius: 1rem;
         }
     }
 
@@ -273,7 +273,7 @@
         }
 
         img {
-            border-radius: 10px;
+            border-radius: 1rem;
         }
     }
 }

@@ -7,7 +7,7 @@
     padding: 3.2rem;
     background-color: black;
     color: white;
-    border-top: 1px solid white;
+    border-top: .1rem solid white;
 
     @include media-queries.mobile {
         flex-direction: column-reverse;

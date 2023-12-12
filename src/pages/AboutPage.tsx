@@ -111,8 +111,8 @@ export const AboutPage = () => {
           </div>
           <div className="about__ehw__banner">
             <img src="/src/assets/media/banner.png" style={{
-              width: "400px",
-              height: "650px",
+              width: "40rem",
+              height: "65rem",
             }} />
           </div>
         </div>
@@ -134,14 +134,14 @@ export const AboutPage = () => {
           </p>
           <div className="about__hyperloop__competition__image-left">
             <img src="/src/assets/media/pod-competition-1.png" style={{
-              width: "700px",
-              height: "400px",
+              width: "70rem",
+              height: "40rem",
             }} />
           </div>
           <div className="about__hyperloop__competition__image-right">
             <img src="/src/assets/media/pod-competition-2.png" style={{
-              width: "700px",
-              height: "400px",
+              width: "70rem",
+              height: "40rem",
             }} />
           </div>
         </div>

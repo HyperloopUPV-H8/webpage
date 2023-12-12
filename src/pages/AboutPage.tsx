@@ -33,8 +33,8 @@ export const AboutPage = () => {
           <div id="about__vision">
             <TitledImageBox title="Visión" imageClassName="about__image__box__vision" imageURL="/src/assets/media/vision.png" borderColor="blue" imageStyle={
               {
-                width: "400px",
-                height: "200px",
+                width: "40rem",
+                height: "20rem",
               }
             }>
               <p className="about__vision__content">

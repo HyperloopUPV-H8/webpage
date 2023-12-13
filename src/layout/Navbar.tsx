@@ -42,7 +42,7 @@ export const Navbar = () => {
           </li>
           */}
           <li>
-            <Link to="#">Partners</Link>
+            <Link to="/partners">Partners</Link>
           </li>
           <li>
             <Link to="/contact">Contacto</Link>

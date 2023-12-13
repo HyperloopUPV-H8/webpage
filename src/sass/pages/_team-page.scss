@@ -14,27 +14,22 @@
             height: 100%;
             justify-content: center;
             align-items: center;
+
+
+            &.subsystems-container {
+                position: absolute;
+                top: 0;
+            }
+
         }
 
-        &__subsystems-content {
-            position: absolute;
-            top: 0;
-            display: flex;
-            flex-direction: column;
-            gap: 4rem;
-            width: 100%;
-            height: 100%;
-            justify-content: center;
-            align-items: center;
-        }
-
-        &.section__general {
+        &.section__layout {
             position: relative;
-            height: 100vh;
+            height: 100%;
             overflow: hidden;
         }
 
-        &.section__1 {
+        &.section-subsystems {
             
             position: relative;
 
@@ -44,6 +39,54 @@
                 object-fit: cover;
                 filter: blur(.6rem);
                 z-index: -1;
+            }
+
+        }
+
+        &.subsystem-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 40rem;
+            z-index: 0;
+
+            &.direction {
+                background-image: url("#{var.$assets-dir}/corporative/subsystems/directionNormal.png");
+            }
+
+            &.hardware {
+                background-image: url("#{var.$assets-dir}/corporative/subsystems/hardwareNormal.png");
+            }
+
+            &.firmware {
+                background-image: url("#{var.$assets-dir}/corporative/subsystems/firmwareNormal.png");
+            }
+
+            &.software {
+                background-image: url("#{var.$assets-dir}/corporative/subsystems/softwareNormal.png");
+            }
+
+            &.structuresandmechanisms {
+                background-image: url("#{var.$assets-dir}/corporative/subsystems/structures&mechanismsNormal.png");
+            }
+
+            &.electromagnetics {
+                background-image: url("#{var.$assets-dir}/corporative/subsystems/electromagneticsNormal.png");
+            }
+
+            &.outreach {
+                background-image: url("#{var.$assets-dir}/corporative/subsystems/outreachNormal.png");
+            }
+
+            &.partners {
+                background-image: url("#{var.$assets-dir}/corporative/subsystems/partnersNormal.png");
+            }
+
+            &.economics {
+                background-image: url("#{var.$assets-dir}/corporative/subsystems/economicsNormal.png");
             }
 
         }
@@ -95,17 +138,18 @@
     left: 0;
     width: 100%;
     height: 100%;
-    filter: blur(8px); /* Ajusta el valor del desenfoque según tus preferencias */
-    background-color: rgba(0, 0, 0, 0.5); /* Ajusta el valor alpha para la opacidad del fondo oscuro */
+    filter: blur(.8rem); 
+    background-color: rgba(0, 0, 0, 0.5);
     z-index: 0;
 }
 
 .border-shadow {
 
     position: absolute;
-    width: 3rem;
+    width: 4rem;
     height: 100%;
-    filter: blur(4rem);
+    filter: blur(3rem);
+    z-index: 100;
 
     &.left {
         background-color: rgba(217, 134, 91, 0.5);
@@ -117,6 +161,30 @@
         background-color: rgba(0, 178, 255, 0.5);
         top: 0;
         right: 0;
+    }
+
+}
+
+.section__overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .7);
+    backdrop-filter: blur(1rem);
+    z-index: -1;
+}
+
+.subsystem__title {
+    color: white;
+    text-align: center;
+
+    p {
+        font-size: 3rem;
+        font-weight: 100;
+    }
+
+    h2 {
+        font-size: 6rem;
     }
 
 }

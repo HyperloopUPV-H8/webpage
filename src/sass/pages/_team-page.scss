@@ -3,7 +3,7 @@
 .team {
 
     &__section {
-        height: 100vh;
+        min-height: 100vh;
         background-color: black;
 
         &__content {
@@ -45,52 +45,63 @@
 
         &.subsystem-section {
             display: flex;
+            flex-direction: column;
+            padding: 10rem 0;
+            gap: 4rem;
             justify-content: center;
             align-items: center;
             position: relative;
             background-repeat: no-repeat;
             background-position: center;
-            background-size: 40rem;
+            background-size: 40%;
             z-index: 0;
 
             &.direction {
-                background-image: url("#{var.$assets-dir}/corporative/subsystems/directionNormal.png");
+                background-image: url("#{var.$assets-dir}/corporative/subsystems/directionNormal.svg");
             }
 
             &.hardware {
-                background-image: url("#{var.$assets-dir}/corporative/subsystems/hardwareNormal.png");
+                background-image: url("#{var.$assets-dir}/corporative/subsystems/hardwareNormal.svg");
             }
 
             &.firmware {
-                background-image: url("#{var.$assets-dir}/corporative/subsystems/firmwareNormal.png");
+                background-image: url("#{var.$assets-dir}/corporative/subsystems/firmwareNormal.svg");
             }
 
             &.software {
-                background-image: url("#{var.$assets-dir}/corporative/subsystems/softwareNormal.png");
+                background-image: url("#{var.$assets-dir}/corporative/subsystems/softwareNormal.svg");
             }
 
             &.structuresandmechanisms {
-                background-image: url("#{var.$assets-dir}/corporative/subsystems/structures&mechanismsNormal.png");
+                background-image: url("#{var.$assets-dir}/corporative/subsystems/structures&mechanismsNormal.svg");
             }
 
             &.electromagnetics {
-                background-image: url("#{var.$assets-dir}/corporative/subsystems/electromagneticsNormal.png");
+                background-image: url("#{var.$assets-dir}/corporative/subsystems/electromagneticsNormal.svg");
             }
 
             &.outreach {
-                background-image: url("#{var.$assets-dir}/corporative/subsystems/outreachNormal.png");
+                background-image: url("#{var.$assets-dir}/corporative/subsystems/outreachNormal.svg");
             }
 
             &.partners {
-                background-image: url("#{var.$assets-dir}/corporative/subsystems/partnersNormal.png");
+                background-image: url("#{var.$assets-dir}/corporative/subsystems/partnersNormal.svg");
             }
 
             &.economics {
-                background-image: url("#{var.$assets-dir}/corporative/subsystems/economicsNormal.png");
+                background-image: url("#{var.$assets-dir}/corporative/subsystems/economicsNormal.svg");
             }
 
         }
 
+    }
+
+    &__members__container {
+        width: 70%;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 8rem;
     }
 
 

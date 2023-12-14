@@ -8,9 +8,9 @@ export const Subsystem = ({name, image}: SubsystemProps) => {
   return (
     <div className="subsystem__container">
         <div className="subsystem__image">
-        <a href={`#${name}`}>
+          <a href={`#${name}`}>
             <img src={image} alt={`${name} subsystem`} />
-        </a>
+          </a>
         </div>
         <div className="subsystem__name">
           <p>{name}</p>

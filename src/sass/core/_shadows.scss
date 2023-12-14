@@ -4,7 +4,7 @@
 
     transition: all 0.1s;
 
-    &::after {
+    &::before {
         z-index: -1;
         content: "";
         position: absolute;

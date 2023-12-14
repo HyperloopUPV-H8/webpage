@@ -31,7 +31,7 @@ const router = createBrowserRouter([
         path: "/partners"
       },
       {
-        element: <Navigate to="/"/>,
+        element: <Navigate to="/" />,
         path: "*"
       }
     ],

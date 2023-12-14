@@ -53,43 +53,43 @@
             position: relative;
             background-repeat: no-repeat;
             background-position: center;
-            background-size: 40%;
+            background-size: 50%;
             z-index: 0;
 
             &.direction {
-                background-image: url("#{var.$assets-dir}/corporative/subsystems/directionNormal.svg");
+                background-image: url("/team/members/direction/direction.svg");
             }
 
             &.hardware {
-                background-image: url("#{var.$assets-dir}/corporative/subsystems/hardwareNormal.svg");
+                background-image: url("/team/members/hardware/hardware.svg");
             }
 
             &.firmware {
-                background-image: url("#{var.$assets-dir}/corporative/subsystems/firmwareNormal.svg");
+                background-image: url("/team/members/firmware/firmware.svg");
             }
 
             &.software {
-                background-image: url("#{var.$assets-dir}/corporative/subsystems/softwareNormal.svg");
+                background-image: url("/team/members/software/software.svg");
             }
 
             &.structuresandmechanisms {
-                background-image: url("#{var.$assets-dir}/corporative/subsystems/structures&mechanismsNormal.svg");
+                background-image: url("/team/members/structuresandmechanisms/structures&mechanisms.svg");
             }
 
             &.electromagnetics {
-                background-image: url("#{var.$assets-dir}/corporative/subsystems/electromagneticsNormal.svg");
+                background-image: url("/team/members/electromagnetics/electromagnetics.svg");
             }
 
             &.outreach {
-                background-image: url("#{var.$assets-dir}/corporative/subsystems/outreachNormal.svg");
+                background-image: url("/team/members/outreach/outreach.svg");
             }
 
             &.partners {
-                background-image: url("#{var.$assets-dir}/corporative/subsystems/partnersNormal.svg");
+                background-image: url("/team/members/partners/partners.svg");
             }
 
             &.economics {
-                background-image: url("#{var.$assets-dir}/corporative/subsystems/economicsNormal.svg");
+                background-image: url("/team/members/economics/economics.svg");
             }
 
         }

@@ -4,6 +4,13 @@ import compromiso from "../assets/icons/compromiso.svg"
 import innovacion from "../assets/icons/innovacion.svg"
 import aprendizaje from "../assets/icons/aprendizaje.svg"
 import sostenibilidad from "../assets/icons/sostenibilidad.svg"
+import mission from "../assets/media/mission.png"
+import vision from "../assets/media/vision.png"
+import values from "../assets/media/values.png"
+import ehw from "../assets/media/ehw.png"
+import ehwBanner from "../assets/media/banner.png"
+import podCompetitionLeft from "../assets/media/pod-competition-1.png"
+import podCompetitionRight from "../assets/media/pod-competition-2.png"
 
 export const AboutPage = () => {
   return (
@@ -18,7 +25,7 @@ export const AboutPage = () => {
       <div className="about__section__shadow">
         <div className="about__section section-2">
           <div id="about__mission">
-            <TitledImageBox title="Misión" imageClassName="about__image__box__mission" imageURL="/src/assets/media/mission.png" borderColor="orange" imageStyle={
+            <TitledImageBox title="Misión" imageClassName="about__image__box__mission" imageURL={mission} borderColor="orange" imageStyle={
               {
                 width: "40rem",
                 height: "20rem",
@@ -31,7 +38,7 @@ export const AboutPage = () => {
             </TitledImageBox>
           </div>
           <div id="about__vision">
-            <TitledImageBox title="Visión" imageClassName="about__image__box__vision" imageURL="/src/assets/media/vision.png" borderColor="blue" imageStyle={
+            <TitledImageBox title="Visión" imageClassName="about__image__box__vision" imageURL={vision} borderColor="blue" imageStyle={
               {
                 width: "40rem",
                 height: "20rem",
@@ -44,7 +51,7 @@ export const AboutPage = () => {
             </TitledImageBox> {/* Vision */}
           </div>
           <div id="about__values">
-            <TitledImageBox title="Valores" imageClassName="about__image__box__values" imageURL="/src/assets/media/values.png" borderColor="multicolor" imageStyle={
+            <TitledImageBox title="Valores" imageClassName="about__image__box__values" imageURL={values} borderColor="multicolor" imageStyle={
               {
                 width: "60rem",
                 height: "30rem",
@@ -104,13 +111,13 @@ export const AboutPage = () => {
             </p>
           </div>
           <div className="about__ehw__image">
-            <img src="/src/assets/media/ehw.png" style={{
+            <img src={ehw} style={{
               width: "60rem",
               height: "30rem",
             }} />
           </div>
           <div className="about__ehw__banner">
-            <img src="/src/assets/media/banner.png" style={{
+            <img src={ehwBanner} style={{
               width: "40rem",
               height: "65rem",
             }} />
@@ -133,13 +140,13 @@ export const AboutPage = () => {
             para desarrollar el transporte del futuro.
           </p>
           <div className="about__hyperloop__competition__image-left">
-            <img src="/src/assets/media/pod-competition-1.png" style={{
+            <img src={podCompetitionLeft} style={{
               width: "70rem",
               height: "40rem",
             }} />
           </div>
           <div className="about__hyperloop__competition__image-right">
-            <img src="/src/assets/media/pod-competition-2.png" style={{
+            <img src={podCompetitionRight} style={{
               width: "70rem",
               height: "40rem",
             }} />

@@ -1,0 +1,201 @@
+@use '../core/variables' as var;
+
+.team {
+
+    &__section {
+        min-height: 100vh;
+        background-color: black;
+
+        &__content {
+            display: flex;
+            flex-direction: column;
+            gap: 4rem;
+            width: 100%;
+            height: 100%;
+            justify-content: center;
+            align-items: center;
+
+
+            &.subsystems-container {
+                position: absolute;
+                top: 0;
+            }
+
+        }
+
+        &.section__layout {
+            position: relative;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        &.section-subsystems {
+            
+            position: relative;
+
+            video {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                filter: blur(.6rem);
+                z-index: -1;
+            }
+
+        }
+
+        &.subsystem-section {
+            display: flex;
+            flex-direction: column;
+            padding: 10rem 0;
+            gap: 4rem;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 40%;
+            z-index: 0;
+
+            &.direction {
+                background-image: url("#{var.$assets-dir}/corporative/subsystems/directionNormal.svg");
+            }
+
+            &.hardware {
+                background-image: url("#{var.$assets-dir}/corporative/subsystems/hardwareNormal.svg");
+            }
+
+            &.firmware {
+                background-image: url("#{var.$assets-dir}/corporative/subsystems/firmwareNormal.svg");
+            }
+
+            &.software {
+                background-image: url("#{var.$assets-dir}/corporative/subsystems/softwareNormal.svg");
+            }
+
+            &.structuresandmechanisms {
+                background-image: url("#{var.$assets-dir}/corporative/subsystems/structures&mechanismsNormal.svg");
+            }
+
+            &.electromagnetics {
+                background-image: url("#{var.$assets-dir}/corporative/subsystems/electromagneticsNormal.svg");
+            }
+
+            &.outreach {
+                background-image: url("#{var.$assets-dir}/corporative/subsystems/outreachNormal.svg");
+            }
+
+            &.partners {
+                background-image: url("#{var.$assets-dir}/corporative/subsystems/partnersNormal.svg");
+            }
+
+            &.economics {
+                background-image: url("#{var.$assets-dir}/corporative/subsystems/economicsNormal.svg");
+            }
+
+        }
+
+    }
+
+    &__members__container {
+        width: 70%;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 8rem;
+    }
+
+
+}
+
+.subsystems {
+
+    &__title {
+        display: flex;
+        flex-direction: column;
+        width: 80rem;
+        color: white;
+
+        h1 {
+            font-family: var.$primary-font;
+            font-weight: 100;
+            letter-spacing: 1.5rem;
+            font-size: 6rem;
+            text-align: center;
+        }
+
+        &__line {
+            width: 100%;
+            height: .2rem;
+            background-color: white;
+        }
+
+    }
+
+    &__container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 6rem;
+        width: 80%;
+        grid-template-rows: repeat(2, 1fr);
+        grid-template-columns: repeat(5, 1fr);
+    }
+
+}
+
+#video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    filter: blur(.8rem); 
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 0;
+}
+
+.border-shadow {
+
+    position: absolute;
+    width: 4rem;
+    height: 100%;
+    filter: blur(3rem);
+    z-index: 100;
+
+    &.left {
+        background-color: rgba(217, 134, 91, 0.5);
+        top: 0;
+        left: 0;
+    }
+
+    &.right {
+        background-color: rgba(0, 178, 255, 0.5);
+        top: 0;
+        right: 0;
+    }
+
+}
+
+.section__overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .7);
+    backdrop-filter: blur(1rem);
+    z-index: -1;
+}
+
+.subsystem__title {
+    color: white;
+    text-align: center;
+
+    p {
+        font-size: 3rem;
+        font-weight: 100;
+    }
+
+    h2 {
+        font-size: 6rem;
+    }
+
+}

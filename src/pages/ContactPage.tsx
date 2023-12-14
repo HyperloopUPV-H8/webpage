@@ -7,7 +7,7 @@ export const ContactPage = () => {
 
     <div className="contact__section">
 
-      <div><Toaster/></div>
+      <div><Toaster /></div>
 
       <div className="contact__title">
         <h1>Contacto</h1>

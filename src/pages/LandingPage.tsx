@@ -11,6 +11,7 @@ import goldNewImage from "../assets/media/gold-new.jpeg"
 import silverNewImage from "../assets/media/silver-new.jpeg"
 
 export const LandingPage = () => {
+
   return (
     <div className="landing__page">
       <div className="landing__section section-1">

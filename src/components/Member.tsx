@@ -11,7 +11,8 @@ interface MemberProps {
 export const Member = ({member}: MemberProps) => {
   return (
     <div className="member__container">
-        <a href={member.linkedin} target="_blank">
+        
+        <a href={member.linkedin ? member.linkedin : undefined} target="_blank">
             <div className="member__image">
                 <img src={member.imgUrl} alt={`Imagen ${member.name}`} />
             </div>

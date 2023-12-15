@@ -11,11 +11,20 @@ interface MemberProps {
 export const Member = ({member}: MemberProps) => {
   return (
     <div className="member__container">
-        <a href={member.linkedin} target="_blank">
-            <div className="member__image">
-                <img src={member.imgUrl} alt={`Imagen ${member.name}`} />
-            </div>
-        </a>
+        
+        {member.linkedin != "" ? (
+            <a href={member.linkedin} target="_blank">
+                <div className="member__image">
+                    <img src={member.imgUrl} alt={`Imagen ${member.name}`} />
+                </div>
+            </a>
+        ) : (
+            <a>
+                <div className="member__image">
+                    <img src={member.imgUrl} alt={`Imagen ${member.name}`} />
+                </div>
+            </a>
+        )}
 
         <div className="member__info">
 

@@ -10,6 +10,9 @@ on:
 jobs:
     deploy:
         runs-on: ubuntu-latest
+        env:
+            SSH_AUTH_SOCK: /tmp/ssh_agent.sock
+
         steps:
         - uses: actions/checkout@v2
         
@@ -19,11 +22,15 @@ jobs:
         - name: Build website
           run: npm run build
 
+        - name: Add SSH key
+          run: |
+            mkdir -p ~/.ssh/
+            ssh-keyscan ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
+            echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+            chmod 600 ~/.ssh/id_rsa
+            ssh-agent -a $SSH_AUTH_SOCK > /dev/null
+            ssh-add ~/.ssh/id_rsa
+
         - name: Deploy to Contabo
-          uses: appleboy/scp-action@v0.1.4
-          with:
-            host: ${{ secrets.SSH_HOST }}
-            username: ${{ secrets.SSH_USER }}
-            key: ${{ secrets.SSH_PRIVATE_KEY }}
-            source: "dist/*"
-            target: ${{ secrets.SSH_PATH }}
+          run: |
+            scp ./dist/* ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{ secrets.SSH_PATH }}

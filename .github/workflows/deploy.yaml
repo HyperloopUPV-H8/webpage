@@ -24,5 +24,4 @@ jobs:
             known_hosts: ${{ secrets.SSH_KNOWN_HOSTS }}
         
         - name: Deploy to Contabo
-          run: /
-            scp -i id_rsa -r ./dist ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{ secrets.SSH_PATH }}
+          run: scp -i id_rsa -r ./dist ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{ secrets.SSH_PATH }}

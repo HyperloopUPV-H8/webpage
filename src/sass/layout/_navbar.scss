@@ -1,4 +1,5 @@
 @use '../core/variables' as variables;
+@use '../core//media-queries';
 
 .navbar {
     width: 100%;
@@ -9,23 +10,50 @@
     justify-content: space-between;
     padding: 2rem 4.2rem;
     font-family: variables.$secondary-font;
-    transition: all 0.2s;
+    transition: transform 0.2s;
+
+    &--open {
+        background-color: black;
+    }
+
+    &--hidden {
+        transform: translateY(-100%);
+    }
+
+    &__logo {
+        width: 4.5rem;
+    }
 }
 
-.navbar__hidden {
-    transform: translateY(-100%);
-    transition: all 0.2s;
-}
+.navbar__hamburger-icon {
+    display: none;
 
-.navbar__logo {
-    width: 4.5rem;
+    @include media-queries.mobile {
+        display: block;
+    }
 }
 
 .navbar__links {
-    color: white;
-}
-
-.navbar__links__list {
     display: flex;
+    align-items: center;
     gap: 4.2rem;
+    color: white;
+    text-align: center;
+
+    @include media-queries.mobile {
+        display: none;
+        width: 100%;
+        position: absolute;
+        left: 0;
+        top: 100%;
+        font-size: 3.2rem;
+        padding-bottom: 3rem;
+    }
+
+    &--open {
+        display: flex;
+        flex-direction: column;
+        background-color: black;
+    }
+
 }

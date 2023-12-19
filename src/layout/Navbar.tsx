@@ -6,7 +6,7 @@ import Hamburger from "hamburger-react"
 export const Navbar = () => {
   const [isOpen, setOpen] = useState(false)
   const [isHidden, setIsHidden] = useState(false)
-
+  
   useEffect(() => {
     let lastScroll = window.scrollY
     const handleScroll = (_: Event) => {
@@ -14,6 +14,7 @@ export const Navbar = () => {
       setOpen(false)
       lastScroll = window.scrollY
     }
+
     window.addEventListener("scroll", handleScroll)
     
     return () => {window.removeEventListener("scroll", handleScroll)}
@@ -46,6 +47,7 @@ export const Navbar = () => {
           onToggle={setMenu} 
           color="white"
           rounded
+          hideOutline={false}
         />
       </div>
 

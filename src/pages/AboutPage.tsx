@@ -1,4 +1,4 @@
-import { TitledImageBox } from "../components"
+import { TitleUnderlined, TitledImageBox } from "../components"
 import aboutVideo from "../assets/backgrounds/about.mp4"
 import compromiso from "../assets/icons/compromiso.svg"
 import innovacion from "../assets/icons/innovacion.svg"
@@ -23,33 +23,36 @@ export const AboutPage = () => {
       </div>
 
       <div className="about__section__shadow">
-        <div className="about__section section-2">
-          <div id="about__mission">
-            <TitledImageBox title="Misión" imageClassName="about__image__box__mission" imageURL={mission} borderColor="orange" imageStyle={
-              {
-                width: "40rem",
-                height: "20rem",
-              }
-            }>
-              <p className="about__mission__content">
-                Desarrollar investigación en la universidad a través de la innovación en la tecnología hyperloop con el
-                objetivo de construir un futuro sostenible.
-              </p>
-            </TitledImageBox>
+        <section className="about__section section-2">
+          <div className="about__mision-vision__container">
+            <div className="about__mission">
+              <TitledImageBox title="Misión" imageClassName="about__image__box__mission" imageURL={mission} borderColor="orange" imageStyle={
+                {
+                  width: "40rem",
+                  height: "20rem",
+                }
+              }>
+                <p className="about__mission-vision__content">
+                  Desarrollar investigación en la universidad a través de la innovación en la tecnología hyperloop con el
+                  objetivo de construir un futuro sostenible.
+                </p>
+              </TitledImageBox>
+            </div>
+            <div id="about__vision">
+              <TitledImageBox title="Visión" imageClassName="about__image__box__vision" imageURL={vision} borderColor="blue" imageStyle={
+                {
+                  width: "40rem",
+                  height: "20rem",
+                }
+              }>
+                <p className="about__mission-vision__content">
+                  Diseñar, desarrollar y fabricar tecnología hyperloop escalable, posicionándonos como equipo universitario
+                  referente a nivel internacional al solucionar los retos que plantea la tecnología del transporte del futuro.
+                </p>
+              </TitledImageBox> {/* Vision */}
+            </div>
           </div>
-          <div id="about__vision">
-            <TitledImageBox title="Visión" imageClassName="about__image__box__vision" imageURL={vision} borderColor="blue" imageStyle={
-              {
-                width: "40rem",
-                height: "20rem",
-              }
-            }>
-              <p className="about__vision__content">
-                Diseñar, desarrollar y fabricar tecnología hyperloop escalable, posicionándonos como equipo universitario
-                referente a nivel internacional al solucionar los retos que plantea la tecnología del transporte del futuro.
-              </p>
-            </TitledImageBox> {/* Vision */}
-          </div>
+
           <div id="about__values">
             <TitledImageBox title="Valores" imageClassName="about__image__box__values" imageURL={values} borderColor="multicolor" imageStyle={
               {
@@ -58,43 +61,48 @@ export const AboutPage = () => {
               }
             }>
               <div className="about__values__content">
-                <div className="about__values__item">
-                  <h3><img src={compromiso} /> Compromiso</h3>
-                  <p>
-                    Un equipo marcado por la lealtad y responsabilidad hacia nuestros miembros, la comunidad universitaria y las empresas que nos apoyan, y con una tenaz dedicación por alcanzar los objetivos que nos impulsan a innovar.
-                  </p>
+                <div>
+                  <div className="about__values__item">
+                    <h3><img src={compromiso} /> Compromiso</h3>
+                    <p>
+                      Un equipo marcado por la lealtad y responsabilidad hacia nuestros miembros, la comunidad universitaria y las empresas que nos apoyan, y con una tenaz dedicación por alcanzar los objetivos que nos impulsan a innovar.
+                    </p>
+                  </div>
+                  <div className="about__values__item">
+                    <h3><img src={innovacion} /> Innovación</h3>
+                    <p>
+                      Fuerza impulsora detrás de Hyperloop UPV. Nos esforzamos por ir más allá de los
+                      límites establecidos, explorando nuevas soluciones y tecnologías con el fin de llevar a cabo nuestro
+                      proyecto.
+                    </p>
+                  </div>
                 </div>
-                <div className="about__values__item">
-                  <h3><img src={innovacion} /> Innovación</h3>
-                  <p>
-                    Fuerza impulsora detrás de Hyperloop UPV. Nos esforzamos por ir más allá de los
-                    límites establecidos, explorando nuevas soluciones y tecnologías con el fin de llevar a cabo nuestro
-                    proyecto.
-                  </p>
-                </div>
-                <div className="about__values__item">
-                  <h3><img src={aprendizaje} /> Aprendizaje</h3>
-                  <p>
-                    La base de nuestro crecimiento. El desarrollo del talento joven es de vital importancia,
-                    es un recurso valioso y esencial en nuestro equipo.
-                  </p>
-                </div>
-                <div className="about__values__item">
-                  <h3><img src={sostenibilidad} /> Sostenibilidad</h3>
-                  <p>
-                    Desde el diseño a la implementación, la sostenibilidad es un principio rector en
-                    cada fase del proyecto, siendo la eficiencia energética un objetivo prioritario
-                  </p>
+                <div>
+                  <div className="about__values__item">
+                    <h3><img src={aprendizaje} /> Aprendizaje</h3>
+                    <p>
+                      La base de nuestro crecimiento. El desarrollo del talento joven es de vital importancia,
+                      es un recurso valioso y esencial en nuestro equipo.
+                    </p>
+                  </div>
+                  <div className="about__values__item">
+                    <h3><img src={sostenibilidad} /> Sostenibilidad</h3>
+                    <p>
+                      Desde el diseño a la implementación, la sostenibilidad es un principio rector en
+                      cada fase del proyecto, siendo la eficiencia energética un objetivo prioritario
+                    </p>
+                  </div>
                 </div>
               </div>
             </TitledImageBox> {/* Valores */}
           </div>
-        </div>
-      </div>
 
-      <div className="about__section section-3">
-        <h2 className="about__title__underline">European Hyperloop Week</h2>
-        <div id="about__ehw">
+        </section>
+      </div>{/* about__section__shadow */}
+
+      <section className="about__section section-3">
+        <TitleUnderlined text="European Hyperloop Week" color="white"/>
+        <div className="about__ehw">
           <div className="about__ehw__description">
             <p>
               En 2019 decidimos embarcarnos con 3 de las mejores universidades europeas (University of Edinburgh,
@@ -123,10 +131,10 @@ export const AboutPage = () => {
             }} />
           </div>
         </div>
-      </div>
+      </section>
 
-      <div className="about__section section-4">
-        <h2 className="about__title__underline">Hyperloop Pod Competition</h2>
+      <section className="about__section section-4">
+        <TitleUnderlined text="Hyperloop Competition" color="white"/>
         <div id="about__hyperloop__competition">
           <p className="about__hyperloop__competition__text">
             En 2015 un equipo de 5 chicos de la Universitat Politècnica de València decidieron apuntarse al desafío presentado
@@ -152,7 +160,7 @@ export const AboutPage = () => {
             }} />
           </div>
         </div>
-      </div>
+      </section>
     </>
   )
 }

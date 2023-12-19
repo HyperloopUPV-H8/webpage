@@ -22,11 +22,11 @@ export const LandingPage = () => {
         <div className="landing__titled-text-box-1">
           <TitledTextBox 
             title="¿Qué hacemos?"
-            text="Nuestra trayectoria de casi una década destaca por una combinación única de innovación, creatividad y dedicación. Cada temporada nos enfrentamos al enorme reto de crear un vehículo nuevo, incorporando nuevas ideas y mejorando año a año. Para ello trabajamos en estrecha colaboración con las empresas que nos apoyan, aprovechando la diversidad de talento y perspectivas que tenemos para abordar de forma efectiva los desafíos técnicos y logísticos que presenta hyperloop."
-            titleSize="6rem"
+            text={<>Nuestra trayectoria de casi una década destaca por una combinación única de innovación, creatividad y dedicación.<br />Cada temporada nos enfrentamos al enorme reto de crear un vehículo nuevo, incorporando nuevas ideas y mejorando año a año.<br />Para ello trabajamos en estrecha colaboración con las empresas que nos apoyan, aprovechando la diversidad de talento y perspectivas que tenemos para abordar de forma efectiva los desafíos técnicos y logísticos que presenta hyperloop.</>}
+            titleSize="5rem"
             boxColor="white-transparent"
-            titleAlign="end"
-          />
+            titleAlign="start"
+            />
         </div>
       </section>{/* .section_2 */}
 
@@ -34,8 +34,8 @@ export const LandingPage = () => {
         <div className="landing__titled-text-box-2">
           <TitledTextBox 
             title="¿Quién somos?"
-            text="En Hyperloop UPV somos un equipo de 50 estudiantes de múltiples disciplinas y áreas de estudio de la Universitat Politècnica de València unidos con el objetivo de diseñar, implementar y perfeccionar la tecnología hyperloop."
-            titleSize="6rem"
+            text={<>En Hyperloop UPV somos un equipo de 50 estudiantes de múltiples disciplinas y áreas de estudio de la Universitat Politècnica de València unidos con el objetivo de diseñar, implementar y perfeccionar la tecnología hyperloop.</>}
+            titleSize="5rem"
             boxColor="white-transparent"
             titleAlign="start"
           />
@@ -64,14 +64,6 @@ export const LandingPage = () => {
       <section className="landing__section section-6">
         <div id="gaussian-blur__1"></div>
         <div className="kenos__container">
-          <div className="kenos__render__container">
-            <div className="kenos__render__content img-normal">
-              <img src={kenosRender} alt="Kénos Vehicle" />
-            </div>{/* kenos__render */}
-            <div className="kenos__render__content img-hover">
-              <img src={kenosHover} alt="Kénos Vehicle" />
-            </div>
-          </div>
           <div className="prototype__text__container">
             <div className="prototype__text__content">
               <div className="prototype__text__title">
@@ -82,6 +74,14 @@ export const LandingPage = () => {
                   Último vehículo desarrollado por Hyperloop UPV. Kénos ha sido el primer vehículo de la competición capaz de levitar y desplazarse al vacío sin ningún rozamiento. Este vehículo cuenta con una arquitectura eléctrica al nivel del estado del arte en el transporte eléctrico, así como los ferrocarriles convencionales. Kénos es lo más cercano que ha visto la competición a un hyperloop completo.
                 </p>{/* kenos__text */}
               </div>
+            </div>
+          </div>
+          <div className="kenos__render__container">
+            <div className="kenos__render__content img-normal">
+              <img src={kenosRender} alt="Kénos Vehicle" />
+            </div>{/* kenos__render */}
+            <div className="kenos__render__content img-hover">
+              <img src={kenosHover} alt="Kénos Vehicle" />
             </div>
           </div>
         </div>
@@ -125,8 +125,6 @@ export const LandingPage = () => {
 
       <section className="landing__section section-8">
 
-        <div className="news__section__container">
-
           <TitleUnderlined 
             text="Últimas noticias" 
             color="black" 
@@ -153,8 +151,6 @@ export const LandingPage = () => {
                 />
     
             </div>{/* news section */}
-
-          </div>
 
       </section>
     </div>

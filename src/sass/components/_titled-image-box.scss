@@ -2,22 +2,23 @@
 @use "../core/variables" as var;
 
 .titled-image-box {
+    width: fit-content;
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
-    width: fit-content;
     align-items: center;
+    gap: 1.5rem;
 
     &__title {
         text-align: center;
         font-size: 4rem;
         color: white;
-        font: #{var.$primary-font};
+        font-family: #{var.$primary-font};
         font-weight: 500;
     }
 
     &__image {
-        margin: 1rem;
+
+        width: 100%;
 
         &.orange-border {
             @include shadows.gradient(#ce8058);
@@ -32,9 +33,8 @@
         }
 
         img {
-            width: 100%;
             height: 100%;
-            object-fit: fill;
+            border-radius: 1rem;
         }
     }
 }

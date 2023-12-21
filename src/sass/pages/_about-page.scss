@@ -6,18 +6,207 @@
 
     &__section {
 
-        &.section-1 {
+        min-height: 100vh;
 
+        &.section-1 {
+            position: relative;
+
+            video {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center;
+            }
         }
 
         &.section-2 {
-            border-radius: 1rem;
+            padding: 3rem;
             background-color: black;
+            border-radius: 1rem;
+
+            @include media-queries.desktop {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 10vw;
+                padding: 5rem 10rem;
+            }
         }
 
         &.section-3 {
+            padding: 3rem;
+        }
+
+        &.section-4 {
+            padding: 3rem;
+            background-color: black;
+        }
+    }
+
+    &__mission-vision {
+
+    }
+
+    &__mission__text, &__vision__text, &__values__text {
+        color: white;
+        font-weight: 100;
+        text-align: center;
+        font-size: 1.8rem;
+    }
+
+    &__mission__text, &__vision__text {
+        margin-top: 2rem;
+        margin-bottom: 3rem;
+    }
+
+    &__mision {
+
+    }
+
+    &__vision {
+
+    }
+
+    &__values {
+
+        &__content {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin-top: 2rem;
+
+            @include media-queries.desktop {
+                display: grid;
+                grid-template-rows: repeat(2, 1fr);
+                grid-template-columns: repeat(2, 1fr);;
+            }
+        }
+
+        &__item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: .5rem;
+    
+            h3 {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+                color: white;
+            }
+    
+            img {
+                width: 2rem;
+            }
+        }
+
+    }
+
+    &__image__box {
+
+        &__mission {
+            @include media-queries.desktop {
+                max-width: 90%;
+            }
+        }
+
+        &__vision {
+            @include media-queries.desktop {
+                max-width: 90%;
+            }
+        }
+
+        &__values {
+            @include media-queries.desktop {
+                max-width: 80%;
+            }
+        }
+
+    }
+
+    &__ehw {
+
+        @include media-queries.desktop {
+            display: flex;
+            align-items: center;
+            gap: 20vw;
+            padding: 5rem;
+
+            :first-child {
+                flex: 3;
+            }
+
+            :last-child {
+                flex: 2;
+            }
+        }
+
+        &__description {
+            font-size: 1.8rem;
+            color: white;
+            font-weight: 100;
+            margin: 3rem 0;
+        }
+
+        &__image {
+
+            &-1 {
+                @include shadows.gradient(#2486A4, 5px, 4px);
+            }
+
+            &-2 {
+                margin-top: 3rem;
+                @include shadows.gradient(#CE8058, 5px, 4px);
+            }
 
         }
+
+    }
+
+    &__hyperloop__competition {
+
+        @include media-queries.desktop {
+            display: grid;
+            grid-template-rows: auto 1fr;
+            grid-template-columns: repeat(2, 1fr);
+            column-gap: 5vw;
+            grid-row: auto;
+        }
+
+        &__text {
+            font-size: 1.8rem;
+            color: white;
+            font-weight: 100;
+            margin: 3rem 0;
+        }
+
+        &__image {
+            
+            &-1 {
+                img {
+                    height: 100%
+                }
+                @include shadows.gradient(#2486A4, 5px, 4px);
+            }
+
+            &-2 {
+                img {
+                    height: 100%
+                }
+                margin-top: 3rem;
+                @include shadows.gradient(#CE8058, 5px, 4px);   
+
+                @include media-queries.desktop {
+                    margin-top: 0;
+                }
+            }
+
+
+        }
+
     }
 
     &__section__shadow {

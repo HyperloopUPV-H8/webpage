@@ -11,15 +11,8 @@
     }
 
     &__image {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex: 1;
-        position: relative;
-
+        
         img {
-            height: 100%;
-            width: 100%;
             object-fit: cover;
             filter: grayscale(100%) brightness(5);
             transition: all .1s ease-in-out;

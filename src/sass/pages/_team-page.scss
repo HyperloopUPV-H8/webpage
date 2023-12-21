@@ -4,42 +4,28 @@
 
     &__section {
         min-height: 100vh;
-        background-color: black;
 
-        &__content {
-            display: flex;
-            flex-direction: column;
-            gap: 4rem;
-            width: 100%;
-            height: 100%;
-            justify-content: center;
-            align-items: center;
-
-
-            &.subsystems-container {
-                position: absolute;
-                top: 0;
-            }
-
-        }
-
-        &.section__layout {
-            position: relative;
-            overflow: hidden;
-        }
-
-        &.section-subsystems {
+        &.subsystems-menu {
             
             position: relative;
 
             video {
+                position: absolute;
+                top: 0;
+                left: 0;
                 width: 100%;
                 height: 100%;
+                object-position: center;
                 object-fit: cover;
                 filter: blur(.6rem);
                 z-index: -1;
             }
+    
+        }
 
+        &.layout {
+            position: relative;
+            overflow: hidden;
         }
 
         &.subsystem-section {
@@ -95,50 +81,58 @@
 
     }
 
+    &__subsystems-menu {
+        position: absolute;
+        top: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 4rem;
+        width: 100%;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+
+        &__title {
+            display: flex;
+            flex-direction: column;
+            width: 80rem;
+            color: white;
+    
+            h1 {
+                font-family: var.$primary-font;
+                font-weight: 100;
+                letter-spacing: 1.5rem;
+                font-size: 6rem;
+                text-align: center;
+            }
+    
+            &__line {
+                width: 100%;
+                height: .2rem;
+                background-color: white;
+            }
+    
+        }
+    
+        &__container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 6rem;
+            width: 80%;
+            grid-template-rows: repeat(2, 1fr);
+            grid-template-columns: repeat(5, 1fr);
+        }
+    }
+
     &__members__container {
-        width: 70%;
+        width: 80%;
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
         gap: 8rem;
     }
 
-
-}
-
-.subsystems {
-
-    &__title {
-        display: flex;
-        flex-direction: column;
-        width: 80rem;
-        color: white;
-
-        h1 {
-            font-family: var.$primary-font;
-            font-weight: 100;
-            letter-spacing: 1.5rem;
-            font-size: 6rem;
-            text-align: center;
-        }
-
-        &__line {
-            width: 100%;
-            height: .2rem;
-            background-color: white;
-        }
-
-    }
-
-    &__container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 6rem;
-        width: 80%;
-        grid-template-rows: repeat(2, 1fr);
-        grid-template-columns: repeat(5, 1fr);
-    }
 
 }
 

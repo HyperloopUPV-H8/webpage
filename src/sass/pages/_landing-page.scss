@@ -16,6 +16,7 @@
     padding: 3rem 4rem;
 
     &.section-1 {
+        background-position-x: 25%;
         background-image: url("#{var.$assets-dir}/backgrounds/landing-1.jpeg");
     }
 
@@ -66,11 +67,15 @@
     }
 
     &.section-6 {
+        position: relative;
+        overflow: hidden;
         flex-direction: column;
         background-color: black;
     }
 
     &.section-7 {
+        position: relative;
+        overflow: hidden;
         flex-direction: column;
         background-color: black;
     }
@@ -272,6 +277,7 @@
 
         &__content {
             width: 100%;
+            z-index: 1;
         }
 
         &__title {
@@ -303,11 +309,33 @@
 #gaussian-blur {
 
     &__1 {
-        
+        width: 50%;
+        height: 40%;
+        top: -20%;
+        right: -15%;
+        position: absolute;
+        border-radius: 100%;
+        transform: skew(50deg, 0deg);
+        filter: blur(20rem);
+        background-color: #D9865B;
+        z-index: 0;
     }
 
     &__2 {
-        
+        width: 100vw;
+        height: 40vh;
+        right: -15%;
+        bottom: 25%;
+        position: absolute;
+        border-radius: 100%;
+        transform: skew(-20deg, 0deg);
+        filter: blur(10rem);
+        background-color: #003B4D;
+        z-index: 0;
+
+        @include media-queries.desktop {
+            width: 60vw;
+        }
     }
 
 }

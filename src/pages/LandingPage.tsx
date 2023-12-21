@@ -87,7 +87,7 @@ export const LandingPage = () => {
         </div>
         <div className="prototype__footnote footer__kenos">
           <p>
-          Kénos es el nombre del dios de la mitología Selknam que le dio forma a la Tierra, de la misma forma en la que nuestro vehículo le da forma al futuro.
+            Kénos es el nombre del dios de la mitología Selknam que le dio forma a la Tierra, de la misma forma en la que nuestro vehículo le da forma al futuro.
           </p>
         </div>
       </section>{/* kenos */}

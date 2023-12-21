@@ -127,7 +127,7 @@ export const AboutPage = () => {
             ganando múltiples premios.
           </p>
           <p className="about__hyperloop__competition__text">
-            A partir del éxito rotundo de lo que hoy conocemos como H1 -THE FUTURE CONCEPT, cada año se fue repitiendo la experiencia
+            A partir del éxito rotundo de lo que hoy conocemos como H1 - THE FUTURE CONCEPT, cada año se fue repitiendo la experiencia
             de desarrollar un modelo de hyperloop para poder presentarlo en las competiciones internacionales y seguir trabajando
             para desarrollar el transporte del futuro.
           </p>

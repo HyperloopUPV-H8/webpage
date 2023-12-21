@@ -126,14 +126,14 @@
     bottom: 5vh;
     margin: 0 2rem;
     padding: 2rem;
-    font-size: 2rem;
+    font-size: 1.4rem;
     font-weight: 100;
     border-radius: 1rem;
     background-color: rgba($color: #ffffff, $alpha: 0.7);
 
-
     @include media-queries.desktop {
         max-width: 80vw;
+        font-size: 2rem;
     }
 }
 

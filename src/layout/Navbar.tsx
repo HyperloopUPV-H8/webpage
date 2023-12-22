@@ -1,18 +1,28 @@
-import { Link } from "react-router-dom"
+import { Link, useLocation } from "react-router-dom"
 import NavbarLogo from "../assets/corporative/navbar-logo.svg"
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import Hamburger from "hamburger-react"
 
 export const Navbar = () => {
   const [isOpen, setOpen] = useState(false)
   const [isHidden, setIsHidden] = useState(false)
+  const navbar = useRef<HTMLDivElement>(null);
+  const navbarLinks = useRef<HTMLUListElement>(null);
+  const location = useLocation();
   
+  useEffect(() => {
+    setOpen(false);
+    navbar.current?.classList.remove("navbar--open");
+  }, [location]);
+
   useEffect(() => {
     let lastScroll = window.scrollY
     const handleScroll = (_: Event) => {
       setIsHidden(window.scrollY - lastScroll > 0)
-      setOpen(false)
-      lastScroll = window.scrollY
+      if(window.scrollY - lastScroll > 0) {
+        setOpen(false);
+      }
+      lastScroll = window.scrollY;
     }
 
     window.addEventListener("scroll", handleScroll)
@@ -21,19 +31,17 @@ export const Navbar = () => {
   }, [])
 
   const setMenu = (isOpen: boolean) => {
-    const navbar = document.getElementsByClassName("navbar")
-    const navbarLinks = document.getElementsByClassName("navbar__links")
     if(isOpen) {
-      navbar[0].classList.add("navbar--open")
-      navbarLinks[0].classList.add("navbar__links--open")
+      navbar.current?.classList.add("navbar--open");
+      navbarLinks.current?.classList.add("navbar__links--open")
     } else {
-      navbar[0].classList.remove("navbar--open")
-      navbarLinks[0].classList.remove("navbar__links--open")
+      navbar.current?.classList.remove("navbar--open")
+      navbarLinks.current?.classList.remove("navbar__links--open")
     } 
   }
 
   return (
-    <div className={"navbar" + (isHidden ? " navbar--hidden" : "")}>
+    <div className={"navbar" + (isHidden ? " navbar--hidden" : "")} ref={navbar}>
       <div className="navbar__logo">
         <Link to={"/"}>
           <img src={NavbarLogo} alt="Hyperloop Logo" />
@@ -51,7 +59,7 @@ export const Navbar = () => {
         />
       </div>
 
-      <ul className={"navbar__links" + (isHidden ? "" : " navbar__link--open")}>
+      <ul className={"navbar__links" + (isOpen ? " navbar__links--open" : "")} ref={navbarLinks}>
         <li>
           <Link to="/about">Acerca</Link>
         </li>

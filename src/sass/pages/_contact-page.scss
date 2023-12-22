@@ -11,10 +11,7 @@
         gap: 2.5rem;
         height: calc(100vh - 15rem);
         background-color: black;
-
-        @include media-queries.tablet {
-            height: 100vh;
-        }
+        min-height: 100vh;
     }
 
     &__title {
@@ -45,14 +42,15 @@
 
     &__name-email__container {
         display: flex;
+        flex-direction: column;
         gap: 2rem;
 
         & > * {
             width: 100%;
         }
 
-        @include media-queries.tablet {
-            flex-direction: column;
+        @include media-queries.desktop {
+            flex-direction: row;
         }
     }
 
@@ -117,10 +115,11 @@
         padding: 1rem 2rem;
         border: 1px solid black;
         border-radius: 5px;
-        height: 4rem;
+        height: 5rem;
+        width: 100%;
 
-        @include media-queries.mobile {
-            width: 100%;
+        @include media-queries.tablet {
+            width: fit-content;
         }
         
         &:hover {
@@ -134,12 +133,14 @@
 
         &__container {
             display: flex;
+            flex-direction: column;
+            justify-content: center;
             align-items: center;
             gap: 2rem;
             justify-content: end;
 
-            @include media-queries.mobile {
-                justify-content: center;
+            @include media-queries.tablet {
+                flex-direction: row;
             }
         }
 

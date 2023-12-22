@@ -38,8 +38,12 @@
             position: relative;
             background-repeat: no-repeat;
             background-position: center;
-            background-size: 50%;
+            background-size: 100vw;
             z-index: 0;
+
+            @include media-queries.desktop {
+                background-size: 60%;
+            }
 
             &.direction {
                 background-image: url("/team/members/direction/direction.svg");
@@ -141,11 +145,11 @@
     }
 
     &__members__container {
-        width: 80%;
-        display: flex;
+        display: grid;
+        grid-template-columns: repeat(2, auto);
+        column-gap: 10vw;
+        row-gap: 10vw;
         justify-content: center;
-        flex-wrap: wrap;
-        gap: 8rem;
     }
 
 
@@ -165,7 +169,8 @@
 .border-shadow {
 
     position: absolute;
-    width: 4rem;
+    width: 4vw;
+    max-width: 4rem;
     height: 100%;
     filter: blur(3rem);
     z-index: 100;
@@ -191,19 +196,4 @@
     background-color: rgba(0, 0, 0, .7);
     backdrop-filter: blur(1rem);
     z-index: -1;
-}
-
-.subsystem__title {
-    color: white;
-    text-align: center;
-
-    p {
-        font-size: 3rem;
-        font-weight: 100;
-    }
-
-    h2 {
-        font-size: 6rem;
-    }
-
 }

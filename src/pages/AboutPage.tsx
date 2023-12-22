@@ -1,4 +1,4 @@
-import { TitledImageBox } from "../components"
+import { TitleUnderlined, TitledImageBox } from "../components"
 import aboutVideo from "../assets/backgrounds/about.mp4"
 import compromiso from "../assets/icons/compromiso.svg"
 import innovacion from "../assets/icons/innovacion.svg"
@@ -23,65 +23,57 @@ export const AboutPage = () => {
       </div>
 
       <div className="about__section__shadow">
-        <div className="about__section section-2">
-          <div id="about__mission">
-            <TitledImageBox title="Misión" imageClassName="about__image__box__mission" imageURL={mission} borderColor="orange" imageStyle={
-              {
-                width: "40rem",
-                height: "20rem",
-              }
-            }>
-              <p className="about__mission__content">
-                Desarrollar investigación en la universidad a través de la innovación en la tecnología hyperloop con el
-                objetivo de construir un futuro sostenible.
-              </p>
-            </TitledImageBox>
+        <section className="about__section section-2">
+
+          <div className="about__mission-vision">
+            <div className="about__mission">
+              <TitledImageBox title="Misión" imageClassName="about__image__box__mission" imageURL={mission} borderColor="orange">
+                <p className="about__mission__text">
+                  Desarrollar investigación en la universidad a través de la innovación en la tecnología hyperloop con el
+                  objetivo de construir un futuro sostenible.
+                </p>
+              </TitledImageBox>
+            </div>
+            <div id="about__vision">
+              <TitledImageBox title="Visión" imageClassName="about__image__box__vision" imageURL={vision} borderColor="blue">
+                <p className="about__vision__text">
+                  Diseñar, desarrollar y fabricar tecnología hyperloop escalable, posicionándonos como equipo universitario
+                  referente a nivel internacional al solucionar los retos que plantea la tecnología del transporte del futuro.
+                </p>
+              </TitledImageBox> {/* Vision */}
+            </div>
           </div>
-          <div id="about__vision">
-            <TitledImageBox title="Visión" imageClassName="about__image__box__vision" imageURL={vision} borderColor="blue" imageStyle={
-              {
-                width: "40rem",
-                height: "20rem",
-              }
-            }>
-              <p className="about__vision__content">
-                Diseñar, desarrollar y fabricar tecnología hyperloop escalable, posicionándonos como equipo universitario
-                referente a nivel internacional al solucionar los retos que plantea la tecnología del transporte del futuro.
-              </p>
-            </TitledImageBox> {/* Vision */}
-          </div>
+
           <div id="about__values">
-            <TitledImageBox title="Valores" imageClassName="about__image__box__values" imageURL={values} borderColor="multicolor" imageStyle={
-              {
-                width: "60rem",
-                height: "30rem",
-              }
-            }>
+            <TitledImageBox title="Valores" imageClassName="about__image__box__values" imageURL={values} borderColor="multicolor">
               <div className="about__values__content">
                 <div className="about__values__item">
                   <h3><img src={compromiso} /> Compromiso</h3>
-                  <p>
+                  <p className="about__values__text">
                     Un equipo marcado por la lealtad y responsabilidad hacia nuestros miembros, la comunidad universitaria y las empresas que nos apoyan, y con una tenaz dedicación por alcanzar los objetivos que nos impulsan a innovar.
                   </p>
                 </div>
+
                 <div className="about__values__item">
                   <h3><img src={innovacion} /> Innovación</h3>
-                  <p>
+                  <p className="about__values__text">
                     Fuerza impulsora detrás de Hyperloop UPV. Nos esforzamos por ir más allá de los
                     límites establecidos, explorando nuevas soluciones y tecnologías con el fin de llevar a cabo nuestro
                     proyecto.
                   </p>
                 </div>
+
                 <div className="about__values__item">
                   <h3><img src={aprendizaje} /> Aprendizaje</h3>
-                  <p>
+                  <p className="about__values__text">
                     La base de nuestro crecimiento. El desarrollo del talento joven es de vital importancia,
                     es un recurso valioso y esencial en nuestro equipo.
                   </p>
                 </div>
+
                 <div className="about__values__item">
                   <h3><img src={sostenibilidad} /> Sostenibilidad</h3>
-                  <p>
+                  <p className="about__values__text">
                     Desde el diseño a la implementación, la sostenibilidad es un principio rector en
                     cada fase del proyecto, siendo la eficiencia energética un objetivo prioritario
                   </p>
@@ -89,45 +81,45 @@ export const AboutPage = () => {
               </div>
             </TitledImageBox> {/* Valores */}
           </div>
-        </div>
-      </div>
 
-      <div className="about__section section-3">
-        <h2 className="about__title__underline">European Hyperloop Week</h2>
-        <div id="about__ehw">
-          <div className="about__ehw__description">
-            <p>
-              En 2019 decidimos embarcarnos con 3 de las mejores universidades europeas (University of Edinburgh,
-              Delft University of Technology, ETH Zürich) en un enorme desafío: crear nuestro propio evento de tecnología
-              hyperloop en el que poder compartir lo mejor de nuestras ideas y forjar una comunidad alimentada por la visión
-              de hacer realidad el hyperloop.
-            </p>
-            <p>
-              <b>
-                Así nació la European Hyperloop Week (EHW).<br />
-                Se trata de un evento que va más allá de la mera competición ya que se nutre de la curiosidad insaciable de
-                estudiantes de gran  talento y del afán de aprender.
-              </b>
-            </p>
-          </div>
-          <div className="about__ehw__image">
-            <img src={ehw} style={{
-              width: "60rem",
-              height: "30rem",
-            }} />
-          </div>
-          <div className="about__ehw__banner">
-            <img src={ehwBanner} style={{
-              width: "40rem",
-              height: "65rem",
-            }} />
-          </div>
-        </div>
-      </div>
+        </section>
+      </div>{/* about__section__shadow */}
 
-      <div className="about__section section-4">
-        <h2 className="about__title__underline">Hyperloop Pod Competition</h2>
-        <div id="about__hyperloop__competition">
+      <section className="about__section section-3">
+        <TitleUnderlined text="European Hyperloop Week" color="white"/>
+        <div className="about__ehw">
+          <div>
+            <div className="about__ehw__description">
+              <p>
+                En 2019 decidimos embarcarnos con 3 de las mejores universidades europeas (University of Edinburgh,
+                Delft University of Technology, ETH Zürich) en un enorme desafío: crear nuestro propio evento de tecnología
+                hyperloop en el que poder compartir lo mejor de nuestras ideas y forjar una comunidad alimentada por la visión
+                de hacer realidad el hyperloop.<br /><br />
+                <b>
+                  Así nació la European Hyperloop Week (EHW).<br />
+                  Se trata de un evento que va más allá de la mera competición ya que se nutre de la curiosidad insaciable de
+                  estudiantes de gran  talento y del afán de aprender.
+                </b>
+              </p>
+            </div>
+
+            <div className="about__ehw__image-1">
+              <img src={ehw} />
+            </div>
+          </div>
+
+          <div>
+            <div className="about__ehw__image-2">
+              <img src={ehwBanner} />
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <section className="about__section section-4">
+        <TitleUnderlined text="Hyperloop Competition" color="white"/>
+        <div className="about__hyperloop__competition">
           <p className="about__hyperloop__competition__text">
             En 2015 un equipo de 5 chicos de la Universitat Politècnica de València decidieron apuntarse al desafío presentado
             por Space X y competir en la primera competición mundial de hyperloop. Ese primer año, se presentó una propuesta
@@ -135,24 +127,18 @@ export const AboutPage = () => {
             ganando múltiples premios.
           </p>
           <p className="about__hyperloop__competition__text">
-            A partir del éxito rotundo de lo que hoy conocemos como H1 -THE FUTURE CONCEPT, cada año se fue repitiendo la experiencia
+            A partir del éxito rotundo de lo que hoy conocemos como H1 - THE FUTURE CONCEPT, cada año se fue repitiendo la experiencia
             de desarrollar un modelo de hyperloop para poder presentarlo en las competiciones internacionales y seguir trabajando
             para desarrollar el transporte del futuro.
           </p>
-          <div className="about__hyperloop__competition__image-left">
-            <img src={podCompetitionLeft} style={{
-              width: "70rem",
-              height: "40rem",
-            }} />
+          <div className="about__hyperloop__competition__image-1">
+            <img src={podCompetitionLeft}/>
           </div>
-          <div className="about__hyperloop__competition__image-right">
-            <img src={podCompetitionRight} style={{
-              width: "70rem",
-              height: "40rem",
-            }} />
+          <div className="about__hyperloop__competition__image-2">
+            <img src={podCompetitionRight}/>
           </div>
         </div>
-      </div>
+      </section>
     </>
   )
 }

@@ -33,9 +33,12 @@ export const SubsystemMembers = ({name}: SubsystemMembersProps) => {
         <SubsystemTitle name={name} />
 
         <div className="team__members__container">
-          {members.map((member) => (
-              <Member key={member.name} member={member} />
-          )
+          {members.map((member, index) => {
+            if(index == members.length - 1 && members.length % 2 == 1) {
+              return <Member key={member.name} member={member} lastMember={true} />
+            }
+              return <Member key={member.name} member={member} lastMember={false}/>
+            }
           )}
         </div>
 

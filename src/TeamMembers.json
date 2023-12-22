@@ -68,7 +68,7 @@
             "name": "Juan Rosas",
             "imgUrl": "/team/members/firmware/firmware.svg",
             "rol": "Member",
-            "linkedin": ""
+            "linkedin": "https://www.linkedin.com/in/ingjuanrosas/"
         },
         {
             "name": "Ricardo Chust",
@@ -100,7 +100,7 @@
             "name": "Fernando Sánchez",
             "imgUrl": "/team/members/software/software.svg",
             "rol": "Member",
-            "linkedin": ""
+            "linkedin": "https://www.linkedin.com/in/fernando-sanchez-gabaldon-3a4285191/"
         }
     ],
     "structuresandmechanisms": [
@@ -108,7 +108,7 @@
             "name": "Elian Iglesias",
             "imgUrl": "/team/members/structuresandmechanisms/structures&mechanisms.svg",
             "rol": "Member",
-            "linkedin": "https://www.linkedin.com/in/marc-sanchis-5454a9192/"
+            "linkedin": "https://www.linkedin.com/in/elian-iglesias-marijt-6ab128242/"
         },
         {
             "name": "Paula García",
@@ -150,13 +150,13 @@
             "name": "Manar Selham",
             "imgUrl": "/team/members/structuresandmechanisms/structures&mechanisms.svg",
             "rol": "Member",
-            "linkedin": ""
+            "linkedin": "https://www.linkedin.com/in/manar-selham-6156b1273/"
         },
         {
             "name": "Guillermo Castellano",
             "imgUrl": "/team/members/structuresandmechanisms/structures&mechanisms.svg",
             "rol": "Member",
-            "linkedin": ""
+            "linkedin": "https://www.linkedin.com/in/guillermo-castellano-vicente-451ba7287/"
         },
         {
             "name": "Sergio Pérez",
@@ -194,7 +194,7 @@
             "name": "Miquel Montañana",
             "imgUrl": "/team/members/electromagnetics/electromagnetics.svg",
             "rol": "Member",
-            "linkedin": ""
+            "linkedin": "https://www.linkedin.com/in/mimonfer"
         },
         {
             "name": "José Ángel Jarabo",
@@ -206,7 +206,7 @@
             "name": "Jakub Kuleta",
             "imgUrl": "/team/members/electromagnetics/electromagnetics.svg",
             "rol": "Member",
-            "linkedin": ""
+            "linkedin": "https://www.linkedin.com/in/jakub-kuleta-b30342229/"
         }
     ],
     "outreach": [
@@ -244,7 +244,7 @@
             "name": "Carlos Broseta",
             "imgUrl": "/team/members/outreach/outreach.svg",
             "rol": "Member",
-            "linkedin": ""
+            "linkedin": "https://www.linkedin.com/in/carlos-broseta-turanzo-766012228/"
         }
     ],
     "partners": [
@@ -267,10 +267,10 @@
             "linkedin": "https://www.linkedin.com/in/claudialarapinillos/"
         },
         {
-            "name": "Ricardo Casanovas",
+            "name": "Ricardo Casasnovas",
             "imgUrl": "/team/members/partners/partners.svg",
             "rol": "Member",
-            "linkedin": ""
+            "linkedin": "https://www.linkedin.com/in/ricardocasasnovas23/"
         }, 
         {
             "name": "Mireia Pérez",

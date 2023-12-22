@@ -1,4 +1,5 @@
 @use '../core/variables' as var;
+@use '../core/media-queries';
 @use 'sass:color';
 
 .partners__tier {
@@ -11,7 +12,10 @@
     position: relative;
 
     &__title {
-        width: 100%;
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
         font-family: #{var.$primary-font};
         text-align: center;
 
@@ -23,13 +27,17 @@
 
         h2 {
             transition: all 0.1s ease-in-out;
-            font-size: 9rem;
+            font-size: 5.2rem;
             text-shadow:
                 -2px -2px 0px black,
                 -2px 2px 0px black,
                 2px -2px 0px black,
                 2px 2px 0px black,
                 -7px 5px 10px currentColor, ;
+
+            @include media-queries.desktop {
+                font-size: 8rem;
+            }
         }
 
         &:hover {

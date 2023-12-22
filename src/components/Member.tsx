@@ -5,12 +5,13 @@ interface MemberProps {
         imgUrl: string,
         rol: string,
         linkedin: string,
-    }
+    },
+    lastMember: boolean
 }
 
-export const Member = ({member}: MemberProps) => {
+export const Member = ({member, lastMember}: MemberProps) => {
   return (
-    <div className="member__container">
+    <div className={"member__container" + (lastMember ? " last-member" : "")}>
         
         <a href={member.linkedin ? member.linkedin : undefined} target="_blank">
             <div className="member__image">

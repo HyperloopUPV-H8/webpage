@@ -1,7 +1,12 @@
 @use '../core/variables' as var;
 @use '../core/shadows';
+@use '../core/media-queries';
 
 .new {
+
+    &__container {
+        width: fit-content;
+    }
 
     &__title {
         font-size: 2.5rem;
@@ -10,8 +15,11 @@
 
     &__image {
 
-        width: 36rem;
-        height: 20rem;
+        width: 70vw;
+
+        @include media-queries.tablet {
+            width: 36rem;
+        }
 
         &.premium {
             @include shadows.gradient(linear-gradient(90deg, #2486A4, #CE8058), 5px, 4px);

@@ -1,6 +1,8 @@
+import { ReactElement } from "react";
+
 interface TitledTextBoxProps {
     title: string;
-    text: string;
+    text: ReactElement<any, any>;
     titleSize?: string;
     titleAlign?: "start" | "center" | "end";
     boxColor?: "white" | "white-transparent" | "black" | "black-transparent" | "transparent";

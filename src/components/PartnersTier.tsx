@@ -20,9 +20,6 @@ type PartnersTierProps = {
 }
 
 export const PartnersTier = ({ tier, meta }: PartnersTierProps) => {
-  for (let partner of meta.partners) {
-    console.log(partner.logo)
-  }
   return (
     <div className="partners__tier" >
       <div className="blur__top" style={

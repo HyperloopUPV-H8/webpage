@@ -1,46 +1,31 @@
 @use '../core/variables' as var;
-
+@use '../core/media-queries';
 .team {
 
     &__section {
         min-height: 100vh;
-        background-color: black;
 
-        &__content {
-            display: flex;
-            flex-direction: column;
-            gap: 4rem;
-            width: 100%;
-            height: 100%;
-            justify-content: center;
-            align-items: center;
-
-
-            &.subsystems-container {
-                position: absolute;
-                top: 0;
-            }
-
-        }
-
-        &.section__layout {
-            position: relative;
-            height: 100%;
-            overflow: hidden;
-        }
-
-        &.section-subsystems {
+        &.subsystems-menu {
             
             position: relative;
 
             video {
+                position: absolute;
+                top: 0;
+                left: 0;
                 width: 100%;
                 height: 100%;
+                object-position: center;
                 object-fit: cover;
                 filter: blur(.6rem);
                 z-index: -1;
             }
+    
+        }
 
+        &.layout {
+            position: relative;
+            overflow: hidden;
         }
 
         &.subsystem-section {
@@ -53,8 +38,12 @@
             position: relative;
             background-repeat: no-repeat;
             background-position: center;
-            background-size: 50%;
+            background-size: 100vw;
             z-index: 0;
+
+            @include media-queries.desktop {
+                background-size: 60%;
+            }
 
             &.direction {
                 background-image: url("/team/members/direction/direction.svg");
@@ -96,50 +85,80 @@
 
     }
 
-    &__members__container {
-        width: 70%;
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 8rem;
-    }
-
-
-}
-
-.subsystems {
-
-    &__title {
+    &__subsystems-menu {
+        position: absolute;
+        top: 0;
         display: flex;
         flex-direction: column;
-        width: 80rem;
-        color: white;
-
-        h1 {
-            font-family: var.$primary-font;
-            font-weight: 100;
-            letter-spacing: 1.5rem;
-            font-size: 6rem;
-            text-align: center;
-        }
-
-        &__line {
-            width: 100%;
-            height: .2rem;
-            background-color: white;
-        }
-
-    }
-
-    &__container {
-        display: flex;
-        flex-wrap: wrap;
+        gap: 1rem;
+        width: 100%;
+        height: 100%;
         justify-content: center;
-        gap: 6rem;
-        width: 80%;
-        grid-template-rows: repeat(2, 1fr);
-        grid-template-columns: repeat(5, 1fr);
+        align-items: center;
+
+        &__title {
+            display: flex;
+            flex-direction: column;
+            width: 80rem;
+            color: white;
+            margin-bottom: 2vw;
+
+            @include media-queries.desktop {
+                margin-bottom: 2rem;
+            }
+    
+            h1 {
+                font-family: var.$primary-font;
+                font-weight: 100;
+                letter-spacing: 1rem;
+                text-indent: 1rem;
+                font-size: 3.6rem;
+                text-align: center;
+
+                @include media-queries.desktop {
+                    font-size: 6rem;
+                }
+            }
+    
+            &__line {
+                width: 100%;
+                height: .2rem;
+                background-color: white;
+            }
+    
+        }
+    
+        &__container {
+            display: grid;
+            grid-template-columns: repeat(3, auto);
+            grid-template-rows: repeat(3, auto);
+            justify-items: center;
+            gap: 5vw;
+
+            @include media-queries.desktop {
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 3rem;
+            }
+        }
     }
+
+    &__members__container {
+        display: grid;
+        grid-template-columns: repeat(2, auto);
+        column-gap: 10vw;
+        row-gap: 10vw;
+        justify-content: center;
+
+        @include media-queries.desktop {
+            width: 80%;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8rem;
+        }
+    }
+
 
 }
 
@@ -157,7 +176,8 @@
 .border-shadow {
 
     position: absolute;
-    width: 4rem;
+    width: 4vw;
+    max-width: 4rem;
     height: 100%;
     filter: blur(3rem);
     z-index: 100;
@@ -183,19 +203,4 @@
     background-color: rgba(0, 0, 0, .7);
     backdrop-filter: blur(1rem);
     z-index: -1;
-}
-
-.subsystem__title {
-    color: white;
-    text-align: center;
-
-    p {
-        font-size: 3rem;
-        font-weight: 100;
-    }
-
-    h2 {
-        font-size: 6rem;
-    }
-
 }

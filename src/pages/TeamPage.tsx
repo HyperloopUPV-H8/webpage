@@ -15,19 +15,19 @@ export const TeamPage = () => {
 
   return (
     <>
-      <section className="team__section section-subsystems">
+      <section className="team__section subsystems-menu">
         <video autoPlay loop muted>
           <source src={teamVideo} type="video/mp4" />
         </video>
         <div id='video-overlay'></div>
 
-        <div className="team__section__content subsystems-container">
-          <div className="subsystems__title">
+        <div className="team__subsystems-menu">
+          <div className="team__subsystems-menu__title">
             <h1>SUBSISTEMAS</h1>
-            <div className='subsystems__title__line'></div>
+            <div className='team__subsystems-menu__title__line'></div>
           </div>
 
-          <div className="subsystems__container">
+          <div className="team__subsystems-menu__container">
             <Subsystem 
               name='Direction'
               image={direction}
@@ -68,7 +68,7 @@ export const TeamPage = () => {
         </div>
       </section>
 
-      <div className="team__section section__layout">
+      <div className="team__section layout">
         <div className="border-shadow left"></div>
         <div className="border-shadow right"></div>
         

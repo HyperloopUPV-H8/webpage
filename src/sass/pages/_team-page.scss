@@ -132,14 +132,14 @@
             display: grid;
             grid-template-columns: repeat(3, auto);
             grid-template-rows: repeat(3, auto);
-            column-gap: 8vw;
-            row-gap: 8vw;
+            justify-items: center;
+            gap: 5vw;
 
             @include media-queries.desktop {
                 display: flex;
                 justify-content: center;
                 flex-wrap: wrap;
-                gap: 4rem;
+                gap: 3rem;
             }
         }
     }
@@ -150,6 +150,13 @@
         column-gap: 10vw;
         row-gap: 10vw;
         justify-content: center;
+
+        @include media-queries.desktop {
+            width: 80%;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8rem;
+        }
     }
 
 

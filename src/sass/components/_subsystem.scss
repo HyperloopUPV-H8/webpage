@@ -1,16 +1,22 @@
+@use '../core/media-queries';
 
 .subsystem {
 
     &__container {
+        width: 8rem;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        flex-basis: calc(25% - 12rem);
-        gap: 1.5rem;
+        gap: 1rem;
+
+        @include media-queries.desktop {
+            flex-basis: calc(25% - 10rem);
+        }
     }
 
     &__image {
+        max-width: 20rem;
         
         img {
             object-fit: cover;
@@ -33,8 +39,12 @@
     &__name {
         text-align: center;
         color: white;
-        font-size: 2rem;
+        font-size: 1.4rem;
         font-weight: 100;
+
+        @include media-queries.desktop {
+            font-size: 1.8rem;
+        }
     }
 
 }

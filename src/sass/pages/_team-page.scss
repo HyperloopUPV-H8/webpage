@@ -1,5 +1,5 @@
 @use '../core/variables' as var;
-
+@use '../core/media-queries';
 .team {
 
     &__section {
@@ -86,7 +86,7 @@
         top: 0;
         display: flex;
         flex-direction: column;
-        gap: 4rem;
+        gap: 1rem;
         width: 100%;
         height: 100%;
         justify-content: center;
@@ -97,13 +97,23 @@
             flex-direction: column;
             width: 80rem;
             color: white;
+            margin-bottom: 2vw;
+
+            @include media-queries.desktop {
+                margin-bottom: 2rem;
+            }
     
             h1 {
                 font-family: var.$primary-font;
                 font-weight: 100;
-                letter-spacing: 1.5rem;
-                font-size: 6rem;
+                letter-spacing: 1rem;
+                text-indent: 1rem;
+                font-size: 3.2rem;
                 text-align: center;
+
+                @include media-queries.desktop {
+                    font-size: 6rem;
+                }
             }
     
             &__line {
@@ -115,13 +125,18 @@
         }
     
         &__container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 6rem;
-            width: 80%;
-            grid-template-rows: repeat(2, 1fr);
-            grid-template-columns: repeat(5, 1fr);
+            display: grid;
+            grid-template-columns: repeat(3, auto);
+            grid-template-rows: repeat(3, auto);
+            column-gap: 8vw;
+            row-gap: 8vw;
+
+            @include media-queries.desktop {
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 4rem;
+            }
         }
     }
 

@@ -14,10 +14,14 @@ jobs:
             SSH_AUTH_SOCK: /tmp/ssh_agent.sock
 
         steps:
-        - uses: actions/checkout@v3
+        - uses: actions/checkout@v4
         
         - name: Install dependencies
           run: npm ci
+
+        - name: Load .env
+          run: |
+            echo "${{ secrets.ENV }}" > .env
 
         - name: Build website
           run: npm run build
@@ -33,4 +37,4 @@ jobs:
 
         - name: Deploy to Contabo
           run: |
-            scp -r ./dist ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{ secrets.SSH_PATH }}
+            scp -r webpage ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{ secrets.SSH_PATH }}

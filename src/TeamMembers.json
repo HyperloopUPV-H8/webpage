@@ -211,12 +211,6 @@
     ],
     "outreach": [
         {
-            "name": "Carlos López",
-            "imgUrl": "/team/members/outreach/outreach.svg",
-            "rol": "Member",
-            "linkedin": ""
-        }, 
-        {
             "name": "Carmen Hernández",
             "imgUrl": "/team/members/outreach/outreach.svg",
             "rol": "Project Manager",
@@ -227,12 +221,6 @@
             "imgUrl": "/team/members/outreach/outreach.svg",
             "rol": "Member",
             "linkedin": "https://www.linkedin.com/in/david-grueso-conejero-833755235/"
-        },
-        {
-            "name": "Tamara Olaya",
-            "imgUrl": "/team/members/outreach/outreach.svg",
-            "rol": "Member",
-            "linkedin": ""
         },
         {
             "name": "Mohamed Larbi",

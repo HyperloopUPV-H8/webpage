@@ -211,22 +211,22 @@
     ],
     "outreach": [
         {
-            "name": "Carmen Hernández",
-            "imgUrl": "/team/members/outreach/outreach.svg",
-            "rol": "Project Manager",
-            "linkedin": "https://www.linkedin.com/in/carmen-hern%C3%A1ndez-98123529a/"
-        },
-        {
             "name": "David Grueso",
             "imgUrl": "/team/members/outreach/outreach.svg",
             "rol": "Member",
             "linkedin": "https://www.linkedin.com/in/david-grueso-conejero-833755235/"
         },
         {
+            "name": "Carmen Hernández",
+            "imgUrl": "/team/members/outreach/outreach.svg",
+            "rol": "Project Manager",
+            "linkedin": "https://www.linkedin.com/in/carmen-hern%C3%A1ndez-98123529a/"
+        },
+        {
             "name": "Mohamed Larbi",
             "imgUrl": "/team/members/outreach/outreach.svg",
             "rol": "Member",
-            "linkedin": ""
+            "linkedin": "https://www.linkedin.com/in/mohamed-larbi-lalami-60839b290/"
         },
         {
             "name": "Carlos Broseta",

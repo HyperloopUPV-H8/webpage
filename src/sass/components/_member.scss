@@ -12,6 +12,7 @@
 
         @include media-queries.desktop {
             width: 20rem;
+            gap: 2rem;
         }
     }
 
@@ -52,11 +53,19 @@
 
         &__name {
             font-size: 1.6rem;
+
+            @include media-queries.desktop {
+                font-size: 2rem;
+            }
         }
 
         &__rol {
             font-weight: 100;
             font-size: 1.4rem;
+
+            @include media-queries.desktop {
+                font-size: 1.6rem;
+            }
         }
 
     }

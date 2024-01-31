@@ -16,7 +16,7 @@ export const AboutPage = () => {
   return (
     <>
       <div className="about__section section-1">
-        <video autoPlay loop muted>
+        <video autoPlay loop muted playsInline>
           <source src={aboutVideo} type="video/mp4" />
         </video>
         <h1 className="about__title">Acerca</h1>

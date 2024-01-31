@@ -16,7 +16,7 @@ export const TeamPage = () => {
   return (
     <>
       <section className="team__section subsystems-menu">
-        <video autoPlay loop muted>
+        <video autoPlay loop muted playsInline>
           <source src={teamVideo} type="video/mp4" />
         </video>
         <div id='video-overlay'></div>

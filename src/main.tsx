@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import './sass/app.scss'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
-import { AboutPage, ContactPage, ErrorPage, LandingPage, PartnersPage, TeamPage } from './pages'
+import { AboutPage, ContactPage, ErrorPage, LandingPage, PartnersPage, TeamPage, TimelinePage } from './pages'
 import { Layout } from './layout'
 
 const router = createBrowserRouter([
@@ -30,6 +30,10 @@ const router = createBrowserRouter([
       {
         element: <PartnersPage />,
         path: "/partners",
+      },
+      {
+        element: <TimelinePage />,
+        path: "/timeline",
       },
     ],
   },

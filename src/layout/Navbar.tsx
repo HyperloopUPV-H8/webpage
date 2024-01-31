@@ -69,10 +69,9 @@ export const Navbar = () => {
         <li>
           <Link to="/team">Equipo</Link>
         </li>
-        {/* <li>
-          <Link to="/">Trayectoria</Link>
+        <li>
+          <Link to="/timeline">Trayectoria</Link>
         </li>
-        */}
         <li>
           <Link to="/partners">Partners</Link>
         </li>

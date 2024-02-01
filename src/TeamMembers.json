@@ -223,12 +223,6 @@
             "linkedin": "https://www.linkedin.com/in/carmen-hern%C3%A1ndez-98123529a/"
         },
         {
-            "name": "Mohamed Larbi",
-            "imgUrl": "/team/members/outreach/outreach.svg",
-            "rol": "Member",
-            "linkedin": "https://www.linkedin.com/in/mohamed-larbi-lalami-60839b290/"
-        },
-        {
             "name": "Carlos Broseta",
             "imgUrl": "/team/members/outreach/outreach.svg",
             "rol": "Member",
@@ -237,7 +231,7 @@
     ],
     "partners": [
         {
-            "name": "Mario Sanchís",
+            "name": "Mario Sanchis",
             "imgUrl": "/team/members/partners/partners.svg",
             "rol": "Member",
             "linkedin": "https://www.linkedin.com/in/mariosanchistormo/"

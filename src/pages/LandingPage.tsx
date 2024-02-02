@@ -15,7 +15,6 @@ export const LandingPage = () => {
   return (
     <div className="landing__page">
       <div className="landing__section section-1">
-
       </div>
 
       <section className="landing__section section-2">

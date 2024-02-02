@@ -1,5 +1,5 @@
 import { TitleUnderlined, TitledImageBox } from "../components"
-import aboutVideo from "../assets/backgrounds/about.mp4"
+import aboutVideo from "../assets/backgrounds/about-video.mp4"
 import compromiso from "../assets/icons/compromiso.svg"
 import innovacion from "../assets/icons/innovacion.svg"
 import aprendizaje from "../assets/icons/aprendizaje.svg"

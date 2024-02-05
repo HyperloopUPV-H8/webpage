@@ -8,6 +8,13 @@
     
     &__section {
 
+        @include media-queries.desktop {
+            display: flex;
+            align-items: center;
+            min-height: 100vh;
+
+        }
+
         &.section-1 {
             position: relative;
             min-height: 100vh;
@@ -24,14 +31,16 @@
     }
 
     &__container {
+        display: flex;
         margin: 0 auto;
-        position: relative;
         width: 85%;
-        height: 100%;
         padding: 10rem 0;
     }
 
     &__content {
+        display: flex;
+        flex-direction: column;
+        gap: 5rem;
         margin-left: 3rem;
     }
 
@@ -42,6 +51,7 @@
 
     &__generation {
         width: 100%;
+        position: relative;
         display: flex;
         flex-direction: column;
         gap: 2rem;
@@ -51,39 +61,38 @@
             display: flex;
             align-items: center;
             gap: 2rem;
-            margin-left: -4.3rem;
+            margin-left: -4.6rem;
 
             &__title {
                 display: flex;
                 gap: .5rem;
+                z-index: 1;
                 
                 img {
                     width: 1.8rem;
                 }
 
             }
+            
+            &__gaussian-blur {
+                width: 3rem;
+                height: 3rem;
+                border-radius: 100%;
+                filter: blur(.6rem);
+                backdrop-filter: brightness(0);
+                -webkit-backdrop-filter: brightness(0);
+            }
 
             &__content {
+                width: 100%;
                 display: flex;
                 flex-direction: column-reverse;
                 gap: .3rem;
-            }
+                padding-left: 1rem;
 
-            &__gaussian-blur {
-                display: flex;
-                align-items: center;
-                width: 3rem;
-                height: 8rem;
-                backdrop-filter: brightness(0);
-
-                &::after {
-                    content: "";
-                    width: 3rem;
-                    height: 3rem;
-                    border-radius: 100%;
-                    border-style: solid;
-                    background-color: #C1531B;
-                    filter: blur(.8rem);
+                @include media-queries.desktop {
+                    flex-direction: row;
+                    align-items: center;
                 }
             }
 
@@ -94,7 +103,14 @@
             }
 
             &__title {
-                font-size: 2.5rem;
+                font-weight: 600;
+                font-size: 3rem;
+                cursor: pointer;
+
+                @include media-queries.desktop {
+                    margin: 0 auto;
+                    font-size: 5rem;
+                }
             }
         }
 
@@ -111,15 +127,59 @@
         }
 
         &__banner {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            cursor: pointer;
+            transition: transform .1s ease-in-out;
+            position: relative;
+
             &__main-img {
-                width: 100%;
-                background-color: white;
-                border-radius: .5rem;
+
+                &__container {
+                    position: relative;
+                }
+
+
+                &__gaussian-blur {
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    opacity: .5;
+                    transform: rotate(-2deg);
+                    background-color: #C1531B;
+                    filter: blur(10rem);
+                    z-index: 0;
+                }
+
+                &__content {
+                    position: relative;
+                    z-index: 1;
+
+                    img {
+                        border-radius: 3rem;
+                    }
+                }
+            }
+
+            &__extra-images {
+                display: flex;
+                align-items: center;
+                gap: 2rem;
+                z-index: 1;
+
+                &__img {
+                    height: fit-content;
+                    border-radius: 2rem;
+                    overflow: hidden;
+                    background-color: white;
+                }
+
             }
         }
 
         &__content {
-            // display: none;
             display: flex;
             flex-direction: column;
             gap: 5rem;
@@ -168,7 +228,7 @@
                     align-items: center;
                     gap: .5rem;
                     font-style: italic;
-                    
+
                     @include media-queries.desktop {
                         font-size: 2.2rem;
                     }
@@ -184,10 +244,9 @@
 }
 
 #timeline-line {
-    width: .5rem;
-    height: 80%;
-    position: absolute;
-    top: 10%;
+    height: auto;
+    width: .3rem;
+    opacity: 0.8;
     border-radius: .2rem;
     background-color: white;
 }

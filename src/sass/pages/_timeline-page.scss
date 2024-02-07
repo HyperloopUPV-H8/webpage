@@ -43,7 +43,15 @@
         margin-left: 3rem;
 
         @include media-queries.mobile {
+            gap: 10rem;
+        }
+
+        @include media-queries.tablet {
             gap: 5rem;
+        }
+
+        @include media-queries.desktop {
+            gap: 0;
         }
     }
 

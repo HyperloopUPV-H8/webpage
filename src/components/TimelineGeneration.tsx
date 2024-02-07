@@ -2,7 +2,7 @@ import plusCircleOutline from "../assets/icons/pluscircleoutline.svg"
 import awardTrophyOutline from "../assets/icons/awardtrophyoutline.svg"
 import hyperloopPodCompetition from "../assets/corporative/hyperloop-pod-competition.svg"
 import europeanHyperloopWeek from "../assets/corporative/european-hyperloop-week.svg"
-import { animated, useSpring } from "@react-spring/web"
+import { animated, useScroll, useSpring } from "@react-spring/web"
 import { useEffect, useState } from "react"
 
 interface Props {

@@ -10,7 +10,6 @@
 
         @include media-queries.desktop {
             display: flex;
-            align-items: center;
             min-height: 100vh;
 
         }
@@ -41,13 +40,20 @@
         display: flex;
         flex: 1;
         flex-direction: column;
-        gap: 5rem;
         margin-left: 3rem;
+
+        @include media-queries.mobile {
+            gap: 5rem;
+        }
     }
 
     &__title {
         color: white;
         font-size: 7rem;
+
+        @include media-queries.desktop {
+            margin-bottom: 10rem;
+        }
     }
 
     &__generation {
@@ -185,6 +191,7 @@
             flex-direction: column;
             gap: 5rem;
             align-items: center;
+            justify-content: center;
 
             &__description {
                 color: white;

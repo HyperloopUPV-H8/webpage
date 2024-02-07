@@ -39,6 +39,7 @@
 
     &__content {
         display: flex;
+        flex: 1;
         flex-direction: column;
         gap: 5rem;
         margin-left: 3rem;

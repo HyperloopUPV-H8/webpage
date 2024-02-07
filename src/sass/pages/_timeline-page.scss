@@ -72,11 +72,11 @@
 
             &__title {
                 display: flex;
-                gap: .5rem;
+                gap: 1rem;
                 z-index: 1;
                 
                 img {
-                    width: 1.8rem;
+                    width: 2.4rem;
                 }
 
             }
@@ -163,6 +163,11 @@
                 &__content {
                     position: relative;
                     z-index: 1;
+                    transition: transform .1s ease-in-out;
+
+                    &:hover {
+                        transform: scale(1.01);
+                    }
 
                     img {
                         border-radius: 3rem;

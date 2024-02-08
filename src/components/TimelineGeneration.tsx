@@ -18,7 +18,7 @@ interface Props {
     awards: string[]
 }
 
-const ANIMATION_DURATION = 600;
+const ANIMATION_DURATION = 400;
 const SAFE_DELAY = ANIMATION_DURATION * 2;
 
 export const TimelineGeneration = ({generation, inityear, endyear, title, banner, color, extraImages, description, competition, awards}: Props) => {

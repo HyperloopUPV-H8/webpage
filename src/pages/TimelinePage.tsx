@@ -156,7 +156,7 @@ export const TimelinePage = () => {
             generation="H8"
             inityear="2021"
             endyear="2022"
-            title="KENOS & ATLAS"
+            title="KÉNOS & ATLAS"
             banner={h8_banner}
             color={"#C1531B"}
             extraImages={[
@@ -166,6 +166,7 @@ export const TimelinePage = () => {
             description="El vehículo más completo en la competición hasta la fecha. Levitación y vacío unidos para alcanzar, por primera vez, el 0 rozamiento."
             competition="EuropeanHyperloopWeek"
             awards={[
+              "Top 3 en la EHW",
               "Mención especial a la infraestructura",
             ]}
           />

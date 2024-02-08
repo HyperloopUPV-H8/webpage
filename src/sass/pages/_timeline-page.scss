@@ -2,7 +2,19 @@
 
 .timeline {
     &__page {
+        
         background-color: black;
+
+        &__title {
+            position: absolute;
+            top: 15%;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1;
+            color: white;
+            text-align: center;
+            font-size: 6.5rem;
+        }
     }
 
     &__section {
@@ -14,15 +26,15 @@
         &.section-1 {
             position: relative;
             min-height: 100vh;
+
             video {
                 position: absolute;
-                top: 0;
-                left: 0;
                 width: 100%;
                 height: 100%;
                 object-fit: cover;
-                object-position: center;
+                z-index: 0;
             }
+
         }
     }
 

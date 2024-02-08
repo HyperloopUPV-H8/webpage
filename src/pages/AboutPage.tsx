@@ -19,7 +19,7 @@ export const AboutPage = () => {
         <video autoPlay loop muted playsInline>
           <source src={aboutVideo} type="video/mp4" />
         </video>
-        <h1 className="about__title">Acerca</h1>
+        <h1 className="about__page__title">Acerca</h1>
       </div>
 
       <div className="about__section__shadow">

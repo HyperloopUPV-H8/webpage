@@ -30,12 +30,13 @@ export const TimelinePage = () => {
           <video autoPlay loop muted playsInline>
             <source src={timelineVideo} type="video/mp4" />
           </video>
+          <h1 className="timeline__page__title">Trayectoria</h1>
       </div>
 
       <div className="timeline__container">
         <div id="timeline-line"></div>
         <div className="timeline__content">
-          <h1 className="timeline__title">Timeline</h1>
+          <h2 className="timeline__title">Timeline</h2>
           <TimelineGeneration
             generation="H1"
             inityear="2015"

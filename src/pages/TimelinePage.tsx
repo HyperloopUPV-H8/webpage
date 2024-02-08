@@ -141,7 +141,7 @@ export const TimelinePage = () => {
               h7_extra_1,
               h7_extra_2,
             ]}
-            description="La ligereza personalizada, el primer vehículo en el mundo capaz de levitar, y el más premiado de la EHW."
+            description="La ligereza personificada, el primer vehículo en el mundo capaz de levitar, y el más premiado de la EHW."
             competition="EuropeanHyperloopWeek"
             awards={[
               "Premio Most Scalable Design",
@@ -162,7 +162,7 @@ export const TimelinePage = () => {
               h8_extra_1,
               h8_extra_2,
             ]}
-            description="La potencia hecha prototipo. El caudal de un río comprimido en un prototipo capaz de alcanzar los 400 km/h."
+            description="El vehículo más completo en la competición hasta la fecha. Levitación y vacío unidos para alcanzar, por primera vez, el 0 rozamiento."
             competition="EuropeanHyperloopWeek"
             awards={[
               "Mención especial a la infraestructura",

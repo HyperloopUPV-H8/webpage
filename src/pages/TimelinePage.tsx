@@ -21,6 +21,7 @@ import h7_extra_1 from "../assets/media/timeline-h7-extra-1.jpeg"
 import h7_extra_2 from "../assets/media/timeline-h7-extra-2.jpeg"
 import h8_extra_1 from "../assets/media/timeline-h8-extra-1.jpeg"
 import h8_extra_2 from "../assets/media/timeline-h8-extra-2.jpeg"
+import arrowCircleDownOutline from "../assets/icons/arrowcircledownoutline.svg"
 import { TimelineGeneration } from "../components"
 
 export const TimelinePage = () => {
@@ -31,6 +32,9 @@ export const TimelinePage = () => {
             <source src={timelineVideo} type="video/mp4" />
           </video>
           <h1 className="timeline__page__title">Trayectoria</h1>
+          <div className="timeline__page__scroll-down-button">
+            <img src={arrowCircleDownOutline} alt="Scroll down button" />
+          </div>
       </div>
 
       <div className="timeline__container">

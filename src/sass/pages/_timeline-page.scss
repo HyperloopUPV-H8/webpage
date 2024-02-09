@@ -39,7 +39,6 @@
         }
 
         &.section-1 {
-            position: relative;
             min-height: 100vh;
 
             video {
@@ -47,7 +46,6 @@
                 width: 100%;
                 height: 100%;
                 object-fit: cover;
-                z-index: 0;
             }
 
         }

@@ -23,8 +23,16 @@ import h8_extra_1 from "../assets/media/timeline-h8-extra-1.jpeg"
 import h8_extra_2 from "../assets/media/timeline-h8-extra-2.jpeg"
 import arrowCircleDownOutline from "../assets/icons/arrowcircledownoutline.svg"
 import { TimelineGeneration } from "../components"
+import { useRef } from "react"
 
 export const TimelinePage = () => {
+  
+  const divScrollDestination = useRef<HTMLDivElement>(null);
+
+  const onScrollDown = () => {
+    divScrollDestination.current?.scrollIntoView({ behavior: "smooth" });
+  }
+
   return (
     <div className="timeline__page">
       <div className="timeline__section section-1">
@@ -33,11 +41,11 @@ export const TimelinePage = () => {
           </video>
           <h1 className="timeline__page__title">Trayectoria</h1>
           <div className="timeline__page__scroll-down-button">
-            <img src={arrowCircleDownOutline} alt="Scroll down button" />
+            <img src={arrowCircleDownOutline} alt="Scroll down button" onClick={onScrollDown}/>
           </div>
       </div>
 
-      <div className="timeline__container">
+      <div className="timeline__container" ref={divScrollDestination}>
         <div id="timeline-line"></div>
         <div className="timeline__content">
           <h2 className="timeline__title">Timeline</h2>

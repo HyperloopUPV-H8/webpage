@@ -18,7 +18,11 @@ export const Navbar = () => {
   useEffect(() => {
     let lastScroll = window.scrollY
     const handleScroll = (_: Event) => {
-      setIsHidden(window.scrollY - lastScroll > 0)
+      if(lastScroll < 10) {
+        setIsHidden(false);
+      } else {
+        setIsHidden(window.scrollY - lastScroll > 0)
+      }
       if(window.scrollY - lastScroll > 0) {
         setOpen(false);
       }

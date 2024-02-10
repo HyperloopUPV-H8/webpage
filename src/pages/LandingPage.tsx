@@ -43,7 +43,7 @@ export const LandingPage = () => {
       </section>
 
       <section className="landing__section section-4">
-          <video autoPlay loop muted>
+          <video autoPlay loop muted playsInline>
             <source src={landingVideo} type="video/mp4" />
           </video>
           <h3 className="what-is-hyperloop__title">¿Qué es hyperloop?</h3>

@@ -11,8 +11,17 @@ import ehw from "../assets/media/ehw.png"
 import ehwBanner from "../assets/media/banner.png"
 import podCompetitionLeft from "../assets/media/pod-competition-1.png"
 import podCompetitionRight from "../assets/media/pod-competition-2.png"
+import arrowCircleDownOutline from "../assets/icons/arrowcircledownoutline.svg"
+import { useRef } from "react"
 
 export const AboutPage = () => {
+
+  const divScrollDestination = useRef<HTMLDivElement>(null);
+
+  const onScrollDown = () => {
+    divScrollDestination.current?.scrollIntoView({ behavior: "smooth" });
+  }
+
   return (
     <>
       <div className="about__section section-1">
@@ -20,9 +29,12 @@ export const AboutPage = () => {
           <source src={aboutVideo} type="video/mp4" />
         </video>
         <h1 className="about__page__title">Acerca</h1>
+        <div className="about__page__scroll-down-button">
+          <img src={arrowCircleDownOutline} alt="Scroll down button" onClick={onScrollDown}/>
+        </div>
       </div>
 
-      <div className="about__section__shadow">
+      <div className="about__section__shadow" ref={divScrollDestination}>
         <section className="about__section section-2">
 
           <div className="about__mission-vision">

@@ -17,6 +17,21 @@
             text-align: center;
             font-size: 6.5rem;
         }
+
+        &__scroll-down-button {
+            width: 5rem;
+            position: absolute;
+            bottom: 15%;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1;
+            color: white;
+            text-align: center;
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
     }
 
     &__section {

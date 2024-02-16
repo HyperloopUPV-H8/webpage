@@ -1,0 +1,96 @@
+@use "../core/media-queries";
+
+.timeline {
+    &__page {
+        
+        background-color: black;
+
+        &__title {
+            position: absolute;
+            top: 15%;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1;
+            color: white;
+            text-align: center;
+            font-size: 6rem;
+        }
+
+        &__scroll-down-button {
+            width: 5rem;
+            position: absolute;
+            bottom: 15%;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1;
+            color: white;
+            text-align: center;
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+
+    &__section {
+        @include media-queries.desktop {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        &.section-1 {
+            min-height: 100vh;
+
+            video {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+        }
+    }
+
+    &__container {
+        display: flex;
+        margin: 0 auto;
+        width: 85%;
+        padding: 10rem 0;
+    }
+
+    &__content {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        margin-left: 3rem;
+
+        @include media-queries.mobile {
+            gap: 10rem;
+        }
+
+        @include media-queries.tablet {
+            gap: 5rem;
+        }
+
+        @include media-queries.desktop {
+            gap: 0;
+        }
+    }
+
+    &__title {
+        color: white;
+        font-size: 7rem;
+
+        @include media-queries.desktop {
+            margin-bottom: 10rem;
+        }
+    }
+}
+
+#timeline-line {
+    height: auto;
+    width: 0.3rem;
+    opacity: 0.8;
+    border-radius: 0.2rem;
+    background-color: white;
+}

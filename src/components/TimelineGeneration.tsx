@@ -1,4 +1,5 @@
 import plusCircleOutline from "../assets/icons/pluscircleoutline.svg"
+import minusCircleOutline from "../assets/icons/minuscircleoutline.svg"
 import awardTrophyOutline from "../assets/icons/awardtrophyoutline.svg"
 import hyperloopPodCompetition from "../assets/corporative/hyperloop-pod-competition.svg"
 import europeanHyperloopWeek from "../assets/corporative/european-hyperloop-week.svg"
@@ -110,7 +111,7 @@ export const TimelineGeneration = ({generation, inityear, endyear, title, banner
               </div>
               <div className="timeline__generation__header__title" onClick={onToggleContent}>
                 {title}
-                <img src={plusCircleOutline} alt="Show more icon"/>
+                <img src={(open ? minusCircleOutline : plusCircleOutline)} alt="Show more icon"/>
               </div>
             </div>
           </div>

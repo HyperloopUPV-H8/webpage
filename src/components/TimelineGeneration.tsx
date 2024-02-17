@@ -19,7 +19,7 @@ interface Props {
     awards: string[]
 }
 
-const ANIMATION_DURATION = 400;
+const ANIMATION_DURATION = 500;
 const SAFE_DELAY = ANIMATION_DURATION * 2;
 
 export const TimelineGeneration = ({generation, inityear, endyear, title, banner, color, extraImages, description, competition, awards}: Props) => {
@@ -31,9 +31,9 @@ export const TimelineGeneration = ({generation, inityear, endyear, title, banner
     const [extraImagesSprings, extraImagesSpringsApi] = useSpring(() => ({
         from: {
             display: "none",
+            width: "0",
             height: "0",
             opacity: 0,
-            transform: "translateY(2rem)",
         },
         config: { duration: ANIMATION_DURATION }
     }));
@@ -44,7 +44,6 @@ export const TimelineGeneration = ({generation, inityear, endyear, title, banner
             width: "0",
             height: "0",
             opacity: 0,
-            transform: "translateX(5rem)",
         },
         config: { duration: ANIMATION_DURATION }
     }));
@@ -56,62 +55,74 @@ export const TimelineGeneration = ({generation, inityear, endyear, title, banner
         config: { duration: ANIMATION_DURATION }
     }));
 
-    const onToggleContent = () => {
-        if(isAnimating) return;
-        setIsAnimating(true);
-        setTimeout(() => setIsAnimating(false), SAFE_DELAY);
-        setOpen(!open);
-    };
-
     // This effect will be triggered when the user clicks on the title of the generation,
     // and will animate the opening and closing of the content.
     useEffect(() => {
       if(open) {
           extraImagesSpringsApi.start({
-              display: "flex",
-              height: "100%",
-              onRest: () => extraImagesSpringsApi.start({
+            display: "flex",
+            width: "100%",
+            height: "100%",
+            onRest: () => {
+                extraImagesSpringsApi.start({
                   opacity: 1,
-                  transform: "translateY(0rem)",
-              })
+                });
+            }
           })
           contentSpringsApi.start({
-              display: "flex",
-              width: "100%",
-              onRest: () => contentSpringsApi.start({
-                      height: "100%",
-                      opacity: 1,
-                      transform: "translateX(0rem)",
-              }),
+            display: "flex",
+            width: "100%",
+            height: "100%",
+            onRest: () => {
+              contentSpringsApi.start({
+                opacity: 1,
+              });
+            }
           });
           dateTitleSpringsApi.start({
               fontSize: "1.8rem"
           });
       } else {
           extraImagesSpringsApi.start({
-              opacity: 0,
-              transform: "translateY(2rem)",
-              onRest: () => extraImagesSpringsApi.start({
-                  display: "none",
-              })
+            opacity: 0,
+            onRest: () => {
+                extraImagesSpringsApi.start({
+                    height: "0",
+                    width: "0",
+                    onRest: () => {
+                        extraImagesSpringsApi.start({
+                            display: "none",
+                        });
+                    }
+                })
+            }
           })
           contentSpringsApi.start({
-              opacity: 0,
-              height: "0",
-              transform: "translateX(5rem)",
-              onRest: () => contentSpringsApi.start({
-                      width: "0",
-                      onRest: () => contentSpringsApi.start({
-                          display: "none",
-                          immediate: true,
-                      }),
-              })
+            opacity: 0,
+            onRest: () => {
+                contentSpringsApi.start({
+                    width: "0",
+                    height: "0",
+                    onRest: () => {
+                        contentSpringsApi.start({
+                            display: "none",
+                        });
+                    }
+                })
+            }
           });
           dateTitleSpringsApi.start({
               fontSize: "2.2rem"
           });
       }
     }, [open]);
+
+    const onToggleContent = () => {
+        if(isAnimating) return;
+        setIsAnimating(true);
+        setTimeout(() => setIsAnimating(false), SAFE_DELAY);
+        setOpen(!open);
+    };
 
     return (
       <section className="timeline__section">

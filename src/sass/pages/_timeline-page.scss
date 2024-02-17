@@ -35,7 +35,7 @@
     &__section {
         @include media-queries.desktop {
             display: flex;
-            min-height: 100vh;
+            height: 100vh;
         }
 
         &.section-1 {

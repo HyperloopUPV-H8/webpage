@@ -49,6 +49,13 @@ export const TimelineGeneration = ({generation, inityear, endyear, title, banner
         config: { duration: ANIMATION_DURATION }
     }));
 
+    const [dateTitleSprings, dateTitleSpringsApi] = useSpring(() => ({
+        from: {
+            fontSize: "2.2rem"
+        },
+        config: { duration: ANIMATION_DURATION }
+    }));
+
     const onToggleContent = () => {
         if(isAnimating) return;
         setIsAnimating(true);
@@ -77,6 +84,9 @@ export const TimelineGeneration = ({generation, inityear, endyear, title, banner
                       transform: "translateX(0rem)",
               }),
           });
+          dateTitleSpringsApi.start({
+              fontSize: "1.8rem"
+          });
       } else {
           extraImagesSpringsApi.start({
               opacity: 0,
@@ -97,6 +107,9 @@ export const TimelineGeneration = ({generation, inityear, endyear, title, banner
                       }),
               })
           });
+          dateTitleSpringsApi.start({
+              fontSize: "2.2rem"
+          });
       }
     }, [open]);
 
@@ -106,9 +119,9 @@ export const TimelineGeneration = ({generation, inityear, endyear, title, banner
           <div className="timeline__generation__header">
               <div className="timeline__generation__header__gaussian-blur" style={{backgroundColor: `${color}`}}></div>
             <div className="timeline__generation__header__content">
-              <div className="timeline__generation__header__date">
+              <animated.div className="timeline__generation__header__date" style={{...dateTitleSprings}}>
                   {generation}<span> {`${inityear} - ${endyear}`}</span>
-              </div>
+              </animated.div>
               <div className="timeline__generation__header__title" onClick={onToggleContent}>
                 {title}
                 <img src={(open ? minusCircleOutline : plusCircleOutline)} alt="Show more icon"/>

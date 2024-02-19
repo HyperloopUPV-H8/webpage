@@ -5,6 +5,7 @@ import hyperloopPodCompetition from "../assets/corporative/hyperloop-pod-competi
 import europeanHyperloopWeek from "../assets/corporative/european-hyperloop-week.svg"
 import { animated, useSpring } from "@react-spring/web"
 import { useEffect, useState } from "react"
+import { useMediaQuery } from "react-responsive"
 
 interface Props {
     generation: string,
@@ -19,7 +20,7 @@ interface Props {
     awards: string[]
 }
 
-const ANIMATION_DURATION = 500;
+const ANIMATION_DURATION = 350;
 const SAFE_DELAY = ANIMATION_DURATION * 2;
 
 export const TimelineGeneration = ({generation, inityear, endyear, title, banner, color, extraImages, description, competition, awards}: Props) => {
@@ -27,6 +28,7 @@ export const TimelineGeneration = ({generation, inityear, endyear, title, banner
     const competitionImage = competition === "HyperloopPodCompetition" ? hyperloopPodCompetition : europeanHyperloopWeek;
     const [open, setOpen] = useState(false);
     const [isAnimating, setIsAnimating] = useState(false);
+    const isMobileOrTablet = useMediaQuery({ query: "(max-width: 1024px)" });
 
     const [extraImagesSprings, extraImagesSpringsApi] = useSpring(() => ({
         from: {
@@ -63,6 +65,7 @@ export const TimelineGeneration = ({generation, inityear, endyear, title, banner
             display: "flex",
             width: "100%",
             height: "100%",
+            immediate: isMobileOrTablet,
             onRest: () => {
                 extraImagesSpringsApi.start({
                   opacity: 1,
@@ -73,6 +76,7 @@ export const TimelineGeneration = ({generation, inityear, endyear, title, banner
             display: "flex",
             width: "100%",
             height: "100%",
+            immediate: isMobileOrTablet,
             onRest: () => {
               contentSpringsApi.start({
                 opacity: 1,
@@ -89,6 +93,7 @@ export const TimelineGeneration = ({generation, inityear, endyear, title, banner
                 extraImagesSpringsApi.start({
                     height: "0",
                     width: "0",
+                    immediate: isMobileOrTablet,
                     onRest: () => {
                         extraImagesSpringsApi.start({
                             display: "none",
@@ -103,6 +108,7 @@ export const TimelineGeneration = ({generation, inityear, endyear, title, banner
                 contentSpringsApi.start({
                     width: "0",
                     height: "0",
+                    immediate: isMobileOrTablet,
                     onRest: () => {
                         contentSpringsApi.start({
                             display: "none",

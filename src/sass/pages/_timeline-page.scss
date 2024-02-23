@@ -33,9 +33,12 @@
     }
 
     &__section {
+
+        flex: 1;
+
         @include media-queries.desktop {
             display: flex;
-            min-height: 100vh;
+            // min-height: 100vh;
         }
 
         &.section-1 {
@@ -60,7 +63,6 @@
 
     &__content {
         display: flex;
-        flex: 1;
         flex-direction: column;
         margin-left: 3rem;
 
@@ -69,26 +71,17 @@
         }
 
         @include media-queries.tablet {
-            gap: 5rem;
-        }
-
-        @include media-queries.desktop {
-            gap: 0;
+            gap: 20rem;
         }
     }
 
     &__title {
         color: white;
         font-size: 7rem;
-
-        @include media-queries.desktop {
-            margin-bottom: 10rem;
-        }
     }
 }
 
 #timeline-line {
-    height: auto;
     width: 0.3rem;
     opacity: 0.8;
     border-radius: 0.2rem;

@@ -1,9 +1,11 @@
 import plusCircleOutline from "../assets/icons/pluscircleoutline.svg"
+import minusCircleOutline from "../assets/icons/minuscircleoutline.svg"
 import awardTrophyOutline from "../assets/icons/awardtrophyoutline.svg"
 import hyperloopPodCompetition from "../assets/corporative/hyperloop-pod-competition.svg"
 import europeanHyperloopWeek from "../assets/corporative/european-hyperloop-week.svg"
 import { animated, useSpring } from "@react-spring/web"
 import { useEffect, useState } from "react"
+import { useMediaQuery } from "react-responsive"
 
 interface Props {
     generation: string,
@@ -18,7 +20,7 @@ interface Props {
     awards: string[]
 }
 
-const ANIMATION_DURATION = 400;
+const ANIMATION_DURATION = 350;
 const SAFE_DELAY = ANIMATION_DURATION * 2;
 
 export const TimelineGeneration = ({generation, inityear, endyear, title, banner, color, extraImages, description, competition, awards}: Props) => {
@@ -26,13 +28,14 @@ export const TimelineGeneration = ({generation, inityear, endyear, title, banner
     const competitionImage = competition === "HyperloopPodCompetition" ? hyperloopPodCompetition : europeanHyperloopWeek;
     const [open, setOpen] = useState(false);
     const [isAnimating, setIsAnimating] = useState(false);
+    const isMobileOrTablet = useMediaQuery({ query: "(max-width: 1024px)" });
 
     const [extraImagesSprings, extraImagesSpringsApi] = useSpring(() => ({
         from: {
             display: "none",
+            width: "0",
             height: "0",
             opacity: 0,
-            transform: "translateY(2rem)",
         },
         config: { duration: ANIMATION_DURATION }
     }));
@@ -43,10 +46,82 @@ export const TimelineGeneration = ({generation, inityear, endyear, title, banner
             width: "0",
             height: "0",
             opacity: 0,
-            transform: "translateX(5rem)",
         },
         config: { duration: ANIMATION_DURATION }
     }));
+
+    const [dateTitleSprings, dateTitleSpringsApi] = useSpring(() => ({
+        from: {
+            fontSize: "2.2rem"
+        },
+        config: { duration: ANIMATION_DURATION }
+    }));
+
+    // This effect will be triggered when the user clicks on the title of the generation,
+    // and will animate the opening and closing of the content.
+    useEffect(() => {
+      if(open) {
+          extraImagesSpringsApi.start({
+            display: "flex",
+            width: "100%",
+            height: "100%",
+            immediate: isMobileOrTablet,
+            onRest: () => {
+                extraImagesSpringsApi.start({
+                  opacity: 1,
+                });
+            }
+          })
+          contentSpringsApi.start({
+            display: "flex",
+            width: "100%",
+            height: "100%",
+            immediate: isMobileOrTablet,
+            onRest: () => {
+              contentSpringsApi.start({
+                opacity: 1,
+              });
+            }
+          });
+          dateTitleSpringsApi.start({
+              fontSize: "1.8rem"
+          });
+      } else {
+          extraImagesSpringsApi.start({
+            opacity: 0,
+            onRest: () => {
+                extraImagesSpringsApi.start({
+                    height: "0",
+                    width: "0",
+                    immediate: isMobileOrTablet,
+                    onRest: () => {
+                        extraImagesSpringsApi.start({
+                            display: "none",
+                        });
+                    }
+                })
+            }
+          })
+          contentSpringsApi.start({
+            opacity: 0,
+            onRest: () => {
+                contentSpringsApi.start({
+                    width: "0",
+                    height: "0",
+                    immediate: isMobileOrTablet,
+                    onRest: () => {
+                        contentSpringsApi.start({
+                            display: "none",
+                        });
+                    }
+                })
+            }
+          });
+          dateTitleSpringsApi.start({
+              fontSize: "2.2rem"
+          });
+      }
+    }, [open]);
 
     const onToggleContent = () => {
         if(isAnimating) return;
@@ -55,62 +130,18 @@ export const TimelineGeneration = ({generation, inityear, endyear, title, banner
         setOpen(!open);
     };
 
-    // This effect will be triggered when the user clicks on the title of the generation,
-    // and will animate the opening and closing of the content.
-    useEffect(() => {
-      if(open) {
-          extraImagesSpringsApi.start({
-              display: "flex",
-              height: "100%",
-              onRest: () => extraImagesSpringsApi.start({
-                  opacity: 1,
-                  transform: "translateY(0rem)",
-              })
-          })
-          contentSpringsApi.start({
-              display: "flex",
-              width: "100%",
-              onRest: () => contentSpringsApi.start({
-                      height: "100%",
-                      opacity: 1,
-                      transform: "translateX(0rem)",
-              }),
-          });
-      } else {
-          extraImagesSpringsApi.start({
-              opacity: 0,
-              transform: "translateY(2rem)",
-              onRest: () => extraImagesSpringsApi.start({
-                  display: "none",
-              })
-          })
-          contentSpringsApi.start({
-              opacity: 0,
-              height: "0",
-              transform: "translateX(5rem)",
-              onRest: () => contentSpringsApi.start({
-                      width: "0",
-                      onRest: () => contentSpringsApi.start({
-                          display: "none",
-                          immediate: true,
-                      }),
-              })
-          });
-      }
-    }, [open]);
-
     return (
       <section className="timeline__section">
         <div className="timeline__generation">
           <div className="timeline__generation__header">
               <div className="timeline__generation__header__gaussian-blur" style={{backgroundColor: `${color}`}}></div>
             <div className="timeline__generation__header__content">
-              <div className="timeline__generation__header__date">
+              <animated.div className="timeline__generation__header__date" style={{...dateTitleSprings}}>
                   {generation}<span> {`${inityear} - ${endyear}`}</span>
-              </div>
+              </animated.div>
               <div className="timeline__generation__header__title" onClick={onToggleContent}>
                 {title}
-                <img src={plusCircleOutline} alt="Show more icon"/>
+                <img src={(open ? minusCircleOutline : plusCircleOutline)} alt="Show more icon"/>
               </div>
             </div>
           </div>

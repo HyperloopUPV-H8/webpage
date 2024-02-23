@@ -1,5 +1,5 @@
 import { Member, SubsystemTitle } from "."
-import TeamMembers from "../TeamMembers.json"
+import TeamMembers from "../meta/team-members.json"
 
 interface TeamMembersType {
   [key: string]: MemberType[]

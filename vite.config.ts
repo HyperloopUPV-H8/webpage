@@ -9,13 +9,6 @@ export default defineConfig({
   },
   plugins: [
     react(), 
-    ViteImageOptimizer({
-      jpeg: {
-        quality: 75,
-      },
-      jpg: {
-        quality: 75,
-      },
-    })
+    ViteImageOptimizer()
   ],
 })

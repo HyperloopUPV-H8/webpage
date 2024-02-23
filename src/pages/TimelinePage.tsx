@@ -166,8 +166,8 @@ export const TimelinePage = () => {
 
           <TimelineGeneration
             generation="H8"
-            inityear="2021"
-            endyear="2022"
+            inityear="2022"
+            endyear="2023"
             title="KÉNOS & ATLAS"
             banner={h8_banner}
             color={"#C1531B"}

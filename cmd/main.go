@@ -9,6 +9,7 @@ import (
 
 	"github.com/HyperloopUPV-H8/webpage-backend/internal/endpoints"
 	"github.com/HyperloopUPV-H8/webpage-backend/internal/members"
+	"github.com/HyperloopUPV-H8/webpage-backend/internal/partners"
 	"github.com/rs/zerolog/log"
 )
 
@@ -18,22 +19,50 @@ func main() {
 	flag.Parse()
 
 	membersEndpoint := endpoints.NewMembers([]members.Subsystem{
-		members.Subsystem{
+		{
 			Name: "direction",
 			Members: []members.Member{
-				members.Member{
+				{
 					Name: "Hugo Albert",
 				},
-				members.Member{
+				{
 					Name: "Stefan Costea",
 				},
-				members.Member{
+				{
 					Name: "Alvaro Perez",
 				},
 			},
 		},
 	})
 	http.Handle("/members", &membersEndpoint)
+
+	partnersEndpoint := endpoints.NewPartners([]partners.Tier{
+		{
+			Name: "premium",
+			Partners: []partners.Partner{
+				{
+					Name: "Universitat Politecnica De Valencia",
+				},
+				{
+					Name: "Coaltec Soldadura",
+				},
+				{
+					Name: "Zeleros",
+				},
+				{
+					Name: "Uniweld",
+				},
+				{
+					Name: "Acerinox",
+				},
+			},
+			Style: partners.TierStyle{
+				Width: "70%",
+				Color: "#ffffff",
+			},
+		},
+	})
+	http.Handle("partners", &partnersEndpoint)
 
 	go func() {
 		err := http.ListenAndServe(*AddressFlag, nil)

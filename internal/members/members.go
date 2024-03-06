@@ -1,7 +1,5 @@
 package members
 
-type Subsystems []Subsystem
-
 type Subsystem struct {
 	Name    string   `json:"name"`
 	Members []Member `json:"members"`

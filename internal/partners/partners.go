@@ -1,7 +1,5 @@
 package partners
 
-type Tiers []Tier
-
 type Tier struct {
 	Name     string    `json:"name"`
 	Partners []Partner `json:"partners"`

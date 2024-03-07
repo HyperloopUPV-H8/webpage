@@ -114,16 +114,16 @@ type MemberUpdate struct {
 func (update MemberUpdate) toMember() members.Member {
 	return members.Member{
 		Name:       update.Name,
-		ImageURL:   getImagePath(update.Name),
+		ImageURL:   getMemberImagePath(update.Name),
 		Role:       update.Role,
 		SocialsURL: update.SocialsURL,
 	}
 }
 
-func getImagePath(name string) string {
-	return fmt.Sprintf("%s/%s.webp", MemberMediaFolder, formatName(name))
+func getMemberImagePath(name string) string {
+	return fmt.Sprintf("%s/%s.webp", MemberMediaFolder, formatMemberName(name))
 }
 
-func formatName(name string) string {
+func formatMemberName(name string) string {
 	return strings.Join(strings.Split(strings.ToLower(name), " "), "_")
 }

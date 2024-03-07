@@ -49,14 +49,14 @@ func (endpoint *Endpoint) options(writter http.ResponseWriter, _ *http.Request) 
 func (endpoint *Endpoint) get(writter http.ResponseWriter, request *http.Request) {
 	log.Debug().Msg("get")
 
-	subsystemsRaw, err := json.Marshal(endpoint.tiers)
+	tiersRaw, err := json.Marshal(endpoint.tiers)
 	if err != nil {
-		log.Error().Stack().Err(err).Msg("marshal subsystems")
+		log.Error().Stack().Err(err).Msg("marshal tiers")
 		http.Error(writter, "", http.StatusInternalServerError)
 		return
 	}
 
-	http.ServeContent(writter, request, "partners.json", endpoint.lastUpdated, bytes.NewReader(subsystemsRaw))
+	http.ServeContent(writter, request, "partners.json", endpoint.lastUpdated, bytes.NewReader(tiersRaw))
 }
 
 func (endpoint *Endpoint) post(writter http.ResponseWriter, request *http.Request) {

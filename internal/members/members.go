@@ -5,6 +5,14 @@ import (
 	"strings"
 )
 
+func SubsystemsFromUpdates(updates []SubsystemUpdate) []Subsystem {
+	subsystems := make([]Subsystem, len(updates))
+	for i, update := range updates {
+		subsystems[i] = update.toSubsystem()
+	}
+	return subsystems
+}
+
 type Subsystem struct {
 	Name    string   `json:"name"`
 	Members []Member `json:"members"`

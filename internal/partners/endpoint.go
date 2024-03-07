@@ -36,6 +36,7 @@ func (endpoint *Endpoint) ServeHTTP(writter http.ResponseWriter, request *http.R
 		endpoint.options(writter, request)
 	default:
 		log.Warn().Str("method", request.Method).Msg("method not allowed")
+		writter.Header().Add("Allow", "GET, POST, OPTIONS")
 		writter.WriteHeader(http.StatusMethodNotAllowed)
 	}
 }

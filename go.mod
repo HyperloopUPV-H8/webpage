@@ -1,6 +1,6 @@
 module github.com/HyperloopUPV-H8/webpage-backend
 
-go 1.21.3
+go 1.22.1
 
 require (
 	github.com/mattn/go-colorable v0.1.13 // indirect

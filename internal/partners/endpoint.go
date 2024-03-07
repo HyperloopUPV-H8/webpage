@@ -11,7 +11,7 @@ import (
 
 var _ http.Handler = &Endpoint{}
 
-const PartnerMediaFolder = "/media/partners"
+const PartnersMediaFolder = "/media/partners"
 
 type Endpoint struct {
 	lastUpdated time.Time

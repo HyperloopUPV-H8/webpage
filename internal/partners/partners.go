@@ -69,20 +69,28 @@ func (update PartnerUpdate) toPartner() Partner {
 }
 
 type LogoUpdate struct {
+	URL    *string `json:"url,omitempty"`
 	Width  *string `json:"width,omitempty"`
 	Height *string `json:"height,omitempty"`
 }
 
 func (update LogoUpdate) toLogo(name string) Logo {
+	var url string
+	if update.URL != nil {
+		url = *update.URL
+	} else {
+		url = getLogoImagePath(name)
+	}
+
 	return Logo{
-		URL:    getLogoImagePath(name),
+		URL:    url,
 		Width:  update.Width,
 		Height: update.Height,
 	}
 }
 
 func getLogoImagePath(name string) string {
-	return fmt.Sprintf("%s/%s.svg", PartnerMediaFolder, formatPartnerName(name))
+	return fmt.Sprintf("%s/%s", PartnersMediaFolder, formatPartnerName(name))
 }
 
 func formatPartnerName(name string) string {

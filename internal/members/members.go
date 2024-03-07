@@ -42,22 +42,29 @@ func (update SubsystemUpdate) toSubsystem() Subsystem {
 }
 
 type MemberUpdate struct {
-	Name       string `json:"name"`
-	Role       string `json:"role"`
-	SocialsURL string `json:"socialsURL"`
+	Name       string  `json:"name"`
+	ImageURL   *string `json:"imageURL,omitempty"`
+	Role       string  `json:"role"`
+	SocialsURL string  `json:"socialsURL"`
 }
 
 func (update MemberUpdate) toMember() Member {
+	var imageURL string
+	if update.ImageURL != nil {
+		imageURL = *update.ImageURL
+	} else {
+		imageURL = getMemberImagePath(update.Name)
+	}
 	return Member{
 		Name:       update.Name,
-		ImageURL:   getMemberImagePath(update.Name),
+		ImageURL:   imageURL,
 		Role:       update.Role,
 		SocialsURL: update.SocialsURL,
 	}
 }
 
 func getMemberImagePath(name string) string {
-	return fmt.Sprintf("%s/%s.webp", MemberMediaFolder, formatMemberName(name))
+	return fmt.Sprintf("%s/%s", MembersMediaFolder, formatMemberName(name))
 }
 
 func formatMemberName(name string) string {

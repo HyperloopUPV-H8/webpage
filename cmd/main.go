@@ -7,6 +7,7 @@ import (
 	"os/signal"
 	"syscall"
 
+	"github.com/HyperloopUPV-H8/webpage-backend/internal/media"
 	"github.com/HyperloopUPV-H8/webpage-backend/internal/members"
 	"github.com/HyperloopUPV-H8/webpage-backend/internal/partners"
 	"github.com/rs/zerolog/log"
@@ -62,6 +63,9 @@ func main() {
 		},
 	})
 	http.Handle("/partners", &partnersEndpoint)
+
+	mediaEndpoint := media.NewEndpoint()
+	http.Handle("/media/", http.StripPrefix("/media", &mediaEndpoint))
 
 	go func() {
 		err := http.ListenAndServe(*AddressFlag, nil)

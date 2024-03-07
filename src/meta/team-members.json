@@ -11,7 +11,7 @@
             "imgUrl": "/team/members/direction/Hugo-Albert.jpeg",
             "rol": "Team Lead",
             "linkedin": "https://www.linkedin.com/in/hugoalbert/"
-        }, 
+        },
         {
             "name": "Álvaro Pérez",
             "imgUrl": "/team/members/direction/Alvaro-Perez.jpeg",
@@ -76,7 +76,7 @@
             "rol": "Member",
             "linkedin": "https://www.linkedin.com/in/ricardo-chust-fides-18b714287/"
         }
-    ], 
+    ],
     "software": [
         {
             "name": "Andrés de la Torre",
@@ -177,13 +177,13 @@
             "imgUrl": "/team/members/electromagnetics/electromagnetics.svg",
             "rol": "Member",
             "linkedin": "https://www.linkedin.com/in/javiertormo/"
-        }, 
+        },
         {
             "name": "Mariano Andújar",
             "imgUrl": "/team/members/electromagnetics/Mariano-Andujar.jpeg",
             "rol": "Project Manager",
             "linkedin": "https://www.linkedin.com/in/mariano-and%C3%BAjar-bola%C3%B1o-aaa51823a/"
-        }, 
+        },
         {
             "name": "José Luis Gil",
             "imgUrl": "/team/members/electromagnetics/electromagnetics.svg",
@@ -253,7 +253,7 @@
             "imgUrl": "/team/members/partners/partners.svg",
             "rol": "Member",
             "linkedin": "https://www.linkedin.com/in/ricardocasasnovas23/"
-        }, 
+        },
         {
             "name": "Mireia Pérez",
             "imgUrl": "/team/members/partners/partners.svg",

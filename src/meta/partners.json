@@ -20,28 +20,12 @@
                 "url": "http://www.coatec.net/"
             },
             {
-                "name": "Zeleros",
-                "logo": {
-                    "url": "/partners/premium/zeleros.svg",
-                    "height": "15rem"
-                },
-                "url": "https://zeleros.com/"
-            },
-            {
                 "name": "Uni-Weld",
                 "logo": {
                     "url": "/partners/premium/uni-weld.svg",
                     "height": "20rem"
                 },
                 "url": "https://www.uni-weld.com/"
-            },
-            {
-                "name": "Acerinox",
-                "logo": {
-                    "url": "/partners/premium/acerinox.svg",
-                    "height": "21rem"
-                },
-                "url": "https://www.acerinox.com/"
             }
         ]
     },
@@ -72,14 +56,6 @@
                     "height": "9rem"
                 },
                 "url": "https://generacionespontanea.upv.es/"
-            },
-            {
-                "name": "Mudinmar",
-                "logo": {
-                    "url": "/partners/gold/mudinmar.svg",
-                    "width": "40rem"
-                },
-                "url": "https://www.mudinmar.com/"
             },
             {
                 "name": "Sick",
@@ -377,7 +353,7 @@
                 "name": "DropShirt",
                 "logo": {
                     "url": "/partners/bronze/dropshirt.svg",
-                    "height": "8rem"
+                    "height": "9rem"
                 },
                 "url": "https://www.dropshirt.eu/"
             },
@@ -644,12 +620,20 @@
                     "height": "5rem"
                 },
                 "url": "https://www.aluval.com/"
+            },
+            {
+                "name": "Nexperia",
+                "logo": {
+                    "url": "/partners/bronze/nexperia.svg",
+                    "height": "5rem"
+                },
+                "url": "https://www.nexperia.com/"
             }
         ]
     },
     "Colaborator": {
         "color": "#2486A4",
-        "width": "100%",
+        "width": "90%",
         "partners": [
             {
                 "name": "Norelem",
@@ -762,14 +746,6 @@
                     "height": "6rem"
                 },
                 "url": "https://www.vertiprotect.com/"
-            },
-            {
-                "name": "Grupo Alonso",
-                "logo": {
-                    "url": "/partners/colaborator/grupo_alonso.svg",
-                    "height": "5rem"
-                },
-                "url": "https://grupo-alonso.com/"
             },
             {
                 "name": "Torrod",

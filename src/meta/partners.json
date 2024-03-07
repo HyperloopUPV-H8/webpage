@@ -582,6 +582,14 @@
                 "url": "https://istobal.com/"
             },
             {
+                "name": "Zeleros",
+                "logo": {
+                    "url": "/partners/bronze/zeleros.svg",
+                    "height": "8rem"
+                },
+                "url": "https://zeleros.com/"
+            },
+            {
                 "name": "Alco",
                 "logo": {
                     "url": "/partners/bronze/alco.svg",

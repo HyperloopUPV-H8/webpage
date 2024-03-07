@@ -5,6 +5,14 @@ import (
 	"strings"
 )
 
+func TiersFromUpdates(updates []TierUpdate) []Tier {
+	tiers := make([]Tier, len(updates))
+	for i, update := range updates {
+		tiers[i] = update.toTier()
+	}
+	return tiers
+}
+
 type Tier struct {
 	Name     string    `json:"name"`
 	Partners []Partner `json:"partners"`

@@ -66,14 +66,18 @@ func (endpoint *Members) get(writter http.ResponseWriter, request *http.Request)
 	}
 }
 
-func (endpoint *Members) post(_ http.ResponseWriter, request *http.Request) {
+func (endpoint *Members) post(writter http.ResponseWriter, request *http.Request) {
 	defer request.Body.Close()
 	log.Debug().Msg("post")
 
 	var updates []SubsystemUpdate
-	err := json.NewDecoder(request.Body).Decode(&updates)
+	decoder := json.NewDecoder(request.Body)
+	decoder.DisallowUnknownFields()
+	err := decoder.Decode(&updates)
 	if err != nil {
 		log.Error().Stack().Err(err).Msg("decode body")
+		writter.WriteHeader(http.StatusBadRequest)
+		return
 	}
 
 	newSubsystems := make([]members.Subsystem, len(updates))

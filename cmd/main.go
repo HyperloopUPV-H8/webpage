@@ -62,7 +62,7 @@ func main() {
 			},
 		},
 	})
-	http.Handle("partners", &partnersEndpoint)
+	http.Handle("/partners", &partnersEndpoint)
 
 	go func() {
 		err := http.ListenAndServe(*AddressFlag, nil)

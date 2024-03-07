@@ -1,4 +1,4 @@
-package endpoints
+package partners
 
 import (
 	"encoding/json"
@@ -7,28 +7,27 @@ import (
 	"strings"
 	"time"
 
-	"github.com/HyperloopUPV-H8/webpage-backend/internal/partners"
 	"github.com/HyperloopUPV-H8/webpage-backend/pkg/http/headers"
 	"github.com/rs/zerolog/log"
 )
 
-var _ http.Handler = &Partners{}
+var _ http.Handler = &Endpoint{}
 
 const PartnerMediaFolder = "/media/partners"
 
-type Partners struct {
+type Endpoint struct {
 	lastUpdated time.Time
-	tiers       []partners.Tier
+	tiers       []Tier
 }
 
-func NewPartners(tiers []partners.Tier) Partners {
-	return Partners{
+func NewEndpoint(tiers []Tier) Endpoint {
+	return Endpoint{
 		lastUpdated: time.Now(),
 		tiers:       tiers,
 	}
 }
 
-func (endpoint *Partners) ServeHTTP(writter http.ResponseWriter, request *http.Request) {
+func (endpoint *Endpoint) ServeHTTP(writter http.ResponseWriter, request *http.Request) {
 	switch request.Method {
 	case http.MethodGet:
 		endpoint.get(writter, request)
@@ -41,7 +40,7 @@ func (endpoint *Partners) ServeHTTP(writter http.ResponseWriter, request *http.R
 	}
 }
 
-func (endpoint *Partners) get(writter http.ResponseWriter, request *http.Request) {
+func (endpoint *Endpoint) get(writter http.ResponseWriter, request *http.Request) {
 	defer request.Body.Close()
 	log.Debug().Msg("get")
 
@@ -66,7 +65,7 @@ func (endpoint *Partners) get(writter http.ResponseWriter, request *http.Request
 	}
 }
 
-func (endpoint *Partners) post(writter http.ResponseWriter, request *http.Request) {
+func (endpoint *Endpoint) post(writter http.ResponseWriter, request *http.Request) {
 	defer request.Body.Close()
 	log.Debug().Msg("post")
 
@@ -80,7 +79,7 @@ func (endpoint *Partners) post(writter http.ResponseWriter, request *http.Reques
 		return
 	}
 
-	newTiers := make([]partners.Tier, len(updates))
+	newTiers := make([]Tier, len(updates))
 	for i, update := range updates {
 		newTiers[i] = update.toTier()
 	}
@@ -95,12 +94,12 @@ type TierUpdate struct {
 	Style    TierStyleUpdate `json:"style"`
 }
 
-func (update TierUpdate) toTier() partners.Tier {
-	newPartners := make([]partners.Partner, len(update.Partners))
+func (update TierUpdate) toTier() Tier {
+	newPartners := make([]Partner, len(update.Partners))
 	for i, memberUpdate := range update.Partners {
 		newPartners[i] = memberUpdate.toPartner()
 	}
-	return partners.Tier{
+	return Tier{
 		Name:     update.Name,
 		Partners: newPartners,
 		Style:    update.Style.toTierStyle(),
@@ -113,8 +112,8 @@ type PartnerUpdate struct {
 	WebpageURL string     `json:"webpageURL"`
 }
 
-func (update PartnerUpdate) toPartner() partners.Partner {
-	return partners.Partner{
+func (update PartnerUpdate) toPartner() Partner {
+	return Partner{
 		Name:       update.Name,
 		Logo:       update.Logo.toLogo(update.Name),
 		WebpageURL: update.WebpageURL,
@@ -126,8 +125,8 @@ type LogoUpdate struct {
 	Height *string `json:"height,omitempty"`
 }
 
-func (update LogoUpdate) toLogo(name string) partners.Logo {
-	return partners.Logo{
+func (update LogoUpdate) toLogo(name string) Logo {
+	return Logo{
 		URL:    getLogoImagePath(name),
 		Width:  update.Width,
 		Height: update.Height,
@@ -147,9 +146,6 @@ type TierStyleUpdate struct {
 	Width string `json:"width"`
 }
 
-func (update TierStyleUpdate) toTierStyle() partners.TierStyle {
-	return partners.TierStyle{
-		Color: update.Color,
-		Width: update.Width,
-	}
+func (update TierStyleUpdate) toTierStyle() TierStyle {
+	return TierStyle(update)
 }

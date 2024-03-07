@@ -7,7 +7,6 @@ import (
 	"os/signal"
 	"syscall"
 
-	"github.com/HyperloopUPV-H8/webpage-backend/internal/endpoints"
 	"github.com/HyperloopUPV-H8/webpage-backend/internal/members"
 	"github.com/HyperloopUPV-H8/webpage-backend/internal/partners"
 	"github.com/rs/zerolog/log"
@@ -18,7 +17,7 @@ var AddressFlag = flag.String("l", "0.0.0.0:8080", "address where the HTTP serve
 func main() {
 	flag.Parse()
 
-	membersEndpoint := endpoints.NewMembers([]members.Subsystem{
+	membersEndpoint := members.NewEndpoint([]members.Subsystem{
 		{
 			Name: "direction",
 			Members: []members.Member{
@@ -36,7 +35,7 @@ func main() {
 	})
 	http.Handle("/members", &membersEndpoint)
 
-	partnersEndpoint := endpoints.NewPartners([]partners.Tier{
+	partnersEndpoint := partners.NewEndpoint([]partners.Tier{
 		{
 			Name: "premium",
 			Partners: []partners.Partner{

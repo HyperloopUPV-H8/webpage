@@ -6,6 +6,7 @@ import (
 	"net/http"
 	"time"
 
+	"github.com/HyperloopUPV-H8/webpage-backend/internal/methodMux"
 	"github.com/rs/zerolog/log"
 )
 
@@ -14,30 +15,22 @@ var _ http.Handler = &Endpoint{}
 const PartnersMediaFolder = "/media/partners"
 
 type Endpoint struct {
+	methodMux.Mux
 	lastUpdated time.Time
 	tiers       []Tier
 }
 
 func NewEndpoint(tiers []Tier) Endpoint {
-	return Endpoint{
+	endpoint := Endpoint{
 		lastUpdated: time.Now(),
 		tiers:       tiers,
 	}
-}
-
-func (endpoint *Endpoint) ServeHTTP(writer http.ResponseWriter, request *http.Request) {
-	switch request.Method {
-	case http.MethodGet:
-		endpoint.get(writer, request)
-	case http.MethodPost:
-		endpoint.post(writer, request)
-	case http.MethodOptions:
-		endpoint.options(writer, request)
-	default:
-		log.Warn().Str("method", request.Method).Msg("method not allowed")
-		writer.Header().Add("Allow", "GET, POST, OPTIONS")
-		writer.WriteHeader(http.StatusMethodNotAllowed)
-	}
+	endpoint.Mux = methodMux.New(
+		methodMux.Get(http.HandlerFunc(endpoint.get)),
+		methodMux.Post(http.HandlerFunc(endpoint.post)),
+		methodMux.Options(http.HandlerFunc(endpoint.options)),
+	)
+	return endpoint
 }
 
 func (endpoint *Endpoint) options(writer http.ResponseWriter, _ *http.Request) {

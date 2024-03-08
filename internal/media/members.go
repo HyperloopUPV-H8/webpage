@@ -11,6 +11,7 @@ import (
 	"time"
 
 	"github.com/HyperloopUPV-H8/webpage-backend/internal"
+	"github.com/HyperloopUPV-H8/webpage-backend/internal/methodMux"
 	"github.com/rs/zerolog/log"
 )
 
@@ -19,28 +20,20 @@ var MembersFolder = path.Join("media", "members")
 const MemberNamePathValueTag = "memberName"
 
 type membersEndpoint struct {
+	methodMux.Mux
 	manifest Manifest
 }
 
-func newMembersEndpoint() (*membersEndpoint, error) {
-	return &membersEndpoint{
+func newMembersEndpoint() (membersEndpoint, error) {
+	endpoint := membersEndpoint{
 		manifest: make(Manifest),
-	}, os.MkdirAll(MembersFolder, fs.ModePerm)
-}
-
-func (endpoint *membersEndpoint) ServeHTTP(writer http.ResponseWriter, request *http.Request) {
-	switch request.Method {
-	case http.MethodGet:
-		endpoint.get(writer, request)
-	case http.MethodPost:
-		endpoint.post(writer, request)
-	case http.MethodOptions:
-		endpoint.options(writer, request)
-	default:
-		log.Warn().Str("method", request.Method).Msg("method not allowed")
-		writer.Header().Add("Allow", "OPTIONS, GET, POST")
-		http.Error(writer, "", http.StatusMethodNotAllowed)
 	}
+	endpoint.Mux = methodMux.New(
+		methodMux.Get(http.HandlerFunc(endpoint.get)),
+		methodMux.Post(http.HandlerFunc(endpoint.post)),
+		methodMux.Options(http.HandlerFunc(endpoint.options)),
+	)
+	return endpoint, os.MkdirAll(MembersFolder, fs.ModePerm)
 }
 
 func (endpoint *membersEndpoint) options(writer http.ResponseWriter, request *http.Request) {

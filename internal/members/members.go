@@ -2,7 +2,8 @@ package members
 
 import (
 	"fmt"
-	"strings"
+
+	"github.com/HyperloopUPV-H8/webpage-backend/internal"
 )
 
 func SubsystemsFromUpdates(updates []SubsystemUpdate) []Subsystem {
@@ -64,9 +65,5 @@ func (update MemberUpdate) toMember() Member {
 }
 
 func getMemberImagePath(name string) string {
-	return fmt.Sprintf("%s/%s", MembersMediaFolder, formatMemberName(name))
-}
-
-func formatMemberName(name string) string {
-	return strings.Join(strings.Split(strings.ToLower(name), " "), "_")
+	return fmt.Sprintf("%s/%s", MembersMediaFolder, internal.FormatName(name))
 }

@@ -2,7 +2,8 @@ package partners
 
 import (
 	"fmt"
-	"strings"
+
+	"github.com/HyperloopUPV-H8/webpage-backend/internal"
 )
 
 func TiersFromUpdates(updates []TierUpdate) []Tier {
@@ -90,11 +91,7 @@ func (update LogoUpdate) toLogo(name string) Logo {
 }
 
 func getLogoImagePath(name string) string {
-	return fmt.Sprintf("%s/%s", PartnersMediaFolder, formatPartnerName(name))
-}
-
-func formatPartnerName(name string) string {
-	return strings.Join(strings.Split(strings.ToLower(name), " "), "_")
+	return fmt.Sprintf("%s/%s", PartnersMediaFolder, internal.FormatName(name))
 }
 
 type TierStyleUpdate struct {

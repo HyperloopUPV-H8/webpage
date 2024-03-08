@@ -19,7 +19,12 @@ func NewEndpoint() (Endpoint, error) {
 		return endpoint, err
 	}
 	endpoint.mux.Handle(fmt.Sprintf("/members/{%s}", MemberNamePathValueTag), membersEndpoint)
-	endpoint.mux.Handle("/partners/{partnerName}", newPartnersEndpoint())
+
+	partnersEndpoint, err := newPartnersEndpoint()
+	if err != nil {
+		return endpoint, err
+	}
+	endpoint.mux.Handle(fmt.Sprintf("/partners/{%s}", PartnerNamePathValueTag), partnersEndpoint)
 
 	return endpoint, nil
 }

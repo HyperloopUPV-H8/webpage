@@ -38,7 +38,7 @@ func (endpoint *membersEndpoint) ServeHTTP(writer http.ResponseWriter, request *
 		endpoint.options(writer, request)
 	default:
 		log.Warn().Str("method", request.Method).Msg("method not allowed")
-		writer.Header().Add("Allow", "OPTIONS, GET")
+		writer.Header().Add("Allow", "OPTIONS, GET, POST")
 		http.Error(writer, "", http.StatusMethodNotAllowed)
 	}
 }

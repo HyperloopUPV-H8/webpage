@@ -25,4 +25,6 @@ package-lock.json
 *.sw?
 .env
 
+# Application
 cmd/cmd
+cmd/media

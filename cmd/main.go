@@ -64,7 +64,11 @@ func main() {
 	})
 	http.Handle("/partners", &partnersEndpoint)
 
-	mediaEndpoint := media.NewEndpoint()
+	mediaEndpoint, err := media.NewEndpoint()
+	if err != nil {
+		log.Error().Stack().Err(err).Msg("media endpoint")
+		os.Exit(1)
+	}
 	http.Handle("/media/", http.StripPrefix("/media", &mediaEndpoint))
 
 	go func() {

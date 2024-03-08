@@ -25,42 +25,42 @@ func NewEndpoint(tiers []Tier) Endpoint {
 	}
 }
 
-func (endpoint *Endpoint) ServeHTTP(writter http.ResponseWriter, request *http.Request) {
+func (endpoint *Endpoint) ServeHTTP(writer http.ResponseWriter, request *http.Request) {
 	switch request.Method {
 	case http.MethodGet:
-		endpoint.options(writter, request)
-		endpoint.get(writter, request)
+		endpoint.get(writer, request)
 	case http.MethodPost:
-		endpoint.post(writter, request)
+		endpoint.post(writer, request)
 	case http.MethodOptions:
-		endpoint.options(writter, request)
+		endpoint.options(writer, request)
 	default:
 		log.Warn().Str("method", request.Method).Msg("method not allowed")
-		writter.Header().Add("Allow", "GET, POST, OPTIONS")
-		writter.WriteHeader(http.StatusMethodNotAllowed)
+		writer.Header().Add("Allow", "GET, POST, OPTIONS")
+		writer.WriteHeader(http.StatusMethodNotAllowed)
 	}
 }
 
-func (endpoint *Endpoint) options(writter http.ResponseWriter, _ *http.Request) {
+func (endpoint *Endpoint) options(writer http.ResponseWriter, _ *http.Request) {
 	log.Debug().Msg("options")
 
-	writter.Header().Add("Content-Type", "application/json")
+	writer.Header().Add("Content-Type", "application/json")
 }
 
-func (endpoint *Endpoint) get(writter http.ResponseWriter, request *http.Request) {
+func (endpoint *Endpoint) get(writer http.ResponseWriter, request *http.Request) {
 	log.Debug().Msg("get")
 
 	tiersRaw, err := json.Marshal(endpoint.tiers)
 	if err != nil {
 		log.Error().Stack().Err(err).Msg("marshal tiers")
-		http.Error(writter, "", http.StatusInternalServerError)
+		http.Error(writer, "", http.StatusInternalServerError)
 		return
 	}
 
-	http.ServeContent(writter, request, "partners.json", endpoint.lastUpdated, bytes.NewReader(tiersRaw))
+	writer.Header().Add("Content-Type", "application/json")
+	http.ServeContent(writer, request, "partners.json", endpoint.lastUpdated, bytes.NewReader(tiersRaw))
 }
 
-func (endpoint *Endpoint) post(writter http.ResponseWriter, request *http.Request) {
+func (endpoint *Endpoint) post(writer http.ResponseWriter, request *http.Request) {
 	log.Debug().Msg("post")
 
 	var updates []TierUpdate
@@ -69,7 +69,7 @@ func (endpoint *Endpoint) post(writter http.ResponseWriter, request *http.Reques
 	err := decoder.Decode(&updates)
 	if err != nil {
 		log.Error().Stack().Err(err).Msg("decode body")
-		http.Error(writter, "", http.StatusBadRequest)
+		http.Error(writer, "", http.StatusBadRequest)
 		return
 	}
 

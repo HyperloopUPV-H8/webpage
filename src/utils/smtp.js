@@ -1,5 +1,5 @@
 ﻿/* SmtpJS.com - v3.0.0 */
-export default Email = {
+export default {
   send: function (a) {
     return new Promise(function (n, e) {
       (a.nocache = Math.floor(1e6 * Math.random() + 1)), (a.Action = "Send");

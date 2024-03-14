@@ -1,23 +1,27 @@
 package partners
 
 import (
-	"fmt"
+	"encoding/json"
+	"path"
 
 	"github.com/HyperloopUPV-H8/webpage-backend/internal"
+	"github.com/HyperloopUPV-H8/webpage-backend/internal/media"
 )
-
-func TiersFromUpdates(updates []TierUpdate) []Tier {
-	tiers := make([]Tier, len(updates))
-	for i, update := range updates {
-		tiers[i] = update.toTier()
-	}
-	return tiers
-}
 
 type Tier struct {
 	Name     string    `json:"name"`
 	Partners []Partner `json:"partners"`
 	Style    TierStyle `json:"style"`
+}
+
+func (tier *Tier) UnmarshalJSON(data []byte) error {
+	var partial TierUpdate
+	err := json.Unmarshal(data, &partial)
+	if err != nil {
+		return err
+	}
+	*tier = partial.toTier()
+	return nil
 }
 
 type Partner struct {
@@ -91,7 +95,7 @@ func (update LogoUpdate) toLogo(name string) Logo {
 }
 
 func getLogoImagePath(name string) string {
-	return fmt.Sprintf("%s/%s", PartnersMediaFolder, internal.FormatName(name))
+	return path.Join(media.PartnersFolder, internal.FormatName(name))
 }
 
 type TierStyleUpdate struct {

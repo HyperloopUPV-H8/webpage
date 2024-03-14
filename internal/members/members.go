@@ -1,22 +1,26 @@
 package members
 
 import (
-	"fmt"
+	"encoding/json"
+	"path"
 
 	"github.com/HyperloopUPV-H8/webpage-backend/internal"
+	"github.com/HyperloopUPV-H8/webpage-backend/internal/media"
 )
-
-func SubsystemsFromUpdates(updates []SubsystemUpdate) []Subsystem {
-	subsystems := make([]Subsystem, len(updates))
-	for i, update := range updates {
-		subsystems[i] = update.toSubsystem()
-	}
-	return subsystems
-}
 
 type Subsystem struct {
 	Name    string   `json:"name"`
 	Members []Member `json:"members"`
+}
+
+func (subsystem *Subsystem) UnmarshalJSON(data []byte) error {
+	var update SubsystemUpdate
+	err := json.Unmarshal(data, &update)
+	if err != nil {
+		return err
+	}
+	*subsystem = update.toSubsystem()
+	return nil
 }
 
 type Member struct {
@@ -65,5 +69,5 @@ func (update MemberUpdate) toMember() Member {
 }
 
 func getMemberImagePath(name string) string {
-	return fmt.Sprintf("%s/%s", MembersMediaFolder, internal.FormatName(name))
+	return path.Join(media.MembersFolder, internal.FormatName(name))
 }

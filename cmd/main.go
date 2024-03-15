@@ -7,6 +7,7 @@ import (
 	"os/signal"
 	"syscall"
 
+	"github.com/HyperloopUPV-H8/webpage-backend/internal/auth"
 	"github.com/HyperloopUPV-H8/webpage-backend/internal/endpoints"
 	"github.com/HyperloopUPV-H8/webpage-backend/internal/media"
 	"github.com/HyperloopUPV-H8/webpage-backend/internal/members"
@@ -18,6 +19,15 @@ var AddressFlag = flag.String("l", "0.0.0.0:8080", "address where the HTTP serve
 
 func main() {
 	flag.Parse()
+
+	authEndpoint := auth.NewEndpoint(auth.UserList{
+		Admins: []auth.User{
+			{
+				Name:     "test",
+				Password: "1234",
+			},
+		},
+	})
 
 	membersEndpoint := endpoints.NewJSON("members", []members.Subsystem{
 		{
@@ -34,7 +44,7 @@ func main() {
 				},
 			},
 		},
-	})
+	}, authEndpoint)
 	http.Handle("/members", &membersEndpoint)
 
 	partnersEndpoint := endpoints.NewJSON("partners", []partners.Tier{
@@ -62,7 +72,7 @@ func main() {
 				Color: "#ffffff",
 			},
 		},
-	})
+	}, authEndpoint)
 	http.Handle("/partners", &partnersEndpoint)
 
 	mediaEndpoint, err := media.NewEndpoint()

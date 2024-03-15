@@ -6,6 +6,7 @@ import (
 	"net/http"
 	"time"
 
+	"github.com/HyperloopUPV-H8/webpage-backend/internal/auth"
 	"github.com/HyperloopUPV-H8/webpage-backend/internal/methodMux"
 	"github.com/rs/zerolog/log"
 )
@@ -17,7 +18,7 @@ type jsonEndpoint[T any] struct {
 	name        string
 }
 
-func NewJSON[T any](name string, data T) jsonEndpoint[T] {
+func NewJSON[T any](name string, data T, authenticator auth.Endpoint) jsonEndpoint[T] {
 	endpoint := jsonEndpoint[T]{
 		lastUpdated: time.Now(),
 		data:        data,
@@ -25,7 +26,7 @@ func NewJSON[T any](name string, data T) jsonEndpoint[T] {
 	}
 	endpoint.Mux = methodMux.New(
 		methodMux.Get(http.HandlerFunc(endpoint.get)),
-		methodMux.Post(http.HandlerFunc(endpoint.post)),
+		methodMux.Post(authenticator.WithAuth(http.HandlerFunc(endpoint.post))),
 		methodMux.Options(http.HandlerFunc(endpoint.options)),
 	)
 	return endpoint

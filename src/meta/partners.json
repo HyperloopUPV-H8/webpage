@@ -58,6 +58,14 @@
                 "url": "https://corporate.arcelormittal.com/"
             },
             {
+                "name": "Wolfspeed",
+                "logo": {
+                    "url": "/partners/gold/wolfspeed.svg",
+                    "height": "8.5rem"
+                },
+                "url": "https://www.wolfspeed.com/"
+            },
+            {
                 "name": "Altium",
                 "logo": {
                     "url": "/partners/gold/altium.svg",

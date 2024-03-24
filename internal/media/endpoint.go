@@ -16,10 +16,12 @@ const MemberNamePathValueTag = "memberName"
 const PartnerNamePathValueTag = "partnerName"
 
 type Endpoint struct {
-	mux *http.ServeMux
+	mux              *http.ServeMux
+	membersEndpoint  endpoints.ImageEndpoint
+	partnersEndpoint endpoints.ImageEndpoint
 }
 
-func NewEndpoint(membersManifest, partnersManifest endpoints.Manifest, authenticator auth.Endpoint) (Endpoint, error) {
+func NewEndpoint(membersManifest, partnersManifest endpoints.ImageManifest, authenticator auth.Endpoint, memberUpdate, partnerUpdate chan<- struct{}) (Endpoint, error) {
 	endpoint := Endpoint{
 		mux: http.NewServeMux(),
 	}
@@ -28,7 +30,7 @@ func NewEndpoint(membersManifest, partnersManifest endpoints.Manifest, authentic
 		Manifest:        membersManifest,
 		BasePath:        MembersFolder,
 		WildcardPattern: MemberNamePathValueTag,
-	}, authenticator)
+	}, authenticator, memberUpdate)
 	if err != nil {
 		return endpoint, err
 	}
@@ -38,7 +40,7 @@ func NewEndpoint(membersManifest, partnersManifest endpoints.Manifest, authentic
 		Manifest:        partnersManifest,
 		BasePath:        PartnersFolder,
 		WildcardPattern: PartnerNamePathValueTag,
-	}, authenticator)
+	}, authenticator, partnerUpdate)
 	if err != nil {
 		return endpoint, err
 	}
@@ -49,4 +51,12 @@ func NewEndpoint(membersManifest, partnersManifest endpoints.Manifest, authentic
 
 func (endpoint *Endpoint) ServeHTTP(writter http.ResponseWriter, request *http.Request) {
 	endpoint.mux.ServeHTTP(writter, request)
+}
+
+func (endpoint *Endpoint) GetMembersManifest() endpoints.ImageManifest {
+	return endpoint.membersEndpoint.GetManifest()
+}
+
+func (endpoint *Endpoint) GetPartnersManifest() endpoints.ImageManifest {
+	return endpoint.partnersEndpoint.GetManifest()
 }

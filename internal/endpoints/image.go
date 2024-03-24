@@ -16,24 +16,26 @@ import (
 	"github.com/rs/zerolog/log"
 )
 
-type imageEndpoint struct {
+type ImageEndpoint struct {
 	methodMux.Mux
-	manifest        Manifest
-	wildcardPattern string
-	basePath        string
+	manifest            ImageManifest
+	wildcardPattern     string
+	basePath            string
+	manifestUpdatedChan chan<- struct{}
 }
 
 type ImageConfig struct {
-	Manifest        Manifest
+	Manifest        ImageManifest
 	WildcardPattern string
 	BasePath        string
 }
 
-func NewImage(config ImageConfig, authenticator auth.Endpoint) (imageEndpoint, error) {
-	endpoint := imageEndpoint{
-		manifest:        config.Manifest,
-		wildcardPattern: config.WildcardPattern,
-		basePath:        config.BasePath,
+func NewImage(config ImageConfig, authenticator auth.Endpoint, manifestUpdatedNotifications chan<- struct{}) (ImageEndpoint, error) {
+	endpoint := ImageEndpoint{
+		manifest:            config.Manifest,
+		wildcardPattern:     config.WildcardPattern,
+		basePath:            config.BasePath,
+		manifestUpdatedChan: manifestUpdatedNotifications,
 	}
 
 	endpoint.Mux = methodMux.New(
@@ -46,7 +48,7 @@ func NewImage(config ImageConfig, authenticator auth.Endpoint) (imageEndpoint, e
 	return endpoint, os.MkdirAll(config.BasePath, fs.ModePerm)
 }
 
-func (endpoint *imageEndpoint) get(writer http.ResponseWriter, request *http.Request) {
+func (endpoint *ImageEndpoint) get(writer http.ResponseWriter, request *http.Request) {
 	log.Debug().Msg("get")
 
 	imageName := internal.FormatName(request.PathValue(endpoint.wildcardPattern))
@@ -68,7 +70,7 @@ func (endpoint *imageEndpoint) get(writer http.ResponseWriter, request *http.Req
 	http.ServeContent(writer, request, imageName, metadata.LastModified, file)
 }
 
-func (endpoint *imageEndpoint) post(writer http.ResponseWriter, request *http.Request) {
+func (endpoint *ImageEndpoint) post(writer http.ResponseWriter, request *http.Request) {
 	log.Debug().Msg("post")
 
 	imageName := internal.FormatName(request.PathValue(endpoint.wildcardPattern))
@@ -99,9 +101,10 @@ func (endpoint *imageEndpoint) post(writer http.ResponseWriter, request *http.Re
 	}
 
 	endpoint.manifest[imageName] = metadata
+	endpoint.manifestUpdatedChan <- struct{}{}
 }
 
-func (endpoint *imageEndpoint) delete(writer http.ResponseWriter, request *http.Request) {
+func (endpoint *ImageEndpoint) delete(writer http.ResponseWriter, request *http.Request) {
 	imageName := internal.FormatName(request.PathValue(endpoint.wildcardPattern))
 
 	_, ok := endpoint.manifest[imageName]
@@ -119,7 +122,7 @@ func (endpoint *imageEndpoint) delete(writer http.ResponseWriter, request *http.
 	delete(endpoint.manifest, imageName)
 }
 
-func (endpoint *imageEndpoint) options(writer http.ResponseWriter, request *http.Request) {
+func (endpoint *ImageEndpoint) options(writer http.ResponseWriter, request *http.Request) {
 	log.Debug().Msg("options")
 
 	imageName := internal.FormatName(request.PathValue(endpoint.wildcardPattern))
@@ -132,7 +135,7 @@ func (endpoint *imageEndpoint) options(writer http.ResponseWriter, request *http
 	writer.Header().Add("Content-Type", metadata.ContentType)
 }
 
-type Manifest map[string]ImageMetadata
+type ImageManifest map[string]ImageMetadata
 
 type ImageMetadata struct {
 	Name         string    `json:"name"`
@@ -140,6 +143,6 @@ type ImageMetadata struct {
 	LastModified time.Time `json:"lastModified"`
 }
 
-func (endpoint *imageEndpoint) GetManifest() Manifest {
+func (endpoint *ImageEndpoint) GetManifest() ImageManifest {
 	return endpoint.manifest
 }

@@ -11,16 +11,18 @@ import (
 )
 
 type Endpoint struct {
-	mux         *http.ServeMux
-	lastUpdated time.Time
-	users       UserMap
+	mux              *http.ServeMux
+	lastUpdated      time.Time
+	users            UserMap
+	usersUpdatedChan chan<- struct{}
 }
 
-func NewEndpoint(users UserList) Endpoint {
+func NewEndpoint(users UserList, usersUpdatedNotification chan<- struct{}) Endpoint {
 	endpoint := Endpoint{
-		mux:         http.NewServeMux(),
-		lastUpdated: time.Now(),
-		users:       mapFromList(users),
+		mux:              http.NewServeMux(),
+		lastUpdated:      time.Now(),
+		users:            mapFromList(users),
+		usersUpdatedChan: usersUpdatedNotification,
 	}
 
 	endpoint.mux.Handle("/auth/verify", http.HandlerFunc(endpoint.verifyUser))
@@ -57,6 +59,7 @@ func (endpoint *Endpoint) post(writer http.ResponseWriter, request *http.Request
 
 	endpoint.lastUpdated = time.Now()
 	endpoint.users = newUsers
+	endpoint.usersUpdatedChan <- struct{}{}
 }
 
 func (endpoint *Endpoint) options(writer http.ResponseWriter, _ *http.Request) {

@@ -20,6 +20,7 @@ var AddressFlag = flag.String("l", "0.0.0.0:8080", "address where the HTTP serve
 func main() {
 	flag.Parse()
 
+	authUpdated := make(chan struct{}, 1)
 	authEndpoint := auth.NewEndpoint(auth.UserList{
 		Admins: []auth.User{
 			{
@@ -27,8 +28,9 @@ func main() {
 				Password: "1234",
 			},
 		},
-	})
+	}, authUpdated)
 
+	membersUpdated := make(chan struct{}, 1)
 	membersEndpoint := endpoints.NewJSON("members", []members.Subsystem{
 		{
 			Name: "direction",
@@ -44,9 +46,10 @@ func main() {
 				},
 			},
 		},
-	}, authEndpoint)
+	}, authEndpoint, membersUpdated)
 	http.Handle("/members", &membersEndpoint)
 
+	partnersUpdated := make(chan struct{}, 1)
 	partnersEndpoint := endpoints.NewJSON("partners", []partners.Tier{
 		{
 			Name: "premium",
@@ -72,13 +75,17 @@ func main() {
 				Color: "#ffffff",
 			},
 		},
-	}, authEndpoint)
+	}, authEndpoint, partnersUpdated)
 	http.Handle("/partners", &partnersEndpoint)
 
+	memberImagesUpdated := make(chan struct{}, 1)
+	partnerImagesUpdated := make(chan struct{}, 1)
 	mediaEndpoint, err := media.NewEndpoint(
-		endpoints.Manifest{},
-		endpoints.Manifest{},
+		endpoints.ImageManifest{},
+		endpoints.ImageManifest{},
 		authEndpoint,
+		memberImagesUpdated,
+		partnerImagesUpdated,
 	)
 	if err != nil {
 		log.Error().Stack().Err(err).Msg("media endpoint")
@@ -98,5 +105,12 @@ func main() {
 
 	signals := make(chan os.Signal, 1)
 	signal.Notify(signals, syscall.SIGINT, syscall.SIGTERM)
-	log.Info().Str("signal", (<-signals).String()).Msg("closing")
+
+	for {
+		select {
+		case signal := <-signals:
+			log.Info().Str("signal", signal.String()).Msg("closing")
+		}
+	}
+
 }

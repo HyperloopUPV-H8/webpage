@@ -1,5 +1,17 @@
 package auth
 
+type UserMap struct {
+	Admins   map[string]User `json:"admins"`
+	Managers map[string]User `json:"managers"`
+}
+
+func mapFromList(list UserList) UserMap {
+	return UserMap{
+		Admins:   getUserMap(list.Admins),
+		Managers: getUserMap(list.Managers),
+	}
+}
+
 type UserList struct {
 	Admins   []User `json:"admins"`
 	Managers []User `json:"managers"`

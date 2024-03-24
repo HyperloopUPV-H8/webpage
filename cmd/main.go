@@ -75,7 +75,11 @@ func main() {
 	}, authEndpoint)
 	http.Handle("/partners", &partnersEndpoint)
 
-	mediaEndpoint, err := media.NewEndpoint()
+	mediaEndpoint, err := media.NewEndpoint(
+		endpoints.Manifest{},
+		endpoints.Manifest{},
+		authEndpoint,
+	)
 	if err != nil {
 		log.Error().Stack().Err(err).Msg("media endpoint")
 		os.Exit(1)

@@ -5,16 +5,11 @@ type UserMap struct {
 	Managers map[string]User `json:"managers"`
 }
 
-func mapFromList(list UserList) UserMap {
+func mapFromList(users UserList) UserMap {
 	return UserMap{
-		Admins:   getUserMap(list.Admins),
-		Managers: getUserMap(list.Managers),
+		Admins:   getUserMap(users.Admins),
+		Managers: getUserMap(users.Managers),
 	}
-}
-
-type UserList struct {
-	Admins   []User `json:"admins"`
-	Managers []User `json:"managers"`
 }
 
 func getUserMap(users []User) map[string]User {
@@ -23,6 +18,26 @@ func getUserMap(users []User) map[string]User {
 		userMap[user.Name] = user
 	}
 	return userMap
+}
+
+type UserList struct {
+	Admins   []User `json:"admins"`
+	Managers []User `json:"managers"`
+}
+
+func listFromMap(users UserMap) UserList {
+	return UserList{
+		Admins:   getUserList(users.Admins),
+		Managers: getUserList(users.Managers),
+	}
+}
+
+func getUserList(users map[string]User) []User {
+	userList := make([]User, 0, len(users))
+	for _, user := range users {
+		userList = append(userList, user)
+	}
+	return userList
 }
 
 type User struct {

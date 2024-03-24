@@ -61,3 +61,7 @@ func (endpoint *jsonEndpoint[T]) post(writer http.ResponseWriter, request *http.
 func (endpoint *jsonEndpoint[T]) options(writer http.ResponseWriter, _ *http.Request) {
 	writer.Header().Add("Content-Type", "application/json")
 }
+
+func (endpoint *jsonEndpoint[T]) GetData() T {
+	return endpoint.data
+}

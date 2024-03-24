@@ -139,3 +139,7 @@ type ImageMetadata struct {
 	ContentType  string    `json:"contentType"`
 	LastModified time.Time `json:"lastModified"`
 }
+
+func (endpoint *imageEndpoint) GetManifest() Manifest {
+	return endpoint.manifest
+}

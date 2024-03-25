@@ -28,12 +28,9 @@
         h2 {
             transition: all 0.1s ease-in-out;
             font-size: 5.2rem;
-            text-shadow:
-                -2px -2px 0px black,
-                -2px 2px 0px black,
-                2px -2px 0px black,
-                2px 2px 0px black,
-                -7px 5px 10px currentColor, ;
+            text-shadow: -2px -2px 0px black, -2px 2px 0px black,
+                2px -2px 0px black, 2px 2px 0px black,
+                -7px 5px 10px currentColor;
 
             @include media-queries.desktop {
                 font-size: 8rem;
@@ -42,12 +39,9 @@
 
         &:hover {
             h2 {
-                text-shadow:
-                    -2px -2px 0px black,
-                    -2px 2px 0px black,
-                    2px -2px 0px black,
-                    2px 2px 0px black,
-                    -10px 7px 15px currentColor,
+                text-shadow: -2px -2px 0px black, -2px 2px 0px black,
+                    2px -2px 0px black, 2px 2px 0px black,
+                    -10px 7px 15px currentColor;
             }
         }
     }
@@ -94,5 +88,4 @@
             transform: scale(1.05);
         }
     }
-
 }

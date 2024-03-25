@@ -1,12 +1,10 @@
 @use '../core/variables' as var;
 @use '../core/media-queries';
 .team {
-
     &__section {
         min-height: 100vh;
 
         &.subsystems-menu {
-            
             position: relative;
 
             video {
@@ -17,10 +15,9 @@
                 height: 100%;
                 object-position: center;
                 object-fit: cover;
-                filter: blur(.6rem);
+                filter: blur(0.6rem);
                 z-index: -1;
             }
-    
         }
 
         &.layout {
@@ -46,43 +43,41 @@
             }
 
             &.direction {
-                background-image: url("/team/members/direction/direction.svg");
+                background-image: url('/team/members/direction/direction.svg');
             }
 
             &.hardware {
-                background-image: url("/team/members/hardware/hardware.svg");
+                background-image: url('/team/members/hardware/hardware.svg');
             }
 
             &.firmware {
-                background-image: url("/team/members/firmware/firmware.svg");
+                background-image: url('/team/members/firmware/firmware.svg');
             }
 
             &.software {
-                background-image: url("/team/members/software/software.svg");
+                background-image: url('/team/members/software/software.svg');
             }
 
             &.structuresandmechanisms {
-                background-image: url("/team/members/structuresandmechanisms/structures&mechanisms.svg");
+                background-image: url('/team/members/structuresandmechanisms/structures&mechanisms.svg');
             }
 
             &.electromagnetics {
-                background-image: url("/team/members/electromagnetics/electromagnetics.svg");
+                background-image: url('/team/members/electromagnetics/electromagnetics.svg');
             }
 
             &.outreach {
-                background-image: url("/team/members/outreach/outreach.svg");
+                background-image: url('/team/members/outreach/outreach.svg');
             }
 
             &.partners {
-                background-image: url("/team/members/partners/partners.svg");
+                background-image: url('/team/members/partners/partners.svg');
             }
 
             &.economics {
-                background-image: url("/team/members/economics/economics.svg");
+                background-image: url('/team/members/economics/economics.svg');
             }
-
         }
-
     }
 
     &__subsystems-menu {
@@ -106,7 +101,7 @@
             @include media-queries.desktop {
                 margin-bottom: 2rem;
             }
-    
+
             h1 {
                 font-family: var.$primary-font;
                 font-weight: 100;
@@ -119,15 +114,14 @@
                     font-size: 6rem;
                 }
             }
-    
+
             &__line {
                 width: 100%;
-                height: .2rem;
+                height: 0.2rem;
                 background-color: white;
             }
-    
         }
-    
+
         &__container {
             display: grid;
             grid-template-columns: repeat(3, auto);
@@ -158,8 +152,6 @@
             gap: 8rem;
         }
     }
-
-
 }
 
 #video-overlay {
@@ -168,13 +160,12 @@
     left: 0;
     width: 100%;
     height: 100%;
-    filter: blur(.8rem); 
+    filter: blur(0.8rem);
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 0;
 }
 
 .border-shadow {
-
     position: absolute;
     width: 4vw;
     max-width: 4rem;
@@ -193,14 +184,13 @@
         top: 0;
         right: 0;
     }
-
 }
 
 .section__overlay {
     position: absolute;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, .7);
+    background-color: rgba(0, 0, 0, 0.7);
     backdrop-filter: blur(1rem);
     z-index: -1;
 }

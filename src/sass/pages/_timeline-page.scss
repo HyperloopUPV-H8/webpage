@@ -1,8 +1,7 @@
-@use "../core/media-queries";
+@use '../core/media-queries';
 
 .timeline {
     &__page {
-        
         background-color: black;
 
         &__title {
@@ -33,7 +32,6 @@
     }
 
     &__section {
-
         flex: 1;
 
         @include media-queries.desktop {
@@ -50,7 +48,6 @@
                 height: 100%;
                 object-fit: cover;
             }
-
         }
     }
 

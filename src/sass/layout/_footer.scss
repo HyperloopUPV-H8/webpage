@@ -6,9 +6,9 @@
     height: 15rem;
     padding: 3.2rem;
     background-color: black;
-    border-top: solid .1rem white;
+    border-top: solid 0.1rem white;
     color: white;
-    border-top: .1rem solid white;
+    border-top: 0.1rem solid white;
 
     @include media-queries.mobile {
         flex-direction: column-reverse;
@@ -29,7 +29,6 @@
     @include media-queries.desktop {
         justify-content: space-between;
     }
-
 }
 
 .footer__section__contact {
@@ -57,7 +56,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: .3rem;
+    gap: 0.3rem;
     font-size: 1.4rem;
     font-family: variables.$secondary-font;
 
@@ -74,7 +73,7 @@
 .footer__copyright__copy {
     display: flex;
     align-items: center;
-    gap: .7rem;
+    gap: 0.7rem;
 }
 
 .contact__info {

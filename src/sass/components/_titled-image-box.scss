@@ -1,5 +1,5 @@
-@use "../core/shadows";
-@use "../core/variables" as var;
+@use '../core/shadows';
+@use '../core/variables' as var;
 
 .titled-image-box {
     width: fit-content;
@@ -17,7 +17,6 @@
     }
 
     &__image {
-
         width: 100%;
 
         &.orange-border {
@@ -29,7 +28,9 @@
         }
 
         &.multicolor-border {
-            @include shadows.gradient(linear-gradient(300deg, #2486a4, #ce8058));
+            @include shadows.gradient(
+                linear-gradient(300deg, #2486a4, #ce8058)
+            );
         }
 
         img {

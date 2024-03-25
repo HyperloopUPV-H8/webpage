@@ -1,9 +1,8 @@
 @use '../core/variables' as var;
-@use "../core/shadows";
-@use "../core/media-queries";
+@use '../core/shadows';
+@use '../core/media-queries';
 
 .about {
-
     &__page {
         background-color: black;
 
@@ -35,7 +34,6 @@
     }
 
     &__section {
-
         min-height: 100vh;
 
         &.section-1 {
@@ -76,19 +74,21 @@
         }
     }
 
-    &__mission__text, &__vision__text, &__values__text {
+    &__mission__text,
+    &__vision__text,
+    &__values__text {
         color: white;
         text-align: center;
         font-size: 1.8rem;
     }
 
-    &__mission__text, &__vision__text {
+    &__mission__text,
+    &__vision__text {
         margin-top: 2rem;
         margin-bottom: 3rem;
     }
 
     &__values {
-
         &__content {
             display: flex;
             flex-direction: column;
@@ -98,7 +98,7 @@
             @include media-queries.desktop {
                 display: grid;
                 grid-template-rows: repeat(2, 1fr);
-                grid-template-columns: repeat(2, 1fr);;
+                grid-template-columns: repeat(2, 1fr);
             }
         }
 
@@ -106,24 +106,22 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: .5rem;
-    
+            gap: 0.5rem;
+
             h3 {
                 display: flex;
                 align-items: center;
                 gap: 1rem;
                 color: white;
             }
-    
+
             img {
                 width: 2rem;
             }
         }
-
     }
 
     &__image__box {
-
         &__mission {
             @include media-queries.desktop {
                 max-width: 90%;
@@ -141,11 +139,9 @@
                 max-width: 80%;
             }
         }
-
     }
 
     &__ehw {
-
         @include media-queries.desktop {
             display: flex;
             align-items: center;
@@ -168,22 +164,18 @@
         }
 
         &__image {
-
             &-1 {
-                @include shadows.gradient(#2486A4, 5px, 4px);
+                @include shadows.gradient(#2486a4, 5px, 4px);
             }
 
             &-2 {
                 margin-top: 3rem;
-                @include shadows.gradient(#CE8058, 5px, 4px);
+                @include shadows.gradient(#ce8058, 5px, 4px);
             }
-
         }
-
     }
 
     &__hyperloop__competition {
-
         @include media-queries.desktop {
             display: grid;
             grid-template-rows: auto 1fr;
@@ -199,34 +191,33 @@
         }
 
         &__image {
-            
             &-1 {
                 img {
-                    height: 100%
+                    height: 100%;
                 }
-                @include shadows.gradient(#2486A4, 5px, 4px);
+                @include shadows.gradient(#2486a4, 5px, 4px);
             }
 
             &-2 {
                 img {
-                    height: 100%
+                    height: 100%;
                 }
                 margin-top: 3rem;
-                @include shadows.gradient(#CE8058, 5px, 4px);   
+                @include shadows.gradient(#ce8058, 5px, 4px);
 
                 @include media-queries.desktop {
                     margin-top: 0;
                 }
             }
-
-
         }
-
     }
 
     &__section__shadow {
-        @include shadows.gradient(linear-gradient(300deg, #2486a4, #ce8058), 14px, 11px);
+        @include shadows.gradient(
+            linear-gradient(300deg, #2486a4, #ce8058),
+            14px,
+            11px
+        );
         margin: 5vh 2vw;
     }
-
 }

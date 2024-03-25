@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom'
-import teamLogo from '../assets/corporative/navbar-logo.svg'
+import { Link } from 'react-router-dom';
+import teamLogo from '../assets/corporative/navbar-logo.svg';
 
 export const ErrorPage = () => {
     return (
@@ -8,8 +8,10 @@ export const ErrorPage = () => {
             <div className="error__page__content">
                 <h1>Oops!</h1>
                 <p>No hemos podido encontrar ese enlace.</p>
-                <Link className="error__page__link" to="/">Volver a la pagina de inicio</Link>
+                <Link className="error__page__link" to="/">
+                    Volver a la pagina de inicio
+                </Link>
             </div>
         </div>
-    )
-}
+    );
+};

@@ -1,7 +1,6 @@
 @use '../core/media-queries';
 
 .title-underlined {
-
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -13,7 +12,6 @@
         @include media-queries.desktop {
             font-size: 6rem;
         }
-
     }
 
     &__line {
@@ -21,6 +19,6 @@
         left: -4rem;
         width: calc(80vw);
         max-width: 100rem;
-        height: .1rem;
+        height: 0.1rem;
     }
 }

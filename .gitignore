@@ -24,6 +24,7 @@ package-lock.json
 *.sln
 *.sw?
 .env
+.prettierrc
 
 # Application
 cmd/cmd

@@ -34,7 +34,7 @@
 }
 
 #partners__dossier {
-    @include shadows.gradient(#2486A4, 10px, 10px);
+    @include shadows.gradient(#2486a4, 10px, 10px);
 
     p {
         text-align: center;
@@ -56,7 +56,7 @@
 .partners__dossier__title {
     font-family: #{var.$primary-font};
     font-size: 3rem;
-    background-image: linear-gradient(90deg, #CE8058, #2486A4);
+    background-image: linear-gradient(90deg, #ce8058, #2486a4);
     -webkit-text-fill-color: transparent;
     -moz-text-fill-color: transparent;
     background-clip: text;
@@ -76,17 +76,38 @@
     border-radius: 20px;
     font-size: 2.5rem;
     color: white;
-    background: linear-gradient(90deg, #CE8058 0%, #2486A4 33%, #CE8058 66%, #CE8058) 0% / 300%;
+    background: linear-gradient(
+            90deg,
+            #ce8058 0%,
+            #2486a4 33%,
+            #ce8058 66%,
+            #ce8058
+        )
+        0% / 300%;
     font-family: #{var.$primary-font};
     cursor: pointer;
     transition: all 0.3s ease-out;
 
     &:hover {
-        background: linear-gradient(90deg, #CE8058 0%, #2486A4 33%, #CE8058 66%, #CE8058) 50% / 300%;
+        background: linear-gradient(
+                90deg,
+                #ce8058 0%,
+                #2486a4 33%,
+                #ce8058 66%,
+                #ce8058
+            )
+            50% / 300%;
     }
 
     &:active {
         transition: all 0.1s;
-        background: linear-gradient(90deg, #CE8058 0%, #2486A4 33%, #CE8058 66%, #CE8058) 100% / 300%;
+        background: linear-gradient(
+                90deg,
+                #ce8058 0%,
+                #2486a4 33%,
+                #ce8058 66%,
+                #ce8058
+            )
+            100% / 300%;
     }
 }

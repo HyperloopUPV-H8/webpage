@@ -1,13 +1,12 @@
-
 interface SubsystemTitleProps {
-    name: string
+    name: string;
 }
 
-export const SubsystemTitle = ({name}: SubsystemTitleProps) => {
-  return (
-    <div className="subsystem__title">
-        <p>Subsistema</p>
-        <h2>{name}</h2>
-    </div>
-  )
-}
+export const SubsystemTitle = ({ name }: SubsystemTitleProps) => {
+    return (
+        <div className="subsystem__title">
+            <p>Subsistema</p>
+            <h2>{name}</h2>
+        </div>
+    );
+};

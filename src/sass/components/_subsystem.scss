@@ -1,7 +1,6 @@
 @use '../core/media-queries';
 
 .subsystem {
-
     &__container {
         width: 10rem;
         display: flex;
@@ -17,23 +16,20 @@
 
     &__image {
         max-width: 20rem;
-        
+
         img {
             object-fit: cover;
             filter: grayscale(100%) brightness(5);
-            transition: all .1s ease-in-out;
+            transition: all 0.1s ease-in-out;
         }
 
         :hover {
-            
             transform: scale(1.05);
 
             img {
                 filter: grayscale(0%);
             }
-
         }
-
     }
 
     &__name {
@@ -46,5 +42,4 @@
             font-size: 1.8rem;
         }
     }
-
 }

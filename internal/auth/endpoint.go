@@ -25,8 +25,8 @@ func NewEndpoint(users UserList, usersUpdatedNotification chan<- struct{}) Endpo
 		usersUpdatedChan: usersUpdatedNotification,
 	}
 
-	endpoint.mux.Handle("/auth/verify", http.HandlerFunc(endpoint.verifyUser))
-	endpoint.mux.Handle("/auth", methodMux.New(
+	endpoint.mux.Handle("/verify", http.HandlerFunc(endpoint.verifyUser))
+	endpoint.mux.Handle("/", methodMux.New(
 		methodMux.Get(endpoint.WithAdminAuth(http.HandlerFunc(endpoint.get))),
 		methodMux.Post(endpoint.WithAdminAuth(http.HandlerFunc(endpoint.post))),
 		methodMux.Options(endpoint.WithAdminAuth(http.HandlerFunc(endpoint.options))),
@@ -105,4 +105,8 @@ func notifyUserType(userType userType, writer http.ResponseWriter) {
 	if err != nil {
 		http.Error(writer, "", http.StatusInternalServerError)
 	}
+}
+
+func (endpoint *Endpoint) ServeHTTP(writer http.ResponseWriter, request *http.Request) {
+	endpoint.mux.ServeHTTP(writer, request)
 }

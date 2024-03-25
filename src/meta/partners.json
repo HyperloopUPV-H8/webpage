@@ -1,7 +1,7 @@
 {
     "Premium": {
         "color": "#ffffff",
-        "width": "100%",
+        "width": "80%",
         "partners": [
             {
                 "name": "Universidad politecnica de Valencia",
@@ -12,20 +12,20 @@
                 "url": "https://www.upv.es/"
             },
             {
-                "name": "Coaltec Soldadura",
-                "logo": {
-                    "url": "/partners/premium/coaltec_soldadura.svg",
-                    "height": "15rem"
-                },
-                "url": "http://www.coatec.net/"
-            },
-            {
                 "name": "Uni-Weld",
                 "logo": {
                     "url": "/partners/premium/uni-weld.svg",
-                    "height": "20rem"
+                    "height": "18rem"
                 },
                 "url": "https://www.uni-weld.com/"
+            },
+            {
+                "name": "Coaltec Soldadura",
+                "logo": {
+                    "url": "/partners/premium/coaltec_soldadura.svg",
+                    "height": "17rem"
+                },
+                "url": "http://www.coatec.net/"
             }
         ]
     },
@@ -34,42 +34,42 @@
         "width": "95%",
         "partners": [
             {
-                "name": "Laser VLC",
+                "name": "Speedgoat",
                 "logo": {
-                    "url": "/partners/gold/laser_vlc.svg",
-                    "height": "10rem"
+                    "url": "/partners/gold/speedgoat.svg",
+                    "height": "7.8rem"
                 },
-                "url": "https://www.laservalencia.com/"
+                "url": "https://www.speedgoat.com/"
             },
             {
-                "name": "Generalitat Valenciana",
+                "name": "Aussafer",
                 "logo": {
-                    "url": "/partners/gold/generalitat_valenciana.svg",
-                    "height": "10rem"
-                },
-                "url": "https://www.gva.es/"
-            },
-            {
-                "name": "Generacion Espontanea",
-                "logo": {
-                    "url": "/partners/gold/generacion_espontanea.svg",
-                    "height": "9rem"
-                },
-                "url": "https://generacionespontanea.upv.es/"
-            },
-            {
-                "name": "Sick",
-                "logo": {
-                    "url": "/partners/gold/sick.svg",
+                    "url": "/partners/gold/aussafer.svg",
                     "height": "8rem"
                 },
-                "url": "https://www.sick.com/"
+                "url": "https://www.aussafer.it/"
+            },
+            {
+                "name": "ArcelorMittal",
+                "logo": {
+                    "url": "/partners/gold/arcelormittal.svg",
+                    "height": "8.5rem"
+                },
+                "url": "https://corporate.arcelormittal.com/"
+            },
+            {
+                "name": "Wolfspeed",
+                "logo": {
+                    "url": "/partners/gold/wolfspeed.svg",
+                    "height": "8.5rem"
+                },
+                "url": "https://www.wolfspeed.com/"
             },
             {
                 "name": "Altium",
                 "logo": {
                     "url": "/partners/gold/altium.svg",
-                    "width": "30rem"
+                    "height": "6rem"
                 },
                 "url": "https://www.altium.com/"
             },
@@ -77,65 +77,75 @@
                 "name": "Ansys",
                 "logo": {
                     "url": "/partners/gold/ansys.svg",
-                    "height": "8rem"
+                    "height": "7.6rem"
                 },
                 "url": "https://www.ansys.com/"
-            },
-            {
-                "name": "Wurth Elektronik",
-                "logo": {
-                    "url": "/partners/gold/wurth.svg",
-                    "height": "9rem"
-                },
-                "url": "https://www.we-online.com"
             },
             {
                 "name": "HP",
                 "logo": {
                     "url": "/partners/gold/hp.svg",
-                    "height": "10rem"
+                    "height": "11rem"
                 },
                 "url": "https://www.hp.com/"
             },
             {
-                "name": "Traction Systems Inc",
+                "name": "Generación Espontánea",
                 "logo": {
-                    "url": "/partners/gold/tsa.svg",
+                    "url": "/partners/gold/generacion_espontanea.svg",
+                    "height": "8.5rem"
+                },
+                "url": "https://generacionespontanea.upv.es/"
+            },
+            {
+                "name": "Würth Elektronik",
+                "logo": {
+                    "url": "/partners/gold/wurth.svg",
+                    "height": "9.5rem"
+                },
+                "url": "https://www.we-online.com"
+            },
+
+            {
+                "name": "SICK",
+                "logo": {
+                    "url": "/partners/gold/sick.svg",
                     "height": "8rem"
                 },
-                "url": "https://www.tsa.at/"
+                "url": "https://www.sick.com/"
             },
             {
                 "name": "Altair",
                 "logo": {
                     "url": "/partners/gold/altair.svg",
-                    "width": "28rem"
+                    "height": "7rem"
                 },
                 "url": "https://altair.com/"
             },
+
             {
-                "name": "Tecinsa",
+                "name": "Rutronik",
                 "logo": {
-                    "url": "/partners/gold/tecinsa.svg",
-                    "height": "6rem"
+                    "url": "/partners/gold/rutronik.svg",
+                    "height": "10rem"
                 },
-                "url": "https://www.tecinsa.info/"
+                "url": "https://www.rutronik.com/"
             },
             {
-                "name": "Talleres Villalon",
+                "name": "Tiempo Zamora",
                 "logo": {
-                    "url": "/partners/gold/talleres_villalon.svg",
+                    "url": "/partners/gold/tiempo_zamora.svg",
                     "height": "9rem"
                 },
-                "url": "https://www.talleresvillalon.com/"
+                "url": "https://tiempolaboral.com/"
             },
             {
-                "name": "Sergimetall",
+                "name": "SECH",
                 "logo": {
-                    "url": "/partners/gold/sergimetall.svg",
+                    "url": "/partners/gold/sech.svg",
                     "height": "7rem"
                 },
-                "url": "https://www.sergimetall.com/"
+                "url": "https://www.sechsa.com/"
             }
         ]
     },
@@ -144,60 +154,44 @@
         "width": "100%",
         "partners": [
             {
-                "name": "Escuela Tecnica Superior de Ingenieria del Diseño",
+                "name": "TDK-Lambda",
                 "logo": {
-                    "url": "/partners/silver/etsid.svg",
-                    "height": "6rem"
+                    "url": "/partners/silver/tdk_lambda.svg",
+                    "height": "6.5rem"
                 },
-                "url": "https://www.etsid.upv.es/"
+                "url": "https://www.jp.lambda.tdk.com/en/"
             },
             {
-                "name": "Miguelez",
+                "name": "Lymsa",
                 "logo": {
-                    "url": "/partners/silver/miguelez.svg",
-                    "height": "5rem"
+                    "url": "/partners/silver/lymsa.svg",
+                    "height": "4.8rem"
                 },
-                "url": "https://www.miguelez.com/"
-            },
-            {
-                "name": "Industa",
-                "logo": {
-                    "url": "/partners/silver/industa.svg",
-                    "height": "7rem"
-                },
-                "url": "http://www.industa.com/"
+                "url": "https://lymsa.es/"
             },
             {
                 "name": "Tecci",
                 "logo": {
                     "url": "/partners/silver/tecci.svg",
-                    "height": "7rem"
+                    "height": "7.2rem"
                 },
                 "url": "https://www.tecci.com/"
             },
             {
-                "name": "Initube",
+                "name": "Hydro",
                 "logo": {
-                    "url": "/partners/silver/initube.svg",
-                    "height": "6rem"
+                    "url": "/partners/silver/hydro.svg",
+                    "height": "9rem"
                 },
-                "url": "https://initube.es/"
+                "url": "https://www.hydro.com/"
             },
             {
-                "name": "Ate Composites",
+                "name": "Composites ATE",
                 "logo": {
                     "url": "/partners/silver/ate.svg",
-                    "height": "7rem"
+                    "height": "7.5rem"
                 },
                 "url": "https://www.composites-ate.com/"
-            },
-            {
-                "name": "Mahle",
-                "logo": {
-                    "url": "/partners/silver/mahle.svg",
-                    "height": "6rem"
-                },
-                "url": "https://www.mahle.com/"
             },
             {
                 "name": "Mecanizados Garrigues",
@@ -224,18 +218,18 @@
                 "url": "http://www.demetal.es/"
             },
             {
-                "name": "Speedgoat",
+                "name": "Escuela Tecnica Superior de Ingenieria del Diseño",
                 "logo": {
-                    "url": "/partners/silver/speedgoat.svg",
-                    "height": "5rem"
+                    "url": "/partners/silver/etsid.svg",
+                    "height": "6.5rem"
                 },
-                "url": "https://www.speedgoat.com/"
+                "url": "https://www.etsid.upv.es/"
             },
             {
                 "name": "Metalcheck",
                 "logo": {
                     "url": "/partners/silver/metalcheck.svg",
-                    "height": "7rem"
+                    "height": "9rem"
                 },
                 "url": "http://www.metalcheck-cnc.com/"
             },
@@ -288,12 +282,12 @@
                 "url": "https://epidor.com/"
             },
             {
-                "name": "Gurit",
+                "name": "Jesiva",
                 "logo": {
-                    "url": "/partners/silver/gurit.svg",
-                    "height": "7rem"
+                    "url": "/partners/silver/jesiva.svg",
+                    "height": "6rem"
                 },
-                "url": "https://www.gurit.com/"
+                "url": "https://jesiva.com/"
             },
             {
                 "name": "Elektro-Automatik",
@@ -307,7 +301,7 @@
                 "name": "Thyssenkrupp",
                 "logo": {
                     "url": "/partners/silver/thyssenkrupp.svg",
-                    "height": "9rem"
+                    "height": "10rem"
                 },
                 "url": "https://www.thyssenkrupp.com/"
             },
@@ -320,26 +314,18 @@
                 "url": "https://power-electronics.com/"
             },
             {
-                "name": "JBC Tools",
+                "name": "Analog Devices",
                 "logo": {
-                    "url": "/partners/silver/jbc.svg",
-                    "width": "23rem"
+                    "url": "/partners/silver/analog_devices.svg",
+                    "height": "7rem"
                 },
-                "url": "https://www.jbctools.com/"
-            },
-            {
-                "name": "Cognizant",
-                "logo": {
-                    "url": "/partners/silver/cognizant.svg",
-                    "width": "28rem"
-                },
-                "url": "https://www.cognizant.com/"
+                "url": "https://www.analog.com/"
             },
             {
                 "name": "Nefab",
                 "logo": {
                     "url": "/partners/silver/nefab.svg",
-                    "height": "5rem"
+                    "height": "5.5rem"
                 },
                 "url": "https://www.nefab.com/"
             }
@@ -358,76 +344,61 @@
                 "url": "https://www.dropshirt.eu/"
             },
             {
-                "name": "Xometry",
-                "logo": {
-                    "url": "/partners/bronze/xometry.svg",
-                    "height": "8rem"
-                },
-                "url": "https://xometry.eu/"
-            },
-            {
-                "name": "Mean Well",
+                "name": "MeanWell",
                 "logo": {
                     "url": "/partners/bronze/mean_well.svg",
-                    "height": "8rem"
+                    "height": "7.5rem"
                 },
                 "url": "https://www.meanwell.com/"
             },
             {
-                "name": "Delta Plus",
+                "name": "Olfer",
                 "logo": {
-                    "url": "/partners/bronze/deltaplus.svg",
-                    "height": "8rem"
+                    "url": "/partners/bronze/olfer.svg",
+                    "height": "6.5rem"
                 },
-                "url": "https://www.deltaplus.eu/"
+                "url": "https://www.olfer.com/"
             },
             {
-                "name": "Juco",
-                "logo": {
-                    "url": "/partners/bronze/juco.svg",
-                    "height": "8rem"
-                },
-                "url": "https://jucosystems.com/"
-            },
-            {
-                "name": "RS",
+                "name": "RS Iberia",
                 "logo": {
                     "url": "/partners/bronze/rs.svg",
-                    "height": "8rem"
+                    "height": "6.5rem"
                 },
                 "url": "https://es.rs-online.com/"
             },
+
             {
-                "name": "Wisa Plywood",
+                "name": "Hirose",
                 "logo": {
-                    "url": "/partners/bronze/wisa_plywood.svg",
+                    "url": "/partners/bronze/hirose.svg",
+                    "height": "6rem"
+                },
+                "url": "https://www.hirose.com/eu"
+            },
+            {
+                "name": "STMicroElectronics",
+                "logo": {
+                    "url": "/partners/bronze/stm.svg",
+                    "height": "6rem"
+                },
+                "url": "https://www.st.com/"
+            },
+            {
+                "name": "Nexperia",
+                "logo": {
+                    "url": "/partners/bronze/nexperia.svg",
                     "height": "5rem"
                 },
-                "url": "https://www.wisaplywood.com/"
+                "url": "https://www.nexperia.com/"
             },
             {
-                "name": "Fugro",
+                "name": "Rhenus Logistics",
                 "logo": {
-                    "url": "/partners/bronze/fugro.svg",
-                    "height": "7rem"
+                    "url": "/partners/bronze/rhenus.svg",
+                    "height": "5rem"
                 },
-                "url": "https://www.fugro.com/"
-            },
-            {
-                "name": "Infineon",
-                "logo": {
-                    "url": "/partners/bronze/infineon.svg",
-                    "height": "7rem"
-                },
-                "url": "https://www.infineon.com/"
-            },
-            {
-                "name": "Medio Cubo",
-                "logo": {
-                    "url": "/partners/bronze/medio_cubo.svg",
-                    "height": "7rem"
-                },
-                "url": "https://www.mediocubo.com/"
+                "url": "https://www.rhenus.group/"
             },
             {
                 "name": "Hertalla",
@@ -441,44 +412,12 @@
                 "name": "Eurocircuits",
                 "logo": {
                     "url": "/partners/bronze/euro_circuits.svg",
-                    "height": "7rem"
+                    "height": "9rem"
                 },
                 "url": "https://www.eurocircuits.com/"
             },
             {
-                "name": "Gabarro",
-                "logo": {
-                    "url": "/partners/bronze/gabarro.svg",
-                    "height": "5rem"
-                },
-                "url": "https://www.gabarro.com/"
-            },
-            {
-                "name": "Aussafer",
-                "logo": {
-                    "url": "/partners/bronze/aussafer.svg",
-                    "height": "6rem"
-                },
-                "url": "https://www.aussafer.it/"
-            },
-            {
-                "name": "Hydro",
-                "logo": {
-                    "url": "/partners/bronze/hydro.svg",
-                    "height": "8rem"
-                },
-                "url": "https://www.hydro.com/"
-            },
-            {
-                "name": "MaxLinear",
-                "logo": {
-                    "url": "/partners/bronze/maxlinear.svg",
-                    "height": "7rem"
-                },
-                "url": "https://www.maxlinear.com/"
-            },
-            {
-                "name": "Mouser Electronics",
+                "name": "Mouser",
                 "logo": {
                     "url": "/partners/bronze/mouser.svg",
                     "height": "7rem"
@@ -489,25 +428,33 @@
                 "name": "Red Bull",
                 "logo": {
                     "url": "/partners/bronze/red_bull.svg",
-                    "height": "7rem"
+                    "height": "7.5rem"
                 },
                 "url": "https://www.redbull.com/"
             },
             {
-                "name": "Avnet",
+                "name": "Molex",
                 "logo": {
-                    "url": "/partners/bronze/avnet.svg",
-                    "height": "4rem"
+                    "url": "/partners/bronze/molex.svg",
+                    "height": "8.5rem"
                 },
-                "url": "https://www.avnet.com/"
+                "url": "https://www.molex.com/"
             },
             {
-                "name": "GMdix",
+                "name": "Gomez Madrid",
                 "logo": {
                     "url": "/partners/bronze/gmdix.svg",
-                    "height": "7rem"
+                    "height": "6.5rem"
                 },
                 "url": "https://gmdix.com/"
+            },
+            {
+                "name": "Bender",
+                "logo": {
+                    "url": "/partners/bronze/bender.svg",
+                    "height": "4.6rem"
+                },
+                "url": "https://www.bender.es/"
             },
             {
                 "name": "Laser Boost",
@@ -518,50 +465,26 @@
                 "url": "https://www.laserboost.com/"
             },
             {
-                "name": "Bender",
-                "logo": {
-                    "url": "/partners/bronze/bender.svg",
-                    "height": "5rem"
-                },
-                "url": "https://www.bender.es/"
-            },
-            {
                 "name": "Mecanus",
                 "logo": {
                     "url": "/partners/bronze/mecanus.svg",
-                    "height": "4rem"
+                    "height": "3.8rem"
                 },
                 "url": "https://mecanus.com/"
             },
             {
-                "name": "Valencia C.F.",
+                "name": "Alcoelectro",
                 "logo": {
-                    "url": "/partners/bronze/valencia_cf.svg",
-                    "height": "8rem"
+                    "url": "/partners/bronze/alcoelectro.svg",
+                    "height": "8.5rem"
                 },
-                "url": "https://www.valenciacf.com/es"
-            },
-            {
-                "name": "Talleres Corral",
-                "logo": {
-                    "url": "/partners/bronze/talleres_corral.svg",
-                    "height": "5rem"
-                },
-                "url": "https://www.tallerescorral.com/"
-            },
-            {
-                "name": "Analog Devices",
-                "logo": {
-                    "url": "/partners/bronze/analog_devices.svg",
-                    "height": "5.5rem"
-                },
-                "url": "https://www.analog.com/"
+                "url": "https://www.alcoelectro.com/"
             },
             {
                 "name": "Supermagnete",
                 "logo": {
                     "url": "/partners/bronze/supermagnete.svg",
-                    "height": "6rem"
+                    "height": "7rem"
                 },
                 "url": "https://www.supermagnete.es/"
             },
@@ -577,71 +500,55 @@
                 "name": "Istobal",
                 "logo": {
                     "url": "/partners/bronze/istobal.svg",
-                    "height": "3.5rem"
+                    "height": "3.2rem"
                 },
                 "url": "https://istobal.com/"
-            },
-            {
-                "name": "Zeleros",
-                "logo": {
-                    "url": "/partners/bronze/zeleros.svg",
-                    "height": "8rem"
-                },
-                "url": "https://zeleros.com/"
-            },
-            {
-                "name": "Alco",
-                "logo": {
-                    "url": "/partners/bronze/alco.svg",
-                    "height": "7rem"
-                },
-                "url": "https://www.alcoelectro.com/"
             },
             {
                 "name": "Gift Campaign",
                 "logo": {
                     "url": "/partners/bronze/gift_campaign.svg",
-                    "height": "6rem"
+                    "height": "5.5rem"
                 },
                 "url": "https://www.giftcampaign.es/"
             },
             {
-                "name": "Bornay",
+                "name": "Grupo Bornay",
                 "logo": {
                     "url": "/partners/bronze/bornay.svg",
-                    "height": "6rem"
+                    "height": "5.5rem"
                 },
                 "url": "https://www.bornay.es/"
-            },
-            {
-                "name": "Phoenix Contact",
-                "logo": {
-                    "url": "/partners/bronze/phoenix_contact.svg",
-                    "height": "5rem"
-                },
-                "url": "https://www.phoenixcontact.com/"
             },
             {
                 "name": "Aluval",
                 "logo": {
                     "url": "/partners/bronze/aluval.svg",
-                    "height": "5rem"
+                    "height": "3.2rem"
                 },
                 "url": "https://www.aluval.com/"
             },
             {
-                "name": "Nexperia",
+                "name": "Phoenix Contact",
                 "logo": {
-                    "url": "/partners/bronze/nexperia.svg",
-                    "height": "5rem"
+                    "url": "/partners/bronze/phoenix_contact.svg",
+                    "height": "3.5rem"
                 },
-                "url": "https://www.nexperia.com/"
+                "url": "https://www.phoenixcontact.com/"
+            },
+            {
+                "name": "Zeleros",
+                "logo": {
+                    "url": "/partners/bronze/zeleros.svg",
+                    "height": "6rem"
+                },
+                "url": "https://zeleros.com/"
             }
         ]
     },
     "Colaborator": {
         "color": "#2486A4",
-        "width": "90%",
+        "width": "100%",
         "partners": [
             {
                 "name": "Norelem",
@@ -652,15 +559,7 @@
                 "url": "https://norelem.es/"
             },
             {
-                "name": "Escuela de Administracion y Direccion de Empresas UPV",
-                "logo": {
-                    "url": "/partners/colaborator/ade.svg",
-                    "height": "4.5rem"
-                },
-                "url": "https://www.upv.es/entidades/ADE/"
-            },
-            {
-                "name": "Escuela Tecnica Superior de Ingenieria de Telecomunicaciones UPV",
+                "name": "ETSIT",
                 "logo": {
                     "url": "/partners/colaborator/telecom.svg",
                     "height": "5rem"
@@ -668,34 +567,26 @@
                 "url": "http://www.upv.es/entidades/ETSIT/"
             },
             {
-                "name": "Escuela Tecnica Superior de Ingenieria Industrial UPV",
+                "name": "FADE",
+                "logo": {
+                    "url": "/partners/colaborator/ade.svg",
+                    "height": "4.5rem"
+                },
+                "url": "http://www.upv.es/entidades/ADE/"
+            },
+            {
+                "name": "ETSII",
                 "logo": {
                     "url": "/partners/colaborator/etsii.svg",
-                    "height": "6rem"
+                    "height": "5.4rem"
                 },
                 "url": "https://www.etsii.upv.es/"
             },
             {
-                "name": "Ziur",
-                "logo": {
-                    "url": "/partners/colaborator/ziur.svg",
-                    "height": "5rem"
-                },
-                "url": "https://ziurcomposites.com/"
-            },
-            {
-                "name": "ServoFluid",
-                "logo": {
-                    "url": "/partners/colaborator/servo_fluid.svg",
-                    "height": "4rem"
-                },
-                "url": "https://www.servofluid.es/"
-            },
-            {
-                "name": "Escuela Tecnica Superior de Ingenieria de Edificacion UPV",
+                "name": "ETSIE",
                 "logo": {
                     "url": "/partners/colaborator/edificacion.svg",
-                    "height": "5rem"
+                    "height": "4.5rem"
                 },
                 "url": "https://www.etsie.upv.es/"
             },
@@ -708,12 +599,36 @@
                 "url": "https://www.elcorteingles.es/"
             },
             {
-                "name": "CMT UPV",
+                "name": "CMT",
                 "logo": {
                     "url": "/partners/colaborator/cmt.svg",
                     "height": "5rem"
                 },
                 "url": "https://www.cmt.upv.es/"
+            },
+            {
+                "name": "ServoFluid",
+                "logo": {
+                    "url": "/partners/colaborator/servo_fluid.svg",
+                    "height": "4rem"
+                },
+                "url": "https://www.servofluid.es/"
+            },
+            {
+                "name": "DIE",
+                "logo": {
+                    "url": "/partners/colaborator/die.svg",
+                    "height": "4.5rem"
+                },
+                "url": "https://www.upv.es/entidades/DIEO/"
+            },
+            {
+                "name": "Seven",
+                "logo": {
+                    "url": "/partners/colaborator/seven.svg",
+                    "height": "5rem"
+                },
+                "url": "https://sevensoluciones.com/"
             },
             {
                 "name": "Grupo Billingham",
@@ -732,20 +647,12 @@
                 "url": "http://www.mecoval.com/"
             },
             {
-                "name": "DIE UPV",
+                "name": "Tecnodelsa",
                 "logo": {
-                    "url": "/partners/colaborator/die.svg",
-                    "height": "5rem"
+                    "url": "/partners/colaborator/tecnodelsa.svg",
+                    "height": "6rem"
                 },
-                "url": "https://www.upv.es/entidades/DIEO/"
-            },
-            {
-                "name": "Seven",
-                "logo": {
-                    "url": "/partners/colaborator/seven.svg",
-                    "height": "5rem"
-                },
-                "url": "https://sevensoluciones.com/"
+                "url": "https://www.tecnodelsa.com/"
             },
             {
                 "name": "Vertiprotect",
@@ -756,20 +663,20 @@
                 "url": "https://www.vertiprotect.com/"
             },
             {
+                "name": "Dremel",
+                "logo": {
+                    "url": "/partners/colaborator/dremel.svg",
+                    "height": "3.5rem"
+                },
+                "url": "https://www.dremel.com/"
+            },
+            {
                 "name": "Torrod",
                 "logo": {
                     "url": "/partners/colaborator/torrod.svg",
-                    "height": "7rem"
+                    "height": "8rem"
                 },
                 "url": "https://www.torrod.es/"
-            },
-            {
-                "name": "Tecnodelsa",
-                "logo": {
-                    "url": "/partners/colaborator/tecnodelsa.svg",
-                    "height": "6rem"
-                },
-                "url": "https://www.tecnodelsa.com/"
             },
             {
                 "name": "Dacctors",
@@ -780,7 +687,7 @@
                 "url": "https://dacctors.com/"
             },
             {
-                "name": "Carpas Terra",
+                "name": "Carpasterra",
                 "logo": {
                     "url": "/partners/colaborator/carpas_terra.svg",
                     "height": "10rem"
@@ -788,12 +695,36 @@
                 "url": "https://www.carpasterra.com/"
             },
             {
-                "name": "Dremel",
+                "name": "Vicente Torns",
                 "logo": {
-                    "url": "/partners/colaborator/dremel.svg",
+                    "url": "/partners/colaborator/vicente_torns.svg",
                     "height": "4rem"
                 },
-                "url": "https://www.dremel.com/"
+                "url": "https://www.vicentetorns.com/"
+            },
+            {
+                "name": "Bobinados Luman",
+                "logo": {
+                    "url": "/partners/colaborator/bobinados_luman.svg",
+                    "height": "8rem"
+                },
+                "url": "https://www.bobinadosluman.es/es/"
+            },
+            {
+                "name": "AlphaCool",
+                "logo": {
+                    "url": "/partners/colaborator/alphacool.svg",
+                    "height": "6rem"
+                },
+                "url": "https://www.alphacool.com/en"
+            },
+            {
+                "name": "Samtec",
+                "logo": {
+                    "url": "/partners/colaborator/samtec.svg",
+                    "height": "5.5rem"
+                },
+                "url": "https://www.samtec.com/"
             }
         ]
     }

@@ -31,8 +31,14 @@ func main() {
 	authEndpoint := auth.NewEndpoint(auth.UserList{
 		Admins: []auth.User{
 			{
-				Name:     "test",
-				Password: "1234",
+				Name:     "admin",
+				Password: "03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4",
+			},
+		},
+		Managers: []auth.User{
+			{
+				Name:     "manager",
+				Password: "5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5",
 			},
 		},
 	}, authUpdated)

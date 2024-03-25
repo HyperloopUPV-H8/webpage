@@ -79,10 +79,12 @@ const (
 )
 
 func (endpoint *Endpoint) verifyUser(writer http.ResponseWriter, request *http.Request) {
+	writer.Header().Add("Access-Control-Allow-Origin", "*")
+	writer.Header().Add("Access-Control-Allow-Headers", "Authorization")
+
 	username, password, ok := request.BasicAuth()
 	if !ok {
-		writer.Header().Add("WWW-Authenticate", "Basic")
-		http.Error(writer, "missing auth header", http.StatusUnauthorized)
+		notifyUserType(BasicUser, writer)
 		return
 	}
 

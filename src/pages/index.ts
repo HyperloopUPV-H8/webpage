@@ -5,3 +5,4 @@ export * from './AboutPage';
 export * from './PartnersPage';
 export * from './ErrorPage';
 export * from './TimelinePage';
+export * from './DashboardPage';

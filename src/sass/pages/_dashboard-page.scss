@@ -1,0 +1,25 @@
+.dashboard__login {
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    gap: 10rem;
+    height: 100vh;
+    padding: 10rem;
+
+    input {
+        border: white 1px solid;
+    }
+}
+
+.dashboard__page {
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    gap: 10rem;
+    height: 100vh;
+    padding: 10rem;
+}

@@ -44,11 +44,12 @@ const router = createBrowserRouter([
                 element: <TimelinePage />,
                 path: '/timeline',
             },
-            {
-                element: <DashboardPage />,
-                path: '/dashboard',
-            },
         ],
+    },
+    {
+        path: '/dashboard',
+        element: <DashboardPage />,
+        errorElement: <ErrorPage />,
     },
 ]);
 

@@ -1,5 +1,9 @@
 import { sha256 } from 'js-sha256';
 import { ChangeEvent, useState } from 'react';
+import { Link } from 'react-router-dom';
+import NavbarLogo from '../assets/corporative/navbar-logo.svg';
+import { MemberEdit, SideBar } from '../components';
+import { PartnerEdit } from '../components/PartnerEdit';
 
 type UserType = 'login' | 'basic' | 'manager' | 'admin';
 
@@ -18,7 +22,6 @@ export const DashboardPage = () => {
 
     const verifyUser = async () => {
         const hashedPassword = sha256(password);
-        console.log(username, hashedPassword);
         const response = await fetch('http://localhost:8080/auth/verify', {
             method: 'GET',
             headers: {
@@ -31,20 +34,83 @@ export const DashboardPage = () => {
         setUserType(body as UserType);
     };
 
+    const signOut = () => {
+        setUserName('');
+        setPassword('');
+        setUserType('login');
+    };
+
     switch (userType) {
         case 'login':
+        case 'basic':
             return (
                 <div className="dashboard__login">
-                    <input type="text" onChange={usernameChange}></input>
-                    <input type="password" onChange={passwordChange}></input>
-                    <button onClick={verifyUser}>Log-In</button>
+                    <form onSubmit={(ev) => ev.preventDefault()}>
+                        <input type="text" onChange={usernameChange}></input>
+                        <input
+                            type="password"
+                            onChange={passwordChange}
+                        ></input>
+                        <button onClick={verifyUser}>Log-In</button>
+                    </form>
+                    {userType == 'basic' ? (
+                        <div>Invalid username or password, try again</div>
+                    ) : (
+                        <></>
+                    )}
                 </div>
             );
-        case 'basic':
-            return <div className="dashboard__login">BASIC</div>;
         case 'manager':
-            return <div className="dashboard__page">MANAGER</div>;
+            return (
+                <ManagerPage
+                    username={username}
+                    password={password}
+                    onSignOut={signOut}
+                />
+            );
         case 'admin':
-            return <div className="dashboard__page">ADMIN</div>;
+            return (
+                <div className="dashboard__page">
+                    ADMIN
+                    <button onClick={signOut}>Sign Out</button>
+                </div>
+            );
     }
+};
+
+type UserProps = {
+    username: string;
+    password: string;
+    onSignOut: () => void;
+};
+
+type ManagerProps = UserProps;
+
+const ManagerPage = (props: ManagerProps) => {
+    return (
+        <div className="dashboard__page">
+            <div className="dashboard__navigation">
+                <div className="navbar__logo">
+                    <Link to={'/'}>
+                        <img src={NavbarLogo} alt="Hyperloop Logo" />
+                    </Link>
+                </div>
+                <button onClick={props.onSignOut}>Sign Out</button>
+            </div>
+            <SideBar
+                tabs={[
+                    {
+                        name: 'members',
+                        icon: 'm',
+                        content: <MemberEdit />,
+                    },
+                    {
+                        name: 'partners',
+                        icon: 'p',
+                        content: <PartnerEdit />,
+                    },
+                ]}
+            />
+        </div>
+    );
 };

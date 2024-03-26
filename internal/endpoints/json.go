@@ -35,6 +35,8 @@ func NewJSON[T any](name string, data T, authenticator auth.Endpoint, dataUpdate
 }
 
 func (endpoint *JsonEndpoint[T]) get(writer http.ResponseWriter, request *http.Request) {
+	writer.Header().Add("Access-Control-Allow-Origin", "*")
+
 	dataRaw, err := json.Marshal(endpoint.data)
 	if err != nil {
 		http.Error(writer, "", http.StatusInternalServerError)
@@ -46,6 +48,8 @@ func (endpoint *JsonEndpoint[T]) get(writer http.ResponseWriter, request *http.R
 }
 
 func (endpoint *JsonEndpoint[T]) post(writer http.ResponseWriter, request *http.Request) {
+	writer.Header().Add("Access-Control-Allow-Origin", "*")
+
 	var newData T
 	decoder := json.NewDecoder(request.Body)
 	decoder.DisallowUnknownFields()
@@ -62,6 +66,7 @@ func (endpoint *JsonEndpoint[T]) post(writer http.ResponseWriter, request *http.
 }
 
 func (endpoint *JsonEndpoint[T]) options(writer http.ResponseWriter, _ *http.Request) {
+	writer.Header().Add("Access-Control-Allow-Origin", "*")
 	writer.Header().Add("Content-Type", "application/json")
 }
 

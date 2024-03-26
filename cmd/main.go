@@ -48,16 +48,54 @@ func main() {
 	membersUpdated := make(chan struct{}, 1)
 	membersEndpoint := endpoints.NewJSON("members", []members.Subsystem{
 		{
-			Name: "direction",
+			Name: "Direction",
 			Members: []members.Member{
 				{
-					Name: "Hugo Albert",
+					Name:       "Hugo Albert",
+					ImageURL:   "media/members/hugo_albert.webp",
+					Role:       "Director",
+					SocialsURL: "https://www.linkedin.com/in/hugoalbert/",
 				},
 				{
-					Name: "Stefan Costea",
+					Name:       "Stefan Costea",
+					ImageURL:   "media/members/stefan_costea.webp",
+					Role:       "Technical Director",
+					SocialsURL: "https://www.linkedin.com/in/stefan-costea-5a3648205/",
 				},
 				{
-					Name: "Alvaro Perez",
+					Name:       "Alvaro Perez",
+					ImageURL:   "media/members/alvaro_perez.webp",
+					Role:       "Technical Director",
+					SocialsURL: "https://www.linkedin.com/in/alvaro-perez-pecharroman/",
+				},
+			},
+		},
+		{
+			Name: "Software",
+			Members: []members.Member{
+				{
+					Name:       "Juan Martinez",
+					ImageURL:   "media/members/juan_martinez.webp",
+					Role:       "Project Manager",
+					SocialsURL: "https://www.linkedin.com/in/juan-martinez-alonso-13507a283/",
+				},
+				{
+					Name:       "Andres de la Torre",
+					ImageURL:   "media/members/andres_de_la_torre.webp",
+					Role:       "",
+					SocialsURL: "https://www.linkedin.com/in/andresdltm/",
+				},
+				{
+					Name:       "Marc Sanchis",
+					ImageURL:   "media/members/marc_sanchis.webp",
+					Role:       "",
+					SocialsURL: "https://www.linkedin.com/in/marc-sanchis-5454a9192/",
+				},
+				{
+					Name:       "Fernando Sanchez",
+					ImageURL:   "media/members/fernando_sanchez.webp",
+					Role:       "",
+					SocialsURL: "https://www.linkedin.com/in/fernando-sanchez-gabaldon-3a4285191/",
 				},
 			},
 		},

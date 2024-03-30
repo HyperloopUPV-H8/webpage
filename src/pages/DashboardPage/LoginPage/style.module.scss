@@ -1,0 +1,25 @@
+.login {
+    display: flex;
+    flex-flow: column;
+    gap: 5rem;
+    padding: 5rem;
+    background: white;
+    border-radius: 5rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.form {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+
+    button {
+        border: 1px solid black;
+        border-radius: 5px;
+        padding: 0.5rem 0.5rem;
+        width: 10rem;
+    }
+}

@@ -1,0 +1,23 @@
+.sidebar {
+    display: flex;
+    flex-flow: row;
+    width: 100%;
+}
+
+.navigation {
+    padding: 1rem 2rem;
+    display: flex;
+    flex-flow: column;
+    gap: 5rem;
+    width: fit-content;
+}
+
+.navitem {
+    width: 5rem;
+    height: 5rem;
+    border: white 1px solid;
+}
+
+.container {
+    width: 100%;
+}

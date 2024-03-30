@@ -6,7 +6,7 @@
 
     &::before {
         z-index: -1;
-        content: "";
+        content: '';
         position: absolute;
         inset: -$radius;
         background: $gradient;

@@ -1,0 +1,39 @@
+@use '../../sass/core/shadows';
+@use '../../sass/core/variables' as var;
+
+.titled_image_box {
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.title {
+    text-align: center;
+    font-size: 4rem;
+    color: white;
+    font-family: #{var.$primary-font};
+    font-weight: 500;
+}
+
+.image {
+    width: 100%;
+
+    &.orange_border {
+        @include shadows.gradient(#ce8058);
+    }
+
+    &.blue_border {
+        @include shadows.gradient(#2486a4);
+    }
+
+    &.multicolor_border {
+        @include shadows.gradient(linear-gradient(300deg, #2486a4, #ce8058));
+    }
+
+    img {
+        height: 100%;
+        border-radius: 1rem;
+    }
+}

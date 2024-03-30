@@ -2,17 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './sass/app.scss';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import {
-    AboutPage,
-    ContactPage,
-    ErrorPage,
-    LandingPage,
-    PartnersPage,
-    TeamPage,
-    TimelinePage,
-    DashboardPage,
-} from './pages';
-import { Layout } from './layout';
+import Layout from './layout/Layout';
+import ErrorPage from './pages/ErrorPage';
+import LandingPage from './pages/LandingPage';
+import AboutPage from './pages/AboutPage';
+import ContactPage from './pages/ContactPage';
+import TeamPage from './pages/TeamPage';
+import PartnersPage from './pages/PartnersPage';
+import TimelinePage from './pages/TimelinePage';
+import { DashboardPage } from './pages/DashboardPage';
 
 const router = createBrowserRouter([
     {

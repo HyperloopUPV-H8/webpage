@@ -2,8 +2,9 @@ import { sha256 } from 'js-sha256';
 import { ChangeEvent, useState } from 'react';
 import { Link } from 'react-router-dom';
 import NavbarLogo from '../assets/corporative/navbar-logo.svg';
-import { MemberEdit, SideBar } from '../components';
 import { PartnerEdit } from '../components/PartnerEdit';
+import SideBar from '../components/SideBar';
+import { MemberEdit } from '../components/MemberEdit';
 
 type UserType = 'login' | 'basic' | 'manager' | 'admin';
 

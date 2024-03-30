@@ -1,0 +1,33 @@
+.container {
+    display: flex;
+    flex-flow: row;
+    border: 1px solid white;
+}
+
+.drag_and_drop {
+    width: 3rem;
+    border: 1px solid white;
+}
+
+.info {
+    display: flex;
+    flex-flow: column;
+    gap: 1rem;
+    padding: 2rem 3rem;
+    width: 100%;
+}
+
+.partner_name {
+    display: flex;
+    flex-flow: row;
+    gap: 1rem;
+}
+
+.remove_button {
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.partner_name_input {
+    width: 100%;
+}

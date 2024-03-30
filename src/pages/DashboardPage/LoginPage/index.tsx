@@ -1,4 +1,4 @@
-import { ChangeEvent, MouseEvent, ReactNode } from 'react';
+import { ChangeEvent, MouseEvent } from 'react';
 import style from './style.module.scss';
 import FormInput from '../../../components/ContactForm/FormInput';
 
@@ -6,7 +6,7 @@ type Props = {
     onUsernameChange: (ev: ChangeEvent<HTMLInputElement>) => void;
     onPasswordChange: (ev: ChangeEvent<HTMLInputElement>) => void;
     onVerifyUser: (ev: MouseEvent<HTMLButtonElement>) => void;
-    children?: ReactNode;
+    error: string;
 };
 
 export default function LoginPage(props: Props) {
@@ -24,13 +24,13 @@ export default function LoginPage(props: Props) {
                     label="Contraseña"
                     id="login-password"
                     name="password"
-                    type="text"
+                    type="password"
                     onChange={props.onPasswordChange}
                 />
 
                 <button onClick={props.onVerifyUser}>Log-In</button>
             </form>
-            {props.children}
+            <p className={style.error}>{props.error}</p>
         </div>
     );
 }

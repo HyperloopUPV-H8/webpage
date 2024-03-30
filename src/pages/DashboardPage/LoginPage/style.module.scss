@@ -1,4 +1,5 @@
 .login {
+    width: fit-content;
     display: flex;
     flex-flow: column;
     gap: 5rem;
@@ -22,4 +23,12 @@
         padding: 0.5rem 0.5rem;
         width: 10rem;
     }
+}
+
+.error {
+    width: 40rem;
+    color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

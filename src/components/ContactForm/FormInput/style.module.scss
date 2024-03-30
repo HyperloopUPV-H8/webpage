@@ -1,0 +1,30 @@
+.input {
+    width: 100%;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    gap: 0.2rem;
+    font-weight: 100;
+
+    label {
+        position: absolute;
+        top: -0.8rem;
+        left: 2rem;
+        padding: 0 0.5rem;
+        background-color: white;
+    }
+
+    input {
+        border: 1px solid black;
+        border-radius: 1rem;
+        padding: 2rem;
+        height: 5rem;
+
+        &:focus {
+            outline: none;
+            -webkit-box-shadow: 0px 0 0 0.15rem #ee7623;
+            -moz-box-shadow: 0px 0 0 0.15rem #ee7623;
+            box-shadow: 0px 0 0 0.15rem #ee7623;
+        }
+    }
+}

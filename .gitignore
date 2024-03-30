@@ -28,4 +28,4 @@ package-lock.json
 
 # Application
 cmd/cmd
-cmd/media
+cmd/media.prettierrc

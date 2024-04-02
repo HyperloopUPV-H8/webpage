@@ -36,9 +36,10 @@ export default function TierEdit({ metadata }: Props) {
 
                     <div className={style.tier_input}>
                         <label
-                            htmlFor={`tier-width-${metadata.name
-                                .split('')
-                                .join('-')}`}
+                            htmlFor={`tier-color-${metadata.name.replace(
+                                ' ',
+                                '_'
+                            )}`}
                             className={style.input_label}
                         >
                             Color:
@@ -51,27 +52,24 @@ export default function TierEdit({ metadata }: Props) {
                             type="text"
                             onChange={updateColor}
                             defaultValue={metadata.style.color}
-                            id={`tier-color-${metadata.name
-                                .split(' ')
-                                .join('-')}`}
+                            id={`tier-color-${metadata.name.replace(' ', '_')}`}
                             className={style.input_element}
                         />
                     </div>
 
                     <div className={style.tier_input}>
                         <label
-                            htmlFor={`tier-width-${metadata.name
-                                .split('')
-                                .join('-')}`}
+                            htmlFor={`tier-width-${metadata.name.replace(
+                                ' ',
+                                '_'
+                            )}`}
                             className={style.input_label}
                         >
                             Width:
                         </label>
                         <input
                             type="range"
-                            id={`tier-width-${metadata.name
-                                .split(' ')
-                                .join('-')}`}
+                            id={`tier-width-${metadata.name.replace(' ', '_')}`}
                             min={0}
                             max={100}
                             step={1}

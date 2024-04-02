@@ -110,18 +110,33 @@ func main() {
 			Partners: []partners.Partner{
 				{
 					Name: "Universitat Politecnica De Valencia",
+					Logo: partners.Logo{
+						URL: "/partners/premium/universidad_politecnica_de_valencia.svg",
+					},
 				},
 				{
 					Name: "Coaltec Soldadura",
+					Logo: partners.Logo{
+						URL: "/partners/premium/universidad_politecnica_de_valencia.svg",
+					},
 				},
 				{
 					Name: "Zeleros",
+					Logo: partners.Logo{
+						URL: "/partners/premium/universidad_politecnica_de_valencia.svg",
+					},
 				},
 				{
 					Name: "Uniweld",
+					Logo: partners.Logo{
+						URL: "/partners/premium/universidad_politecnica_de_valencia.svg",
+					},
 				},
 				{
 					Name: "Acerinox",
+					Logo: partners.Logo{
+						URL: "/partners/premium/universidad_politecnica_de_valencia.svg",
+					},
 				},
 			},
 			Style: partners.TierStyle{

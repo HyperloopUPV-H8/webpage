@@ -31,3 +31,39 @@
 .partner_name_input {
     width: 100%;
 }
+
+.partner_webpage {
+    display: flex;
+    flex-flow: row;
+    gap: 1rem;
+}
+
+.partner_logo {
+    display: flex;
+    flex-flow: row;
+    gap: 2rem;
+
+    img {
+        max-height: 6rem;
+        width: auto;
+        height: auto;
+        color: red;
+    }
+}
+
+.partner_logo_upload,
+.partner_logo_url {
+    display: flex;
+    flex-flow: row;
+    gap: 1rem;
+}
+
+.partner_logo_select {
+    display: flex;
+    flex-flow: column;
+    gap: 2rem;
+}
+
+.parnter_logo_label_select {
+    width: 10rem;
+}

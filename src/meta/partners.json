@@ -20,7 +20,7 @@
                 "url": "https://www.uni-weld.com/"
             },
             {
-                "name": "Coaltec Soldadura",
+                "name": "Coaltec",
                 "logo": {
                     "url": "/partners/premium/coaltec_soldadura.svg",
                     "height": "17rem"
@@ -105,7 +105,6 @@
                 },
                 "url": "https://www.we-online.com"
             },
-
             {
                 "name": "SICK",
                 "logo": {
@@ -122,7 +121,6 @@
                 },
                 "url": "https://altair.com/"
             },
-
             {
                 "name": "Rutronik",
                 "logo": {
@@ -165,7 +163,7 @@
                 "name": "Lymsa",
                 "logo": {
                     "url": "/partners/silver/lymsa.svg",
-                    "height": "4.8rem"
+                    "height": "4.6rem"
                 },
                 "url": "https://lymsa.es/"
             },
@@ -325,9 +323,17 @@
                 "name": "Nefab",
                 "logo": {
                     "url": "/partners/silver/nefab.svg",
-                    "height": "5.5rem"
+                    "height": "5rem"
                 },
                 "url": "https://www.nefab.com/"
+            },
+            {
+                "name": "Nexperia",
+                "logo": {
+                    "url": "/partners/silver/nexperia.svg",
+                    "height": "5rem"
+                },
+                "url": "https://www.nexperia.com/"
             }
         ]
     },
@@ -367,7 +373,6 @@
                 },
                 "url": "https://es.rs-online.com/"
             },
-
             {
                 "name": "Hirose",
                 "logo": {
@@ -383,14 +388,6 @@
                     "height": "6rem"
                 },
                 "url": "https://www.st.com/"
-            },
-            {
-                "name": "Nexperia",
-                "logo": {
-                    "url": "/partners/bronze/nexperia.svg",
-                    "height": "5rem"
-                },
-                "url": "https://www.nexperia.com/"
             },
             {
                 "name": "Rhenus Logistics",
@@ -532,7 +529,7 @@
                 "name": "Phoenix Contact",
                 "logo": {
                     "url": "/partners/bronze/phoenix_contact.svg",
-                    "height": "3.5rem"
+                    "height": "4rem"
                 },
                 "url": "https://www.phoenixcontact.com/"
             },
@@ -540,7 +537,7 @@
                 "name": "Zeleros",
                 "logo": {
                     "url": "/partners/bronze/zeleros.svg",
-                    "height": "6rem"
+                    "height": "7rem"
                 },
                 "url": "https://zeleros.com/"
             }
@@ -559,14 +556,6 @@
                 "url": "https://norelem.es/"
             },
             {
-                "name": "ETSIT",
-                "logo": {
-                    "url": "/partners/colaborator/telecom.svg",
-                    "height": "5rem"
-                },
-                "url": "http://www.upv.es/entidades/ETSIT/"
-            },
-            {
                 "name": "FADE",
                 "logo": {
                     "url": "/partners/colaborator/ade.svg",
@@ -575,12 +564,28 @@
                 "url": "http://www.upv.es/entidades/ADE/"
             },
             {
+                "name": "ETSIT",
+                "logo": {
+                    "url": "/partners/colaborator/telecom.svg",
+                    "height": "5rem"
+                },
+                "url": "http://www.upv.es/entidades/ETSIT/"
+            },
+            {
                 "name": "ETSII",
                 "logo": {
                     "url": "/partners/colaborator/etsii.svg",
                     "height": "5.4rem"
                 },
                 "url": "https://www.etsii.upv.es/"
+            },
+            {
+                "name": "Leroy Merlin",
+                "logo": {
+                    "url": "/partners/colaborator/leroy_merlin.svg",
+                    "height": "5.4rem"
+                },
+                "url": "https://www.leroymerlin.es/"
             },
             {
                 "name": "ETSIE",

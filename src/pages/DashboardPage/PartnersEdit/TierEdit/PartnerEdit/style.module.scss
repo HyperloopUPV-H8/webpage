@@ -44,7 +44,7 @@
     gap: 2rem;
 
     img {
-        max-height: 6rem;
+        max-height: 7rem;
         width: auto;
         height: auto;
         color: red;
@@ -65,5 +65,21 @@
 }
 
 .parnter_logo_label_select {
-    width: 10rem;
+    width: 6rem;
+}
+
+.partner_logo_size {
+    display: flex;
+    flex-flow: column;
+    gap: 2rem;
+}
+
+.partner_logo_size_input {
+    display: flex;
+    flex-flow: row;
+    gap: 1rem;
+}
+
+.partner_logo_label_size {
+    width: 6rem;
 }

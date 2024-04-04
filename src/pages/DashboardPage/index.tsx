@@ -7,7 +7,7 @@ import ManagerPage from './ManagerPage';
 type UserType = 'login' | 'basic' | 'manager' | 'admin' | 'failed';
 
 export const DashboardPage = () => {
-    const [userType, setUserType] = useState<UserType>('login');
+    const [userType, setUserType] = useState<UserType>('manager');
     const [username, setUserName] = useState('');
     const [password, setPassword] = useState('');
 

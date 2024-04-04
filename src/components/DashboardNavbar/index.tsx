@@ -100,7 +100,7 @@ export default function DashboardNavbar(props: Props) {
                 >
                     {props.tabs.map((tab, index) => {
                         return (
-                            <li>
+                            <li key={`${tab.name}-${index}`}>
                                 <a
                                     className={style.link}
                                     onClick={switchTab(index)}

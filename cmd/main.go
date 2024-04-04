@@ -104,6 +104,8 @@ func main() {
 	http.Handle("/members", &membersEndpoint)
 
 	partnersUpdated := make(chan struct{}, 1)
+	w := "28rem"
+	h := "7rem"
 	partnersEndpoint := endpoints.NewJSON("partners", []partners.Tier{
 		{
 			Name: "premium",
@@ -111,13 +113,15 @@ func main() {
 				{
 					Name: "Universitat Politecnica De Valencia",
 					Logo: partners.Logo{
-						URL: "/partners/premium/universidad_politecnica_de_valencia.svg",
+						URL:   "/partners/premium/universidad_politecnica_de_valencia.svg",
+						Width: &w,
 					},
 				},
 				{
 					Name: "Coaltec Soldadura",
 					Logo: partners.Logo{
-						URL: "/partners/premium/universidad_politecnica_de_valencia.svg",
+						URL:    "/partners/premium/universidad_politecnica_de_valencia.svg",
+						Height: &h,
 					},
 				},
 				{
@@ -129,13 +133,16 @@ func main() {
 				{
 					Name: "Uniweld",
 					Logo: partners.Logo{
-						URL: "/partners/premium/universidad_politecnica_de_valencia.svg",
+						URL:    "/partners/premium/universidad_politecnica_de_valencia.svg",
+						Height: &h,
+						Width:  &w,
 					},
 				},
 				{
 					Name: "Acerinox",
 					Logo: partners.Logo{
-						URL: "/partners/premium/universidad_politecnica_de_valencia.svg",
+						URL:    "/partners/premium/universidad_politecnica_de_valencia.svg",
+						Height: &h,
 					},
 				},
 			},

@@ -1,6 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import style from './style.module.scss';
 import TierEdit from './TierEdit';
+import { usePartnersStore } from './store';
 
 type Props = {
     username: string;
@@ -8,45 +9,25 @@ type Props = {
 };
 
 export default function PartnersEdit(props: Props) {
-    const [metadata, setMetadata] = useState<TierMetadata[]>([]);
+    const metadata = usePartnersStore((state) => state.modifiedMetadata);
+    const loadOriginalMetadata = usePartnersStore(
+        (state) => state.loadOriginalMetadata
+    );
 
     useEffect(() => {
         fetch('http://localhost:8080/partners', {
             method: 'GET',
         }).then((response) =>
-            response.json().then((body) => setMetadata(body))
+            response.json().then((body) => loadOriginalMetadata(body))
         );
     }, [props.username, props.password]);
 
     return (
         <div className={style.container}>
-            {metadata.map((tier) => {
-                return <TierEdit key={tier.name} metadata={tier} />;
+            {metadata.map((_, idx) => {
+                return <TierEdit key={idx} index={idx} />;
             })}
             {JSON.stringify(metadata)}
         </div>
     );
 }
-
-export type TierMetadata = {
-    name: string;
-    partners: PartnerMetadata[];
-    style: StyleMetadata;
-};
-
-export type PartnerMetadata = {
-    name: string;
-    logo: LogoMetadata;
-    webgapeURL: string;
-};
-
-export type LogoMetadata = {
-    url: string;
-    width?: string;
-    height?: string;
-};
-
-export type StyleMetadata = {
-    color: string;
-    width: string;
-};

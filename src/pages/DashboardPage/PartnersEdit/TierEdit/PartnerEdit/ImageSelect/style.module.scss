@@ -1,0 +1,35 @@
+.container {
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    gap: 2rem;
+}
+
+.preview {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: red;
+}
+
+.method,
+.size {
+    display: flex;
+    flex-flow: column;
+    gap: 2rem;
+    align-items: center;
+}
+
+.label {
+    width: 5rem;
+}
+
+.upload,
+.url,
+.width,
+.height {
+    display: flex;
+    flex-flow: row;
+    gap: 1.5rem;
+    width: 100%;
+}

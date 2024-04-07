@@ -1,42 +1,49 @@
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent, DragEvent, useState } from 'react';
 import style from './style.module.scss';
 import PartnerEdit from './PartnerEdit';
-import { TierUpdate, usePartnersStore } from '../store';
+import { usePartnersStore } from '../store';
+import { StyleUpdate, TierUpdate } from '../store/model';
 
 type Props = {
     index: number;
 };
 
 export default function TierEdit({ index }: Props) {
-    const defaultMetadata = usePartnersStore(
-        (state) => state.originalMetadata[index]
-    );
+    const defaultMetadata = usePartnersStore((state) => state.metadata[index]);
     const updateTier = usePartnersStore(
         (state) => (update: TierUpdate) => state.updateTier(index, update)
     );
+    const updateStyle = usePartnersStore(
+        (state) => (update: StyleUpdate) => state.updateStyle(index, update)
+    );
+    const removeTier = usePartnersStore(
+        (state) => () => state.removeTier(index)
+    );
+    const addPartner = usePartnersStore(
+        (state) => () => state.addPartner(index)
+    );
+    const movePartner = usePartnersStore(
+        (state) => (fromTier: number, from: number, to: number) =>
+            state.movePartner(fromTier, from, index, to)
+    );
+    const moveTier = usePartnersStore(
+        (state) => (fromTier: number) => state.moveTier(fromTier, index)
+    );
 
     const [color, setColor] = useState(defaultMetadata.style.color);
-    const [width, setWidth] = useState(defaultMetadata.style.width);
 
     const updateColor = (event: ChangeEvent<HTMLInputElement>) => {
         event.preventDefault();
         setColor(event.target.value);
-        updateTier({
-            style: {
-                color: event.target.value,
-                width: width,
-            },
+        updateStyle({
+            color: event.target.value,
         });
     };
 
     const updateWidth = (event: ChangeEvent<HTMLInputElement>) => {
         event.preventDefault();
-        setWidth(event.target.value + '%');
-        updateTier({
-            style: {
-                color: color,
-                width: event.target.value + '%',
-            },
+        updateStyle({
+            width: event.target.value + '%',
         });
     };
 
@@ -47,13 +54,62 @@ export default function TierEdit({ index }: Props) {
         });
     };
 
+    const onDragStart = (event: DragEvent<HTMLDivElement>) => {
+        event.dataTransfer.setData('application/element', 'tier');
+        event.dataTransfer.setData('application/tier-index', index.toString());
+        event.dataTransfer.dropEffect = 'move';
+    };
+
+    const onDragOver = (event: DragEvent<HTMLDivElement>) => {
+        event.preventDefault();
+    };
+
+    const onDrop = (event: DragEvent<HTMLDivElement>) => {
+        event.preventDefault();
+        switch (event.dataTransfer.getData('application/element')) {
+            case 'partner':
+                dropPartner(event);
+                break;
+            case 'tier':
+                dropTier(event);
+                break;
+        }
+    };
+
+    const dropPartner = (event: DragEvent<HTMLDivElement>) => {
+        const fromTier = Number.parseInt(
+            event.dataTransfer.getData('application/tier-index')
+        );
+        const from = Number.parseInt(
+            event.dataTransfer.getData('application/partner-index')
+        );
+        movePartner(fromTier, from, 0);
+    };
+
+    const dropTier = (event: DragEvent<HTMLDivElement>) => {
+        const fromTier = Number.parseInt(
+            event.dataTransfer.getData('application/tier-index')
+        );
+        moveTier(fromTier);
+    };
+
     return (
         <div className={style.container}>
-            <div className={style.drag_and_drop} />
             <div className={style.info}>
-                <div className={style.tier_info}>
+                <div
+                    className={style.tier_info}
+                    draggable
+                    onDragStart={onDragStart}
+                    onDragOver={onDragOver}
+                    onDrop={onDrop}
+                >
                     <div className={style.tier_name}>
-                        <button className={style.remove_button}>-</button>
+                        <button
+                            className={style.remove_button}
+                            onClick={removeTier}
+                        >
+                            -
+                        </button>
                         <input
                             type="text"
                             defaultValue={defaultMetadata.name}
@@ -100,7 +156,7 @@ export default function TierEdit({ index }: Props) {
                             Width:
                         </label>
                         <input
-                            type="range"
+                            type="number"
                             id={`tier-width-${defaultMetadata.name.replace(
                                 ' ',
                                 '_'
@@ -109,25 +165,31 @@ export default function TierEdit({ index }: Props) {
                             max={100}
                             step={1}
                             onChange={updateWidth}
-                            defaultValue={Number.parseFloat(
-                                defaultMetadata.style.width.replace('rem', '')
+                            defaultValue={Number.parseInt(
+                                defaultMetadata.style.width.replace('%', '')
                             )}
                             className={style.input_element}
                         />
-                        <p className={style.width_preview}>{width}</p>
+                        <p className={style.width_preview}>%</p>
                     </div>
                 </div>
 
                 <div className={style.tier_partners}>
-                    {defaultMetadata.partners.map((_, idx) => {
+                    {defaultMetadata.partners.map((meta, idx) => {
                         return (
                             <PartnerEdit
-                                key={idx}
+                                key={meta.id}
                                 tierIndex={index}
                                 index={idx}
                             />
                         );
                     })}
+                    <button
+                        className={style.tier_add_partners}
+                        onClick={addPartner}
+                    >
+                        +
+                    </button>
                 </div>
             </div>
         </div>

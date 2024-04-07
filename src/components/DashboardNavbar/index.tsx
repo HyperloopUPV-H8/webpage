@@ -65,6 +65,10 @@ export default function DashboardNavbar(props: Props) {
         };
     };
 
+    const onDragOver = () => {
+        setIsHidden(true);
+    };
+
     return (
         <>
             <div
@@ -72,6 +76,7 @@ export default function DashboardNavbar(props: Props) {
                     isHidden ? style.navbar_hidden : ''
                 }`}
                 ref={navbar}
+                onDragOver={onDragOver}
             >
                 <div className={style.logo}>
                     <Link to={'/'}>

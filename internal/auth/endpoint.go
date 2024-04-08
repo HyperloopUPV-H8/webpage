@@ -17,8 +17,8 @@ type Endpoint struct {
 	usersUpdatedChan chan<- struct{}
 }
 
-func NewEndpoint(users UserList, usersUpdatedNotification chan<- struct{}) Endpoint {
-	endpoint := Endpoint{
+func NewEndpoint(users UserList, usersUpdatedNotification chan<- struct{}) *Endpoint {
+	endpoint := &Endpoint{
 		mux:              http.NewServeMux(),
 		lastUpdated:      time.Now(),
 		users:            mapFromList(users),

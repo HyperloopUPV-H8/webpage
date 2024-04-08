@@ -19,8 +19,8 @@ type JsonEndpoint[T any] struct {
 	dataUpdatedChan chan<- struct{}
 }
 
-func NewJSON[T any](name string, data T, authenticator auth.Endpoint, dataUpdatedNotifications chan<- struct{}) JsonEndpoint[T] {
-	endpoint := JsonEndpoint[T]{
+func NewJSON[T any](name string, data T, authenticator *auth.Endpoint, dataUpdatedNotifications chan<- struct{}) *JsonEndpoint[T] {
+	endpoint := &JsonEndpoint[T]{
 		lastUpdated:     time.Now(),
 		data:            data,
 		name:            name,
@@ -67,6 +67,7 @@ func (endpoint *JsonEndpoint[T]) post(writer http.ResponseWriter, request *http.
 
 func (endpoint *JsonEndpoint[T]) options(writer http.ResponseWriter, _ *http.Request) {
 	writer.Header().Add("Access-Control-Allow-Origin", "*")
+	writer.Header().Add("Access-Control-Allow-Headers", "Authorization")
 	writer.Header().Add("Content-Type", "application/json")
 }
 

@@ -30,8 +30,8 @@ type ImageConfig struct {
 	BasePath        string
 }
 
-func NewImage(config ImageConfig, authenticator auth.Endpoint, manifestUpdatedNotifications chan<- struct{}) (ImageEndpoint, error) {
-	endpoint := ImageEndpoint{
+func NewImage(config ImageConfig, authenticator *auth.Endpoint, manifestUpdatedNotifications chan<- struct{}) (*ImageEndpoint, error) {
+	endpoint := &ImageEndpoint{
 		manifest:            config.Manifest,
 		wildcardPattern:     config.WildcardPattern,
 		basePath:            config.BasePath,
@@ -55,7 +55,7 @@ func (endpoint *ImageEndpoint) get(writer http.ResponseWriter, request *http.Req
 
 	metadata, ok := endpoint.manifest[imageName]
 	if !ok {
-		http.Error(writer, fmt.Sprintf("member \"%s\" not found", imageName), http.StatusNotFound)
+		http.Error(writer, fmt.Sprintf("image \"%s\" not found", imageName), http.StatusNotFound)
 		return
 	}
 
@@ -125,11 +125,13 @@ func (endpoint *ImageEndpoint) delete(writer http.ResponseWriter, request *http.
 func (endpoint *ImageEndpoint) options(writer http.ResponseWriter, request *http.Request) {
 	log.Debug().Msg("options")
 
+	writer.Header().Add("Access-Control-Allow-Origin", "*")
+	writer.Header().Add("Access-Control-Allow-Headers", "Authorization,Content-Type")
+
 	imageName := internal.FormatName(request.PathValue(endpoint.wildcardPattern))
 
 	metadata, ok := endpoint.manifest[imageName]
 	if !ok {
-		http.Error(writer, fmt.Sprintf("member \"%s\" not found", imageName), http.StatusNotFound)
 		return
 	}
 	writer.Header().Add("Content-Type", metadata.ContentType)

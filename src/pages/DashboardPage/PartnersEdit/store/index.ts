@@ -7,11 +7,9 @@ export type TierIndex = number;
 export type PartnerIndex = number;
 
 type PartnersState = {
-    defaults: DTO.Tier[];
     metadata: model.Tier[];
 
     setMetadata: (metadata: DTO.Tier[]) => void;
-    resetMetadata: () => void;
 
     updateTier: (tier: TierIndex, update: model.TierUpdate) => void;
     updateStyle: (tier: TierIndex, update: model.StyleUpdate) => void;
@@ -51,30 +49,12 @@ type PartnersState = {
 };
 
 export const usePartnersStore = create<PartnersState>()((set) => ({
-    defaults: [],
     metadata: [],
 
     setMetadata: (metadata: DTO.Tier[]) => {
         set((_) => ({
             defaults: metadata,
             metadata: metadata.map((meta) => ({
-                id: uuid(),
-                ...meta,
-                partners: meta.partners.map((meta) => ({
-                    id: uuid(),
-                    ...meta,
-                    logo: {
-                        ...meta.logo,
-                        source: meta.logo.url,
-                        method: 'url',
-                    },
-                })),
-            })),
-        }));
-    },
-    resetMetadata: () => {
-        set((state) => ({
-            metadata: state.defaults.map((meta) => ({
                 id: uuid(),
                 ...meta,
                 partners: meta.partners.map((meta) => ({

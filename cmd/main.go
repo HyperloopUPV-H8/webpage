@@ -43,7 +43,7 @@ func main() {
 		},
 	}, authUpdated)
 	defer internal.SaveJSON(*UsersPathFlag, authEndpoint.GetUsers())
-	http.Handle("/auth/", http.StripPrefix("/auth", &authEndpoint))
+	http.Handle("/auth/", http.StripPrefix("/auth", authEndpoint))
 
 	membersUpdated := make(chan struct{}, 1)
 	membersEndpoint := endpoints.NewJSON("members", []members.Subsystem{
@@ -101,7 +101,7 @@ func main() {
 		},
 	}, authEndpoint, membersUpdated)
 	defer internal.SaveJSON(*MembersPathFlag, membersEndpoint.GetData())
-	http.Handle("/members", &membersEndpoint)
+	http.Handle("/members", membersEndpoint)
 
 	partnersUpdated := make(chan struct{}, 1)
 	w := "28rem"
@@ -113,7 +113,7 @@ func main() {
 				{
 					Name: "Universitat Politecnica De Valencia",
 					Logo: partners.Logo{
-						URL:   "/partners/premium/universidad_politecnica_de_valencia.svg",
+						URL:   "/media/partners/Universitat Politecnica De Valencia",
 						Width: &w,
 					},
 				},
@@ -153,7 +153,7 @@ func main() {
 		},
 	}, authEndpoint, partnersUpdated)
 	defer internal.SaveJSON(*PartnersPathFlag, partnersEndpoint.GetData())
-	http.Handle("/partners", &partnersEndpoint)
+	http.Handle("/partners", partnersEndpoint)
 
 	memberImagesUpdated := make(chan struct{}, 1)
 	partnerImagesUpdated := make(chan struct{}, 1)
@@ -170,7 +170,7 @@ func main() {
 	}
 	defer internal.SaveJSON(*MemberImagePathFlag, mediaEndpoint.GetMembersManifest())
 	defer internal.SaveJSON(*PartnerImagePathFlag, mediaEndpoint.GetPartnersManifest())
-	http.Handle("/media/", http.StripPrefix("/media", &mediaEndpoint))
+	http.Handle("/media/", http.StripPrefix("/media", mediaEndpoint))
 
 	go func() {
 		err := http.ListenAndServe(*AddressFlag, nil)

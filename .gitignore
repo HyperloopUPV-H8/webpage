@@ -27,5 +27,5 @@ package-lock.json
 .prettierrc
 
 # Application
-cmd/cmd
-cmd/media.prettierrc
+cmd/*
+!cmd/*.go

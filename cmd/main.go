@@ -28,145 +28,51 @@ func main() {
 	flag.Parse()
 
 	authUpdated := make(chan struct{}, 1)
-	authEndpoint := auth.NewEndpoint(auth.UserList{
-		Admins: []auth.User{
-			{
-				Name:     "admin",
-				Password: "03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4",
-			},
-		},
-		Managers: []auth.User{
-			{
-				Name:     "manager",
-				Password: "5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5",
-			},
-		},
-	}, authUpdated)
+	authData, err := internal.LoadJSON[auth.UserList](*UsersPathFlag)
+	if err != nil {
+		log.Fatal().Err(err).Stack().Msg("reading auth data")
+	}
+	authEndpoint := auth.NewEndpoint(authData, authUpdated)
 	defer internal.SaveJSON(*UsersPathFlag, authEndpoint.GetUsers())
 	http.Handle("/auth/", http.StripPrefix("/auth", authEndpoint))
 
 	membersUpdated := make(chan struct{}, 1)
-	membersEndpoint := endpoints.NewJSON("members", []members.Subsystem{
-		{
-			Name: "Direction",
-			Members: []members.Member{
-				{
-					Name:       "Hugo Albert",
-					ImageURL:   "media/members/hugo_albert.webp",
-					Role:       "Director",
-					SocialsURL: "https://www.linkedin.com/in/hugoalbert/",
-				},
-				{
-					Name:       "Stefan Costea",
-					ImageURL:   "media/members/stefan_costea.webp",
-					Role:       "Technical Director",
-					SocialsURL: "https://www.linkedin.com/in/stefan-costea-5a3648205/",
-				},
-				{
-					Name:       "Alvaro Perez",
-					ImageURL:   "media/members/alvaro_perez.webp",
-					Role:       "Technical Director",
-					SocialsURL: "https://www.linkedin.com/in/alvaro-perez-pecharroman/",
-				},
-			},
-		},
-		{
-			Name: "Software",
-			Members: []members.Member{
-				{
-					Name:       "Juan Martinez",
-					ImageURL:   "media/members/juan_martinez.webp",
-					Role:       "Project Manager",
-					SocialsURL: "https://www.linkedin.com/in/juan-martinez-alonso-13507a283/",
-				},
-				{
-					Name:       "Andres de la Torre",
-					ImageURL:   "media/members/andres_de_la_torre.webp",
-					Role:       "",
-					SocialsURL: "https://www.linkedin.com/in/andresdltm/",
-				},
-				{
-					Name:       "Marc Sanchis",
-					ImageURL:   "media/members/marc_sanchis.webp",
-					Role:       "",
-					SocialsURL: "https://www.linkedin.com/in/marc-sanchis-5454a9192/",
-				},
-				{
-					Name:       "Fernando Sanchez",
-					ImageURL:   "media/members/fernando_sanchez.webp",
-					Role:       "",
-					SocialsURL: "https://www.linkedin.com/in/fernando-sanchez-gabaldon-3a4285191/",
-				},
-			},
-		},
-	}, authEndpoint, membersUpdated)
+	memberData, err := internal.LoadJSON[[]members.Subsystem](*MembersPathFlag)
+	if err != nil {
+		log.Fatal().Err(err).Stack().Msg("reading member data")
+	}
+	membersEndpoint := endpoints.NewJSON("members", memberData, authEndpoint, membersUpdated)
 	defer internal.SaveJSON(*MembersPathFlag, membersEndpoint.GetData())
 	http.Handle("/members", membersEndpoint)
 
 	partnersUpdated := make(chan struct{}, 1)
-	w := "28rem"
-	h := "7rem"
-	partnersEndpoint := endpoints.NewJSON("partners", []partners.Tier{
-		{
-			Name: "premium",
-			Partners: []partners.Partner{
-				{
-					Name: "Universitat Politecnica De Valencia",
-					Logo: partners.Logo{
-						URL:   "/media/partners/Universitat Politecnica De Valencia",
-						Width: &w,
-					},
-				},
-				{
-					Name: "Coaltec Soldadura",
-					Logo: partners.Logo{
-						URL:    "/partners/premium/universidad_politecnica_de_valencia.svg",
-						Height: &h,
-					},
-				},
-				{
-					Name: "Zeleros",
-					Logo: partners.Logo{
-						URL: "/partners/premium/universidad_politecnica_de_valencia.svg",
-					},
-				},
-				{
-					Name: "Uniweld",
-					Logo: partners.Logo{
-						URL:    "/partners/premium/universidad_politecnica_de_valencia.svg",
-						Height: &h,
-						Width:  &w,
-					},
-				},
-				{
-					Name: "Acerinox",
-					Logo: partners.Logo{
-						URL:    "/partners/premium/universidad_politecnica_de_valencia.svg",
-						Height: &h,
-					},
-				},
-			},
-			Style: partners.TierStyle{
-				Width: "70%",
-				Color: "#ffffff",
-			},
-		},
-	}, authEndpoint, partnersUpdated)
+	partnersData, err := internal.LoadJSON[[]partners.Tier](*PartnersPathFlag)
+	if err != nil {
+		log.Fatal().Err(err).Stack().Msg("reading partners data")
+	}
+	partnersEndpoint := endpoints.NewJSON("partners", partnersData, authEndpoint, partnersUpdated)
 	defer internal.SaveJSON(*PartnersPathFlag, partnersEndpoint.GetData())
 	http.Handle("/partners", partnersEndpoint)
 
 	memberImagesUpdated := make(chan struct{}, 1)
+	memberImagesData, err := internal.LoadJSON[endpoints.ImageManifest](*MemberImagePathFlag)
+	if err != nil {
+		log.Fatal().Err(err).Stack().Msg("reading member images")
+	}
 	partnerImagesUpdated := make(chan struct{}, 1)
+	partnerImagesData, err := internal.LoadJSON[endpoints.ImageManifest](*PartnerImagePathFlag)
+	if err != nil {
+		log.Fatal().Err(err).Stack().Msg("reading partner images")
+	}
 	mediaEndpoint, err := media.NewEndpoint(
-		endpoints.ImageManifest{},
-		endpoints.ImageManifest{},
+		memberImagesData,
+		partnerImagesData,
 		authEndpoint,
 		memberImagesUpdated,
 		partnerImagesUpdated,
 	)
 	if err != nil {
-		log.Error().Stack().Err(err).Msg("media endpoint")
-		os.Exit(1)
+		log.Fatal().Stack().Err(err).Msg("media endpoint")
 	}
 	defer internal.SaveJSON(*MemberImagePathFlag, mediaEndpoint.GetMembersManifest())
 	defer internal.SaveJSON(*PartnerImagePathFlag, mediaEndpoint.GetPartnersManifest())
@@ -175,8 +81,7 @@ func main() {
 	go func() {
 		err := http.ListenAndServe(*AddressFlag, nil)
 		if err != nil {
-			log.Error().Stack().Err(err).Msg("listen and serve")
-			os.Exit(1)
+			log.Fatal().Stack().Err(err).Msg("listen and serve")
 		}
 	}()
 
@@ -185,6 +90,7 @@ func main() {
 	signals := make(chan os.Signal, 1)
 	signal.Notify(signals, syscall.SIGINT, syscall.SIGTERM)
 
+backupLoop:
 	for {
 		var err error = nil
 		select {
@@ -200,7 +106,7 @@ func main() {
 			err = internal.SaveJSON(*PartnerImagePathFlag, mediaEndpoint.GetPartnersManifest())
 		case signal := <-signals:
 			log.Info().Str("signal", signal.String()).Msg("closing")
-			os.Exit(0)
+			break backupLoop
 		}
 		if err != nil {
 			log.Error().Stack().Err(err).Msg("backup loop")

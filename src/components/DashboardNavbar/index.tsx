@@ -17,7 +17,6 @@ type Props = {
 
 export default function DashboardNavbar(props: Props) {
     const [isOpen, setOpen] = useState(false);
-    const [isHidden, setIsHidden] = useState(false);
     const [currentTab, setCurrentTab] = useState(0);
     const navbar = useRef<HTMLDivElement>(null);
     const navbarLinks = useRef<HTMLUListElement>(null);
@@ -30,11 +29,6 @@ export default function DashboardNavbar(props: Props) {
     useEffect(() => {
         let lastScroll = window.scrollY;
         const handleScroll = (_: Event) => {
-            if (lastScroll < 10) {
-                setIsHidden(false);
-            } else {
-                setIsHidden(window.scrollY - lastScroll > 0);
-            }
             if (window.scrollY - lastScroll > 0) {
                 setOpen(false);
             }
@@ -65,19 +59,9 @@ export default function DashboardNavbar(props: Props) {
         };
     };
 
-    const onDragOver = () => {
-        setIsHidden(true);
-    };
-
     return (
-        <>
-            <div
-                className={`${style.navbar} ${
-                    isHidden ? style.navbar_hidden : ''
-                }`}
-                ref={navbar}
-                onDragOver={onDragOver}
-            >
+        <div>
+            <div className={`${style.navbar}`} ref={navbar}>
                 <div className={style.logo}>
                     <Link to={'/'}>
                         <img src={NavbarLogo} alt="Hyperloop Logo" />
@@ -125,6 +109,6 @@ export default function DashboardNavbar(props: Props) {
             <div className={style.content}>
                 {props.tabs.length > 0 ? props.tabs[currentTab].content : <></>}
             </div>
-        </>
+        </div>
     );
 }

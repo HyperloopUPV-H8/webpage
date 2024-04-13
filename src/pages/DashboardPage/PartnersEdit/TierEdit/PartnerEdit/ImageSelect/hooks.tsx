@@ -5,6 +5,7 @@ export const logoSizeUnits = 'rem';
 export function useLogo(tier: number, partner: number) {
     return usePartnersStore((state) => ({
         metadata: state.metadata[tier].partners[partner].logo,
+        partnerName: state.metadata[tier].partners[partner].name,
 
         updateWidth: (width: number) =>
             state.updateLogo(tier, partner, {

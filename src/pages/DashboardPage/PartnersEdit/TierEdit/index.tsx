@@ -1,8 +1,9 @@
-import { ChangeEvent, DragEvent, useState } from 'react';
+import { ChangeEvent, DragEvent, useRef } from 'react';
 import style from './style.module.scss';
 import PartnerEdit from './PartnerEdit';
 import { usePartnersStore } from '../store';
 import { StyleUpdate, TierUpdate } from '../store/model';
+import FormInput from '../../../../components/ContactForm/FormInput';
 
 type Props = {
     index: number;
@@ -30,11 +31,10 @@ export default function TierEdit({ index }: Props) {
         (state) => (fromTier: number) => state.moveTier(fromTier, index)
     );
 
-    const [color, setColor] = useState(defaultMetadata.style.color);
+    const containerRef = useRef<HTMLDivElement | null>(null);
 
     const updateColor = (event: ChangeEvent<HTMLInputElement>) => {
         event.preventDefault();
-        setColor(event.target.value);
         updateStyle({
             color: event.target.value,
         });
@@ -58,6 +58,9 @@ export default function TierEdit({ index }: Props) {
         event.dataTransfer.setData('application/element', 'tier');
         event.dataTransfer.setData('application/tier-index', index.toString());
         event.dataTransfer.dropEffect = 'move';
+        if (containerRef.current) {
+            event.dataTransfer.setDragImage(containerRef.current, 10, 10);
+        }
     };
 
     const onDragOver = (event: DragEvent<HTMLDivElement>) => {
@@ -94,69 +97,49 @@ export default function TierEdit({ index }: Props) {
     };
 
     return (
-        <div className={style.container}>
+        <div
+            className={style.container}
+            onDragOver={onDragOver}
+            onDrop={onDrop}
+            ref={containerRef}
+        >
+            <div
+                className={style.drag_and_drop}
+                draggable
+                onDragStart={onDragStart}
+            >
+                |||
+            </div>
             <div className={style.info}>
-                <div
-                    className={style.tier_info}
-                    draggable
-                    onDragStart={onDragStart}
-                    onDragOver={onDragOver}
-                    onDrop={onDrop}
-                >
+                <div className={style.tier_info}>
                     <div className={style.tier_name}>
+                        <input
+                            type="text"
+                            defaultValue={defaultMetadata.name}
+                            className={style.tier_name_input}
+                            onChange={updateName}
+                        />
                         <button
                             className={style.remove_button}
                             onClick={removeTier}
                         >
-                            -
+                            Remove
                         </button>
-                        <input
-                            type="text"
-                            defaultValue={defaultMetadata.name}
-                            style={{ color: color }}
-                            className={style.tier_name_input}
-                            onChange={updateName}
-                        />
                     </div>
 
                     <div className={style.tier_input}>
-                        <label
-                            htmlFor={`tier-color-${defaultMetadata.name.replace(
-                                ' ',
-                                '_'
-                            )}`}
-                            className={style.input_label}
-                        >
-                            Color:
-                        </label>
-                        <div
-                            className={style.color_preview}
-                            style={{ backgroundColor: color }}
-                        ></div>
-                        <input
-                            type="text"
+                        <FormInput
+                            label="Color"
+                            type="color"
                             onChange={updateColor}
                             defaultValue={defaultMetadata.style.color}
-                            id={`tier-color-${defaultMetadata.name.replace(
-                                ' ',
-                                '_'
-                            )}`}
-                            className={style.input_element}
                         />
                     </div>
-
                     <div className={style.tier_input}>
-                        <label
-                            htmlFor={`tier-width-${defaultMetadata.name.replace(
-                                ' ',
-                                '_'
-                            )}`}
-                            className={style.input_label}
-                        >
-                            Width:
-                        </label>
-                        <input
-                            type="number"
+                        <FormInput
+                            label="Page Width"
+                            after={defaultMetadata.style.width}
+                            type="range"
                             id={`tier-width-${defaultMetadata.name.replace(
                                 ' ',
                                 '_'
@@ -170,7 +153,6 @@ export default function TierEdit({ index }: Props) {
                             )}
                             className={style.input_element}
                         />
-                        <p className={style.width_preview}>%</p>
                     </div>
                 </div>
 
@@ -188,7 +170,7 @@ export default function TierEdit({ index }: Props) {
                         className={style.tier_add_partners}
                         onClick={addPartner}
                     >
-                        +
+                        Add Partner
                     </button>
                 </div>
             </div>

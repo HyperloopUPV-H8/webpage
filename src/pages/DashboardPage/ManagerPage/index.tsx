@@ -21,10 +21,6 @@ export default function ManagerPage(props: Props) {
                             />
                         ),
                     },
-                    {
-                        name: 'Members',
-                        content: <div style={{ color: 'white' }}>MEMBERS</div>,
-                    },
                 ]}
                 onSignOut={props.onSignOut}
                 username={props.username}

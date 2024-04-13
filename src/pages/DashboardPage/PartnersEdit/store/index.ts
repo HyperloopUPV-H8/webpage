@@ -182,6 +182,7 @@ export const usePartnersStore = create<PartnersState>()((set) => ({
                         ...meta,
                         logo: {
                             ...meta.logo,
+                            method: method,
                             source: source,
                         },
                     };
@@ -252,6 +253,7 @@ export const usePartnersStore = create<PartnersState>()((set) => ({
         toTier: TierIndex,
         to: PartnerIndex
     ) => {
+        console.log('move from', [fromTier, from], 'to', [toTier, to]);
         set((state) => ({
             metadata: [
                 ...state.metadata.map((meta, idx) => {

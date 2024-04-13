@@ -7,7 +7,7 @@ import ManagerPage from './ManagerPage';
 type UserType = 'login' | 'basic' | 'manager' | 'admin' | 'failed';
 
 export const DashboardPage = () => {
-    const [userType, setUserType] = useState<UserType>('manager');
+    const [userType, setUserType] = useState<UserType>('login');
     const [username, setUserName] = useState('');
     const [password, setPassword] = useState('');
 
@@ -63,6 +63,7 @@ export const DashboardPage = () => {
                     }
                 ></LoginPage>
             );
+        case 'admin':
         case 'manager':
             return (
                 <ManagerPage
@@ -70,13 +71,6 @@ export const DashboardPage = () => {
                     password={password}
                     onSignOut={signOut}
                 />
-            );
-        case 'admin':
-            return (
-                <div className="dashboard__page">
-                    ADMIN
-                    <button onClick={signOut}>Sign Out</button>
-                </div>
             );
     }
 };

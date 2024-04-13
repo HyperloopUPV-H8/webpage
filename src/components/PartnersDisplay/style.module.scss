@@ -1,0 +1,10 @@
+.partners__section {
+    &.section-2 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-flow: column;
+        gap: 20rem;
+        margin: 15vh 10vw 20vh;
+    }
+}

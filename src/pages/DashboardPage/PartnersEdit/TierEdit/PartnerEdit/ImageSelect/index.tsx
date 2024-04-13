@@ -1,6 +1,7 @@
-import { ChangeEvent, useRef } from 'react';
+import { ChangeEvent } from 'react';
 import { useLogo } from './hooks';
 import style from './style.module.scss';
+import FormInput from '../../../../../../components/ContactForm/FormInput';
 
 type Props = {
     tier: number;
@@ -9,7 +10,6 @@ type Props = {
 
 export default function ImageSelect(props: Props) {
     const logo = useLogo(props.tier, props.partner);
-    const uploadRef = useRef<HTMLInputElement>(null);
 
     const onFileChange = (event: ChangeEvent<HTMLInputElement>) => {
         event.preventDefault();
@@ -45,70 +45,75 @@ export default function ImageSelect(props: Props) {
 
     return (
         <div className={style.container}>
-            <img
-                className={style.preview}
-                style={{
-                    width: logo.metadata.width || 'auto',
-                    height: logo.metadata.height || 'auto',
-                }}
-                src={logo.metadata.source}
-                alt="Logo not found"
-            />
-            <div className={style.method}>
-                <div className={style.upload}>
-                    <input
-                        type="radio"
-                        name={`partner-logo-select-${props.tier}-${props.partner}`}
-                        onInput={logo.selectFile}
-                    />
-                    <label
-                        className={style.label}
-                        htmlFor={`partner-logo-upload-${props.tier}-${props.partner}`}
+            <div className={style.controls}>
+                <div className={style.method}>
+                    <div className={style.method_select}>
+                        <button
+                            className={`${style.method_button} ${
+                                logo.metadata.method != 'image'
+                                    ? style.method_unselected
+                                    : style.method_selected
+                            }`}
+                            onClick={logo.selectFile}
+                        >
+                            file
+                        </button>
+                        <button
+                            className={`${style.method_button} ${
+                                logo.metadata.method != 'url'
+                                    ? style.method_unselected
+                                    : style.method_selected
+                            }`}
+                            onClick={logo.selectURL}
+                        >
+                            URL
+                        </button>
+                    </div>
+                    <div
+                        className={`${style.upload} ${
+                            logo.metadata.method != 'image'
+                                ? style.method_hidden
+                                : ''
+                        } ${
+                            logo.metadata.method != 'image'
+                                ? style.method_unselected
+                                : style.method_selected
+                        }`}
                     >
-                        Upload:
-                    </label>
-                    <input
-                        type="file"
-                        id={`partner-logo-upload-${props.tier}-${props.partner}`}
-                        ref={uploadRef}
-                        accept="image/*"
-                        onChange={onFileChange}
-                    />
+                        <FormInput
+                            label="File"
+                            type="file"
+                            id={`partner-logo-upload-${props.tier}-${props.partner}`}
+                            accept="image/*"
+                            onChange={onFileChange}
+                        />
+                    </div>
+                    <div
+                        className={`${style.url} ${
+                            logo.metadata.method != 'url'
+                                ? style.method_hidden
+                                : ''
+                        } ${
+                            logo.metadata.method != 'url'
+                                ? style.method_unselected
+                                : style.method_selected
+                        }`}
+                    >
+                        <FormInput
+                            label="Logo URL"
+                            type="text"
+                            id={`partner-logo-url-${props.tier}-${props.partner}`}
+                            defaultValue={logo.metadata.url}
+                            placeholder="URL of the logotype"
+                            onChange={onURLChange}
+                        />
+                    </div>
                 </div>
-                <p>or</p>
-                <div className={style.url}>
-                    <input
-                        type="radio"
-                        name={`partner-logo-select-${props.tier}-${props.partner}`}
-                        defaultChecked
-                        onInput={logo.selectURL}
-                    />
-                    <label
-                        className={style.label}
-                        htmlFor={`partner-logo-url-${props.tier}-${props.partner}`}
-                    >
-                        URL:
-                    </label>
-                    <input
-                        type="text"
-                        id={`partner-logo-url-${props.tier}-${props.partner}`}
-                        defaultValue={logo.metadata.url}
-                        placeholder="URL of the logotype"
-                        onChange={onURLChange}
-                    />
-                </div>
-            </div>
-            <div className={style.size}>
-                <div className={style.width}>
-                    <label
-                        className={style.label}
-                        htmlFor={`partner-logo-width-${props.tier}-${props.partner}`}
-                    >
-                        Width:
-                    </label>
-                    <input
+                <div className={style.size}>
+                    <FormInput
+                        label="Logo Width"
                         type="number"
-                        id={`partner-logo-width-${props.tier}-${props.partner}`}
+                        after="rem"
                         min={0}
                         step={0.1}
                         defaultValue={
@@ -120,18 +125,10 @@ export default function ImageSelect(props: Props) {
                         }
                         onChange={onChangeWidth}
                     />
-                    <p>rem</p>
-                </div>
-                <div className={style.height}>
-                    <label
-                        className={style.label}
-                        htmlFor={`partner-logo-height-${props.tier}-${props.partner}`}
-                    >
-                        Height:
-                    </label>
-                    <input
+                    <FormInput
+                        label="Logo Height"
                         type="number"
-                        id={`partner-logo-height-${props.tier}-${props.partner}`}
+                        after="rem"
                         min={0}
                         step={0.1}
                         defaultValue={
@@ -143,9 +140,19 @@ export default function ImageSelect(props: Props) {
                         }
                         onChange={onChangeHeight}
                     />
-                    <p>rem</p>
                 </div>
             </div>
+            <img
+                className={style.preview}
+                style={{
+                    width: logo.metadata.width || 'auto',
+                    height: logo.metadata.height || 'auto',
+                }}
+                width={logo.metadata.width}
+                height={logo.metadata.height}
+                src={logo.metadata.source}
+                alt={logo.partnerName}
+            />
         </div>
     );
 }

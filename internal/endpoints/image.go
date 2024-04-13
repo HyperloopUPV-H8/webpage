@@ -50,6 +50,7 @@ func NewImage(config ImageConfig, authenticator *auth.Endpoint, manifestUpdatedN
 
 func (endpoint *ImageEndpoint) get(writer http.ResponseWriter, request *http.Request) {
 	log.Debug().Msg("get")
+	writer.Header().Add("Access-Control-Allow-Origin", "*")
 
 	imageName := internal.FormatName(request.PathValue(endpoint.wildcardPattern))
 
@@ -71,7 +72,9 @@ func (endpoint *ImageEndpoint) get(writer http.ResponseWriter, request *http.Req
 }
 
 func (endpoint *ImageEndpoint) post(writer http.ResponseWriter, request *http.Request) {
+
 	log.Debug().Msg("post")
+	writer.Header().Add("Access-Control-Allow-Origin", "*")
 
 	imageName := internal.FormatName(request.PathValue(endpoint.wildcardPattern))
 
@@ -105,6 +108,8 @@ func (endpoint *ImageEndpoint) post(writer http.ResponseWriter, request *http.Re
 }
 
 func (endpoint *ImageEndpoint) delete(writer http.ResponseWriter, request *http.Request) {
+	writer.Header().Add("Access-Control-Allow-Origin", "*")
+
 	imageName := internal.FormatName(request.PathValue(endpoint.wildcardPattern))
 
 	_, ok := endpoint.manifest[imageName]

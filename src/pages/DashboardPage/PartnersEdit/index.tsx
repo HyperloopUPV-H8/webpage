@@ -5,6 +5,7 @@ import { usePartnersStore } from './store';
 import { Partner, Tier } from './store/model';
 import * as DTO from './store/dto';
 import { sha256 } from 'js-sha256';
+import PartnersDisplay from '../../../components/PartnersDisplay';
 
 type Props = {
     username: string;
@@ -32,6 +33,14 @@ export default function PartnersEdit(props: Props) {
     useEffect(loadMeta, [props.username, props.password]);
 
     const onSave = async () => {
+        if (
+            !confirm(
+                'Estas seguro que quieres guardar? Los cambios se publicaran a la pagina real.'
+            )
+        ) {
+            return;
+        }
+
         const main = getMainJson(metadata);
         await fetch(
             `http://${import.meta.env.VITE_BACKEND_URL}/${
@@ -75,26 +84,57 @@ export default function PartnersEdit(props: Props) {
         );
     };
 
+    const onReset = async () => {
+        if (
+            !confirm(
+                'Estas seguro que quieres resetar los cambios? Se perderan todos los cambios no guardados.'
+            )
+        ) {
+            return;
+        }
+
+        loadMeta();
+    };
+
     return (
-        <>
-            <div className={style.container}>
-                <div className={style.state_controls}>
-                    <button className={style.reset} onClick={loadMeta}>
-                        Reset
-                    </button>
-                    <button className={style.save} onClick={onSave}>
-                        Save
-                    </button>
-                </div>
+        <div className={style.partners_edit}>
+            <div className={style.controls}>
                 {metadata.map((meta, idx) => {
                     return <TierEdit key={meta.id} index={idx} />;
                 })}
                 <button className={style.add_tier} onClick={addTier}>
-                    +
+                    Add Tier
                 </button>
             </div>
-            <div className={style.container}>{JSON.stringify(metadata)}</div>
-        </>
+            <PartnersDisplay
+                id="partners-edit-overview"
+                metadata={metadata.map<DTO.Tier>((meta) => ({
+                    ...meta,
+                    partners: meta.partners.map<DTO.Partner>((meta) => ({
+                        ...meta,
+                        logo: {
+                            width: meta.logo.width,
+                            height: meta.logo.height,
+                            url: meta.logo.source,
+                        },
+                    })),
+                }))}
+            />
+            <div className={style.state_controls}>
+                <a
+                    href="#partners-edit-overview"
+                    className={style.preview_shortcut}
+                >
+                    Preview
+                </a>
+                <button className={style.reset} onClick={onReset}>
+                    Reset
+                </button>
+                <button className={style.save} onClick={onSave}>
+                    Save
+                </button>
+            </div>
+        </div>
     );
 }
 

@@ -1,7 +1,8 @@
-import { ChangeEvent, DragEvent } from 'react';
+import { ChangeEvent, DragEvent, useRef } from 'react';
 import style from './style.module.scss';
 import { usePartner } from './hooks';
 import ImageSelect from './ImageSelect';
+import FormInput from '../../../../../components/ContactForm/FormInput';
 
 type Props = {
     tierIndex: number;
@@ -10,6 +11,8 @@ type Props = {
 
 export default function PartnerEdit({ tierIndex, index }: Props) {
     const partner = usePartner(tierIndex, index);
+
+    const containerRef = useRef<HTMLDivElement | null>(null);
 
     const updateName = (event: ChangeEvent<HTMLInputElement>) => {
         partner.update({
@@ -34,6 +37,29 @@ export default function PartnerEdit({ tierIndex, index }: Props) {
             tierIndex.toString()
         );
         event.dataTransfer.dropEffect = 'move';
+
+        event.dataTransfer.setDragImage(
+            containerRef.current ??
+                (() => {
+                    const img = new Image();
+                    img.src = partner.metadata.logo.source;
+                    if (partner.metadata.logo.width) {
+                        img.width =
+                            Number.parseInt(
+                                partner.metadata.logo.width.replace('rem', '')
+                            ) * 16;
+                    }
+                    if (partner.metadata.logo.height) {
+                        img.height =
+                            Number.parseInt(
+                                partner.metadata.logo.height.replace('rem', '')
+                            ) * 16;
+                    }
+                    return img;
+                })(),
+            10,
+            10
+        );
     };
 
     const onDragOver = (event: DragEvent<HTMLDivElement>) => {
@@ -72,46 +98,43 @@ export default function PartnerEdit({ tierIndex, index }: Props) {
     return (
         <div
             className={style.container}
-            onDragStart={onDragStart}
-            draggable
             onDragOver={onDragOver}
             onDrop={onDrop}
+            ref={containerRef}
         >
+            <div
+                className={style.drag_and_drop}
+                onDragStart={onDragStart}
+                draggable
+            >
+                |||
+            </div>
+
             <div className={style.info}>
                 <div className={style.partner_name}>
-                    <button
-                        className={style.remove_button}
-                        onClick={partner.remove}
-                    >
-                        -
-                    </button>
                     <input
                         type="text"
                         defaultValue={partner.metadata.name}
                         className={style.partner_name_input}
                         onChange={updateName}
                     />
-                </div>
-                <div className={style.partner_webpage}>
-                    <label
-                        htmlFor={`partner-webpage-url-${partner.metadata.name.replace(
-                            ' ',
-                            '_'
-                        )}`}
+                    <button
+                        className={style.remove_button}
+                        onClick={partner.remove}
                     >
-                        Webpage:
-                    </label>
-                    <input
-                        type="text"
-                        defaultValue={partner.metadata.webpageURL}
-                        id={`partner-webpage-url-${partner.metadata.name.replace(
-                            ' ',
-                            '_'
-                        )}`}
-                        className={style.input_element}
-                        onChange={updateWebpageURL}
-                    />
+                        Remove
+                    </button>
                 </div>
+                <FormInput
+                    label="Webpage URL"
+                    id={`partner-webpage-url-${partner.metadata.name.replace(
+                        ' ',
+                        '_'
+                    )}`}
+                    type="url"
+                    defaultValue={partner.metadata.webpageURL}
+                    onChange={updateWebpageURL}
+                />
                 <ImageSelect tier={tierIndex} partner={index} />
             </div>
         </div>

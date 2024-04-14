@@ -24,42 +24,41 @@ var MembersPathFlag = flag.String("mp", "persistent/members.json", "path where t
 var PartnersPathFlag = flag.String("pp", "persistent/partners.json", "path where the partner list will be kept")
 var UsersPathFlag = flag.String("up", "persistent/users.json", "path where the user list will be kept")
 
+const UpdateChanBufferSize = 1
+
 func main() {
 	flag.Parse()
 
-	authUpdated := make(chan struct{}, 1)
+	authUpdated := make(chan auth.UserList, UpdateChanBufferSize)
 	authData, err := internal.LoadJSON[auth.UserList](*UsersPathFlag)
 	if err != nil {
 		log.Fatal().Err(err).Stack().Msg("reading auth data")
 	}
 	authEndpoint := auth.NewEndpoint(authData, authUpdated)
-	defer internal.SaveJSON(*UsersPathFlag, authEndpoint.GetUsers())
 	http.Handle("/auth/", http.StripPrefix("/auth", authEndpoint))
 
-	membersUpdated := make(chan struct{}, 1)
+	membersUpdated := make(chan []members.Subsystem, UpdateChanBufferSize)
 	memberData, err := internal.LoadJSON[[]members.Subsystem](*MembersPathFlag)
 	if err != nil {
 		log.Fatal().Err(err).Stack().Msg("reading member data")
 	}
 	membersEndpoint := endpoints.NewJSON("members", memberData, authEndpoint, membersUpdated)
-	defer internal.SaveJSON(*MembersPathFlag, membersEndpoint.GetData())
 	http.Handle("/members", membersEndpoint)
 
-	partnersUpdated := make(chan struct{}, 1)
+	partnersUpdated := make(chan []partners.Tier, UpdateChanBufferSize)
 	partnersData, err := internal.LoadJSON[[]partners.Tier](*PartnersPathFlag)
 	if err != nil {
 		log.Fatal().Err(err).Stack().Msg("reading partners data")
 	}
 	partnersEndpoint := endpoints.NewJSON("partners", partnersData, authEndpoint, partnersUpdated)
-	defer internal.SaveJSON(*PartnersPathFlag, partnersEndpoint.GetData())
 	http.Handle("/partners", partnersEndpoint)
 
-	memberImagesUpdated := make(chan struct{}, 1)
+	memberImagesUpdated := make(chan endpoints.ImageManifest, UpdateChanBufferSize)
 	memberImagesData, err := internal.LoadJSON[endpoints.ImageManifest](*MemberImagePathFlag)
 	if err != nil {
 		log.Fatal().Err(err).Stack().Msg("reading member images")
 	}
-	partnerImagesUpdated := make(chan struct{}, 1)
+	partnerImagesUpdated := make(chan endpoints.ImageManifest, UpdateChanBufferSize)
 	partnerImagesData, err := internal.LoadJSON[endpoints.ImageManifest](*PartnerImagePathFlag)
 	if err != nil {
 		log.Fatal().Err(err).Stack().Msg("reading partner images")
@@ -74,8 +73,6 @@ func main() {
 	if err != nil {
 		log.Fatal().Stack().Err(err).Msg("media endpoint")
 	}
-	defer internal.SaveJSON(*MemberImagePathFlag, mediaEndpoint.GetMembersManifest())
-	defer internal.SaveJSON(*PartnerImagePathFlag, mediaEndpoint.GetPartnersManifest())
 	http.Handle("/media/", http.StripPrefix("/media", mediaEndpoint))
 
 	go func() {
@@ -94,16 +91,16 @@ backupLoop:
 	for {
 		var err error = nil
 		select {
-		case <-authUpdated:
-			err = internal.SaveJSON(*UsersPathFlag, authEndpoint.GetUsers())
-		case <-membersUpdated:
-			err = internal.SaveJSON(*MembersPathFlag, membersEndpoint.GetData())
-		case <-partnersUpdated:
-			err = internal.SaveJSON(*PartnersPathFlag, partnersEndpoint.GetData())
-		case <-memberImagesUpdated:
-			err = internal.SaveJSON(*MemberImagePathFlag, mediaEndpoint.GetMembersManifest())
-		case <-partnerImagesUpdated:
-			err = internal.SaveJSON(*PartnerImagePathFlag, mediaEndpoint.GetPartnersManifest())
+		case data := <-authUpdated:
+			err = internal.SaveJSON(*UsersPathFlag, data)
+		case data := <-membersUpdated:
+			err = internal.SaveJSON(*MembersPathFlag, data)
+		case data := <-partnersUpdated:
+			err = internal.SaveJSON(*PartnersPathFlag, data)
+		case data := <-memberImagesUpdated:
+			err = internal.SaveJSON(*MemberImagePathFlag, data)
+		case data := <-partnerImagesUpdated:
+			err = internal.SaveJSON(*PartnerImagePathFlag, data)
 		case signal := <-signals:
 			log.Info().Str("signal", signal.String()).Msg("closing")
 			break backupLoop

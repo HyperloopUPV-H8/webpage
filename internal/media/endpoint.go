@@ -21,7 +21,7 @@ type Endpoint struct {
 	partnersEndpoint *endpoints.ImageEndpoint
 }
 
-func NewEndpoint(membersManifest, partnersManifest endpoints.ImageManifest, authenticator *auth.Endpoint, memberUpdate, partnerUpdate chan<- struct{}) (*Endpoint, error) {
+func NewEndpoint(membersManifest, partnersManifest endpoints.ImageManifest, authenticator *auth.Endpoint, memberUpdate, partnerUpdate chan<- endpoints.ImageManifest) (*Endpoint, error) {
 	endpoint := &Endpoint{
 		mux: http.NewServeMux(),
 	}
@@ -52,12 +52,4 @@ func NewEndpoint(membersManifest, partnersManifest endpoints.ImageManifest, auth
 
 func (endpoint *Endpoint) ServeHTTP(writter http.ResponseWriter, request *http.Request) {
 	endpoint.mux.ServeHTTP(writter, request)
-}
-
-func (endpoint *Endpoint) GetMembersManifest() endpoints.ImageManifest {
-	return endpoint.membersEndpoint.GetManifest()
-}
-
-func (endpoint *Endpoint) GetPartnersManifest() endpoints.ImageManifest {
-	return endpoint.partnersEndpoint.GetManifest()
 }

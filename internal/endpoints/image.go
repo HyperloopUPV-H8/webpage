@@ -8,20 +8,23 @@ import (
 	"os"
 	"path"
 	"strings"
+	"sync"
 	"time"
 
 	"github.com/HyperloopUPV-H8/webpage-backend/internal"
 	"github.com/HyperloopUPV-H8/webpage-backend/internal/auth"
 	"github.com/HyperloopUPV-H8/webpage-backend/internal/methodMux"
+	clone "github.com/huandu/go-clone/generic"
 	"github.com/rs/zerolog/log"
 )
 
 type ImageEndpoint struct {
 	methodMux.Mux
 	manifest            ImageManifest
+	manifestLock        *sync.Mutex
 	wildcardPattern     string
 	basePath            string
-	manifestUpdatedChan chan<- struct{}
+	manifestUpdatedChan chan<- ImageManifest
 }
 
 type ImageConfig struct {
@@ -30,9 +33,10 @@ type ImageConfig struct {
 	BasePath        string
 }
 
-func NewImage(config ImageConfig, authenticator *auth.Endpoint, manifestUpdatedNotifications chan<- struct{}) (*ImageEndpoint, error) {
+func NewImage(config ImageConfig, authenticator *auth.Endpoint, manifestUpdatedNotifications chan<- ImageManifest) (*ImageEndpoint, error) {
 	endpoint := &ImageEndpoint{
 		manifest:            config.Manifest,
+		manifestLock:        new(sync.Mutex),
 		wildcardPattern:     config.WildcardPattern,
 		basePath:            config.BasePath,
 		manifestUpdatedChan: manifestUpdatedNotifications,
@@ -41,7 +45,6 @@ func NewImage(config ImageConfig, authenticator *auth.Endpoint, manifestUpdatedN
 	endpoint.Mux = methodMux.New(
 		methodMux.Get(http.HandlerFunc(endpoint.get)),
 		methodMux.Post(authenticator.WithAuth(http.HandlerFunc(endpoint.post))),
-		methodMux.Delete(authenticator.WithAuth(http.HandlerFunc(endpoint.delete))),
 		methodMux.Options(http.HandlerFunc(endpoint.options)),
 	)
 
@@ -54,7 +57,15 @@ func (endpoint *ImageEndpoint) get(writer http.ResponseWriter, request *http.Req
 
 	imageName := internal.FormatName(request.PathValue(endpoint.wildcardPattern))
 
-	metadata, ok := endpoint.manifest[imageName]
+	contentType, lastModified, ok := func() (string, time.Time, bool) {
+		endpoint.manifestLock.Lock()
+		defer endpoint.manifestLock.Unlock()
+		manifest, ok := endpoint.manifest[imageName]
+		if !ok {
+			return "", time.Time{}, ok
+		}
+		return manifest.ContentType, manifest.LastModified, ok
+	}()
 	if !ok {
 		http.Error(writer, fmt.Sprintf("image \"%s\" not found", imageName), http.StatusNotFound)
 		return
@@ -67,12 +78,11 @@ func (endpoint *ImageEndpoint) get(writer http.ResponseWriter, request *http.Req
 	}
 	defer file.Close()
 
-	writer.Header().Add("Content-Type", metadata.ContentType)
-	http.ServeContent(writer, request, imageName, metadata.LastModified, file)
+	writer.Header().Add("Content-Type", contentType)
+	http.ServeContent(writer, request, imageName, lastModified, file)
 }
 
 func (endpoint *ImageEndpoint) post(writer http.ResponseWriter, request *http.Request) {
-
 	log.Debug().Msg("post")
 	writer.Header().Add("Access-Control-Allow-Origin", "*")
 
@@ -103,29 +113,31 @@ func (endpoint *ImageEndpoint) post(writer http.ResponseWriter, request *http.Re
 		LastModified: time.Now(),
 	}
 
+	endpoint.manifestLock.Lock()
+	defer endpoint.manifestLock.Unlock()
 	endpoint.manifest[imageName] = metadata
-	endpoint.manifestUpdatedChan <- struct{}{}
+	endpoint.manifestUpdatedChan <- clone.Clone(endpoint.manifest)
 }
 
-func (endpoint *ImageEndpoint) delete(writer http.ResponseWriter, request *http.Request) {
-	writer.Header().Add("Access-Control-Allow-Origin", "*")
+// func (endpoint *ImageEndpoint) delete(writer http.ResponseWriter, request *http.Request) {
+// 	writer.Header().Add("Access-Control-Allow-Origin", "*")
 
-	imageName := internal.FormatName(request.PathValue(endpoint.wildcardPattern))
+// 	imageName := internal.FormatName(request.PathValue(endpoint.wildcardPattern))
 
-	_, ok := endpoint.manifest[imageName]
-	if !ok {
-		http.Error(writer, fmt.Sprintf("member \"%s\" not found", imageName), http.StatusNotFound)
-		return
-	}
+// 	_, ok := endpoint.manifest[imageName]
+// 	if !ok {
+// 		http.Error(writer, fmt.Sprintf("member \"%s\" not found", imageName), http.StatusNotFound)
+// 		return
+// 	}
 
-	err := os.Remove(path.Join(endpoint.basePath, imageName))
-	if err != nil {
-		http.Error(writer, "failed to delete file from system", http.StatusInternalServerError)
-		return
-	}
+// 	err := os.Remove(path.Join(endpoint.basePath, imageName))
+// 	if err != nil {
+// 		http.Error(writer, "failed to delete file from system", http.StatusInternalServerError)
+// 		return
+// 	}
 
-	delete(endpoint.manifest, imageName)
-}
+// 	delete(endpoint.manifest, imageName)
+// }
 
 func (endpoint *ImageEndpoint) options(writer http.ResponseWriter, request *http.Request) {
 	log.Debug().Msg("options")
@@ -135,11 +147,19 @@ func (endpoint *ImageEndpoint) options(writer http.ResponseWriter, request *http
 
 	imageName := internal.FormatName(request.PathValue(endpoint.wildcardPattern))
 
-	metadata, ok := endpoint.manifest[imageName]
+	contentType, ok := func() (string, bool) {
+		endpoint.manifestLock.Lock()
+		defer endpoint.manifestLock.Unlock()
+		metadata, ok := endpoint.manifest[imageName]
+		if !ok {
+			return "", ok
+		}
+		return metadata.ContentType, ok
+	}()
 	if !ok {
 		return
 	}
-	writer.Header().Add("Content-Type", metadata.ContentType)
+	writer.Header().Add("Content-Type", contentType)
 }
 
 type ImageManifest map[string]ImageMetadata
@@ -148,8 +168,4 @@ type ImageMetadata struct {
 	Name         string    `json:"name"`
 	ContentType  string    `json:"contentType"`
 	LastModified time.Time `json:"lastModified"`
-}
-
-func (endpoint *ImageEndpoint) GetManifest() ImageManifest {
-	return endpoint.manifest
 }

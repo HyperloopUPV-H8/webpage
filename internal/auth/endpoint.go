@@ -4,9 +4,11 @@ import (
 	"bytes"
 	"encoding/json"
 	"net/http"
+	"sync"
 	"time"
 
 	"github.com/HyperloopUPV-H8/webpage-backend/internal/methodMux"
+	clone "github.com/huandu/go-clone/generic"
 	"github.com/rs/zerolog/log"
 )
 
@@ -14,10 +16,11 @@ type Endpoint struct {
 	mux              *http.ServeMux
 	lastUpdated      time.Time
 	users            UserMap
-	usersUpdatedChan chan<- struct{}
+	usersLock        *sync.Mutex
+	usersUpdatedChan chan<- UserList
 }
 
-func NewEndpoint(users UserList, usersUpdatedNotification chan<- struct{}) *Endpoint {
+func NewEndpoint(users UserList, usersUpdatedNotification chan<- UserList) *Endpoint {
 	endpoint := &Endpoint{
 		mux:              http.NewServeMux(),
 		lastUpdated:      time.Now(),
@@ -36,7 +39,11 @@ func NewEndpoint(users UserList, usersUpdatedNotification chan<- struct{}) *Endp
 }
 
 func (endpoint *Endpoint) get(writer http.ResponseWriter, request *http.Request) {
-	dataRaw, err := json.Marshal(endpoint.users)
+	dataRaw, err := func() ([]byte, error) {
+		endpoint.usersLock.Lock()
+		defer endpoint.usersLock.Unlock()
+		return json.Marshal(endpoint.users)
+	}()
 	if err != nil {
 		http.Error(writer, "", http.StatusInternalServerError)
 		return
@@ -57,17 +64,15 @@ func (endpoint *Endpoint) post(writer http.ResponseWriter, request *http.Request
 		return
 	}
 
+	endpoint.usersLock.Lock()
+	defer endpoint.usersLock.Unlock()
 	endpoint.lastUpdated = time.Now()
 	endpoint.users = newUsers
-	endpoint.usersUpdatedChan <- struct{}{}
+	endpoint.usersUpdatedChan <- clone.Clone(listFromMap(endpoint.users))
 }
 
 func (endpoint *Endpoint) options(writer http.ResponseWriter, _ *http.Request) {
 	writer.Header().Add("Content-Type", "application/json")
-}
-
-func (endpoint *Endpoint) GetUsers() UserList {
-	return listFromMap(endpoint.users)
 }
 
 type userType string

@@ -109,6 +109,7 @@ jobs:
                   scp -r backend ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST}}:${{ secrets.SSH_BACKEND_PATH }}
 
             - name: Stop Running Backend
+              continue-on-error: true
               run: |
                   ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} ${{ secrets.SSH_KILL_COMMAND }}
 

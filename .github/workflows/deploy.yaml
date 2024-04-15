@@ -88,7 +88,6 @@ jobs:
               uses: actions/download-artifact@v4
               with:
                   name: backend
-                  path: ./backend.tar
 
             - name: Unzip Backend
               run: tar -xvf ./backend.tar -C ./backend

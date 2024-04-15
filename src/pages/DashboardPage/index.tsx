@@ -22,14 +22,19 @@ export const DashboardPage = () => {
     const verifyUser = async () => {
         try {
             const hashedPassword = sha256(password);
-            const response = await fetch('https://localhost:8080/auth/verify', {
-                method: 'GET',
-                headers: {
-                    Authorization: `Basic ${btoa(
-                        `${username}:${hashedPassword}`
-                    )}`,
-                },
-            });
+            const response = await fetch(
+                `https://:${import.meta.env.VITE_BACKEND_URL}/${
+                    import.meta.env.VITE_BACKEND_VERIFY_USER_ENDPOINT
+                }`,
+                {
+                    method: 'GET',
+                    headers: {
+                        Authorization: `Basic ${btoa(
+                            `${username}:${hashedPassword}`
+                        )}`,
+                    },
+                }
+            );
 
             const body = await response.text();
 

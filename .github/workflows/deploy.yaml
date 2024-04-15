@@ -111,14 +111,14 @@ jobs:
               run: |
                   scp -r webpage ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{ secrets.SSH_PATH }}
 
-            - name: Upload Backend to Contabo
-              run: |
-                  scp -r backend ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST}}:${{ secrets.SSH_BACKEND_PATH }}
-
             - name: Stop Running Backend
               continue-on-error: true
               run: |
                   ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} ${{ secrets.SSH_KILL_COMMAND }}
+
+            - name: Upload Backend to Contabo
+              run: |
+                  scp -r backend ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST}}:${{ secrets.SSH_BACKEND_PATH }}
 
             - name: Start New Backend
               run: |

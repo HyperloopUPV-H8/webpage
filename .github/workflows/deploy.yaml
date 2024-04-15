@@ -5,36 +5,103 @@ on:
         branches:
             - main
     workflow_dispatch:
-  
 
 jobs:
+    build-backend:
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v4
+              with:
+                  sparse-checkout: |
+                      cmd
+                      internal
+
+            - name: Set up Go
+              uses: actions/setup-go@v5
+              with:
+                  go-version: '1.22.1'
+
+            - name: Build Backend
+              working-directory: ./cmd
+              run: go build && mv ./cmd ./webpage-backend
+
+            - name: Save Build
+              uses: actions/upload-artifact@v4
+              with:
+                  name: backend
+                  path: |
+                      ./cmd/webpage-backend
+                      ./cmd/persistent/**
+                      ./cmd/media/**
+                  if-no-files-found: error
+                  retention-days: 1
+
+    build-frontend:
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v4
+              with:
+                  sparse-checkout: |
+                      src
+                      public
+
+            - name: Install Dependencies
+              run: npm ci
+
+            - name: Load .env
+              run: echo "${{ secrets.ENV }}" > .env
+
+            - name: Build Webpage
+              run: npm run build
+
+            - name: Save Webpage
+              uses: actions/upload-artifact@v4
+              with:
+                  name: webpage
+                  path: ./webpage
+                  if-no-files-found: error
+                  retention-days: 1
+
     deploy:
+        needs: [build-backend, build-frontend]
+
         runs-on: ubuntu-latest
         env:
             SSH_AUTH_SOCK: /tmp/ssh_agent.sock
 
         steps:
-        - uses: actions/checkout@v4
-        
-        - name: Install dependencies
-          run: npm ci
+            - uses: actions/checkout@v4
 
-        - name: Load .env
-          run: |
-            echo "${{ secrets.ENV }}" > .env
+            - name: Download Backend
+              uses: actions/download-artifact@v4
+              with:
+                  name: backend
 
-        - name: Build website
-          run: npm run build
+            - name: Download Webpage
+              uses: actions/download-artifact@v4
+              with:
+                  name: webpage
 
-        - name: Add SSH key
-          run: |
-            mkdir -p ~/.ssh/
-            ssh-keyscan ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
-            echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
-            chmod 600 ~/.ssh/id_rsa
-            ssh-agent -a $SSH_AUTH_SOCK > /dev/null
-            ssh-add ~/.ssh/id_rsa
+            - run: ls -R
 
-        - name: Deploy to Contabo
-          run: |
-            scp -r webpage ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{ secrets.SSH_PATH }}
+            # - name: Load .env
+            #   run: |
+            #       echo "${{ secrets.ENV }}" > .env
+
+            # - name: Build
+            #   run: npm run build
+
+            # - name: Add SSH key
+            #   run: |
+            #       mkdir -p ~/.ssh/
+            #       ssh-keyscan ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
+            #       echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+            #       chmod 600 ~/.ssh/id_rsa
+            #       ssh-agent -a $SSH_AUTH_SOCK > /dev/null
+            #       ssh-add ~/.ssh/id_rsa
+
+            # - name: Deploy to Contabo
+            #   run: |
+            #       scp -r webpage ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{ secrets.SSH_PATH }}

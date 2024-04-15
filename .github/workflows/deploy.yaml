@@ -90,7 +90,9 @@ jobs:
                   name: backend
 
             - name: Unzip Backend
-              run: tar -xvf ./backend.tar -C ./backend
+              run: |
+                  mkdir ./backend
+                  tar -xvf ./backend.tar -C ./backend
 
             - name: Download Webpage
               uses: actions/download-artifact@v4

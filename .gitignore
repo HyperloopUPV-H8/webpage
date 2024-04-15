@@ -31,3 +31,4 @@ cmd/*
 !cmd/*.go
 !cmd/persistent
 !cmd/media
+!cmd/kill/*.go

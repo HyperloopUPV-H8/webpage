@@ -2,10 +2,12 @@ package main
 
 import (
 	"flag"
+	"net"
 	"net/http"
 	"os"
 	"os/signal"
 	"syscall"
+	"time"
 
 	"github.com/HyperloopUPV-H8/webpage-backend/internal"
 	"github.com/HyperloopUPV-H8/webpage-backend/internal/auth"
@@ -82,6 +84,14 @@ func main() {
 		}
 	}()
 
+	killCommandNotification := make(chan string, 1)
+	go func() {
+		err := senseKill(killCommandNotification)
+		if err != nil {
+			log.Fatal().Stack().Err(err).Msg("sense kill")
+		}
+	}()
+
 	log.Info().Str("address", *AddressFlag).Msg("listening")
 
 	signals := make(chan os.Signal, 1)
@@ -104,10 +114,64 @@ backupLoop:
 		case signal := <-signals:
 			log.Info().Str("signal", signal.String()).Msg("closing")
 			break backupLoop
+		case from := <-killCommandNotification:
+			log.Info().Str("from", from).Msg("kill")
+			break backupLoop
 		}
 		if err != nil {
 			log.Error().Stack().Err(err).Msg("backup loop")
 		}
 	}
+}
 
+const expectedKillCode = "Skidadle Skidoodle This Back is no Being Killed >:D"
+
+func senseKill(notification chan<- string) error {
+	addr, err := net.ResolveTCPAddr("tcp", "127.0.0.1:4040")
+	if err != nil {
+		return err
+	}
+
+	listener, err := net.ListenTCP("tcp", addr)
+	if err != nil {
+		return err
+	}
+
+	for {
+		conn, err := listener.AcceptTCP()
+		if err != nil {
+			return err
+		}
+		defer conn.Close()
+
+		killCodeChan := make(chan string)
+		go readKillCode(conn, killCodeChan)
+
+		select {
+		case code := <-killCodeChan:
+			if code == expectedKillCode {
+				notification <- conn.RemoteAddr().String()
+				return nil
+			}
+		case <-time.After(time.Second * 5):
+		}
+
+		log.Warn().Str("from", conn.RemoteAddr().String()).Msg("Failed attempt to kill")
+	}
+}
+
+func readKillCode(conn *net.TCPConn, notification chan<- string) error {
+	buffer := make([]byte, len(expectedKillCode))
+
+	totalRead := 0
+	for totalRead < len(expectedKillCode) {
+		n, err := conn.Read(buffer[totalRead:])
+		totalRead += n
+		if err != nil {
+			return err
+		}
+	}
+
+	notification <- string(buffer)
+	return nil
 }

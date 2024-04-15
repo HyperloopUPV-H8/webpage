@@ -22,7 +22,7 @@ export const DashboardPage = () => {
     const verifyUser = async () => {
         try {
             const hashedPassword = sha256(password);
-            const response = await fetch('http://localhost:8080/auth/verify', {
+            const response = await fetch('https://localhost:8080/auth/verify', {
                 method: 'GET',
                 headers: {
                     Authorization: `Basic ${btoa(

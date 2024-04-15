@@ -9,7 +9,7 @@ export default function PartnersPage() {
 
     useEffect(() => {
         fetch(
-            `http://${import.meta.env.VITE_BACKEND_URL}/${
+            `https://${import.meta.env.VITE_BACKEND_URL}/${
                 import.meta.env.VITE_BACKEND_PARTNERS_METADATA_ENDPOINT
             }`
         ).then((response) => {

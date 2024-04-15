@@ -19,7 +19,7 @@ export default function PartnersEdit(props: Props) {
 
     const loadMeta = () => {
         fetch(
-            `http://${import.meta.env.VITE_BACKEND_URL}/${
+            `https://${import.meta.env.VITE_BACKEND_URL}/${
                 import.meta.env.VITE_BACKEND_PARTNERS_METADATA_ENDPOINT
             }`,
             {
@@ -43,7 +43,7 @@ export default function PartnersEdit(props: Props) {
 
         const main = getMainJson(metadata);
         await fetch(
-            `http://${import.meta.env.VITE_BACKEND_URL}/${
+            `https://${import.meta.env.VITE_BACKEND_URL}/${
                 import.meta.env.VITE_BACKEND_PARTNERS_METADATA_ENDPOINT
             }`,
             {
@@ -64,7 +64,7 @@ export default function PartnersEdit(props: Props) {
                 }
 
                 await fetch(
-                    `http://${import.meta.env.VITE_BACKEND_URL}/${
+                    `https://${import.meta.env.VITE_BACKEND_URL}/${
                         import.meta.env.VITE_BACKEND_PARTNERS_MEDIA_ENDPOINT
                     }/${meta.name}`,
                     {
@@ -158,7 +158,7 @@ function getLogo(meta: Partner): DTO.Logo {
             url = meta.logo.url ?? '';
             break;
         case 'image':
-            url = `http://${import.meta.env.VITE_BACKEND_URL}/${
+            url = `https://${import.meta.env.VITE_BACKEND_URL}/${
                 import.meta.env.VITE_BACKEND_PARTNERS_MEDIA_ENDPOINT
             }/${meta.name}`;
             break;

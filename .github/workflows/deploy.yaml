@@ -24,21 +24,26 @@ jobs:
 
             - name: Build Backend
               working-directory: ./cmd
-              run: go build && mv ./cmd ./webpage-backend
+              run: go build
 
             - name: Build Kill Command
               working-directory: ./cmd/kill
               run: go build
 
+            - name: Bundle in Tar File (keep permissions)
+              run: |
+                  mkdir ./backend
+                  cp ./cmd/cmd ./backend/backend
+                  cp -r ./cmd/persistent ./backend
+                  cp -r ./cmd/media ./backend
+                  cp ./cmd/kill/kill ./backend/kill
+                  tar -cvf backend.tar ./backend
+
             - name: Save Build
               uses: actions/upload-artifact@v4
               with:
                   name: backend
-                  path: |
-                      ./cmd/webpage-backend
-                      ./cmd/persistent/**
-                      ./cmd/media/**
-                      ./cmd/kill/kill
+                  path: backend.tar
                   if-no-files-found: error
                   retention-days: 1
 
@@ -83,7 +88,10 @@ jobs:
               uses: actions/download-artifact@v4
               with:
                   name: backend
-                  path: ./backend
+                  path: ./backend.tar
+
+            - name: Unzip Backend
+              run: tar -xvf ./backend.tar -C ./backend
 
             - name: Download Webpage
               uses: actions/download-artifact@v4

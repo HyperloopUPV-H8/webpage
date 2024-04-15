@@ -78,7 +78,7 @@ func main() {
 	http.Handle("/media/", http.StripPrefix("/media", mediaEndpoint))
 
 	go func() {
-		err := http.ListenAndServe(*AddressFlag, nil)
+		err := http.ListenAndServeTLS(*AddressFlag, "/etc/letsencrypt/live/hyperloopupv.com/fullchain.pem", "/etc/letsencrypt/live/hyperloopupv.com/privkey.pem", nil)
 		if err != nil {
 			log.Fatal().Stack().Err(err).Msg("listen and serve")
 		}

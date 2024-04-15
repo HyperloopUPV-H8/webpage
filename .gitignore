@@ -30,3 +30,4 @@ package-lock.json
 cmd/*
 !cmd/*.go
 !cmd/persistent
+!cmd/media

@@ -8,14 +8,38 @@
 }
 
 .drag_and_drop {
-    width: 5rem;
+    flex: 1;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-right: 1px solid rgb(191, 191, 191);
-    color: rgb(191, 191, 191);
-    background-color: rgb(238, 238, 238);
+    border-top: 1px solid #ffffff;
+    border-bottom: 1px solid #ffffff;
     cursor: grab;
+}
+
+.move {
+    writing-mode: vertical-rl;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &.down {
+        cursor: s-resize;
+    }
+
+    &.up {
+        cursor: n-resize;
+    }
+}
+
+.movement {
+    width: 5rem;
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    border-right: 1px solid rgb(191, 191, 191);
+    flex-flow: column;
 }
 
 .info {

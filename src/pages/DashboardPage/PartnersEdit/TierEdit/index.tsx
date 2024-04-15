@@ -11,6 +11,7 @@ type Props = {
 
 export default function TierEdit({ index }: Props) {
     const defaultMetadata = usePartnersStore((state) => state.metadata[index]);
+    const lastIndex = usePartnersStore((state) => state.metadata.length);
     const updateTier = usePartnersStore(
         (state) => (update: TierUpdate) => state.updateTier(index, update)
     );
@@ -69,6 +70,7 @@ export default function TierEdit({ index }: Props) {
 
     const onDrop = (event: DragEvent<HTMLDivElement>) => {
         event.preventDefault();
+        event.stopPropagation();
         switch (event.dataTransfer.getData('application/element')) {
             case 'partner':
                 dropPartner(event);
@@ -104,12 +106,48 @@ export default function TierEdit({ index }: Props) {
             ref={containerRef}
         >
             <div
-                className={style.drag_and_drop}
-                draggable
-                onDragStart={onDragStart}
+                className={style.movement}
+                style={{
+                    backgroundColor: defaultMetadata.style.color,
+                    color: getContrastColor(defaultMetadata.style.color),
+                }}
             >
-                |||
+                {index > 0 && (
+                    <button
+                        className={`${style.move} ${style.up}`}
+                        onClick={() => {
+                            moveTier(index - 1);
+                        }}
+                        title="Move up"
+                    >
+                        {'<'}
+                    </button>
+                )}
+                <div
+                    className={style.drag_and_drop}
+                    style={{
+                        borderColor: getContrastColor(
+                            defaultMetadata.style.color
+                        ),
+                    }}
+                    draggable
+                    onDragStart={onDragStart}
+                >
+                    |||
+                </div>
+                {index < lastIndex - 1 && (
+                    <button
+                        className={`${style.move} ${style.down}`}
+                        onClick={() => {
+                            moveTier(index + 1);
+                        }}
+                        title="Move down"
+                    >
+                        {'>'}
+                    </button>
+                )}
             </div>
+
             <div className={style.info}>
                 <div className={style.tier_info}>
                     <div className={style.tier_name}>
@@ -176,4 +214,22 @@ export default function TierEdit({ index }: Props) {
             </div>
         </div>
     );
+}
+
+function getContrastColor(color: string): string {
+    let r = 0,
+        g = 0,
+        b = 0;
+
+    if (color.startsWith('#')) {
+        console.log('hex!');
+        r = Number.parseInt(color.substring(1, 3), 16);
+        g = Number.parseInt(color.substring(3, 5), 16);
+        b = Number.parseInt(color.substring(5, 7), 16);
+    }
+
+    // https://www.w3.org/TR/AERT/#color-contrast
+    const brightness = Math.round((r * 299 + g * 587 + b * 114) / 1000);
+    console.log(color, r, g, b, brightness);
+    return brightness > 125 ? 'black' : 'white';
 }

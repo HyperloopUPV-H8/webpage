@@ -29,3 +29,4 @@ package-lock.json
 # Application
 cmd/*
 !cmd/*.go
+!cmd/persistent

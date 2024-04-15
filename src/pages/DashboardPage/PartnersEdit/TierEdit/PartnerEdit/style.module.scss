@@ -6,15 +6,52 @@
     overflow: hidden;
 }
 
-.drag_and_drop {
+.movement {
     width: 5rem;
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    color: rgb(99, 99, 99);
+    background-color: rgb(202, 202, 202);
+    flex-flow: column;
+    border-right: 1px solid rgb(99, 99, 99);
+    .button {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        writing-mode: vertical-rl;
+    }
+}
+
+.drag_and_drop {
+    flex: 1;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-right: 1px solid rgb(160, 160, 160);
-    color: rgb(160, 160, 160);
+    border-top: 1px solid rgb(99, 99, 99);
+    border-bottom: 1px solid rgb(99, 99, 99);
+    color: rgb(99, 99, 99);
     background-color: rgb(202, 202, 202);
     cursor: grab;
+}
+
+.up {
+    cursor: n-resize;
+    border-top: 1px solid rgb(99, 99, 99);
+}
+
+.tier_up {
+    cursor: n-resize;
+}
+
+.down {
+    cursor: s-resize;
+    border-bottom: 1px solid rgb(99, 99, 99);
+}
+
+.tier_down {
+    cursor: s-resize;
 }
 
 .info {

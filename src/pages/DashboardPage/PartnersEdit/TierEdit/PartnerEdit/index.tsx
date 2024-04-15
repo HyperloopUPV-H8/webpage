@@ -38,28 +38,9 @@ export default function PartnerEdit({ tierIndex, index }: Props) {
         );
         event.dataTransfer.dropEffect = 'move';
 
-        event.dataTransfer.setDragImage(
-            containerRef.current ??
-                (() => {
-                    const img = new Image();
-                    img.src = partner.metadata.logo.source;
-                    if (partner.metadata.logo.width) {
-                        img.width =
-                            Number.parseInt(
-                                partner.metadata.logo.width.replace('rem', '')
-                            ) * 16;
-                    }
-                    if (partner.metadata.logo.height) {
-                        img.height =
-                            Number.parseInt(
-                                partner.metadata.logo.height.replace('rem', '')
-                            ) * 16;
-                    }
-                    return img;
-                })(),
-            10,
-            10
-        );
+        if (containerRef.current) {
+            event.dataTransfer.setDragImage(containerRef.current, 10, 10);
+        }
     };
 
     const onDragOver = (event: DragEvent<HTMLDivElement>) => {
@@ -68,6 +49,7 @@ export default function PartnerEdit({ tierIndex, index }: Props) {
 
     const onDrop = (event: DragEvent<HTMLDivElement>) => {
         event.preventDefault();
+        event.stopPropagation();
         switch (event.dataTransfer.getData('application/element')) {
             case 'partner':
                 dropPartner(event);
@@ -102,12 +84,55 @@ export default function PartnerEdit({ tierIndex, index }: Props) {
             onDrop={onDrop}
             ref={containerRef}
         >
-            <div
-                className={style.drag_and_drop}
-                onDragStart={onDragStart}
-                draggable
-            >
-                |||
+            <div className={style.movement}>
+                {tierIndex > 0 && (
+                    <button
+                        className={`${style.button} ${style.tier_up}`}
+                        onClick={() =>
+                            partner.moveTo(
+                                tierIndex - 1,
+                                Number.MAX_SAFE_INTEGER
+                            )
+                        }
+                        title="Move up one tier"
+                    >
+                        {'<<'}
+                    </button>
+                )}
+                {index > 0 && (
+                    <button
+                        className={`${style.button} ${style.up}`}
+                        onClick={() => partner.moveTo(tierIndex, index - 1)}
+                        title="Move up"
+                    >
+                        {'<'}
+                    </button>
+                )}
+                <div
+                    className={style.drag_and_drop}
+                    onDragStart={onDragStart}
+                    draggable
+                >
+                    |||
+                </div>
+                {index < partner.lastPartner - 1 && (
+                    <button
+                        className={`${style.button} ${style.down}`}
+                        onClick={() => partner.moveTo(tierIndex, index + 1)}
+                        title="Move down"
+                    >
+                        {'>'}
+                    </button>
+                )}
+                {tierIndex < partner.lastTier - 1 && (
+                    <button
+                        className={`${style.button} ${style.tier_down}`}
+                        onClick={() => partner.moveTo(tierIndex + 1, 0)}
+                        title="Move down one tier"
+                    >
+                        {'>>'}
+                    </button>
+                )}
             </div>
 
             <div className={style.info}>

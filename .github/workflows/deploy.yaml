@@ -26,6 +26,10 @@ jobs:
               working-directory: ./cmd
               run: go build && mv ./cmd ./webpage-backend
 
+            - name: Build Kill Command
+              working-directory: ./cmd/kill
+              run: go build
+
             - name: Save Build
               uses: actions/upload-artifact@v4
               with:
@@ -34,6 +38,7 @@ jobs:
                       ./cmd/webpage-backend
                       ./cmd/persistent/**
                       ./cmd/media/**
+                      ./cmd/kill/kill
                   if-no-files-found: error
                   retention-days: 1
 
@@ -78,30 +83,35 @@ jobs:
               uses: actions/download-artifact@v4
               with:
                   name: backend
+                  path: ./backend
 
             - name: Download Webpage
               uses: actions/download-artifact@v4
               with:
                   name: webpage
+                  path: ./static
 
-            - run: ls -R
+            - name: Add SSH key
+              run: |
+                  mkdir -p ~/.ssh/
+                  ssh-keyscan ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
+                  echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+                  chmod 600 ~/.ssh/id_rsa
+                  ssh-agent -a $SSH_AUTH_SOCK > /dev/null
+                  ssh-add ~/.ssh/id_rsa
 
-            # - name: Load .env
-            #   run: |
-            #       echo "${{ secrets.ENV }}" > .env
+            - name: Upload Webpage to Contabo
+              run: |
+                  scp -r static ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{ secrets.SSH_PATH }}
 
-            # - name: Build
-            #   run: npm run build
+            - name: Upload Backend to Contabo
+              run: |
+                  scp -r backend ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST}}:${{ secrets.SSH_BACKEND_PATH }}
 
-            # - name: Add SSH key
-            #   run: |
-            #       mkdir -p ~/.ssh/
-            #       ssh-keyscan ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
-            #       echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
-            #       chmod 600 ~/.ssh/id_rsa
-            #       ssh-agent -a $SSH_AUTH_SOCK > /dev/null
-            #       ssh-add ~/.ssh/id_rsa
+            - name: Stop Running Backend
+              run: |
+                  ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} ${{ secrets.SSH_KILL_COMMAND }}
 
-            # - name: Deploy to Contabo
-            #   run: |
-            #       scp -r webpage ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{ secrets.SSH_PATH }}
+            - name: Start New Backend
+              run: |
+                  ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} ${{ secrets.SSH_RUN_COMMAND }}

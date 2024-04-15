@@ -102,7 +102,7 @@ jobs:
 
             - name: Upload Webpage to Contabo
               run: |
-                  scp -r static ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{ secrets.SSH_PATH }}
+                  scp -r webpage ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{ secrets.SSH_PATH }}
 
             - name: Upload Backend to Contabo
               run: |

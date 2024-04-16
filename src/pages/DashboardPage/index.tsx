@@ -20,6 +20,7 @@ export const DashboardPage = () => {
     };
 
     const verifyUser = async () => {
+        console.log('verify?');
         try {
             const hashedPassword = sha256(password);
             const response = await fetch(
@@ -40,6 +41,7 @@ export const DashboardPage = () => {
 
             setUserType(body as UserType);
         } catch (e) {
+            console.error(e);
             setUserType('failed');
         }
     };

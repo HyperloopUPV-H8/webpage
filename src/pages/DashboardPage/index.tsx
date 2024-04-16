@@ -20,11 +20,10 @@ export const DashboardPage = () => {
     };
 
     const verifyUser = async () => {
-        console.log('verify?');
         try {
             const hashedPassword = sha256(password);
             const response = await fetch(
-                `https://:${import.meta.env.VITE_BACKEND_URL}/${
+                `https://${import.meta.env.VITE_BACKEND_URL}/${
                     import.meta.env.VITE_BACKEND_VERIFY_USER_ENDPOINT
                 }`,
                 {
@@ -41,7 +40,6 @@ export const DashboardPage = () => {
 
             setUserType(body as UserType);
         } catch (e) {
-            console.error(e);
             setUserType('failed');
         }
     };

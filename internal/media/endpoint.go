@@ -9,8 +9,8 @@ import (
 	"github.com/HyperloopUPV-H8/webpage-backend/internal/endpoints"
 )
 
-var MembersFolder = path.Join("media", "members")
-var PartnersFolder = path.Join("media", "partners")
+var MembersFolder = path.Join("backend", "media", "members")
+var PartnersFolder = path.Join("backend", "media", "partners")
 
 const MemberNamePathValueTag = "memberName"
 const PartnerNamePathValueTag = "partnerName"

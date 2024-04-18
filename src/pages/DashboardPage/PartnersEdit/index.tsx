@@ -42,20 +42,24 @@ export default function PartnersEdit(props: Props) {
         }
 
         const main = getMainJson(metadata);
-        await fetch(
-            `https://${import.meta.env.VITE_BACKEND_URL}/${
-                import.meta.env.VITE_BACKEND_PARTNERS_METADATA_ENDPOINT
-            }`,
-            {
-                method: 'POST',
-                headers: {
-                    Authorization: `Basic ${btoa(
-                        `${props.username}:${sha256(props.password)}`
-                    )}`,
-                },
-                body: main,
-            }
-        );
+        try {
+            await fetch(
+                `https://${import.meta.env.VITE_BACKEND_URL}/${
+                    import.meta.env.VITE_BACKEND_PARTNERS_METADATA_ENDPOINT
+                }`,
+                {
+                    method: 'POST',
+                    headers: {
+                        Authorization: `Basic ${btoa(
+                            `${props.username}:${sha256(props.password)}`
+                        )}`,
+                    },
+                    body: main,
+                }
+            );
+        } catch (e) {
+            alert('Ha ocurrido un error, ponte en contacto con Software\n' + e);
+        }
 
         metadata.forEach(async (meta) =>
             meta.partners.forEach(async (meta) => {
@@ -63,23 +67,32 @@ export default function PartnersEdit(props: Props) {
                     return;
                 }
 
-                await fetch(
-                    `https://${import.meta.env.VITE_BACKEND_URL}/${
-                        import.meta.env.VITE_BACKEND_PARTNERS_MEDIA_ENDPOINT
-                    }/${meta.name}`,
-                    {
-                        method: 'POST',
-                        headers: {
-                            Authorization: `Basic ${btoa(
-                                `${props.username}:${sha256(props.password)}`
-                            )}`,
-                            'Content-Type': meta.logo.image
-                                ? meta.logo.image.file.type
-                                : 'application/octet-stream',
-                        },
-                        body: meta.logo.image?.file,
-                    }
-                );
+                try {
+                    await fetch(
+                        `https://${import.meta.env.VITE_BACKEND_URL}/${
+                            import.meta.env.VITE_BACKEND_PARTNERS_MEDIA_ENDPOINT
+                        }/${meta.name}`,
+                        {
+                            method: 'POST',
+                            headers: {
+                                Authorization: `Basic ${btoa(
+                                    `${props.username}:${sha256(
+                                        props.password
+                                    )}`
+                                )}`,
+                                'Content-Type': meta.logo.image
+                                    ? meta.logo.image.file.type
+                                    : 'application/octet-stream',
+                            },
+                            body: meta.logo.image?.file,
+                        }
+                    );
+                } catch (e) {
+                    alert(
+                        'Ha ocurrido un error, ponte en contacto con Software\n' +
+                            e
+                    );
+                }
             })
         );
     };

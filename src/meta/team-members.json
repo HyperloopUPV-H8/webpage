@@ -2,19 +2,19 @@
     "direction": [
         {
             "name": "Stefan Costea",
-            "imgUrl": "/team/members/direction/Stefan-Costea.jpeg",
+            "imgUrl": "/team/members/direction/Stefan-Costea.webp",
             "rol": "Technical Director",
             "linkedin": "https://www.linkedin.com/in/stefan-costea-5a3648205/"
         },
         {
             "name": "Hugo Albert",
-            "imgUrl": "/team/members/direction/Hugo-Albert.jpeg",
+            "imgUrl": "/team/members/direction/Hugo-Albert-Bonet.webp",
             "rol": "Team Lead",
             "linkedin": "https://www.linkedin.com/in/hugoalbert/"
         },
         {
             "name": "Álvaro Pérez",
-            "imgUrl": "/team/members/direction/Alvaro-Perez.jpeg",
+            "imgUrl": "/team/members/direction/Alvaro-Perez.webp",
             "rol": "Technical Director",
             "linkedin": "https://www.linkedin.com/in/alvaro-perez-pecharroman/"
         }
@@ -22,57 +22,45 @@
     "hardware": [
         {
             "name": "Jairo Pérez",
-            "imgUrl": "/team/members/hardware/hardware.svg",
+            "imgUrl": "/team/members/hardware/Jairo-Perez.webp",
             "rol": "Member",
             "linkedin": "https://www.linkedin.com/in/jairo-p%C3%A9rez-mart%C3%ADnez-145916247/"
         },
         {
             "name": "Jorge Guerrero",
-            "imgUrl": "/team/members/hardware/hardware.svg",
+            "imgUrl": "/team/members/hardware/Jorge-Guerrero.webp",
             "rol": "Member",
             "linkedin": "https://www.linkedin.com/in/jorge-guerrero-3a6759250/"
         },
         {
-            "name": "Javier Esteve",
-            "imgUrl": "/team/members/hardware/hardware.svg",
-            "rol": "Member",
-            "linkedin": "https://www.linkedin.com/in/engineeringjavierestevevillarroya/"
-        },
-        {
             "name": "Dario Fustel",
-            "imgUrl": "/team/members/hardware/hardware.svg",
+            "imgUrl": "/team/members/hardware/Dario-Fustel.webp",
             "rol": "Member",
             "linkedin": "https://www.linkedin.com/in/dar%C3%ADo-fustel-2667a525b/"
         },
         {
             "name": "Rubén Marz",
-            "imgUrl": "/team/members/hardware/hardware.svg",
+            "imgUrl": "/team/members/hardware/Ruben-Marz.webp",
             "rol": "Member",
             "linkedin": "https://www.linkedin.com/in/rmarz/"
+        },
+        {
+            "name": "Martí David",
+            "imgUrl": "/team/members/hardware/Marti-David.webp",
+            "rol": "Member",
+            "linkedin": ""
         }
     ],
     "firmware": [
         {
-            "name": "Amancio Gómez",
-            "imgUrl": "/team/members/firmware/firmware.svg",
-            "rol": "Member",
-            "linkedin": "https://www.linkedin.com/in/amancio-g%C3%B3mez-vernet-711633291/"
-        },
-        {
             "name": "Gonzalo Sánchez",
-            "imgUrl": "/team/members/firmware/firmware.svg",
+            "imgUrl": "/team/members/firmware/Gonzalo-Sanchez.webp",
             "rol": "Project Manager",
             "linkedin": "https://www.linkedin.com/in/gonzalo-sanchez-4ab140251/"
         },
         {
-            "name": "Juan Rosas",
-            "imgUrl": "/team/members/firmware/firmware.svg",
-            "rol": "Member",
-            "linkedin": "https://www.linkedin.com/in/ingjuanrosas/"
-        },
-        {
             "name": "Ricardo Chust",
-            "imgUrl": "/team/members/firmware/firmware.svg",
+            "imgUrl": "/team/members/firmware/Ricardo-Chust.webp",
             "rol": "Member",
             "linkedin": "https://www.linkedin.com/in/ricardo-chust-fides-18b714287/"
         }
@@ -80,25 +68,25 @@
     "software": [
         {
             "name": "Andrés de la Torre",
-            "imgUrl": "/team/members/software/software.svg",
+            "imgUrl": "/team/members/software/Andres-de-la-Torre.webp",
             "rol": "Member",
             "linkedin": "https://www.linkedin.com/in/andresdltm/"
         },
         {
             "name": "Juan Martínez",
-            "imgUrl": "/team/members/software/Juan-Martinez.jpeg",
+            "imgUrl": "/team/members/software/Juan-Martinez.webp",
             "rol": "Project Manager",
             "linkedin": "https://www.linkedin.com/in/juan-martinez-alonso-13507a283/"
         },
         {
-            "name": "Marc Sanchís",
-            "imgUrl": "/team/members/software/software.svg",
+            "name": "Marc Sanchis",
+            "imgUrl": "/team/members/software/Marc-Sanchis.webp",
             "rol": "Member",
             "linkedin": "https://www.linkedin.com/in/marc-sanchis-5454a9192/"
         },
         {
             "name": "Fernando Sánchez",
-            "imgUrl": "/team/members/software/software.svg",
+            "imgUrl": "/team/members/software/Fernando-Sanchez.webp",
             "rol": "Member",
             "linkedin": "https://www.linkedin.com/in/fernando-sanchez-gabaldon-3a4285191/"
         }
@@ -106,191 +94,191 @@
     "structuresandmechanisms": [
         {
             "name": "Elian Iglesias",
-            "imgUrl": "/team/members/structuresandmechanisms/structures&mechanisms.svg",
+            "imgUrl": "/team/members/structuresandmechanisms/Elian-Iglesias.webp",
             "rol": "Member",
             "linkedin": "https://www.linkedin.com/in/elian-iglesias-marijt-6ab128242/"
         },
         {
             "name": "Paula García",
-            "imgUrl": "/team/members/structuresandmechanisms/Paula-Garcia.jpeg",
+            "imgUrl": "/team/members/structuresandmechanisms/Paula-Garcia.webp",
             "rol": "Project Manager",
             "linkedin": "https://www.linkedin.com/in/paulagperez/"
         },
         {
             "name": "Alix Giner",
-            "imgUrl": "/team/members/structuresandmechanisms/structures&mechanisms.svg",
+            "imgUrl": "/team/members/structuresandmechanisms/Alix-Giner.webp",
             "rol": "Member",
             "linkedin": "https://www.linkedin.com/in/alix-giner-ba485917b/"
         },
         {
             "name": "Luis Rubio",
-            "imgUrl": "/team/members/structuresandmechanisms/structures&mechanisms.svg",
+            "imgUrl": "/team/members/structuresandmechanisms/Luis-Rubio.webp",
             "rol": "Member",
             "linkedin": "https://www.linkedin.com/in/luisrubio15/"
         },
         {
             "name": "David Balsalobre",
-            "imgUrl": "/team/members/structuresandmechanisms/structures&mechanisms.svg",
+            "imgUrl": "/team/members/structuresandmechanisms/David-Balsalobre.webp",
             "rol": "Member",
             "linkedin": "https://www.linkedin.com/in/david-balsalobre-ibor-528960227/"
         },
         {
             "name": "Pablo Luján",
-            "imgUrl": "/team/members/structuresandmechanisms/structures&mechanisms.svg",
+            "imgUrl": "/team/members/structuresandmechanisms/Pablo-Lujan.webp",
             "rol": "Member",
             "linkedin": "https://www.linkedin.com/in/pabloluj/"
         },
         {
             "name": "Hamza Khallaf",
-            "imgUrl": "/team/members/structuresandmechanisms/structures&mechanisms.svg",
+            "imgUrl": "/team/members/structuresandmechanisms/Hamza-Khallaf.webp",
             "rol": "Member",
             "linkedin": "https://www.linkedin.com/in/hamza-khallaf-bouchrik-a67a60281/"
         },
         {
             "name": "Manar Selham",
-            "imgUrl": "/team/members/structuresandmechanisms/structures&mechanisms.svg",
+            "imgUrl": "/team/members/structuresandmechanisms/Manar-Selham.webp",
             "rol": "Member",
             "linkedin": "https://www.linkedin.com/in/manar-selham-6156b1273/"
         },
         {
             "name": "Guillermo Castellano",
-            "imgUrl": "/team/members/structuresandmechanisms/structures&mechanisms.svg",
+            "imgUrl": "/team/members/structuresandmechanisms/Guillermo-Castellano.webp",
             "rol": "Member",
             "linkedin": "https://www.linkedin.com/in/guillermo-castellano-vicente-451ba7287/"
         },
         {
             "name": "Sergio Pérez",
-            "imgUrl": "/team/members/structuresandmechanisms/structures&mechanisms.svg",
+            "imgUrl": "/team/members/structuresandmechanisms/Sergio-Perez.webp",
             "rol": "Member",
             "linkedin": "https://www.linkedin.com/in/sergio-perez-morillas/"
         },
         {
             "name": "Mario Bejarano",
-            "imgUrl": "/team/members/structuresandmechanisms/structures&mechanisms.svg",
+            "imgUrl": "/team/members/structuresandmechanisms/Mario-Bejarano.webp",
             "rol": "Member",
             "linkedin": "https://www.linkedin.com/in/mario-bejarano-moro/"
         }
     ],
     "electromagnetics": [
         {
-            "name": "Javier Tormo",
-            "imgUrl": "/team/members/electromagnetics/electromagnetics.svg",
-            "rol": "Member",
-            "linkedin": "https://www.linkedin.com/in/javiertormo/"
-        },
-        {
             "name": "Mariano Andújar",
-            "imgUrl": "/team/members/electromagnetics/Mariano-Andujar.jpeg",
+            "imgUrl": "/team/members/electromagnetics/Mariano-Andujar.webp",
             "rol": "Project Manager",
             "linkedin": "https://www.linkedin.com/in/mariano-and%C3%BAjar-bola%C3%B1o-aaa51823a/"
         },
         {
             "name": "José Luis Gil",
-            "imgUrl": "/team/members/electromagnetics/electromagnetics.svg",
+            "imgUrl": "/team/members/electromagnetics/Jose-Luis-Gil.webp",
             "rol": "Member",
             "linkedin": "https://www.linkedin.com/in/jose-luis-gil-lombera/"
         },
         {
             "name": "Miquel Montañana",
-            "imgUrl": "/team/members/electromagnetics/electromagnetics.svg",
+            "imgUrl": "/team/members/electromagnetics/Miquel-Montanana.webp",
             "rol": "Member",
             "linkedin": "https://www.linkedin.com/in/mimonfer"
         },
         {
             "name": "José Ángel Jarabo",
-            "imgUrl": "/team/members/electromagnetics/electromagnetics.svg",
+            "imgUrl": "/team/members/electromagnetics/Jose-Angel-Jarabo.webp",
             "rol": "Member",
             "linkedin": "https://www.linkedin.com/in/jose-%C3%A1ngel-jarabo-5a7737207/"
-        },
-        {
-            "name": "Jakub Kuleta",
-            "imgUrl": "/team/members/electromagnetics/electromagnetics.svg",
-            "rol": "Member",
-            "linkedin": "https://www.linkedin.com/in/jakub-kuleta-b30342229/"
         }
     ],
     "outreach": [
         {
             "name": "David Grueso",
-            "imgUrl": "/team/members/outreach/outreach.svg",
+            "imgUrl": "/team/members/outreach/David-Grueso.webp",
             "rol": "Member",
             "linkedin": "https://www.linkedin.com/in/david-grueso-conejero-833755235/"
         },
         {
             "name": "Carmen Hernández",
-            "imgUrl": "/team/members/outreach/outreach.svg",
+            "imgUrl": "/team/members/outreach/Carmen-Hernandez.webp",
             "rol": "Project Manager",
             "linkedin": "https://www.linkedin.com/in/carmen-hern%C3%A1ndez-98123529a/"
         },
         {
             "name": "Carlos Broseta",
-            "imgUrl": "/team/members/outreach/outreach.svg",
+            "imgUrl": "/team/members/outreach/Carlos-Broseta.webp",
             "rol": "Member",
             "linkedin": "https://www.linkedin.com/in/carlos-broseta-turanzo-766012228/"
+        },
+        {
+            "name": "Emilio Esteban",
+            "imgUrl": "/team/members/outreach/Emilio-Esteban.webp",
+            "rol": "Member",
+            "linkedin": ""
+        },
+        {
+            "name": "David Bernad",
+            "imgUrl": "/team/members/outreach/David-Bernad.webp",
+            "rol": "Member",
+            "linkedin": "https://www.linkedin.com/in/david-bernad-lópez-83392b289/"
         }
     ],
     "partners": [
         {
             "name": "Mario Sanchis",
-            "imgUrl": "/team/members/partners/partners.svg",
+            "imgUrl": "/team/members/partners/Marc-Sanchis.webp",
             "rol": "Member",
             "linkedin": "https://www.linkedin.com/in/mariosanchistormo/"
         },
         {
             "name": "María García",
-            "imgUrl": "/team/members/partners/Maria-Garcia.jpeg",
+            "imgUrl": "/team/members/partners/Maria-Garcia.webp",
             "rol": "Project Manager",
             "linkedin": "https://www.linkedin.com/in/mar%C3%ADa-garc%C3%ADa-gayet-51b046201/"
         },
         {
             "name": "Claudia Lara",
-            "imgUrl": "/team/members/partners/partners.svg",
+            "imgUrl": "/team/members/partners/Claudia-Lara.webp",
             "rol": "Member",
             "linkedin": "https://www.linkedin.com/in/claudialarapinillos/"
         },
         {
             "name": "Ricardo Casasnovas",
-            "imgUrl": "/team/members/partners/partners.svg",
+            "imgUrl": "/team/members/partners/Ricardo-Casasnovas.webp",
             "rol": "Member",
             "linkedin": "https://www.linkedin.com/in/ricardocasasnovas23/"
         },
         {
             "name": "Mireia Pérez",
-            "imgUrl": "/team/members/partners/partners.svg",
+            "imgUrl": "/team/members/partners/Mireia-Perez.webp",
             "rol": "Member",
             "linkedin": "https://www.linkedin.com/in/mireiaperezferrer/"
         },
         {
-            "name": "Esteban Tortosa",
-            "imgUrl": "/team/members/partners/partners.svg",
-            "rol": "Member",
-            "linkedin": "https://www.linkedin.com/in/estebantortosaperez/"
-        },
-        {
             "name": "Diana Chilingaryan",
-            "imgUrl": "/team/members/partners/partners.svg",
+            "imgUrl": "/team/members/partners/Diana-Chilingaryan.webp",
             "rol": "Member",
             "linkedin": "https://www.linkedin.com/in/dianachilingaryan/"
+        },
+        {
+            "name": "Beatriz Espinar",
+            "imgUrl": "/team/members/partners/Beatriz-Espinar.webp",
+            "rol": "Member",
+            "linkedin": "https://www.linkedin.com/in/beatriz-de-silva-espinar-hernández/"
         }
     ],
     "economics": [
         {
             "name": "Marcos Pérez",
-            "imgUrl": "/team/members/economics/economics.svg",
+            "imgUrl": "/team/members/economics/Marcos-Perez.webp",
             "rol": "Member",
             "linkedin": "https://www.linkedin.com/in/marcos-perez-hortelano-9b2b38274/"
         },
         {
-            "name": "Claudia Silvestre",
-            "imgUrl": "/team/members/economics/Claudia-Silvestre.jpeg",
-            "rol": "Project Manager",
-            "linkedin": "https://www.linkedin.com/in/claudiasilvestregarc%C3%ADa/"
-        },
-        {
             "name": "Àngel Lova",
-            "imgUrl": "/team/members/economics/economics.svg",
+            "imgUrl": "/team/members/economics/Angel-Lova.webp",
             "rol": "Member",
             "linkedin": "https://www.linkedin.com/in/%C3%A0ngel-lova-tormos-a65787226/"
+        },
+        {
+            "name": "María Navarro",
+            "imgUrl": "/team/members/economics/Maria-Navarro.webp",
+            "rol": "Member",
+            "linkedin": "https://www.linkedin.com/in/maria-navarro-ramos-7b1b38274/"
         }
     ]
 }

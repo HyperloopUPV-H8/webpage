@@ -34,7 +34,6 @@ jobs:
               run: |
                   mkdir ./backend
                   cp ./cmd/cmd ./backend/backend
-                  cp -r ./cmd/persistent ./backend
                   cp -r ./cmd/media ./backend
                   cp ./cmd/kill/kill ./backend/kill
                   tar -cvf backend.tar ./backend

@@ -2,10 +2,12 @@ package main
 
 import (
 	"flag"
+	"net"
 	"net/http"
 	"os"
 	"os/signal"
 	"syscall"
+	"time"
 
 	"github.com/HyperloopUPV-H8/webpage-backend/internal"
 	"github.com/HyperloopUPV-H8/webpage-backend/internal/auth"
@@ -24,137 +26,69 @@ var MembersPathFlag = flag.String("mp", "persistent/members.json", "path where t
 var PartnersPathFlag = flag.String("pp", "persistent/partners.json", "path where the partner list will be kept")
 var UsersPathFlag = flag.String("up", "persistent/users.json", "path where the user list will be kept")
 
+const UpdateChanBufferSize = 1
+
 func main() {
 	flag.Parse()
 
-	authUpdated := make(chan struct{}, 1)
-	authEndpoint := auth.NewEndpoint(auth.UserList{
-		Admins: []auth.User{
-			{
-				Name:     "admin",
-				Password: "03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4",
-			},
-		},
-		Managers: []auth.User{
-			{
-				Name:     "manager",
-				Password: "5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5",
-			},
-		},
-	}, authUpdated)
-	defer internal.SaveJSON(*UsersPathFlag, authEndpoint.GetUsers())
-	http.Handle("/auth/", http.StripPrefix("/auth", &authEndpoint))
+	authUpdated := make(chan auth.UserList, UpdateChanBufferSize)
+	authData, err := internal.LoadJSON[auth.UserList](*UsersPathFlag)
+	if err != nil {
+		log.Fatal().Err(err).Stack().Msg("reading auth data")
+	}
+	authEndpoint := auth.NewEndpoint(authData, authUpdated)
+	http.Handle("/auth/", http.StripPrefix("/auth", authEndpoint))
 
-	membersUpdated := make(chan struct{}, 1)
-	membersEndpoint := endpoints.NewJSON("members", []members.Subsystem{
-		{
-			Name: "Direction",
-			Members: []members.Member{
-				{
-					Name:       "Hugo Albert",
-					ImageURL:   "media/members/hugo_albert.webp",
-					Role:       "Director",
-					SocialsURL: "https://www.linkedin.com/in/hugoalbert/",
-				},
-				{
-					Name:       "Stefan Costea",
-					ImageURL:   "media/members/stefan_costea.webp",
-					Role:       "Technical Director",
-					SocialsURL: "https://www.linkedin.com/in/stefan-costea-5a3648205/",
-				},
-				{
-					Name:       "Alvaro Perez",
-					ImageURL:   "media/members/alvaro_perez.webp",
-					Role:       "Technical Director",
-					SocialsURL: "https://www.linkedin.com/in/alvaro-perez-pecharroman/",
-				},
-			},
-		},
-		{
-			Name: "Software",
-			Members: []members.Member{
-				{
-					Name:       "Juan Martinez",
-					ImageURL:   "media/members/juan_martinez.webp",
-					Role:       "Project Manager",
-					SocialsURL: "https://www.linkedin.com/in/juan-martinez-alonso-13507a283/",
-				},
-				{
-					Name:       "Andres de la Torre",
-					ImageURL:   "media/members/andres_de_la_torre.webp",
-					Role:       "",
-					SocialsURL: "https://www.linkedin.com/in/andresdltm/",
-				},
-				{
-					Name:       "Marc Sanchis",
-					ImageURL:   "media/members/marc_sanchis.webp",
-					Role:       "",
-					SocialsURL: "https://www.linkedin.com/in/marc-sanchis-5454a9192/",
-				},
-				{
-					Name:       "Fernando Sanchez",
-					ImageURL:   "media/members/fernando_sanchez.webp",
-					Role:       "",
-					SocialsURL: "https://www.linkedin.com/in/fernando-sanchez-gabaldon-3a4285191/",
-				},
-			},
-		},
-	}, authEndpoint, membersUpdated)
-	defer internal.SaveJSON(*MembersPathFlag, membersEndpoint.GetData())
-	http.Handle("/members", &membersEndpoint)
+	membersUpdated := make(chan []members.Subsystem, UpdateChanBufferSize)
+	memberData, err := internal.LoadJSON[[]members.Subsystem](*MembersPathFlag)
+	if err != nil {
+		log.Fatal().Err(err).Stack().Msg("reading member data")
+	}
+	membersEndpoint := endpoints.NewJSON("members", memberData, authEndpoint, membersUpdated)
+	http.Handle("/members", membersEndpoint)
 
-	partnersUpdated := make(chan struct{}, 1)
-	partnersEndpoint := endpoints.NewJSON("partners", []partners.Tier{
-		{
-			Name: "premium",
-			Partners: []partners.Partner{
-				{
-					Name: "Universitat Politecnica De Valencia",
-				},
-				{
-					Name: "Coaltec Soldadura",
-				},
-				{
-					Name: "Zeleros",
-				},
-				{
-					Name: "Uniweld",
-				},
-				{
-					Name: "Acerinox",
-				},
-			},
-			Style: partners.TierStyle{
-				Width: "70%",
-				Color: "#ffffff",
-			},
-		},
-	}, authEndpoint, partnersUpdated)
-	defer internal.SaveJSON(*PartnersPathFlag, partnersEndpoint.GetData())
-	http.Handle("/partners", &partnersEndpoint)
+	partnersUpdated := make(chan []partners.Tier, UpdateChanBufferSize)
+	partnersData, err := internal.LoadJSON[[]partners.Tier](*PartnersPathFlag)
+	if err != nil {
+		log.Fatal().Err(err).Stack().Msg("reading partners data")
+	}
+	partnersEndpoint := endpoints.NewJSON("partners", partnersData, authEndpoint, partnersUpdated)
+	http.Handle("/partners", partnersEndpoint)
 
-	memberImagesUpdated := make(chan struct{}, 1)
-	partnerImagesUpdated := make(chan struct{}, 1)
+	memberImagesUpdated := make(chan endpoints.ImageManifest, UpdateChanBufferSize)
+	memberImagesData, err := internal.LoadJSON[endpoints.ImageManifest](*MemberImagePathFlag)
+	if err != nil {
+		log.Fatal().Err(err).Stack().Msg("reading member images")
+	}
+	partnerImagesUpdated := make(chan endpoints.ImageManifest, UpdateChanBufferSize)
+	partnerImagesData, err := internal.LoadJSON[endpoints.ImageManifest](*PartnerImagePathFlag)
+	if err != nil {
+		log.Fatal().Err(err).Stack().Msg("reading partner images")
+	}
 	mediaEndpoint, err := media.NewEndpoint(
-		endpoints.ImageManifest{},
-		endpoints.ImageManifest{},
+		memberImagesData,
+		partnerImagesData,
 		authEndpoint,
 		memberImagesUpdated,
 		partnerImagesUpdated,
 	)
 	if err != nil {
-		log.Error().Stack().Err(err).Msg("media endpoint")
-		os.Exit(1)
+		log.Fatal().Stack().Err(err).Msg("media endpoint")
 	}
-	defer internal.SaveJSON(*MemberImagePathFlag, mediaEndpoint.GetMembersManifest())
-	defer internal.SaveJSON(*PartnerImagePathFlag, mediaEndpoint.GetPartnersManifest())
-	http.Handle("/media/", http.StripPrefix("/media", &mediaEndpoint))
+	http.Handle("/media/", http.StripPrefix("/media", mediaEndpoint))
 
 	go func() {
-		err := http.ListenAndServe(*AddressFlag, nil)
+		err := http.ListenAndServeTLS(*AddressFlag, "/etc/letsencrypt/live/hyperloopupv.com/fullchain.pem", "/etc/letsencrypt/live/hyperloopupv.com/privkey.pem", nil)
 		if err != nil {
-			log.Error().Stack().Err(err).Msg("listen and serve")
-			os.Exit(1)
+			log.Fatal().Stack().Err(err).Msg("listen and serve")
+		}
+	}()
+
+	killCommandNotification := make(chan string, 1)
+	go func() {
+		err := senseKill(killCommandNotification)
+		if err != nil {
+			log.Fatal().Stack().Err(err).Msg("sense kill")
 		}
 	}()
 
@@ -163,26 +97,81 @@ func main() {
 	signals := make(chan os.Signal, 1)
 	signal.Notify(signals, syscall.SIGINT, syscall.SIGTERM)
 
+backupLoop:
 	for {
 		var err error = nil
 		select {
-		case <-authUpdated:
-			err = internal.SaveJSON(*UsersPathFlag, authEndpoint.GetUsers())
-		case <-membersUpdated:
-			err = internal.SaveJSON(*MembersPathFlag, membersEndpoint.GetData())
-		case <-partnersUpdated:
-			err = internal.SaveJSON(*PartnersPathFlag, partnersEndpoint.GetData())
-		case <-memberImagesUpdated:
-			err = internal.SaveJSON(*MemberImagePathFlag, mediaEndpoint.GetMembersManifest())
-		case <-partnerImagesUpdated:
-			err = internal.SaveJSON(*PartnerImagePathFlag, mediaEndpoint.GetPartnersManifest())
+		case data := <-authUpdated:
+			err = internal.SaveJSON(*UsersPathFlag, data)
+		case data := <-membersUpdated:
+			err = internal.SaveJSON(*MembersPathFlag, data)
+		case data := <-partnersUpdated:
+			err = internal.SaveJSON(*PartnersPathFlag, data)
+		case data := <-memberImagesUpdated:
+			err = internal.SaveJSON(*MemberImagePathFlag, data)
+		case data := <-partnerImagesUpdated:
+			err = internal.SaveJSON(*PartnerImagePathFlag, data)
 		case signal := <-signals:
 			log.Info().Str("signal", signal.String()).Msg("closing")
-			os.Exit(0)
+			break backupLoop
+		case from := <-killCommandNotification:
+			log.Info().Str("from", from).Msg("kill")
+			break backupLoop
 		}
 		if err != nil {
 			log.Error().Stack().Err(err).Msg("backup loop")
 		}
 	}
+}
 
+const expectedKillCode = "Skidadle Skidoodle This Back is no Being Killed >:D"
+
+func senseKill(notification chan<- string) error {
+	addr, err := net.ResolveTCPAddr("tcp", "127.0.0.1:4040")
+	if err != nil {
+		return err
+	}
+
+	listener, err := net.ListenTCP("tcp", addr)
+	if err != nil {
+		return err
+	}
+
+	for {
+		conn, err := listener.AcceptTCP()
+		if err != nil {
+			return err
+		}
+		defer conn.Close()
+
+		killCodeChan := make(chan string)
+		go readKillCode(conn, killCodeChan)
+
+		select {
+		case code := <-killCodeChan:
+			if code == expectedKillCode {
+				notification <- conn.RemoteAddr().String()
+				return nil
+			}
+		case <-time.After(time.Second * 5):
+		}
+
+		log.Warn().Str("from", conn.RemoteAddr().String()).Msg("Failed attempt to kill")
+	}
+}
+
+func readKillCode(conn *net.TCPConn, notification chan<- string) error {
+	buffer := make([]byte, len(expectedKillCode))
+
+	totalRead := 0
+	for totalRead < len(expectedKillCode) {
+		n, err := conn.Read(buffer[totalRead:])
+		totalRead += n
+		if err != nil {
+			return err
+		}
+	}
+
+	notification <- string(buffer)
+	return nil
 }

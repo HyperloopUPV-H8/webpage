@@ -40,10 +40,10 @@ export const Navbar = () => {
     const setMenu = (isOpen: boolean) => {
         if (isOpen) {
             navbar.current?.classList.add(style.navbar_open);
-            navbarLinks.current?.classList.add('navbar__links--open');
+            navbarLinks.current?.classList.add(style.links_open);
         } else {
             navbar.current?.classList.remove(style.navbar_open);
-            navbarLinks.current?.classList.remove('navbar__links--open');
+            navbarLinks.current?.classList.remove(style.links_open);
         }
     };
 

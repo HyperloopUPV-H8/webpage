@@ -1,0 +1,151 @@
+.container {
+    display: flex;
+    flex-flow: row;
+    border-radius: 20px;
+    background-color: rgb(217, 217, 217);
+    overflow: hidden;
+}
+
+.movement {
+    width: 5rem;
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    color: rgb(99, 99, 99);
+    background-color: rgb(202, 202, 202);
+    flex-flow: column;
+    border-right: 1px solid rgb(99, 99, 99);
+    .button {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        writing-mode: vertical-rl;
+    }
+}
+
+.drag_and_drop {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top: 1px solid rgb(99, 99, 99);
+    border-bottom: 1px solid rgb(99, 99, 99);
+    color: rgb(99, 99, 99);
+    background-color: rgb(202, 202, 202);
+    cursor: grab;
+}
+
+.up {
+    cursor: n-resize;
+    border-top: 1px solid rgb(99, 99, 99);
+}
+
+.tier_up {
+    cursor: n-resize;
+}
+
+.down {
+    cursor: s-resize;
+    border-bottom: 1px solid rgb(99, 99, 99);
+}
+
+.tier_down {
+    cursor: s-resize;
+}
+
+.info {
+    display: flex;
+    flex-flow: column;
+    gap: 3rem;
+    padding: 2rem 3rem;
+    width: 100%;
+}
+
+.partner_name {
+    display: flex;
+    flex-flow: row;
+    gap: 3rem;
+    color: black;
+    font-size: 3rem;
+    font-weight: bold;
+
+    input {
+        outline: none;
+        border-bottom: 2px solid rgb(173, 173, 173);
+    }
+}
+
+.remove_button {
+    font-size: 2rem;
+    color: white;
+    padding: 0 1.5rem;
+    border-radius: 2rem;
+    background-color: rgb(255, 135, 135);
+
+    &:hover {
+        background-color: red;
+    }
+}
+
+.partner_name_input {
+    width: 100%;
+}
+
+.partner_webpage {
+    display: flex;
+    flex-flow: row;
+    gap: 1rem;
+    color: black;
+    font-size: 2rem;
+
+    input {
+        border-bottom: 2px solid rgb(173, 173, 173);
+    }
+}
+
+.partner_logo {
+    display: flex;
+    flex-flow: row;
+    gap: 2rem;
+
+    img {
+        max-height: 7rem;
+        width: auto;
+        height: auto;
+        color: red;
+    }
+}
+
+.partner_logo_upload,
+.partner_logo_url {
+    display: flex;
+    flex-flow: row;
+    gap: 1rem;
+}
+
+.partner_logo_select {
+    display: flex;
+    flex-flow: column;
+    gap: 2rem;
+}
+
+.parnter_logo_label_select {
+    width: 6rem;
+}
+
+.partner_logo_size {
+    display: flex;
+    flex-flow: column;
+    gap: 2rem;
+}
+
+.partner_logo_size_input {
+    display: flex;
+    flex-flow: row;
+    gap: 1rem;
+}
+
+.partner_logo_label_size {
+    width: 6rem;
+}

@@ -9,24 +9,25 @@ import (
 	"github.com/HyperloopUPV-H8/webpage-backend/internal/endpoints"
 )
 
-var MembersFolder = path.Join("media", "members")
-var PartnersFolder = path.Join("media", "partners")
+var MembersFolder = path.Join("backend", "media", "members")
+var PartnersFolder = path.Join("backend", "media", "partners")
 
 const MemberNamePathValueTag = "memberName"
 const PartnerNamePathValueTag = "partnerName"
 
 type Endpoint struct {
 	mux              *http.ServeMux
-	membersEndpoint  endpoints.ImageEndpoint
-	partnersEndpoint endpoints.ImageEndpoint
+	membersEndpoint  *endpoints.ImageEndpoint
+	partnersEndpoint *endpoints.ImageEndpoint
 }
 
-func NewEndpoint(membersManifest, partnersManifest endpoints.ImageManifest, authenticator auth.Endpoint, memberUpdate, partnerUpdate chan<- struct{}) (Endpoint, error) {
-	endpoint := Endpoint{
+func NewEndpoint(membersManifest, partnersManifest endpoints.ImageManifest, authenticator *auth.Endpoint, memberUpdate, partnerUpdate chan<- endpoints.ImageManifest) (*Endpoint, error) {
+	endpoint := &Endpoint{
 		mux: http.NewServeMux(),
 	}
 
-	membersEndpoint, err := endpoints.NewImage(endpoints.ImageConfig{
+	var err error
+	endpoint.membersEndpoint, err = endpoints.NewImage(endpoints.ImageConfig{
 		Manifest:        membersManifest,
 		BasePath:        MembersFolder,
 		WildcardPattern: MemberNamePathValueTag,
@@ -34,9 +35,9 @@ func NewEndpoint(membersManifest, partnersManifest endpoints.ImageManifest, auth
 	if err != nil {
 		return endpoint, err
 	}
-	endpoint.mux.Handle(fmt.Sprintf("/members/{%s}", MemberNamePathValueTag), membersEndpoint)
+	endpoint.mux.Handle(fmt.Sprintf("/members/{%s...}", MemberNamePathValueTag), endpoint.membersEndpoint)
 
-	partnersEndpoint, err := endpoints.NewImage(endpoints.ImageConfig{
+	endpoint.partnersEndpoint, err = endpoints.NewImage(endpoints.ImageConfig{
 		Manifest:        partnersManifest,
 		BasePath:        PartnersFolder,
 		WildcardPattern: PartnerNamePathValueTag,
@@ -44,19 +45,11 @@ func NewEndpoint(membersManifest, partnersManifest endpoints.ImageManifest, auth
 	if err != nil {
 		return endpoint, err
 	}
-	endpoint.mux.Handle(fmt.Sprintf("/partners/{%s}", PartnerNamePathValueTag), partnersEndpoint)
+	endpoint.mux.Handle(fmt.Sprintf("/partners/{%s...}", PartnerNamePathValueTag), endpoint.partnersEndpoint)
 
 	return endpoint, nil
 }
 
 func (endpoint *Endpoint) ServeHTTP(writter http.ResponseWriter, request *http.Request) {
 	endpoint.mux.ServeHTTP(writter, request)
-}
-
-func (endpoint *Endpoint) GetMembersManifest() endpoints.ImageManifest {
-	return endpoint.membersEndpoint.GetManifest()
-}
-
-func (endpoint *Endpoint) GetPartnersManifest() endpoints.ImageManifest {
-	return endpoint.partnersEndpoint.GetManifest()
 }

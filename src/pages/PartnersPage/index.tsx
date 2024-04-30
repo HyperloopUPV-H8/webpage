@@ -1,21 +1,21 @@
-import { ReactNode } from 'react';
 import dossierPartners from '../../assets/corporative/dossier.pdf';
-import partnersMeta from '../../meta/partners.json';
-import PartnersTier from '../../components/PartnersTier';
 import style from './style.module.scss';
+import PartnersDisplay from '../../components/PartnersDisplay';
+import { Tier } from '../DashboardPage/PartnersEdit/store/dto';
+import { useEffect, useState } from 'react';
 
 export default function PartnersPage() {
-    const partnersInfo: Array<ReactNode> = [];
+    const [meta, setMeta] = useState<Tier[]>([]);
 
-    for (let tier in partnersMeta) {
-        partnersInfo.push(
-            <PartnersTier
-                tier={tier}
-                meta={(partnersMeta as Record<string, any>)[tier]}
-                key={tier}
-            />
-        );
-    }
+    useEffect(() => {
+        fetch(
+            `https://${import.meta.env.VITE_BACKEND_URL}/${
+                import.meta.env.VITE_BACKEND_PARTNERS_METADATA_ENDPOINT
+            }`
+        ).then((response) => {
+            response.json().then(setMeta);
+        });
+    }, []);
 
     return (
         <>
@@ -54,11 +54,7 @@ export default function PartnersPage() {
                     </div>
                 </div>
             </div>
-            <div
-                className={`${style['partners__section']} ${style['section-2']}`}
-            >
-                {partnersInfo}
-            </div>
+            <PartnersDisplay metadata={meta} />
         </>
     );
 }

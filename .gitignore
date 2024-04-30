@@ -25,3 +25,10 @@ package-lock.json
 *.sw?
 .env
 .prettierrc
+
+# Application
+cmd/*
+!cmd/*.go
+!cmd/persistent
+!cmd/media
+!cmd/kill/*.go

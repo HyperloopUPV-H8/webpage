@@ -1,0 +1,54 @@
+@use '../../sass/core/media-queries';
+
+.form {
+    display: flex;
+    flex-flow: column;
+    gap: 2rem;
+    font-weight: 100;
+}
+
+.row {
+    display: flex;
+    flex-direction: column;
+
+    gap: 2rem;
+
+    @include media-queries.desktop {
+        flex-direction: row;
+    }
+}
+
+.submit {
+    display: flex;
+    flex-flow: column;
+    justify-content: end;
+    align-items: center;
+    gap: 2rem;
+
+    @include media-queries.tablet {
+        flex-flow: row;
+    }
+
+    input {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        padding: 1rem 2rem;
+        border: 1px solid black;
+        border-radius: 5px;
+        height: 5rem;
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        &:active {
+            transform: scale(0.95);
+            background-color: rgb(238, 238, 238);
+        }
+
+        @include media-queries.tablet {
+            width: fit-content;
+        }
+    }
+}

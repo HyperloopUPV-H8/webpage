@@ -1,91 +1,123 @@
 // Reset margins and paddings of all the elements
-* , *::before , *::after{
-  margin: 0;
-  padding: 0;
-  border: 0;
-  box-sizing: border-box;
-  vertical-align: baseline;
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+    vertical-align: baseline;
 }
 
-*::before , *::after{
-  display: block;
+*::before,
+*::after {
+    display: block;
 }
 
-html, body {
-  overflow-x: hidden;
+html,
+body {
+    overflow-x: hidden;
 }
 
 html {
-  font-size: 62.5%;
+    font-size: 62.5%;
 }
 
 body {
-  font-size: 1.6rem;
-  background-color: black;
+    font-size: 1.6rem;
+    background-color: black;
 }
 
 // Avoid problems with images
-img , picture , video , iframe , figure{
-  max-width: 100%;
-  width: 100%;
-  display: block;
-//   object-fit: cover;        
-//   object-position: center center;
+img,
+picture,
+video,
+iframe,
+figure {
+    max-width: 100%;
+    width: 100%;
+    display: block;
+    //   object-fit: cover;
+    //   object-position: center center;
 }
 
 /* Reset links to work as block */
 a {
-  display: block;
-  text-decoration: none;
-  color:inherit;
-  font-size:inherit;
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    font-size: inherit;
 }
 /* ... except the links that are inside a paragraph */
 p a {
-  display: inline;
+    display: inline;
 }
 
 li {
-  list-style-type: none;
+    list-style-type: none;
 }
 
 html {
-  scroll-behavior: smooth;
+    scroll-behavior: smooth;
 }
 
 /* Remove default styles of main elements */
-h1 , h2 , h3 , h4 , h5 , h6 , p ,span , a , strong , blockquote , i , b , u , em {
-//   font-size: inherit;
-//   font-weight: inherit;
-  font-style: inherit;
-  text-decoration: none;
-  color:inherit;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+a,
+strong,
+blockquote,
+i,
+b,
+u,
+em {
+    //   font-size: inherit;
+    //   font-weight: inherit;
+    font-style: inherit;
+    text-decoration: none;
+    color: inherit;
 }
 
-blockquote:before, blockquote:after, q:before, q:after {
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
     content: '';
     content: none;
 }
 
 // Avoid problems with typography and placement of forms
-form , input, textarea, select , button , label{
+form,
+input,
+textarea,
+select,
+button,
+label {
     font-family: inherit;
     font-size: inherit;
     hyphens: auto;
     background-color: transparent;
-    color:inherit;
+    color: inherit;
     display: block;
     // appearance: none;
 }
 
 // Reset tables
-table , tr , td {
-  border-collapse: collapse;
-  border-spacing: 0;
+table,
+tr,
+td {
+    border-collapse: collapse;
+    border-spacing: 0;
 }
 
 // Avoid problems with SVG
-svg{
+svg {
     width: 100%;
     display: block;
     fill: currentColor;

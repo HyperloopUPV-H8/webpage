@@ -1,54 +1,40 @@
+import { Tier } from '../../pages/DashboardPage/PartnersEdit/store/dto';
 import style from './style.module.scss';
 
-type TierMeta = {
-    color: string;
-    width: string;
-    partners: Array<PartnerMeta>;
-};
-
-type PartnerMeta = {
-    name: string;
-    logo: PartnerLogo;
-    url: string;
-};
-
-type PartnerLogo = {
-    width: string;
-    height: string;
-    url: string;
-};
-
 type PartnersTierProps = {
-    tier: string;
-    meta: TierMeta;
+    meta: Tier;
 };
 
-export default function PartnersTier({ tier, meta }: PartnersTierProps) {
+export default function PartnersTier({ meta }: PartnersTierProps) {
     return (
         <div className={style.tier}>
             <div
                 className={`${style.blur} ${style.top}`}
                 style={{
-                    backgroundColor: meta.color,
+                    backgroundColor: meta.style.color,
                 }}
             />
             <div
                 className={style.title}
                 style={{
-                    color: meta.color,
+                    color: meta.style.color,
                 }}
             >
                 <p>Sponsors</p>
-                <h2>{tier}</h2>
+                <h2>{meta.name}</h2>
             </div>
             <div
                 className={style.partners}
                 style={{
-                    width: meta.width,
+                    width: meta.style.width,
                 }}
             >
                 {meta.partners.map((partner) => (
-                    <a key={partner.name} href={partner.url} target="_blank">
+                    <a
+                        key={partner.name}
+                        href={partner.webpageURL}
+                        target="_blank"
+                    >
                         <img
                             alt={partner.name}
                             src={partner.logo.url}
@@ -63,7 +49,7 @@ export default function PartnersTier({ tier, meta }: PartnersTierProps) {
             <div
                 className={`${style.blur} ${style.bottom}`}
                 style={{
-                    backgroundColor: meta.color,
+                    backgroundColor: meta.style.color,
                 }}
             ></div>
         </div>

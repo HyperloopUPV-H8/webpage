@@ -4,6 +4,8 @@ import isEmail from 'validator/lib/isEmail';
 import ReCAPTCHA from 'react-google-recaptcha';
 import style from './style.module.scss';
 import send_email from '../../utils/smtp.ts';
+import FormInput from './FormInput/index.tsx';
+import FormTextArea from './FormTextArea/index.tsx';
 
 // const emailParams = {
 //     toEmails: ['direction@hyperloopupv.com', 'partners@hyperloopupv.com'],
@@ -143,46 +145,38 @@ export default function ContactForm(props: Props) {
     return (
         <form className={style.form} onSubmit={onSubmitForm}>
             <div className={style.row}>
-                <div className={style.input}>
-                    <label htmlFor="name">Nombre</label>
-                    <input
-                        type="text"
-                        name="name"
-                        id="name"
-                        onChange={onInputChange}
-                        value={formState.name}
-                    />
-                </div>
-                <div className={style.input}>
-                    <label htmlFor="correo">Correo</label>
-                    <input
-                        type="text"
-                        name="email"
-                        id="correo"
-                        onChange={onInputChange}
-                        value={formState.email}
-                    />
-                </div>
-            </div>
-            <div className={style.input}>
-                <label htmlFor="subject">Asunto</label>
-                <input
+                <FormInput
+                    label="Nombre"
+                    id="contact-name"
+                    name="name"
                     type="text"
-                    name="subject"
-                    id="subject"
                     onChange={onInputChange}
-                    value={formState.subject}
+                    value={formState.name}
+                />
+                <FormInput
+                    label="Correo"
+                    id="contact-email"
+                    name="email"
+                    type="text"
+                    onChange={onInputChange}
+                    value={formState.email}
                 />
             </div>
-            <div className={style.input}>
-                <label htmlFor="message">Mensaje</label>
-                <textarea
-                    name="message"
-                    id="message"
-                    onChange={onInputChange}
-                    value={formState.message}
-                ></textarea>
-            </div>
+            <FormInput
+                label="Asunto"
+                id="contact-subject"
+                name="subject"
+                type="text"
+                onChange={onInputChange}
+                value={formState.subject}
+            />
+            <FormTextArea
+                label="Mensaje"
+                id="contact-message"
+                name="message"
+                onChange={onInputChange}
+                value={formState.subject}
+            />
             <div className={style.submit}>
                 <ReCAPTCHA
                     ref={captchaRef}

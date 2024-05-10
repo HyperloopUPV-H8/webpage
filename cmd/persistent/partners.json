@@ -1,0 +1,728 @@
+[
+    {
+        "name": "Premium",
+        "partners": [
+            {
+                "name": "Universidad politecnica de Valencia",
+                "logo": {
+                    "url": "https://hyperloopupv.com:8080/media/partners/Universidad politecnica de Valencia",
+                    "height": "15rem"
+                },
+                "webpageURL": "https://www.upv.es/"
+            },
+            {
+                "name": "Uni-Weld",
+                "logo": {
+                    "url": "https://hyperloopupv.com:8080/media/partners/Uni-Weld",
+                    "height": "18rem"
+                },
+                "webpageURL": "https://www.uni-weld.com/"
+            },
+            {
+                "name": "Coaltec Soldadura",
+                "logo": {
+                    "url": "https://hyperloopupv.com:8080/media/partners/Coaltec Soldadura",
+                    "height": "17rem"
+                },
+                "webpageURL": "https://www.coatec.net/"
+            }
+        ],
+        "style": { "color": "#ffffff", "width": "80%" }
+    },
+    {
+        "name": "Gold",
+        "partners": [
+            {
+                "name": "Speedgoat",
+                "logo": {
+                    "url": "https://hyperloopupv.com:8080/media/partners/Speedgoat",
+                    "height": "7.8rem"
+                },
+                "webpageURL": "https://www.speedgoat.com/"
+            },
+            {
+                "name": "Aussafer",
+                "logo": {
+                    "url": "https://hyperloopupv.com:8080/media/partners/Aussafer",
+                    "height": "8rem"
+                },
+                "webpageURL": "https://www.aussafer.it/"
+            },
+            {
+                "name": "ArcelorMittal",
+                "logo": {
+                    "url": "https://hyperloopupv.com:8080/media/partners/ArcelorMittal",
+                    "height": "8.5rem"
+                },
+                "webpageURL": "https://corporate.arcelormittal.com/"
+            },
+            {
+                "name": "Wolfspeed",
+                "logo": {
+                    "url": "https://hyperloopupv.com:8080/media/partners/Wolfspeed",
+                    "height": "8.5rem"
+                },
+                "webpageURL": "https://www.wolfspeed.com/"
+            },
+            {
+                "name": "Altium",
+                "logo": {
+                    "url": "https://hyperloopupv.com:8080/media/partners/Altium",
+                    "height": "6rem"
+                },
+                "webpageURL": "https://www.altium.com/"
+            },
+            {
+                "name": "Ansys",
+                "logo": {
+                    "url": "https://hyperloopupv.com:8080/media/partners/Ansys",
+                    "height": "7.6rem"
+                },
+                "webpageURL": "https://www.ansys.com/"
+            },
+            {
+                "name": "HP",
+                "logo": {
+                    "url": "https://hyperloopupv.com:8080/media/partners/HP",
+                    "height": "11rem"
+                },
+                "webpageURL": "https://www.hp.com/"
+            },
+            {
+                "name": "Generación Espontánea",
+                "logo": {
+                    "url": "https://hyperloopupv.com:8080/media/partners/Generación Espontánea",
+                    "height": "8.5rem"
+                },
+                "webpageURL": "https://generacionespontanea.upv.es/"
+            },
+            {
+                "name": "Würth Elektronik",
+                "logo": {
+                    "url": "https://hyperloopupv.com:8080/media/partners/Würth Elektronik",
+                    "height": "9.5rem"
+                },
+                "webpageURL": "https://www.we-online.com"
+            },
+            {
+                "name": "SICK",
+                "logo": {
+                    "url": "https://hyperloopupv.com:8080/media/partners/SICK",
+                    "height": "8rem"
+                },
+                "webpageURL": "https://www.sick.com/"
+            },
+            {
+                "name": "Altair",
+                "logo": {
+                    "url": "https://hyperloopupv.com:8080/media/partners/Altair",
+                    "height": "7rem"
+                },
+                "webpageURL": "https://altair.com/"
+            },
+            {
+                "name": "Rutronik",
+                "logo": {
+                    "url": "https://hyperloopupv.com:8080/media/partners/Rutronik",
+                    "height": "10.6rem"
+                },
+                "webpageURL": "https://www.rutronik.com/"
+            },
+            {
+                "name": "Tiempo Zamora",
+                "logo": {
+                    "url": "https://hyperloopupv.com:8080/media/partners/Tiempo Zamora",
+                    "height": "9rem"
+                },
+                "webpageURL": "https://tiempolaboral.com/"
+            },
+            {
+                "name": "SECH",
+                "logo": {
+                    "url": "https://hyperloopupv.com:8080/media/partners/SECH",
+                    "height": "7.5rem"
+                },
+                "webpageURL": "https://www.sechsa.com/"
+            }
+        ],
+        "style": { "color": "#dca25d", "width": "95%" }
+    },
+    {
+        "name": "Silver",
+        "partners": [
+            {
+                "name": "TDK-Lambda",
+                "logo": {
+                    "url": "https://hyperloopupv.com:8080/media/partners/TDK-Lambda",
+                    "height": "6.5rem"
+                },
+                "webpageURL": "https://www.jp.lambda.tdk.com/en/"
+            },
+            {
+                "name": "Lymsa",
+                "logo": {
+                    "url": "https://hyperloopupv.com:8080/media/partners/Lymsa",
+                    "height": "4.8rem"
+                },
+                "webpageURL": "https://lymsa.es/"
+            },
+            {
+                "name": "Tecci",
+                "logo": {
+                    "url": "https://hyperloopupv.com:8080/media/partners/Tecci",
+                    "height": "7.2rem"
+                },
+                "webpageURL": "https://www.tecci.com/"
+            },
+            {
+                "name": "Hydro",
+                "logo": {
+                    "url": "https://hyperloopupv.com:8080/media/partners/Hydro",
+                    "height": "9rem"
+                },
+                "webpageURL": "https://www.hydro.com/"
+            },
+            {
+                "name": "Composites ATE",
+                "logo": {
+                    "url": "https://hyperloopupv.com:8080/media/partners/Composites ATE",
+                    "height": "7.5rem"
+                },
+                "webpageURL": "https://www.composites-ate.com/"
+            },
+            {
+                "name": "Mecanizados Garrigues",
+                "logo": {
+                    "url": "https://hyperloopupv.com:8080/media/partners/Mecanizados Garrigues",
+                    "height": "10rem"
+                },
+                "webpageURL": "https://www.mecanizadosgarrigues.es/"
+            },
+            {
+                "name": "Dassault Systemes",
+                "logo": {
+                    "url": "https://hyperloopupv.com:8080/media/partners/Dassault Systemes",
+                    "height": "8rem"
+                },
+                "webpageURL": "https://www.3ds.com/"
+            },
+            {
+                "name": "Demetal",
+                "logo": {
+                    "url": "https://hyperloopupv.com:8080/media/partners/Demetal",
+                    "height": "8rem"
+                },
+                "webpageURL": "https://www.demetal.es/"
+            },
+            {
+                "name": "ETSIADI",
+                "logo": {
+                    "url": "https://hyperloopupv.com:8080/media/partners/Escuela Tecnica Superior de Ingenieria del Diseño",
+                    "height": "6.5rem"
+                },
+                "webpageURL": "https://www.etsid.upv.es/"
+            },
+            {
+                "name": "Metalcheck",
+                "logo": {
+                    "url": "https://hyperloopupv.com:8080/media/partners/Metalcheck",
+                    "height": "9rem"
+                },
+                "webpageURL": "https://www.metalcheck-cnc.com/"
+            },
+            {
+                "name": "Jose Antonio Garcia",
+                "logo": {
+                    "url": "https://hyperloopupv.com:8080/media/partners/Jose Antonio Garcia",
+                    "height": "5rem"
+                },
+                "webpageURL": "https://www.joseantoniogarcia.com/"
+            },
+            {
+                "name": "Iberia",
+                "logo": {
+                    "url": "https://hyperloopupv.com:8080/media/partners/Iberia",
+                    "height": "5rem"
+                },
+                "webpageURL": "https://www.iberia.com/"
+            },
+            {
+                "name": "Leybold",
+                "logo": {
+                    "url": "https://hyperloopupv.com:8080/media/partners/Leybold",
+                    "height": "5rem"
+                },
+                "webpageURL": "https://www.leybold.com/"
+            },
+            {
+                "name": "SMC",
+                "logo": {
+                    "url": "https://hyperloopupv.com:8080/media/partners/SMC",
+                    "height": "6rem"
+                },
+                "webpageURL": "https://www.smc.eu/"
+            },
+            {
+                "name": "Mecanizados Perma",
+                "logo": {
+                    "url": "https://hyperloopupv.com:8080/media/partners/Mecanizados Perma",
+                    "height": "7rem"
+                },
+                "webpageURL": "https://perma.es/"
+            },
+            {
+                "name": "Epidor",
+                "logo": {
+                    "url": "https://hyperloopupv.com:8080/media/partners/Epidor",
+                    "height": "7rem"
+                },
+                "webpageURL": "https://epidor.com/"
+            },
+            {
+                "name": "Jesiva",
+                "logo": {
+                    "url": "https://hyperloopupv.com:8080/media/partners/Jesiva",
+                    "height": "6rem"
+                },
+                "webpageURL": "https://jesiva.com/"
+            },
+            {
+                "name": "Elektro-Automatik",
+                "logo": {
+                    "url": "https://hyperloopupv.com:8080/media/partners/Elektro-Automatik",
+                    "height": "10rem"
+                },
+                "webpageURL": "https://elektroautomatik.com/"
+            },
+            {
+                "name": "Thyssenkrupp",
+                "logo": {
+                    "url": "https://hyperloopupv.com:8080/media/partners/Thyssenkrupp",
+                    "height": "10rem"
+                },
+                "webpageURL": "https://www.thyssenkrupp.com/"
+            },
+            {
+                "name": "Power Electronics",
+                "logo": {
+                    "url": "https://hyperloopupv.com:8080/media/partners/Power Electronics",
+                    "height": "6rem"
+                },
+                "webpageURL": "https://power-electronics.com/"
+            },
+            {
+                "name": "Analog Devices",
+                "logo": {
+                    "url": "https://hyperloopupv.com:8080/media/partners/Analog Devices",
+                    "height": "7rem"
+                },
+                "webpageURL": "https://www.analog.com/"
+            },
+            {
+                "name": "Nefab",
+                "logo": {
+                    "url": "https://hyperloopupv.com:8080/media/partners/Nefab",
+                    "height": "5.5rem"
+                },
+                "webpageURL": "https://www.nefab.com/"
+            }
+        ],
+        "style": { "color": "#c9c5c5", "width": "100%" }
+    },
+    {
+        "name": "Bronze",
+        "partners": [
+            {
+                "name": "DropShirt",
+                "logo": {
+                    "url": "https://hyperloopupv.com:8080/media/partners/DropShirt",
+                    "height": "9rem"
+                },
+                "webpageURL": "https://www.dropshirt.eu/"
+            },
+            {
+                "name": "MeanWell",
+                "logo": {
+                    "url": "https://hyperloopupv.com:8080/media/partners/MeanWell",
+                    "height": "7.5rem"
+                },
+                "webpageURL": "https://www.meanwell.com/"
+            },
+            {
+                "name": "Olfer",
+                "logo": {
+                    "url": "https://hyperloopupv.com:8080/media/partners/Olfer",
+                    "height": "6.5rem"
+                },
+                "webpageURL": "https://www.olfer.com/"
+            },
+            {
+                "name": "RS Iberia",
+                "logo": {
+                    "url": "https://hyperloopupv.com:8080/media/partners/RS Iberia",
+                    "height": "6.5rem"
+                },
+                "webpageURL": "https://es.rs-online.com/"
+            },
+            {
+                "name": "Hirose",
+                "logo": {
+                    "url": "https://hyperloopupv.com:8080/media/partners/Hirose",
+                    "height": "6rem"
+                },
+                "webpageURL": "https://www.hirose.com/eu"
+            },
+            {
+                "name": "STMicroElectronics",
+                "logo": {
+                    "url": "https://hyperloopupv.com:8080/media/partners/STMicroElectronics",
+                    "height": "6rem"
+                },
+                "webpageURL": "https://www.st.com/"
+            },
+            {
+                "name": "Nexperia",
+                "logo": {
+                    "url": "https://hyperloopupv.com:8080/media/partners/Nexperia",
+                    "height": "5rem"
+                },
+                "webpageURL": "https://www.nexperia.com/"
+            },
+            {
+                "name": "Rhenus Logistics",
+                "logo": {
+                    "url": "https://hyperloopupv.com:8080/media/partners/Rhenus Logistics",
+                    "height": "5rem"
+                },
+                "webpageURL": "https://www.rhenus.group/"
+            },
+            {
+                "name": "Hertalla",
+                "logo": {
+                    "url": "https://hyperloopupv.com:8080/media/partners/Hertalla",
+                    "height": "7rem"
+                },
+                "webpageURL": "https://hertalla.es/"
+            },
+            {
+                "name": "Eurocircuits",
+                "logo": {
+                    "url": "https://hyperloopupv.com:8080/media/partners/Eurocircuits",
+                    "height": "9rem"
+                },
+                "webpageURL": "https://www.eurocircuits.com/"
+            },
+            {
+                "name": "Mouser",
+                "logo": {
+                    "url": "https://hyperloopupv.com:8080/media/partners/Mouser",
+                    "height": "7rem"
+                },
+                "webpageURL": "https://www.mouser.es/"
+            },
+            {
+                "name": "Red Bull",
+                "logo": {
+                    "url": "https://hyperloopupv.com:8080/media/partners/Red Bull",
+                    "height": "7.5rem"
+                },
+                "webpageURL": "https://www.redbull.com/"
+            },
+            {
+                "name": "Molex",
+                "logo": {
+                    "url": "https://hyperloopupv.com:8080/media/partners/Molex",
+                    "height": "8.5rem"
+                },
+                "webpageURL": "https://www.molex.com/"
+            },
+            {
+                "name": "Gomez Madrid",
+                "logo": {
+                    "url": "https://hyperloopupv.com:8080/media/partners/Gomez Madrid",
+                    "height": "6.5rem"
+                },
+                "webpageURL": "https://gmdix.com/"
+            },
+            {
+                "name": "Bender",
+                "logo": {
+                    "url": "https://hyperloopupv.com:8080/media/partners/Bender",
+                    "height": "4.6rem"
+                },
+                "webpageURL": "https://www.bender.es/"
+            },
+            {
+                "name": "Laser Boost",
+                "logo": {
+                    "url": "https://hyperloopupv.com:8080/media/partners/Laser Boost",
+                    "height": "5rem"
+                },
+                "webpageURL": "https://www.laserboost.com/"
+            },
+            {
+                "name": "Mecanus",
+                "logo": {
+                    "url": "https://hyperloopupv.com:8080/media/partners/Mecanus",
+                    "height": "3.8rem"
+                },
+                "webpageURL": "https://mecanus.com/"
+            },
+            {
+                "name": "Alcoelectro",
+                "logo": {
+                    "url": "https://hyperloopupv.com:8080/media/partners/Alcoelectro",
+                    "height": "8.5rem"
+                },
+                "webpageURL": "https://www.alcoelectro.com/"
+            },
+            {
+                "name": "Supermagnete",
+                "logo": {
+                    "url": "https://hyperloopupv.com:8080/media/partners/Supermagnete",
+                    "height": "7rem"
+                },
+                "webpageURL": "https://www.supermagnete.es/"
+            },
+            {
+                "name": "Tectubo",
+                "logo": {
+                    "url": "https://hyperloopupv.com:8080/media/partners/Tectubo",
+                    "height": "3rem"
+                },
+                "webpageURL": "https://tectubo.com/"
+            },
+            {
+                "name": "Istobal",
+                "logo": {
+                    "url": "https://hyperloopupv.com:8080/media/partners/Istobal",
+                    "height": "3.2rem"
+                },
+                "webpageURL": "https://istobal.com/"
+            },
+            {
+                "name": "Gift Campaign",
+                "logo": {
+                    "url": "https://hyperloopupv.com:8080/media/partners/Gift Campaign",
+                    "height": "5.5rem"
+                },
+                "webpageURL": "https://www.giftcampaign.es/"
+            },
+            {
+                "name": "Grupo Bornay",
+                "logo": {
+                    "url": "https://hyperloopupv.com:8080/media/partners/Grupo Bornay",
+                    "height": "5.5rem"
+                },
+                "webpageURL": "https://www.bornay.es/"
+            },
+            {
+                "name": "Aluval",
+                "logo": {
+                    "url": "https://hyperloopupv.com:8080/media/partners/Aluval",
+                    "height": "3.2rem"
+                },
+                "webpageURL": "https://www.aluval.com/"
+            },
+            {
+                "name": "Phoenix Contact",
+                "logo": {
+                    "url": "https://hyperloopupv.com:8080/media/partners/Phoenix Contact",
+                    "height": "3.5rem"
+                },
+                "webpageURL": "https://www.phoenixcontact.com/"
+            },
+            {
+                "name": "Zeleros",
+                "logo": {
+                    "url": "https://hyperloopupv.com:8080/media/partners/Zeleros",
+                    "height": "6rem"
+                },
+                "webpageURL": "https://zeleros.com/"
+            }
+        ],
+        "style": { "color": "#8c5c40", "width": "100%" }
+    },
+    {
+        "name": "Colaborator",
+        "partners": [
+            {
+                "name": "Norelem",
+                "logo": {
+                    "url": "https://hyperloopupv.com:8080/media/partners/Norelem",
+                    "height": "4rem"
+                },
+                "webpageURL": "https://norelem.es/"
+            },
+            {
+                "name": "ETSIT",
+                "logo": {
+                    "url": "https://hyperloopupv.com:8080/media/partners/ETSIT",
+                    "height": "5rem"
+                },
+                "webpageURL": "https://www.upv.es/entidades/ETSIT/"
+            },
+            {
+                "name": "FADE",
+                "logo": {
+                    "url": "https://hyperloopupv.com:8080/media/partners/FADE",
+                    "height": "4.5rem"
+                },
+                "webpageURL": "https://www.upv.es/entidades/ADE/"
+            },
+            {
+                "name": "ETSII",
+                "logo": {
+                    "url": "https://hyperloopupv.com:8080/media/partners/ETSII",
+                    "height": "5.4rem"
+                },
+                "webpageURL": "https://www.etsii.upv.es/"
+            },
+            {
+                "name": "ETSIE",
+                "logo": {
+                    "url": "https://hyperloopupv.com:8080/media/partners/ETSIE",
+                    "height": "4.5rem"
+                },
+                "webpageURL": "https://www.etsie.upv.es/"
+            },
+            {
+                "name": "El Corte Ingles",
+                "logo": {
+                    "url": "https://hyperloopupv.com:8080/media/partners/El Corte Ingles",
+                    "height": "5rem"
+                },
+                "webpageURL": "https://www.elcorteingles.es/"
+            },
+            {
+                "name": "CMT",
+                "logo": {
+                    "url": "https://hyperloopupv.com:8080/media/partners/CMT",
+                    "height": "5rem"
+                },
+                "webpageURL": "https://www.cmt.upv.es/"
+            },
+            {
+                "name": "ServoFluid",
+                "logo": {
+                    "url": "https://hyperloopupv.com:8080/media/partners/ServoFluid",
+                    "height": "4rem"
+                },
+                "webpageURL": "https://www.servofluid.es/"
+            },
+            {
+                "name": "DIE",
+                "logo": {
+                    "url": "https://hyperloopupv.com:8080/media/partners/DIE",
+                    "height": "4.5rem"
+                },
+                "webpageURL": "https://www.upv.es/entidades/DIEO/"
+            },
+            {
+                "name": "Seven",
+                "logo": {
+                    "url": "https://hyperloopupv.com:8080/media/partners/Seven",
+                    "height": "5rem"
+                },
+                "webpageURL": "https://sevensoluciones.com/"
+            },
+            {
+                "name": "Grupo Billingham",
+                "logo": {
+                    "url": "https://hyperloopupv.com:8080/media/partners/Grupo Billingham",
+                    "height": "6rem"
+                },
+                "webpageURL": "https://www.grupobillingham.com/"
+            },
+            {
+                "name": "Mecoval",
+                "logo": {
+                    "url": "https://hyperloopupv.com:8080/media/partners/Mecoval",
+                    "height": "6rem"
+                },
+                "webpageURL": "https://www.mecoval.com/"
+            },
+            {
+                "name": "Tecnodelsa",
+                "logo": {
+                    "url": "https://hyperloopupv.com:8080/media/partners/Tecnodelsa",
+                    "height": "6rem"
+                },
+                "webpageURL": "https://www.tecnodelsa.com/"
+            },
+            {
+                "name": "Vertiprotect",
+                "logo": {
+                    "url": "https://hyperloopupv.com:8080/media/partners/Vertiprotect",
+                    "height": "6rem"
+                },
+                "webpageURL": "https://www.vertiprotect.com/"
+            },
+            {
+                "name": "Dremel",
+                "logo": {
+                    "url": "https://hyperloopupv.com:8080/media/partners/Dremel",
+                    "height": "3.5rem"
+                },
+                "webpageURL": "https://www.dremel.com/"
+            },
+            {
+                "name": "Torrod",
+                "logo": {
+                    "url": "https://hyperloopupv.com:8080/media/partners/Torrod",
+                    "height": "8rem"
+                },
+                "webpageURL": "https://www.torrod.es/"
+            },
+            {
+                "name": "Dacctors",
+                "logo": {
+                    "url": "https://hyperloopupv.com:8080/media/partners/Dacctors",
+                    "height": "5rem"
+                },
+                "webpageURL": "https://dacctors.com/"
+            },
+            {
+                "name": "Carpasterra",
+                "logo": {
+                    "url": "https://hyperloopupv.com:8080/media/partners/Carpasterra",
+                    "height": "10rem"
+                },
+                "webpageURL": "https://www.carpasterra.com/"
+            },
+            {
+                "name": "Vicente Torns",
+                "logo": {
+                    "url": "https://hyperloopupv.com:8080/media/partners/Vicente Torns",
+                    "height": "4rem"
+                },
+                "webpageURL": "https://www.vicentetorns.com/"
+            },
+            {
+                "name": "Bobinados Luman",
+                "logo": {
+                    "url": "https://hyperloopupv.com:8080/media/partners/Bobinados Luman",
+                    "height": "8rem"
+                },
+                "webpageURL": "https://www.bobinadosluman.es/es/"
+            },
+            {
+                "name": "AlphaCool",
+                "logo": {
+                    "url": "https://hyperloopupv.com:8080/media/partners/AlphaCool",
+                    "height": "6rem"
+                },
+                "webpageURL": "https://www.alphacool.com/en"
+            },
+            {
+                "name": "Samtec",
+                "logo": {
+                    "url": "https://hyperloopupv.com:8080/media/partners/Samtec",
+                    "height": "5.5rem"
+                },
+                "webpageURL": "https://www.samtec.com/"
+            }
+        ],
+        "style": { "color": "#2486a4", "width": "100%" }
+    }
+]

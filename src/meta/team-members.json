@@ -83,12 +83,6 @@
             "imgUrl": "/team/members/software/Juan-Martinez.webp",
             "rol": "Software Lead",
             "linkedin": "https://www.linkedin.com/in/juan-martinez-alonso-13507a283/"
-        },
-        {
-            "name": "Fernando Sánchez",
-            "imgUrl": "/team/members/software/Fernando-Sanchez.webp",
-            "rol": "Network Engineer",
-            "linkedin": "https://www.linkedin.com/in/fernando-sanchez-gabaldon-3a4285191/"
         }
     ],
     "structuresandmechanisms": [

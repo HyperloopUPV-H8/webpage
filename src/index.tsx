@@ -11,6 +11,7 @@ import TeamPage from './pages/TeamPage';
 import PartnersPage from './pages/PartnersPage';
 import TimelinePage from './pages/TimelinePage';
 import { DashboardPage } from './pages/DashboardPage';
+import ResearchPage from './pages/ResearchPage';
 
 const router = createBrowserRouter([
     {
@@ -41,6 +42,10 @@ const router = createBrowserRouter([
             {
                 element: <TimelinePage />,
                 path: '/timeline',
+            },
+            {
+                element: <ResearchPage />,
+                path: '/research',
             },
         ],
     },

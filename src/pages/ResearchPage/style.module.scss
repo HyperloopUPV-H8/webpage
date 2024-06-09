@@ -1,0 +1,26 @@
+@use '../../sass/core/variables' as var;
+
+.section_1 {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .title {
+        width: 100%;
+        text-align: center;
+        font-family: #{var.$primary-font};
+        font-size: 6.5rem;
+        color: white;
+        font-weight: bold;
+    }
+}
+
+.section_2 {
+    display: flex;
+    justify-content: center;
+    flex-flow: wrap;
+    column-gap: 8rem;
+    row-gap: 15rem;
+    padding: 5rem 0 15rem;
+}

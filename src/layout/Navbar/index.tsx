@@ -86,6 +86,9 @@ export const Navbar = () => {
                     <Link to="/timeline">Trayectoria</Link>
                 </li>
                 <li>
+                    <Link to="/research">Investigación</Link>
+                </li>
+                <li>
                     <Link to="/partners">Partners</Link>
                 </li>
                 <li>

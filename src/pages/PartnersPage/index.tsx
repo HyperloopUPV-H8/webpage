@@ -46,7 +46,7 @@ export default function PartnersPage() {
                         </p>
                         <a
                             id={style['partners__dossier_button']}
-                            download
+                            download="HyperloopUPV-Dossier.pdf"
                             href={dossierPartners}
                         >
                             Dossier Partners

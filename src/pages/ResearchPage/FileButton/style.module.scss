@@ -1,0 +1,41 @@
+@use '../../..//sass/core/shadows';
+
+.container {
+    color: white;
+    display: flex;
+    flex-flow: column;
+    gap: 1.5rem;
+    align-items: center;
+    padding: 2rem;
+    width: 25vw;
+}
+
+.title {
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.description {
+    font-size: 2.5rem;
+    text-align: justify;
+    text-align-last: center;
+}
+
+.preview {
+    margin: 4rem 2rem 2rem;
+    cursor: pointer;
+
+    @include shadows.gradient(
+        linear-gradient(90deg, #2486a4, #ce8058),
+        5px,
+        4px
+    );
+}
+
+.preview:hover {
+    @include shadows.gradient(
+        linear-gradient(90deg, #2486a4, #ce8058),
+        5px,
+        7px
+    );
+}

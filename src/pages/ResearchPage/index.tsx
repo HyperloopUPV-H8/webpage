@@ -1,11 +1,15 @@
 import techH8 from '../../assets/documents/frs-tech-h8.pdf';
 import FileButton from './FileButton';
+import innovationVideo from '../../assets/backgrounds/innovation-video.mov';
 import style from './style.module.scss';
 
 export default function ResearchPage() {
     return (
         <>
             <div className={style.section_1}>
+                <video autoPlay loop muted playsInline>
+                    <source src={innovationVideo} type="video/mp4" />
+                </video>
                 <h1 className={style.title}>Investigación</h1>
             </div>
             <div className={style.section_2}>

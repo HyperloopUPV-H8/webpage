@@ -15,11 +15,15 @@
 
         &__title {
             display: flex;
-            gap: 1rem;
+            gap: 2rem;
             z-index: 1;
 
             img {
                 width: 2.4rem;
+            }
+
+            &__icon {
+                scale: 1.05;
             }
         }
 

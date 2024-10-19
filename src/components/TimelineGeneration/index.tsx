@@ -12,6 +12,7 @@ interface Props {
     generation: string;
     inityear: string;
     endyear: string;
+    icon?: string;
     title: string;
     banner: string;
     color: string;
@@ -28,6 +29,7 @@ export default function TimelineGeneration({
     generation,
     inityear,
     endyear,
+    icon,
     title,
     banner,
     color,
@@ -89,7 +91,7 @@ export default function TimelineGeneration({
             contentSpringsApi.start({
                 display: 'flex',
                 width: '100%',
-                height: '100%',
+                height: 'auto',
                 immediate: isMobileOrTablet,
                 onRest: () => {
                     contentSpringsApi.start({
@@ -174,6 +176,17 @@ export default function TimelineGeneration({
                             }
                             onClick={onToggleContent}
                         >
+                            {icon && (
+                                <img
+                                    src={icon}
+                                    alt={`Icon ${generation}`}
+                                    className={
+                                        style[
+                                            'timeline__generation__header__title__icon'
+                                        ]
+                                    }
+                                />
+                            )}
                             {title}
                             <img
                                 src={

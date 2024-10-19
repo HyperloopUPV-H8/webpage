@@ -94,6 +94,9 @@ export const Navbar = () => {
                 <li>
                     <Link to="/contact">Contacto</Link>
                 </li>
+                <li>
+                    <Link to="/join">Únete</Link>
+                </li>
                 {/* <li>
           <Link to="/">Tienda de ropa</Link>
         </li> */}

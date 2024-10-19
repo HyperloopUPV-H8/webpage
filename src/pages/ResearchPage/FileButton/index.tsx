@@ -2,7 +2,7 @@ import { getDocument, GlobalWorkerOptions } from 'pdfjs-dist';
 import { GetViewportParameters } from 'pdfjs-dist/types/src/display/api';
 import { useCallback, useState } from 'react';
 import filePreviewIcon from '../../../assets/icons/file-preview.svg';
-import pdfWorkerSrc from 'pdfjs-dist/build/pdf.worker.mjs?url';
+import pdfWorkerSrc from 'pdfjs-dist/build/pdf.worker.min.mjs?worker&url';
 import style from './style.module.scss';
 
 type Props = {

@@ -1,272 +1,272 @@
 {
-    "direction": [
-        {
-            "name": "Stefan Costea",
-            "imgUrl": "/team/members/direction/Stefan-Costea.webp",
-            "rol": "Technical Director",
-            "linkedin": "https://www.linkedin.com/in/stefan-costea-5a3648205/"
-        },
-        {
-            "name": "Hugo Albert",
-            "imgUrl": "/team/members/direction/Hugo-Albert-Bonet.webp",
-            "rol": "Team Lead",
-            "linkedin": "https://www.linkedin.com/in/hugoalbert/"
-        },
-        {
-            "name": "Álvaro Pérez",
-            "imgUrl": "/team/members/direction/Alvaro-Perez.webp",
-            "rol": "Technical Director",
-            "linkedin": "https://www.linkedin.com/in/alvaro-perez-pecharroman/"
-        }
-    ],
-    "hardware": [
-        {
-            "name": "Jairo Pérez",
-            "imgUrl": "/team/members/hardware/Jairo-Perez.webp",
-            "rol": "Power & Control Unit Engineer",
-            "linkedin": "https://www.linkedin.com/in/jairo-p%C3%A9rez-mart%C3%ADnez-145916247/"
-        },
-        {
-            "name": "Jorge Guerrero",
-            "imgUrl": "/team/members/hardware/Jorge-Guerrero.webp",
-            "rol": "Hardware Lead",
-            "linkedin": "https://www.linkedin.com/in/jorge-guerrero-3a6759250/"
-        },
-        {
-            "name": "Dario Fustel",
-            "imgUrl": "/team/members/hardware/Dario-Fustel.webp",
-            "rol": "Control Unit Engineer",
-            "linkedin": "https://www.linkedin.com/in/dar%C3%ADo-fustel-2667a525b/"
-        },
-        {
-            "name": "Rubén Marz",
-            "imgUrl": "/team/members/hardware/Ruben-Marz.webp",
-            "rol": "Control Unit Engineer",
-            "linkedin": "https://www.linkedin.com/in/rmarz/"
-        },
-        {
-            "name": "Martí David",
-            "imgUrl": "/team/members/hardware/Marti-David.webp",
-            "rol": "Chargers Engineer",
-            "linkedin": ""
-        }
-    ],
-    "firmware": [
-        {
-            "name": "Gonzalo Sánchez",
-            "imgUrl": "/team/members/firmware/Gonzalo-Sanchez.webp",
-            "rol": "Firmware Lead",
-            "linkedin": "https://www.linkedin.com/in/gonzalo-sanchez-4ab140251/"
-        },
-        {
-            "name": "Ricardo Chust",
-            "imgUrl": "/team/members/firmware/Ricardo-Chust.webp",
-            "rol": "Levitation System Programmer",
-            "linkedin": "https://www.linkedin.com/in/ricardo-chust-fides-18b714287/"
-        }
-    ],
-    "software": [
-        {
-            "name": "Andrés de la Torre",
-            "imgUrl": "/team/members/software/Andres-de-la-Torre.webp",
-            "rol": "Front End Engineer",
-            "linkedin": "https://www.linkedin.com/in/andresdltm/"
-        },
-        {
-            "name": "Marc Sanchis",
-            "imgUrl": "/team/members/software/Marc-Sanchis.webp",
-            "rol": "Back End Engineer",
-            "linkedin": "https://www.linkedin.com/in/marc-sanchis-5454a9192/"
-        },
-        {
-            "name": "Juan Martínez",
-            "imgUrl": "/team/members/software/Juan-Martinez.webp",
-            "rol": "Software Lead",
-            "linkedin": "https://www.linkedin.com/in/juan-martinez-alonso-13507a283/"
-        }
-    ],
-    "structuresandmechanisms": [
-        {
-            "name": "Pablo Luján",
-            "imgUrl": "/team/members/structuresandmechanisms/Pablo-Lujan.webp",
-            "rol": "External Track Engineer",
-            "linkedin": "https://www.linkedin.com/in/pabloluj/"
-        },
-        {
-            "name": "Guillermo Castellano",
-            "imgUrl": "/team/members/structuresandmechanisms/Guillermo-Castellano.webp",
-            "rol": "Capsule Engineer",
-            "linkedin": "https://www.linkedin.com/in/guillermo-castellano-vicente-451ba7287/"
-        },
-        {
-            "name": "Alix Giner",
-            "imgUrl": "/team/members/structuresandmechanisms/Alix-Giner.webp",
-            "rol": "Electrical Integration Engineer",
-            "linkedin": "https://www.linkedin.com/in/alix-giner-ba485917b/"
-        },
-        {
-            "name": "Paula García",
-            "imgUrl": "/team/members/structuresandmechanisms/Paula-Garcia.webp",
-            "rol": "Mechanical Lead",
-            "linkedin": "https://www.linkedin.com/in/paulagperez/"
-        },
-        {
-            "name": "Manar Selham",
-            "imgUrl": "/team/members/structuresandmechanisms/Manar-Selham.webp",
-            "rol": "EMS Anchoring Engineer",
-            "linkedin": "https://www.linkedin.com/in/manar-selham-6156b1273/"
-        },
-        {
-            "name": "David Balsalobre",
-            "imgUrl": "/team/members/structuresandmechanisms/David-Balsalobre.webp",
-            "rol": "Braking System Engineer",
-            "linkedin": "https://www.linkedin.com/in/david-balsalobre-ibor-528960227/"
-        },
-        {
-            "name": "Hamza Khallaf",
-            "imgUrl": "/team/members/structuresandmechanisms/Hamza-Khallaf.webp",
-            "rol": "Working Cart, Tube Interior Engineer",
-            "linkedin": "https://www.linkedin.com/in/hamza-khallaf-bouchrik-a67a60281/"
-        },
-        {
-            "name": "Elian Iglesias",
-            "imgUrl": "/team/members/structuresandmechanisms/Elian-Iglesias.webp",
-            "rol": "Attitudes Engineer",
-            "linkedin": "https://www.linkedin.com/in/elian-iglesias-marijt-6ab128242/"
-        },
-        {
-            "name": "Luis Rubio",
-            "imgUrl": "/team/members/structuresandmechanisms/Luis-Rubio.webp",
-            "rol": "Aeroshell Engineer",
-            "linkedin": "https://www.linkedin.com/in/luisrubio15/"
-        },
-        {
-            "name": "Sergio Pérez",
-            "imgUrl": "/team/members/structuresandmechanisms/Sergio-Perez.webp",
-            "rol": "Thermal Management Engineer",
-            "linkedin": "https://www.linkedin.com/in/sergio-perez-morillas/"
-        },
-        {
-            "name": "Mario Bejarano",
-            "imgUrl": "/team/members/structuresandmechanisms/Mario-Bejarano.webp",
-            "rol": "Bogie Engineer",
-            "linkedin": "https://www.linkedin.com/in/mario-bejarano-moro/"
-        }
-    ],
-    "electromagnetics": [
-        {
-            "name": "José Ángel Jarabo",
-            "imgUrl": "/team/members/electromagnetics/Jose-Angel-Jarabo.webp",
-            "rol": "Levitation Control Engineer",
-            "linkedin": "https://www.linkedin.com/in/jose-%C3%A1ngel-jarabo-5a7737207/"
-        },
-        {
-            "name": "Miquel Montañana",
-            "imgUrl": "/team/members/electromagnetics/Miquel-Montanana.webp",
-            "rol": "Electromagnetic Design Engineer",
-            "linkedin": "https://www.linkedin.com/in/mimonfer"
-        },
-        {
-            "name": "Mariano Andújar",
-            "imgUrl": "/team/members/electromagnetics/Mariano-Andujar.webp",
-            "rol": "Electromagnetics Lead",
-            "linkedin": "https://www.linkedin.com/in/mariano-and%C3%BAjar-bola%C3%B1o-aaa51823a/"
-        },
-        {
-            "name": "José Luis Gil",
-            "imgUrl": "/team/members/electromagnetics/Jose-Luis-Gil.webp",
-            "rol": "DLIM Control Engineer",
-            "linkedin": "https://www.linkedin.com/in/jose-luis-gil-lombera/"
-        }
-    ],
-    "outreach": [
-        {
-            "name": "David Grueso",
-            "imgUrl": "/team/members/outreach/David-Grueso.webp",
-            "rol": "Audiovisual Production Engineer",
-            "linkedin": "https://www.linkedin.com/in/david-grueso-conejero-833755235/"
-        },
-        {
-            "name": "Carmen Hernández",
-            "imgUrl": "/team/members/outreach/Carmen-Hernandez.webp",
-            "rol": "Outreach Lead",
-            "linkedin": "https://www.linkedin.com/in/carmen-hern%C3%A1ndez-98123529a/"
-        },
-        {
-            "name": "Emilio Esteban",
-            "imgUrl": "/team/members/outreach/Emilio-Esteban.webp",
-            "rol": "Interior Design Engineer",
-            "linkedin": ""
-        },
-        {
-            "name": "Carlos Broseta",
-            "imgUrl": "/team/members/outreach/Carlos-Broseta.webp",
-            "rol": "Interior Design Architect",
-            "linkedin": "https://www.linkedin.com/in/carlos-broseta-turanzo-766012228/"
-        }
-    ],
-    "partners": [
-        {
-            "name": "Mario Sanchis",
-            "imgUrl": "/team/members/partners/Mario-Sanchis.webp",
-            "rol": "Partners & Logistics",
-            "linkedin": "https://www.linkedin.com/in/mariosanchistormo/"
-        },
-        {
-            "name": "Diana Chilingaryan",
-            "imgUrl": "/team/members/partners/Diana-Chilingaryan.webp",
-            "rol": "Partners & Logistics",
-            "linkedin": "https://www.linkedin.com/in/dianachilingaryan/"
-        },
-        {
-            "name": "Beatriz Espinar",
-            "imgUrl": "/team/members/partners/Beatriz-Espinar.webp",
-            "rol": "Partners & Logistics",
-            "linkedin": "https://www.linkedin.com/in/beatriz-de-silva-espinar-hernández/"
-        },
-        {
-            "name": "María García",
-            "imgUrl": "/team/members/partners/Maria-Garcia.webp",
-            "rol": "Partners & Logistics Lead",
-            "linkedin": "https://www.linkedin.com/in/mar%C3%ADa-garc%C3%ADa-gayet-51b046201/"
-        },
-        {
-            "name": "Claudia Lara",
-            "imgUrl": "/team/members/partners/Claudia-Lara.webp",
-            "rol": "Partners & Logistics",
-            "linkedin": "https://www.linkedin.com/in/claudialarapinillos/"
-        },
-        {
-            "name": "Mireia Pérez",
-            "imgUrl": "/team/members/partners/Mireia-Perez.webp",
-            "rol": "Partners & Logistics",
-            "linkedin": "https://www.linkedin.com/in/mireiaperezferrer/"
-        },
-        {
-            "name": "Ricardo Casasnovas",
-            "imgUrl": "/team/members/partners/Ricardo-Casasnovas.webp",
-            "rol": "Partners & Logistics",
-            "linkedin": "https://www.linkedin.com/in/ricardocasasnovas23/"
-        }
-    ],
-    "economics": [
-        {
-            "name": "Marcos Pérez",
-            "imgUrl": "/team/members/economics/Marcos-Perez.webp",
-            "rol": "Economics",
-            "linkedin": "https://www.linkedin.com/in/marcos-perez-hortelano-9b2b38274/"
-        },
-        {
-            "name": "Àngel Lova",
-            "imgUrl": "/team/members/economics/Angel-Lova.webp",
-            "rol": "Economics Lead",
-            "linkedin": "https://www.linkedin.com/in/%C3%A0ngel-lova-tormos-a65787226/"
-        },
-        {
-            "name": "María Navarro",
-            "imgUrl": "/team/members/economics/Maria-Navarro.webp",
-            "rol": "Economics",
-            "linkedin": "https://www.linkedin.com/in/maria-navarro-ramos-7b1b38274/"
-        }
-    ]
+  "direction": [
+    {
+      "name": "Stefan Costea",
+      "imgUrl": "/team/members/direction/Stefan-Costea.webp",
+      "rol": "Technical Director",
+      "linkedin": "https://www.linkedin.com/in/stefan-costea-5a3648205/"
+    },
+    {
+      "name": "Hugo Albert",
+      "imgUrl": "/team/members/direction/Hugo-Albert-Bonet.webp",
+      "rol": "Team Lead",
+      "linkedin": "https://www.linkedin.com/in/hugoalbert/"
+    },
+    {
+      "name": "Álvaro Pérez",
+      "imgUrl": "/team/members/direction/Alvaro-Perez.webp",
+      "rol": "Technical Director",
+      "linkedin": "https://www.linkedin.com/in/alvaro-perez-pecharroman/"
+    }
+  ],
+  "hardware": [
+    {
+      "name": "Jairo Pérez",
+      "imgUrl": "/team/members/hardware/Jairo-Perez.webp",
+      "rol": "Power & Control Unit Engineer",
+      "linkedin": "https://www.linkedin.com/in/jairo-p%C3%A9rez-mart%C3%ADnez-145916247/"
+    },
+    {
+      "name": "Jorge Guerrero",
+      "imgUrl": "/team/members/hardware/Jorge-Guerrero.webp",
+      "rol": "Hardware Lead",
+      "linkedin": "https://www.linkedin.com/in/jorge-guerrero-3a6759250/"
+    },
+    {
+      "name": "Dario Fustel",
+      "imgUrl": "/team/members/hardware/Dario-Fustel.webp",
+      "rol": "Control Unit Engineer",
+      "linkedin": "https://www.linkedin.com/in/dar%C3%ADo-fustel-2667a525b/"
+    },
+    {
+      "name": "Rubén Marz",
+      "imgUrl": "/team/members/hardware/Ruben-Marz.webp",
+      "rol": "Control Unit Engineer",
+      "linkedin": "https://www.linkedin.com/in/rmarz/"
+    },
+    {
+      "name": "Martí David",
+      "imgUrl": "/team/members/hardware/Marti-David.webp",
+      "rol": "Chargers Engineer",
+      "linkedin": ""
+    }
+  ],
+  "firmware": [
+    {
+      "name": "Gonzalo Sánchez",
+      "imgUrl": "/team/members/firmware/Gonzalo-Sanchez.webp",
+      "rol": "Firmware Lead",
+      "linkedin": "https://www.linkedin.com/in/gonzalo-sanchez-4ab140251/"
+    },
+    {
+      "name": "Ricardo Chust",
+      "imgUrl": "/team/members/firmware/Ricardo-Chust.webp",
+      "rol": "Levitation System Programmer",
+      "linkedin": "https://www.linkedin.com/in/ricardo-chust-fides-18b714287/"
+    }
+  ],
+  "software": [
+    {
+      "name": "Andrés de la Torre",
+      "imgUrl": "/team/members/software/Andres-de-la-Torre.webp",
+      "rol": "Front End Engineer",
+      "linkedin": "https://www.linkedin.com/in/andresdltm/"
+    },
+    {
+      "name": "Marc Sanchis",
+      "imgUrl": "/team/members/software/Marc-Sanchis.webp",
+      "rol": "Back End Engineer",
+      "linkedin": "https://www.linkedin.com/in/marc-sanchis-5454a9192/"
+    },
+    {
+      "name": "Juan Martínez",
+      "imgUrl": "/team/members/software/Juan-Martinez.webp",
+      "rol": "Software Lead",
+      "linkedin": "https://www.linkedin.com/in/juan-martinez-alonso-13507a283/"
+    }
+  ],
+  "structuresandmechanisms": [
+    {
+      "name": "Pablo Luján",
+      "imgUrl": "/team/members/structuresandmechanisms/Pablo-Lujan.webp",
+      "rol": "External Track Engineer",
+      "linkedin": "https://www.linkedin.com/in/pabloluj/"
+    },
+    {
+      "name": "Guillermo Castellano",
+      "imgUrl": "/team/members/structuresandmechanisms/Guillermo-Castellano.webp",
+      "rol": "Capsule Engineer",
+      "linkedin": "https://www.linkedin.com/in/guillermo-castellano-vicente-451ba7287/"
+    },
+    {
+      "name": "Alix Giner",
+      "imgUrl": "/team/members/structuresandmechanisms/Alix-Giner.webp",
+      "rol": "Electrical Integration Engineer",
+      "linkedin": "https://www.linkedin.com/in/alix-giner-ba485917b/"
+    },
+    {
+      "name": "Paula García",
+      "imgUrl": "/team/members/structuresandmechanisms/Paula-Garcia.webp",
+      "rol": "Mechanical Lead",
+      "linkedin": "https://www.linkedin.com/in/paulagperez/"
+    },
+    {
+      "name": "Manar Selham",
+      "imgUrl": "/team/members/structuresandmechanisms/Manar-Selham.webp",
+      "rol": "EMS Anchoring Engineer",
+      "linkedin": "https://www.linkedin.com/in/manar-selham-6156b1273/"
+    },
+    {
+      "name": "David Balsalobre",
+      "imgUrl": "/team/members/structuresandmechanisms/David-Balsalobre.webp",
+      "rol": "Braking System Engineer",
+      "linkedin": "https://www.linkedin.com/in/david-balsalobre-ibor-528960227/"
+    },
+    {
+      "name": "Hamza Khallaf",
+      "imgUrl": "/team/members/structuresandmechanisms/Hamza-Khallaf.webp",
+      "rol": "Working Cart, Tube Interior Engineer",
+      "linkedin": "https://www.linkedin.com/in/hamza-khallaf-bouchrik-a67a60281/"
+    },
+    {
+      "name": "Elian Iglesias",
+      "imgUrl": "/team/members/structuresandmechanisms/Elian-Iglesias.webp",
+      "rol": "Attitudes Engineer",
+      "linkedin": "https://www.linkedin.com/in/elian-iglesias-marijt-6ab128242/"
+    },
+    {
+      "name": "Luis Rubio",
+      "imgUrl": "/team/members/structuresandmechanisms/Luis-Rubio.webp",
+      "rol": "Aeroshell Engineer",
+      "linkedin": "https://www.linkedin.com/in/luisrubio15/"
+    },
+    {
+      "name": "Sergio Pérez",
+      "imgUrl": "/team/members/structuresandmechanisms/Sergio-Perez.webp",
+      "rol": "Thermal Management Engineer",
+      "linkedin": "https://www.linkedin.com/in/sergio-perez-morillas/"
+    },
+    {
+      "name": "Mario Bejarano",
+      "imgUrl": "/team/members/structuresandmechanisms/Mario-Bejarano.webp",
+      "rol": "Bogie Engineer",
+      "linkedin": "https://www.linkedin.com/in/mario-bejarano-moro/"
+    }
+  ],
+  "electromagnetics": [
+    {
+      "name": "José Ángel Jarabo",
+      "imgUrl": "/team/members/electromagnetics/Jose-Angel-Jarabo.webp",
+      "rol": "Levitation Control Engineer",
+      "linkedin": "https://www.linkedin.com/in/jose-%C3%A1ngel-jarabo-5a7737207/"
+    },
+    {
+      "name": "Miquel Montañana",
+      "imgUrl": "/team/members/electromagnetics/Miquel-Montanana.webp",
+      "rol": "Electromagnetic Design Engineer",
+      "linkedin": "https://www.linkedin.com/in/mimonfer"
+    },
+    {
+      "name": "Mariano Andújar",
+      "imgUrl": "/team/members/electromagnetics/Mariano-Andujar.webp",
+      "rol": "Electromagnetics Lead",
+      "linkedin": "https://www.linkedin.com/in/mariano-and%C3%BAjar-bola%C3%B1o-aaa51823a/"
+    },
+    {
+      "name": "José Luis Gil",
+      "imgUrl": "/team/members/electromagnetics/Jose-Luis-Gil.webp",
+      "rol": "DLIM Control Engineer",
+      "linkedin": "https://www.linkedin.com/in/joseluis-gil"
+    }
+  ],
+  "outreach": [
+    {
+      "name": "David Grueso",
+      "imgUrl": "/team/members/outreach/David-Grueso.webp",
+      "rol": "Audiovisual Production Engineer",
+      "linkedin": "https://www.linkedin.com/in/david-grueso-conejero-833755235/"
+    },
+    {
+      "name": "Carmen Hernández",
+      "imgUrl": "/team/members/outreach/Carmen-Hernandez.webp",
+      "rol": "Outreach Lead",
+      "linkedin": "https://www.linkedin.com/in/carmen-hern%C3%A1ndez-98123529a/"
+    },
+    {
+      "name": "Emilio Esteban",
+      "imgUrl": "/team/members/outreach/Emilio-Esteban.webp",
+      "rol": "Interior Design Engineer",
+      "linkedin": ""
+    },
+    {
+      "name": "Carlos Broseta",
+      "imgUrl": "/team/members/outreach/Carlos-Broseta.webp",
+      "rol": "Interior Design Architect",
+      "linkedin": "https://www.linkedin.com/in/carlos-broseta-turanzo-766012228/"
+    }
+  ],
+  "partners": [
+    {
+      "name": "Mario Sanchis",
+      "imgUrl": "/team/members/partners/Mario-Sanchis.webp",
+      "rol": "Partners & Logistics",
+      "linkedin": "https://www.linkedin.com/in/mariosanchistormo/"
+    },
+    {
+      "name": "Diana Chilingaryan",
+      "imgUrl": "/team/members/partners/Diana-Chilingaryan.webp",
+      "rol": "Partners & Logistics",
+      "linkedin": "https://www.linkedin.com/in/dianachilingaryan/"
+    },
+    {
+      "name": "Beatriz Espinar",
+      "imgUrl": "/team/members/partners/Beatriz-Espinar.webp",
+      "rol": "Partners & Logistics",
+      "linkedin": "https://www.linkedin.com/in/beatriz-de-silva-espinar-hernández/"
+    },
+    {
+      "name": "María García",
+      "imgUrl": "/team/members/partners/Maria-Garcia.webp",
+      "rol": "Partners & Logistics Lead",
+      "linkedin": "https://www.linkedin.com/in/mar%C3%ADa-garc%C3%ADa-gayet-51b046201/"
+    },
+    {
+      "name": "Claudia Lara",
+      "imgUrl": "/team/members/partners/Claudia-Lara.webp",
+      "rol": "Partners & Logistics",
+      "linkedin": "https://www.linkedin.com/in/claudialarapinillos/"
+    },
+    {
+      "name": "Mireia Pérez",
+      "imgUrl": "/team/members/partners/Mireia-Perez.webp",
+      "rol": "Partners & Logistics",
+      "linkedin": "https://www.linkedin.com/in/mireiaperezferrer/"
+    },
+    {
+      "name": "Ricardo Casasnovas",
+      "imgUrl": "/team/members/partners/Ricardo-Casasnovas.webp",
+      "rol": "Partners & Logistics",
+      "linkedin": "https://www.linkedin.com/in/ricardocasasnovas23/"
+    }
+  ],
+  "economics": [
+    {
+      "name": "Marcos Pérez",
+      "imgUrl": "/team/members/economics/Marcos-Perez.webp",
+      "rol": "Economics",
+      "linkedin": "https://www.linkedin.com/in/marcos-perez-hortelano-9b2b38274/"
+    },
+    {
+      "name": "Àngel Lova",
+      "imgUrl": "/team/members/economics/Angel-Lova.webp",
+      "rol": "Economics Lead",
+      "linkedin": "https://www.linkedin.com/in/%C3%A0ngel-lova-tormos-a65787226/"
+    },
+    {
+      "name": "María Navarro",
+      "imgUrl": "/team/members/economics/Maria-Navarro.webp",
+      "rol": "Economics",
+      "linkedin": "https://www.linkedin.com/in/marianavarrobellido/"
+    }
+  ]
 }

@@ -89,7 +89,7 @@ export default function TimelineGeneration({
             contentSpringsApi.start({
                 display: 'flex',
                 width: '100%',
-                height: '100%',
+                height: 'auto',
                 immediate: isMobileOrTablet,
                 onRest: () => {
                     contentSpringsApi.start({

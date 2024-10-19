@@ -24,6 +24,7 @@ import h8_extra_1 from '../../assets/media/timeline-h8-extra-1.jpeg';
 import h8_extra_2 from '../../assets/media/timeline-h8-extra-2.jpeg';
 import h9_extra_1 from '../../assets/media/timeline-h9-extra-1.jpeg';
 import h9_extra_2 from '../../assets/media/timeline-h9-extra-2.jpeg';
+import medal from '../../assets/icons/medal.svg';
 import arrowCircleDownOutline from '../../assets/icons/arrowcircledownoutline.svg';
 import { useRef } from 'react';
 import TimelineGeneration from '../../components/TimelineGeneration';
@@ -174,6 +175,7 @@ export default function TimelinePage() {
                         generation="H9"
                         inityear="2023"
                         endyear="2024"
+                        icon={medal}
                         title="VÉSPER"
                         banner={h9_banner}
                         color={'#2486A4'}

@@ -12,8 +12,25 @@ import TitledTextBox from '../../components/TitledTextBox';
 import TitleUnderlined from '../../components/TitleUnderlined';
 import MediaNew from '../../components/MediaNew';
 import style from './style.module.scss';
+import { useEffect, useState } from 'react';
+import { isHyperloopUPVOnline } from '../../api/twitch';
 
 export default function LandingPage() {
+    const [showPopup, setShowPopup] = useState(false);
+
+    const closePopUp = () => {
+        setShowPopup(false);
+    }
+
+    useEffect(() => {
+        const checkTwitchLive = async () => {
+            const isLive = await isHyperloopUPVOnline();
+            setShowPopup(isLive);
+        };
+
+        checkTwitchLive();
+    }, []);
+
     return (
         <div className={style['landing__page']}>
             <div

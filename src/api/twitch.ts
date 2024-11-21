@@ -4,7 +4,7 @@ const CLIENT_ID = '3sfbmzpgqg9e6ezfsooo5ug48rjx0u';
 const CHANNEL_NAME = "HyperloopUPV"
 
 
-async function isHyperloopUPVOnline(): Promise<boolean> {
+export async function isHyperloopUPVOnline(): Promise<boolean> {
   try {
     const response = await axios.get('https://api.twitch.tv/helix/streams', {
       headers: {

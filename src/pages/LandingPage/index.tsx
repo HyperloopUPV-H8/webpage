@@ -14,25 +14,29 @@ import MediaNew from '../../components/MediaNew';
 import style from './style.module.scss';
 import { useEffect, useState } from 'react';
 import { isHyperloopUPVOnline } from '../../api/twitch';
+import { LivePopUp } from '../../components/LivePopup';
 
 export default function LandingPage() {
-    const [showPopup, setShowPopup] = useState(false);
+    const [showPopup, setShowPopup] = useState(true);
 
     const closePopUp = () => {
         setShowPopup(false);
     }
 
     useEffect(() => {
-        const checkTwitchLive = async () => {
-            const isLive = await isHyperloopUPVOnline();
-            setShowPopup(isLive);
-        };
+        // const checkTwitchLive = async () => {
+        //     const isLive = await isHyperloopUPVOnline();
+        //     setShowPopup(isLive);
+        // };
 
-        checkTwitchLive();
+        // checkTwitchLive();
     }, []);
 
     return (
         <div className={style['landing__page']}>
+
+            {showPopup && <LivePopUp onClose={closePopUp} twitchChannelUrl="" />}
+
             <div
                 className={`${style['landing__section']} ${style['section-1']}`}
             ></div>

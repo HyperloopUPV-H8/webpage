@@ -14,6 +14,13 @@ export function LivePopUp({ onClose, twitchChannelUrl }: PopupProps) {
                     Haz clic en el botón para unirte a nuestro directo en
                     Twitch.
                 </p>
+
+                <iframe
+                    src="https://player.twitch.tv/?channel=hyperloopupv&parent=hyperloopupv.com"
+                    width="600"
+                    height="300">
+                </iframe>
+
                 <div className={style.buttons}>
                     <button
                         className={`${style.button} ${style.buttonPrimary}`}

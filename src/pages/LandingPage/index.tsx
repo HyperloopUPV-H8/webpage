@@ -35,7 +35,7 @@ export default function LandingPage() {
     return (
         <div className={style['landing__page']}>
 
-            {showPopup && <LivePopUp onClose={closePopUp} twitchChannelUrl="" />}
+            {showPopup && <LivePopUp onClose={closePopUp} twitchChannelName="hyperloopupv" />}
 
             <div
                 className={`${style['landing__section']} ${style['section-1']}`}

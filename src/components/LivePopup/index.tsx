@@ -1,11 +1,11 @@
 import style from "./style.module.scss"
 
 interface PopupProps {
-    onClose: () => void; // Función para cerrar el popup
-    twitchChannelUrl: string; // URL del canal de Twitch
+    onClose: () => void;
+    twitchChannelName: string;
 }
 
-export function LivePopUp({ onClose, twitchChannelUrl }: PopupProps) {
+export function LivePopUp({ onClose, twitchChannelName }: PopupProps) {
     return (
         <div className={style.overlay}>
             <div className={style.popup}>
@@ -16,15 +16,14 @@ export function LivePopUp({ onClose, twitchChannelUrl }: PopupProps) {
                 </p>
 
                 <iframe
-                    src="https://player.twitch.tv/?channel=hyperloopupv&parent=hyperloopupv.com"
-                    width="600"
-                    height="300">
+                    src={`https://player.twitch.tv/?channel=${twitchChannelName}&parent=${window.location.hostname}`}
+                    height="400">
                 </iframe>
 
                 <div className={style.buttons}>
                     <button
                         className={`${style.button} ${style.buttonPrimary}`}
-                        onClick={() => window.open(twitchChannelUrl, "_blank")}
+                        onClick={() => window.open(`https://www.twitch.tv/${twitchChannelName}`, "_blank")}
                     >
                         Ir al directo
                     </button>

@@ -1,24 +1,17 @@
-import axios from 'axios';
-
-const CLIENT_ID = '3sfbmzpgqg9e6ezfsooo5ug48rjx0u';
-const CHANNEL_NAME = "HyperloopUPV"
-
+const CHANNEL_NAME = "vegetta777";
 
 export async function isHyperloopUPVOnline(): Promise<boolean> {
   try {
-    const response = await axios.get('https://api.twitch.tv/helix/streams', {
-      headers: {
-        'Client-ID': CLIENT_ID,
-      },
-      params: {
-        user_login: CHANNEL_NAME,
-      },
-    });
+    const response = await fetch(`https://cors-anywhere.herokuapp.com/https://twitch.tv/${CHANNEL_NAME}`);
+    const sourceCode = await response.text();
 
-    const streams = response.data.data;
-    return streams.length > 0; 
+    if (sourceCode.includes("isLiveBroadcast")) {
+      return true;
+    } else {
+      return false;
+    }
   } catch (error) {
-    console.error('Error verificando el estado del canal:');
+    console.log("Error occurred:", error);
     return false;
   }
 }

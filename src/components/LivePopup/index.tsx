@@ -34,4 +34,4 @@ export function LivePopUp({ onClose, twitchChannelName }: PopupProps) {
             </div>
         </div>
     );
-};
+}

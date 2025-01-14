@@ -175,7 +175,7 @@ export default function ContactForm(props: Props) {
                 id="contact-message"
                 name="message"
                 onChange={onInputChange}
-                value={formState.subject}
+                value={formState.message}
             />
             <div className={style.submit}>
                 <ReCAPTCHA

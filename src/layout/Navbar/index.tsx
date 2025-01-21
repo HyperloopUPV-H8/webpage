@@ -3,6 +3,9 @@ import NavbarLogo from '../../assets/corporative/navbar-logo.svg';
 import { useEffect, useRef, useState } from 'react';
 import Hamburger from 'hamburger-react';
 import style from './style.module.scss';
+import { useTranslation } from 'react-i18next';
+import spainFlag from '../../assets/icons/spain-flag.svg';
+import ukFlag from '../../assets/icons/uk-flag.svg';
 
 export const Navbar = () => {
     const [isOpen, setOpen] = useState(false);
@@ -18,7 +21,7 @@ export const Navbar = () => {
 
     useEffect(() => {
         let lastScroll = window.scrollY;
-        const handleScroll = (_: Event) => {
+        const handleScroll = () => {
             if (lastScroll < 10) {
                 setIsHidden(false);
             } else {
@@ -46,6 +49,8 @@ export const Navbar = () => {
             navbarLinks.current?.classList.remove(style.links_open);
         }
     };
+
+    const { i18n } = useTranslation();
 
     return (
         <div
@@ -97,9 +102,13 @@ export const Navbar = () => {
                 <li>
                     <Link to="/join">Únete</Link>
                 </li>
-                {/* <li>
-          <Link to="/">Tienda de ropa</Link>
-        </li> */}
+                <li onClick={() => i18n.changeLanguage(i18n.language === 'en' ? 'es' : 'en')} className={style.language}>
+                    <img src={
+                        i18n.language === 'es'
+                            ? spainFlag
+                            : ukFlag
+                    }></img>
+                </li>
             </ul>
         </div>
     );

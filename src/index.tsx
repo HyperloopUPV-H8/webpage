@@ -13,6 +13,7 @@ import TimelinePage from './pages/TimelinePage';
 import { DashboardPage } from './pages/DashboardPage';
 import JoinPage from './pages/JoinPage';
 import ResearchPage from './pages/ResearchPage';
+import './i18n/config';
 
 const router = createBrowserRouter([
     {

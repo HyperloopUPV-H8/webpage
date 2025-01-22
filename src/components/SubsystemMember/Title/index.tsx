@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import style from './style.module.scss';
 
 interface SubsystemTitleProps {
@@ -5,9 +6,10 @@ interface SubsystemTitleProps {
 }
 
 export default function SubsystemTitle({ name }: SubsystemTitleProps) {
+    const { t } = useTranslation('team');
     return (
         <div className={style['subsystem__title']}>
-            <p>Subsistema</p>
+            <p>{t('subsystem')}</p>
             <h2>{name}</h2>
         </div>
     );

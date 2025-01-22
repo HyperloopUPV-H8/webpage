@@ -11,8 +11,11 @@ import economics from '../../assets/corporative/subsystems/economics.svg';
 import Subsystem from '../../components/Subsystem';
 import SubsystemMembers from '../../components/SubsystemMember';
 import style from './style.module.scss';
+import { useTranslation } from 'react-i18next';
 
 export default function TeamPage() {
+    const { t } = useTranslation('team');
+
     return (
         <>
             <section
@@ -25,7 +28,7 @@ export default function TeamPage() {
 
                 <div className={style['team__subsystems-menu']}>
                     <div className={style['team__subsystems-menu__title']}>
-                        <h1>SUBSISTEMAS</h1>
+                        <h1>{t('subsystems').toUpperCase()}</h1>
                         <div
                             className={
                                 style['team__subsystems-menu__title__line']

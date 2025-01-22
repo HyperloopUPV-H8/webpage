@@ -14,6 +14,8 @@ import partnersEn from './en/partners.json';
 import partnersEs from './es/partners.json';
 import contactEn from './en/contact.json';
 import contactEs from './es/contact.json';
+import joinEn from './en/join.json';
+import joinEs from './es/join.json';
 
 export const defaultNS = 'ns1';
 
@@ -29,7 +31,8 @@ export default i18n
             team: teamEn,
             timeline: timelineEn,
             partners: partnersEn,
-            contact: contactEn
+            contact: contactEn,
+            join: joinEn
         },
         es: {
             landing: landingEs,
@@ -37,7 +40,8 @@ export default i18n
             team: teamEs,
             timeline: timelineEs,
             partners: partnersEs,
-            contact: contactEs
+            contact: contactEs,
+            join: joinEs
         }
     },
 });

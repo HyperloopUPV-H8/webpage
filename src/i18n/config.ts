@@ -2,8 +2,10 @@ import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 
-import en from './en/landing.json';
-import es from './es/landing.json';
+import landingEn from './en/landing.json';
+import landingEs from './es/landing.json';
+import aboutEn from './en/about.json';
+import aboutEs from './es/about.json';
 
 export const defaultNS = 'ns1';
 
@@ -14,10 +16,12 @@ export default i18n
     debug: true,
     resources: {
         en: {
-            landing: en
+            landing: landingEn,
+            about: aboutEn
         },
         es: {
-            landing: es
+            landing: landingEs,
+            about: aboutEs
         }
     },
 });

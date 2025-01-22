@@ -29,6 +29,7 @@ import arrowCircleDownOutline from '../../assets/icons/arrowcircledownoutline.sv
 import { useRef } from 'react';
 import TimelineGeneration from '../../components/TimelineGeneration';
 import style from './style.module.scss';
+import { useTranslation } from 'react-i18next';
 
 export default function TimelinePage() {
     const divScrollDestination = useRef<HTMLDivElement>(null);
@@ -36,6 +37,8 @@ export default function TimelinePage() {
     const onScrollDown = () => {
         divScrollDestination.current?.scrollIntoView({ behavior: 'smooth' });
     };
+
+    const { t } = useTranslation('timeline');
 
     return (
         <div className={style['timeline__page']}>
@@ -45,7 +48,7 @@ export default function TimelinePage() {
                 <video autoPlay loop muted playsInline>
                     <source src={timelineVideo} type="video/mp4" />
                 </video>
-                <h1 className={style['timeline__page__title']}>Trayectoria</h1>
+                <h1 className={style['timeline__page__title']}>{t('timeline')}</h1>
                 <div className={style['timeline__page__scroll-down-button']}>
                     <img
                         src={arrowCircleDownOutline}
@@ -70,11 +73,11 @@ export default function TimelinePage() {
                         banner={h1_banner}
                         color={'#C1531B'}
                         extraImages={[h1_extra_1, h1_extra_2]}
-                        description="Todo empieza con una gran idea y un grupo de estudiantes con ganas de cambiar el mundo."
+                        description={t('the-future-concept-text')}
                         competition="HyperloopPodCompetition"
                         awards={[
-                            'Premio Mejor Diseño de Concepto',
-                            'Premio Mejor Sistema de Propulsión',
+                            t('the-future-concept-award-1'),
+                            t('the-future-concept-award-2'),
                         ]}
                     />
 
@@ -86,11 +89,11 @@ export default function TimelinePage() {
                         banner={h2_banner}
                         color={'#2486A4'}
                         extraImages={[h2_extra_1, h2_extra_2]}
-                        description="Superando barreras como el océano Atlántico para colaborar con la universidad de Purdue en crear nuestro primer prototipo tangible."
+                        description={t('atlantic-text')}
                         competition="HyperloopPodCompetition"
                         awards={[
-                            'Top 8 HPC Space X',
-                            'Premio Prototipo más potente',
+                            t('atlantic-award-1'),
+                            t('atlantic-award-2'),
                         ]}
                     />
 
@@ -102,9 +105,9 @@ export default function TimelinePage() {
                         banner={h3_banner}
                         color={'#C1531B'}
                         extraImages={[h3_extra_1, h3_extra_2]}
-                        description="Simboliza la independencia de Hyperloop UPV, alcanzar el objetivo de realizar un prototipo por nosotros mismos."
+                        description={t('valentia-text')}
                         competition="HyperloopPodCompetition"
-                        awards={['Top 8 HPC Space X']}
+                        awards={[t('valentia-award-1')]}
                     />
 
                     <TimelineGeneration
@@ -119,9 +122,12 @@ export default function TimelinePage() {
                             h4and5_extra_2,
                             h4and5_extra_3,
                         ]}
-                        description="La potencia hecha prototipo. El caudal de un río comprimido en un prototipo capaz de alcanzar los 400 km/h."
+                        description={t('turian-text')}
                         competition="HyperloopPodCompetition"
-                        awards={['Top 8 HPC Space X', 'Premio a la innovación']}
+                        awards={[
+                            t('turian-award-1'),
+                            t('turian-award-2')
+                        ]}
                     />
 
                     <TimelineGeneration
@@ -132,9 +138,9 @@ export default function TimelinePage() {
                         banner={h6_banner}
                         color={'#C1531B'}
                         extraImages={[h6_extra_1, h6_extra_2]}
-                        description="El inicio de una era, la llama que inició la pasión por la escalabilidad. El primer prototipo de España en emplear un motor de inducción lineal, capaz de acelerar sin tocar ninguna superficie."
+                        description={(t('ignis-text'))}
                         competition="EuropeanHyperloopWeek"
-                        awards={['Top 3 en la EHW']}
+                        awards={[t('ignis-award-1')]}
                     />
 
                     <TimelineGeneration
@@ -145,13 +151,13 @@ export default function TimelinePage() {
                         banner={h7_banner}
                         color={'#2486A4'}
                         extraImages={[h7_extra_1, h7_extra_2]}
-                        description="La ligereza personificada, el primer vehículo en el mundo capaz de levitar, y el más premiado de la EHW."
+                        description={t('auran-text')}
                         competition="EuropeanHyperloopWeek"
                         awards={[
-                            'Premio Most Scalable Design',
-                            'Premio Guiding Award',
-                            'Premio Ingenuity Award',
-                            'Premio Thermal Management Award',
+                            t('auran-award-1'),
+                            t('auran-award-2'),
+                            t('auran-award-3'),
+                            t('auran-award-4'),
                         ]}
                     />
 
@@ -163,11 +169,11 @@ export default function TimelinePage() {
                         banner={h8_banner}
                         color={'#C1531B'}
                         extraImages={[h8_extra_1, h8_extra_2]}
-                        description="El vehículo más completo en la competición hasta la fecha. Levitación y vacío unidos para alcanzar, por primera vez, el 0 rozamiento."
+                        description={t('kenos-text')}
                         competition="EuropeanHyperloopWeek"
                         awards={[
-                            'Top 3 en la EHW',
-                            'Mención especial a la infraestructura',
+                            t('kenos-award-1'),
+                            t('kenos-award-2'),
                         ]}
                     />
 
@@ -180,10 +186,10 @@ export default function TimelinePage() {
                         banner={h9_banner}
                         color={'#2486A4'}
                         extraImages={[h9_extra_1, h9_extra_2]}
-                        description="El murciélago que alzó el vuelo, primer vehículo en conseguir la levitación dinámica al vacío. El campeón del mundo."
+                        description={t('vesper-text')}
                         competition="EuropeanHyperloopWeek"
                         awards={[
-                            'Top 1 en la EHW',
+                            t('vesper-award-1'),
                         ]}
                     />
                 </div>

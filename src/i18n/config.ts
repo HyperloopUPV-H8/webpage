@@ -8,6 +8,8 @@ import aboutEn from './en/about.json';
 import aboutEs from './es/about.json';
 import teamEn from './en/team.json';
 import teamEs from './es/team.json';
+import timelineEn from './en/timeline.json';
+import timelineEs from './es/timeline.json';
 
 export const defaultNS = 'ns1';
 
@@ -20,12 +22,14 @@ export default i18n
         en: {
             landing: landingEn,
             about: aboutEn,
-            team: teamEn
+            team: teamEn,
+            timeline: timelineEn
         },
         es: {
             landing: landingEs,
             about: aboutEs,
-            team: teamEs
+            team: teamEs,
+            timeline: timelineEs
         }
     },
 });

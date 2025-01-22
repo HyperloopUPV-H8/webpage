@@ -1,0 +1,14 @@
+{
+    "contact": "Contact",
+    "name": "Name",
+    "email": "Email",
+    "subject": "Subject",
+    "message": "Message",
+    "send": "Send",
+    "loading": "Sending message...",
+    "success": "Message sent successfully",
+    "error": "Error sending the message. Please try again later.",
+    "required": "Please fill in all fields.",
+    "email-invalid": "Please enter a valid email.",
+    "captcha-required": "Please complete the captcha."
+}

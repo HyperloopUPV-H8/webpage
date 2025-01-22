@@ -16,6 +16,8 @@ import contactEn from './en/contact.json';
 import contactEs from './es/contact.json';
 import joinEn from './en/join.json';
 import joinEs from './es/join.json';
+import navbarEn from './en/navbar.json';
+import navbarEs from './es/navbar.json';
 
 export const defaultNS = 'ns1';
 
@@ -32,7 +34,8 @@ export default i18n
             timeline: timelineEn,
             partners: partnersEn,
             contact: contactEn,
-            join: joinEn
+            join: joinEn,
+            navbar: navbarEn
         },
         es: {
             landing: landingEs,
@@ -41,7 +44,8 @@ export default i18n
             timeline: timelineEs,
             partners: partnersEs,
             contact: contactEs,
-            join: joinEs
+            join: joinEs,
+            navbar: navbarEs
         }
     },
 });

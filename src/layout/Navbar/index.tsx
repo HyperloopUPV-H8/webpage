@@ -50,7 +50,7 @@ export const Navbar = () => {
         }
     };
 
-    const { i18n } = useTranslation();
+    const { t, i18n } = useTranslation('navbar');
 
     return (
         <div
@@ -79,28 +79,28 @@ export const Navbar = () => {
                 ref={navbarLinks}
             >
                 <li>
-                    <Link to="/about">Acerca</Link>
+                    <Link to="/about">{t('about')}</Link>
                 </li>
                 {/* <li>
           <Link to="/">Hyperloop</Link>
         </li> */}
                 <li>
-                    <Link to="/team">Equipo</Link>
+                    <Link to="/team">{t('team')}</Link>
                 </li>
                 <li>
-                    <Link to="/timeline">Trayectoria</Link>
+                    <Link to="/timeline">{t('timeline')}</Link>
                 </li>
                 <li>
-                    <Link to="/research">Investigación</Link>
+                    <Link to="/research">{t('research')}</Link>
                 </li>
                 <li>
-                    <Link to="/partners">Partners</Link>
+                    <Link to="/partners">{t('partners')}</Link>
                 </li>
                 <li>
-                    <Link to="/contact">Contacto</Link>
+                    <Link to="/contact">{t('contact')}</Link>
                 </li>
                 <li>
-                    <Link to="/join">Únete</Link>
+                    <Link to="/join">{t('join')}</Link>
                 </li>
                 <li onClick={() => i18n.changeLanguage(i18n.language === 'en' ? 'es' : 'en')} className={style.language}>
                     <img src={

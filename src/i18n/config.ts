@@ -2,8 +2,8 @@ import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 
-import en from './en/home.json';
-import es from './es/home.json';
+import en from './en/landing.json';
+import es from './es/landing.json';
 
 export const defaultNS = 'ns1';
 
@@ -14,10 +14,10 @@ export default i18n
     debug: true,
     resources: {
         en: {
-            translation: en
+            landing: en
         },
         es: {
-            translation: es
+            landing: es
         }
     },
 });

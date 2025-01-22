@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import arrow from '../../assets/icons/arrow.svg';
 import style from './style.module.scss';
 
@@ -10,10 +11,22 @@ interface Props {
 }
 
 export default function MediaNew({ image, category, url }: Props) {
+    const { t, i18n } = useTranslation('landing');
+
     return (
         <div className={style.container}>
             <div className={style.title}>
-                <p>Noticias {category.toUpperCase()}</p>
+                {
+                    i18n.language === 'es' ? (
+                        <p className={style.category}>
+                            {t('news') + ' ' + category.toUpperCase()}
+                        </p>
+                    ) : (
+                        <p className={style.category}>
+                            {category.toUpperCase() + ' ' + t('news')}
+                        </p>
+                    )
+                }
             </div>
 
             <a href={url} target="_blank">
@@ -25,7 +38,7 @@ export default function MediaNew({ image, category, url }: Props) {
             <div className={style.footer}>
                 <a href={url} target="_blank">
                     <div className={style.footer_container}>
-                        <p>Leer Más</p>
+                        <p>{t('read-more')}</p>
                         <img src={arrow} alt="Arrow right" />
                     </div>
                 </a>

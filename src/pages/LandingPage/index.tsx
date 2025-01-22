@@ -12,8 +12,12 @@ import TitledTextBox from '../../components/TitledTextBox';
 import TitleUnderlined from '../../components/TitleUnderlined';
 import MediaNew from '../../components/MediaNew';
 import style from './style.module.scss';
+import { Trans, useTranslation } from 'react-i18next';
 
 export default function LandingPage() {
+
+    const { t } = useTranslation('landing');
+
     return (
         <div className={style['landing__page']}>
             <div
@@ -25,23 +29,13 @@ export default function LandingPage() {
             >
                 <div className={style['landing__titled-text-box-1']}>
                     <TitledTextBox
-                        title="¿Qué hacemos?"
+                        title={t('what-we-do')}
                         text={
-                            <>
-                                Nuestra trayectoria de casi una década destaca
-                                por una combinación única de innovación,
-                                creatividad y dedicación.
-                                <br />
-                                Cada temporada nos enfrentamos al enorme reto de
-                                crear un vehículo nuevo, incorporando nuevas
-                                ideas y mejorando año a año.
-                                <br />
-                                Para ello trabajamos en estrecha colaboración
-                                con las empresas que nos apoyan, aprovechando la
-                                diversidad de talento y perspectivas que tenemos
-                                para abordar de forma efectiva los desafíos
-                                técnicos y logísticos que presenta hyperloop.
-                            </>
+                            <Trans
+                                ns='landing'
+                                i18nKey="what-we-do-text" 
+                                components={{ br: <br /> }}
+                            />
                         }
                         titleSize="5rem"
                         boxColor="white-transparent"
@@ -56,17 +50,8 @@ export default function LandingPage() {
             >
                 <div className={style['landing__titled-text-box-2']}>
                     <TitledTextBox
-                        title="¿Quién somos?"
-                        text={
-                            <>
-                                En Hyperloop UPV somos un equipo de 50
-                                estudiantes de múltiples disciplinas y áreas de
-                                estudio de la Universitat Politècnica de
-                                València unidos con el objetivo de diseñar,
-                                implementar y perfeccionar la tecnología
-                                hyperloop.
-                            </>
-                        }
+                        title={t('who-we-are')}
+                        text={<>{t('who-we-are-text')}</>}
                         titleSize="5rem"
                         boxColor="white-transparent"
                         titleAlign="start"
@@ -81,15 +66,11 @@ export default function LandingPage() {
                     <source src={landingVideo} type="video/mp4" />
                 </video>
                 <h3 className={style['what-is-hyperloop__title']}>
-                    ¿Qué es hyperloop?
+                    {t('what-is-hyperloop')}
                 </h3>
                 <div className={style['what-is-hyperloop__text']}>
                     <p>
-                        La tecnología hyperloop presenta una revolución en la
-                        movilidad que podría cambiar la forma en que vivimos,
-                        trabajamos y nos desplazamos. Una tecnología disruptiva
-                        que ha venido para quedarse y que no solo es el futuro,
-                        sino el medio de transporte para llegar a él.
+                        {t('what-is-hyperloop-text')}
                     </p>
                 </div>
             </section>
@@ -97,7 +78,7 @@ export default function LandingPage() {
             <section
                 className={`${style['landing__section']} ${style['section-5']}`}
             >
-                <TitleUnderlined text="Último prototipo" color="white" />
+                <TitleUnderlined text={t("last-prototype")} color="white" />
             </section>
 
             <section
@@ -112,16 +93,7 @@ export default function LandingPage() {
                             </div>
                             <div className={style['prototype__text__text']}>
                                 <p>
-                                    Último vehículo desarrollado por Hyperloop
-                                    UPV. Kénos ha sido el primer vehículo de la
-                                    competición capaz de levitar y desplazarse
-                                    al vacío sin ningún rozamiento. Este
-                                    vehículo cuenta con una arquitectura
-                                    eléctrica al nivel del estado del arte en el
-                                    transporte eléctrico, así como los
-                                    ferrocarriles convencionales. Kénos es lo
-                                    más cercano que ha visto la competición a un
-                                    hyperloop completo.
+                                    {t('kenos-text')}
                                 </p>
                                 {/* kenos__text */}
                             </div>
@@ -145,9 +117,7 @@ export default function LandingPage() {
                     className={`${style['prototype__footnote']} ${style['footer__kenos']}`}
                 >
                     <p>
-                        Kénos es el nombre del dios de la mitología Selknam que
-                        le dio forma a la Tierra, de la misma forma en la que
-                        nuestro vehículo le da forma al futuro.
+                        {t('kenos-footnote')}
                     </p>
                 </div>
             </section>
@@ -165,17 +135,7 @@ export default function LandingPage() {
                             </div>
                             <div className={style['prototype__text__text']}>
                                 <p>
-                                    Atlas es el nombre de la infraestructura de
-                                    Hyperloop UPV. Se trata de un tubo de acero
-                                    inoxidable de 10 metros de longitud y 864 mm
-                                    de diámetro dividido en secciones de 1.5
-                                    metros, con un peso total de 12 toneladas.
-                                    Está completamente adaptado al vacío, siendo
-                                    la primera cámara de vacío seccionable y
-                                    portátil que se ha visto en la competición.
-                                    Además, sus soportes regulables le permiten
-                                    hacer frente a cualquier terreno sin perder
-                                    la alineación.
+                                    {t('atlas-text')}
                                 </p>
                             </div>
                             {/* atlas__text */}
@@ -197,11 +157,7 @@ export default function LandingPage() {
                 </div>
                 <div className={style['prototype__footnote']}>
                     <p>
-                        Atlas le debe el nombre al titán condenado a sujetar el
-                        mundo por toda la eternidad. Atlas es también la única
-                        vertebra distinta con la función de sujetar el peso de
-                        nuestro cerebro. Atlas es sinónimo de fuerza y
-                        seguridad.
+                        {t('atlas-footnote')}
                     </p>
                 </div>
             </section>
@@ -210,7 +166,7 @@ export default function LandingPage() {
             <section
                 className={`${style['landing__section']} ${style['section-8']}`}
             >
-                <TitleUnderlined text="Últimas noticias" color="black" />
+                <TitleUnderlined text={t('last-news')} color="black" />
 
                 <div className={style['news__container']}>
                     <MediaNew

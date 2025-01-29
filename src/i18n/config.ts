@@ -18,6 +18,8 @@ import joinEn from './en/join.json';
 import joinEs from './es/join.json';
 import navbarEn from './en/navbar.json';
 import navbarEs from './es/navbar.json';
+import researchEn from './en/research.json';
+import researchEs from './es/research.json';
 
 export const defaultNS = 'ns1';
 
@@ -35,7 +37,8 @@ export default i18n
             partners: partnersEn,
             contact: contactEn,
             join: joinEn,
-            navbar: navbarEn
+            navbar: navbarEn,
+            research: researchEn
         },
         es: {
             landing: landingEs,
@@ -45,7 +48,8 @@ export default i18n
             partners: partnersEs,
             contact: contactEs,
             join: joinEs,
-            navbar: navbarEs
+            navbar: navbarEs,
+            research: researchEs
         }
     },
 });

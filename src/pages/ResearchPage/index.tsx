@@ -4,15 +4,18 @@ import socioH9 from '../../assets/documents/frs-socio-h9.pdf';
 import FileButton from './FileButton';
 import innovationVideo from '../../assets/backgrounds/innovation-video.mov';
 import style from './style.module.scss';
+import { useTranslation } from 'react-i18next';
 
 export default function ResearchPage() {
+    const { t } = useTranslation('research');
+
     return (
         <>
             <div className={style.section_1}>
                 <video autoPlay loop muted playsInline>
                     <source src={innovationVideo} type="video/mp4" />
                 </video>
-                <h1 className={style.title}>Investigación</h1>
+                <h1 className={style.title}>{t("research")}</h1>
             </div>
             <div className={style.section_2}>
                 <FileButton

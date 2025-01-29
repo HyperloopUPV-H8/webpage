@@ -15,6 +15,7 @@ import { useRef } from 'react';
 import TitledImageBox from '../../components/TitledImageBox';
 import TitleUnderlined from '../../components/TitleUnderlined';
 import style from './style.module.scss';
+import { Trans, useTranslation } from 'react-i18next';
 
 export default function AboutPage() {
     const divScrollDestination = useRef<HTMLDivElement>(null);
@@ -23,13 +24,15 @@ export default function AboutPage() {
         divScrollDestination.current?.scrollIntoView({ behavior: 'smooth' });
     };
 
+    const { t, i18n } = useTranslation('about');
+
     return (
         <>
             <div className={`${style['about__section']} ${style['section-1']}`}>
                 <video autoPlay loop muted playsInline>
                     <source src={aboutVideo} type="video/mp4" />
                 </video>
-                <h1 className={style['about__page__title']}>Acerca</h1>
+                <h1 className={style['about__page__title']}>{t('about')}</h1>
                 <div className={style['about__page__scroll-down-button']}>
                     <img
                         src={arrowCircleDownOutline}
@@ -49,7 +52,7 @@ export default function AboutPage() {
                     <div className={style['about__mission-vision']}>
                         <div className={style['about__mission']}>
                             <TitledImageBox
-                                title="Misión"
+                                title={t('mission')}
                                 imageClassName={
                                     style['about__image__box__mission']
                                 }
@@ -57,16 +60,13 @@ export default function AboutPage() {
                                 borderColor="orange"
                             >
                                 <p className={style['about__mission__text']}>
-                                    Desarrollar investigación en la universidad
-                                    a través de la innovación en la tecnología
-                                    hyperloop con el objetivo de construir un
-                                    futuro sostenible.
+                                    {t('mission-text')}
                                 </p>
                             </TitledImageBox>
                         </div>
                         <div id="about__vision">
                             <TitledImageBox
-                                title="Visión"
+                                title={t('vision')}
                                 imageClassName={
                                     style['about__image__box__vision']
                                 }
@@ -74,12 +74,7 @@ export default function AboutPage() {
                                 borderColor="blue"
                             >
                                 <p className={style['about__vision__text']}>
-                                    Diseñar, desarrollar y fabricar tecnología
-                                    hyperloop escalable, posicionándonos como
-                                    equipo universitario referente a nivel
-                                    internacional al solucionar los retos que
-                                    plantea la tecnología del transporte del
-                                    futuro.
+                                    {t('vision-text')}
                                 </p>
                             </TitledImageBox>{' '}
                             {/* Vision */}
@@ -88,7 +83,7 @@ export default function AboutPage() {
 
                     <div id="about__values">
                         <TitledImageBox
-                            title="Valores"
+                            title={t('values')}
                             imageClassName={style['about__image__box__values']}
                             imageURL={values}
                             borderColor="multicolor"
@@ -96,54 +91,38 @@ export default function AboutPage() {
                             <div className={style['about__values__content']}>
                                 <div className={style['about__values__item']}>
                                     <h3>
-                                        <img src={compromiso} /> Compromiso
+                                        <img src={compromiso} /> {t('values-commitment')}
                                     </h3>
                                     <p className={style['about__values__text']}>
-                                        Un equipo marcado por la lealtad y
-                                        responsabilidad hacia nuestros miembros,
-                                        la comunidad universitaria y las
-                                        empresas que nos apoyan, y con una tenaz
-                                        dedicación por alcanzar los objetivos
-                                        que nos impulsan a innovar.
+                                        {t('values-commitment-text')}
                                     </p>
                                 </div>
 
                                 <div className={style['about__values__item']}>
                                     <h3>
-                                        <img src={innovacion} /> Innovación
+                                        <img src={innovacion} /> {t('values-innovation')}
                                     </h3>
                                     <p className={style['about__values__text']}>
-                                        Fuerza impulsora detrás de Hyperloop
-                                        UPV. Nos esforzamos por ir más allá de
-                                        los límites establecidos, explorando
-                                        nuevas soluciones y tecnologías con el
-                                        fin de llevar a cabo nuestro proyecto.
+                                        {t('values-innovation-text')}
                                     </p>
                                 </div>
 
                                 <div className={style['about__values__item']}>
                                     <h3>
-                                        <img src={aprendizaje} /> Aprendizaje
+                                        <img src={aprendizaje} /> {t('values-learning')}
                                     </h3>
                                     <p className={style['about__values__text']}>
-                                        La base de nuestro crecimiento. El
-                                        desarrollo del talento joven es de vital
-                                        importancia, es un recurso valioso y
-                                        esencial en nuestro equipo.
+                                        {t('values-learning-text')}
                                     </p>
                                 </div>
 
                                 <div className={style['about__values__item']}>
                                     <h3>
                                         <img src={sostenibilidad} />{' '}
-                                        Sostenibilidad
+                                        {t('values-sustainability')}
                                     </h3>
                                     <p className={style['about__values__text']}>
-                                        Desde el diseño a la implementación, la
-                                        sostenibilidad es un principio rector en
-                                        cada fase del proyecto, siendo la
-                                        eficiencia energética un objetivo
-                                        prioritario
+                                        {t('values-sustainability-text')}
                                     </p>
                                 </div>
                             </div>
@@ -162,24 +141,11 @@ export default function AboutPage() {
                     <div>
                         <div className={style['about__ehw__description']}>
                             <p>
-                                En 2019 decidimos embarcarnos con 3 de las
-                                mejores universidades europeas (University of
-                                Edinburgh, Delft University of Technology, ETH
-                                Zürich) en un enorme desafío: crear nuestro
-                                propio evento de tecnología hyperloop en el que
-                                poder compartir lo mejor de nuestras ideas y
-                                forjar una comunidad alimentada por la visión de
-                                hacer realidad el hyperloop.
-                                <br />
-                                <br />
-                                <b>
-                                    Así nació la European Hyperloop Week (EHW).
-                                    <br />
-                                    Se trata de un evento que va más allá de la
-                                    mera competición ya que se nutre de la
-                                    curiosidad insaciable de estudiantes de gran
-                                    talento y del afán de aprender.
-                                </b>
+                                <Trans
+                                    i18nKey="ehw-text" 
+                                    i18n={i18n}
+                                    ns='about'
+                                />
                             </p>
                         </div>
 
@@ -202,22 +168,10 @@ export default function AboutPage() {
                 <TitleUnderlined text="Hyperloop Competition" color="white" />
                 <div className={style['about__hyperloop__competition']}>
                     <p className={style['about__hyperloop__competition__text']}>
-                        En 2015 un equipo de 5 chicos de la Universitat
-                        Politècnica de València decidieron apuntarse al desafío
-                        presentado por Space X y competir en la primera
-                        competición mundial de hyperloop. Ese primer año, se
-                        presentó una propuesta conceptual y el equipo
-                        universitario se fue hasta California para vivir la
-                        experiencia de la competición y acabaron ganando
-                        múltiples premios.
+                        {t('hyperloop-pod-competition-1')}
                     </p>
                     <p className={style['about__hyperloop__competition__text']}>
-                        A partir del éxito rotundo de lo que hoy conocemos como
-                        H1 - THE FUTURE CONCEPT, cada año se fue repitiendo la
-                        experiencia de desarrollar un modelo de hyperloop para
-                        poder presentarlo en las competiciones internacionales y
-                        seguir trabajando para desarrollar el transporte del
-                        futuro.
+                        {t('hyperloop-pod-competition-2')}
                     </p>
                     <div
                         className={

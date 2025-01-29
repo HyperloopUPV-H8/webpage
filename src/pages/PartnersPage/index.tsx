@@ -3,6 +3,7 @@ import style from './style.module.scss';
 import PartnersDisplay from '../../components/PartnersDisplay';
 import { Tier } from '../DashboardPage/PartnersEdit/store/dto';
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 export default function PartnersPage() {
     const [meta, setMeta] = useState<Tier[]>([]);
@@ -17,6 +18,8 @@ export default function PartnersPage() {
         });
     }, []);
 
+    const { t } = useTranslation('partners');
+
     return (
         <>
             <div
@@ -26,23 +29,15 @@ export default function PartnersPage() {
                 <div id={style['partners__dossier']}>
                     <div className={style['partners__dossier__background']}>
                         <h2 className={style['partners__dossier__title']}>
-                            ¡Te necesitamos!
+                            {t('we-need-you')}
                         </h2>
                         <p>
-                            Este año, en Hyperloop UPV apostamos por una visión
-                            completamente escalable, un nuevo vehículo prototipo
-                            y su infraestructura. La manera de conseguirlo es
-                            rodeándonos de empresas dispuestas a pertenecer a
-                            este equipo, pues solo unidos lograremos dejar
-                            huella en la sociedad.
+                            {t('text-1')}
                         </p>
                         <p>
-                            <b>
-                                Apostar por Hyperloop UPV no solo significa
-                                construir juntos el transporte del futuro,
-                                también presenta una serie de ventajas para el
-                                presente de nuestros patrocinadores.
-                            </b>
+                            <strong>
+                                {t('text-2')}
+                            </strong>
                         </p>
                         <a
                             id={style['partners__dossier_button']}

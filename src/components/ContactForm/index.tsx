@@ -6,6 +6,8 @@ import style from './style.module.scss';
 import send_email from '../../utils/smtp.ts';
 import FormInput from './FormInput/index.tsx';
 import FormTextArea from './FormTextArea/index.tsx';
+import { useTranslation } from 'react-i18next';
+import { TFunction } from 'i18next';
 
 // const emailParams = {
 //     toEmails: ['direction@hyperloopupv.com', 'partners@hyperloopupv.com'],
@@ -60,17 +62,17 @@ export default function ContactForm(props: Props) {
         if (validForm.state == 'bad') {
             switch (validForm.reason) {
                 case 'missing-value':
-                    toast.error('Por favor, rellene todos los campos.');
+                    toast.error(t('required'));
                     return;
                 case 'bad-email':
-                    toast.error('Por favor, introduzca un correo válido.');
+                    toast.error(t('email-invalid'));
                     return;
             }
         }
 
         const isValidCaptcha = await validateCaptcha();
         if (!isValidCaptcha) {
-            toast.error('Por favor, valide el Captcha.');
+            toast.error(t('captcha-required'));
             return;
         }
 
@@ -81,7 +83,8 @@ export default function ContactForm(props: Props) {
             name,
             email,
             subject,
-            message
+            message,
+            t
         );
 
         resetForm();
@@ -142,11 +145,13 @@ export default function ContactForm(props: Props) {
         }
     };
 
+    const { t } = useTranslation('contact');
+
     return (
         <form className={style.form} onSubmit={onSubmitForm}>
             <div className={style.row}>
                 <FormInput
-                    label="Nombre"
+                    label={t('name')}
                     id="contact-name"
                     name="name"
                     type="text"
@@ -154,7 +159,7 @@ export default function ContactForm(props: Props) {
                     value={formState.name}
                 />
                 <FormInput
-                    label="Correo"
+                    label={t('email')}
                     id="contact-email"
                     name="email"
                     type="text"
@@ -163,7 +168,7 @@ export default function ContactForm(props: Props) {
                 />
             </div>
             <FormInput
-                label="Asunto"
+                label={t('subject')}
                 id="contact-subject"
                 name="subject"
                 type="text"
@@ -171,7 +176,7 @@ export default function ContactForm(props: Props) {
                 value={formState.subject}
             />
             <FormTextArea
-                label="Mensaje"
+                label={t('message')}
                 id="contact-message"
                 name="message"
                 onChange={onInputChange}
@@ -184,6 +189,7 @@ export default function ContactForm(props: Props) {
                 />
 
                 <input
+                    value={t('send')}
                     type="submit"
                     className="form__submit"
                     onChange={onInputChange}
@@ -199,7 +205,8 @@ function send_email_with_progress(
     name: string,
     email: string,
     subject: string,
-    message: string
+    message: string,
+    t: TFunction
 ) {
     toast.promise(
         send_email({
@@ -210,9 +217,9 @@ function send_email_with_progress(
             Body: `<h3>[Correo]: ${email}</h3> <br> [Mensaje]: ${message}`,
         }),
         {
-            loading: 'Enviando mensaje...',
-            success: 'Mensaje enviado!',
-            error: 'Error al enviar el mensaje. Inténtelo más tarde.',
+            loading: t('loading'),
+            success: t('success'),
+            error: t('error'),
         }
     );
 }

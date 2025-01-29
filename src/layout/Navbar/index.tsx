@@ -3,6 +3,9 @@ import NavbarLogo from '../../assets/corporative/navbar-logo.svg';
 import { useEffect, useRef, useState } from 'react';
 import Hamburger from 'hamburger-react';
 import style from './style.module.scss';
+import { useTranslation } from 'react-i18next';
+import spainFlag from '../../assets/icons/spain-flag.svg';
+import ukFlag from '../../assets/icons/uk-flag.svg';
 
 export const Navbar = () => {
     const [isOpen, setOpen] = useState(false);
@@ -18,7 +21,7 @@ export const Navbar = () => {
 
     useEffect(() => {
         let lastScroll = window.scrollY;
-        const handleScroll = (_: Event) => {
+        const handleScroll = () => {
             if (lastScroll < 10) {
                 setIsHidden(false);
             } else {
@@ -47,6 +50,8 @@ export const Navbar = () => {
         }
     };
 
+    const { t, i18n } = useTranslation('navbar');
+
     return (
         <div
             className={`${style.navbar} ${isHidden ? style.navbar_hidden : ''}`}
@@ -74,32 +79,36 @@ export const Navbar = () => {
                 ref={navbarLinks}
             >
                 <li>
-                    <Link to="/about">Acerca</Link>
+                    <Link to="/about">{t('about')}</Link>
                 </li>
                 {/* <li>
           <Link to="/">Hyperloop</Link>
         </li> */}
                 <li>
-                    <Link to="/team">Equipo</Link>
+                    <Link to="/team">{t('team')}</Link>
                 </li>
                 <li>
-                    <Link to="/timeline">Trayectoria</Link>
+                    <Link to="/timeline">{t('timeline')}</Link>
                 </li>
                 <li>
-                    <Link to="/research">Investigación</Link>
+                    <Link to="/research">{t('research')}</Link>
                 </li>
                 <li>
-                    <Link to="/partners">Partners</Link>
+                    <Link to="/partners">{t('partners')}</Link>
                 </li>
                 <li>
-                    <Link to="/contact">Contacto</Link>
+                    <Link to="/contact">{t('contact')}</Link>
                 </li>
                 <li>
-                    <Link to="/join">Únete</Link>
+                    <Link to="/join">{t('join')}</Link>
                 </li>
-                {/* <li>
-          <Link to="/">Tienda de ropa</Link>
-        </li> */}
+                <li onClick={() => i18n.changeLanguage(i18n.language === 'en' ? 'es' : 'en')} className={style.language}>
+                    <img src={
+                        i18n.language === 'es'
+                            ? ukFlag
+                            : spainFlag
+                    }></img>
+                </li>
             </ul>
         </div>
     );

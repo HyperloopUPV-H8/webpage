@@ -105,8 +105,8 @@ export const Navbar = () => {
                 <li onClick={() => i18n.changeLanguage(i18n.language === 'en' ? 'es' : 'en')} className={style.language}>
                     <img src={
                         i18n.language === 'es'
-                            ? spainFlag
-                            : ukFlag
+                            ? ukFlag
+                            : spainFlag
                     }></img>
                 </li>
             </ul>

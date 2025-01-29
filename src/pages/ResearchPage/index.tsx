@@ -7,7 +7,7 @@ import style from './style.module.scss';
 import { useTranslation } from 'react-i18next';
 
 export default function ResearchPage() {
-    const { t } = useTranslation('research');
+    const { t } = useTranslation('research');
 
     return (
         <>

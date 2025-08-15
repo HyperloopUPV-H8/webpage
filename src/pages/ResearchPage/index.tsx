@@ -21,7 +21,7 @@ export default function ResearchPage() {
             <div className={style.section_2}>
                 <FileButton
                     fileTitle="Technical FRS H10"
-                    fileDesc="Comparative analysis of energy supply systems for hyperloop vehicle implementation"
+                    fileDesc="Study and Comparison of Powering Methods for a Real Hyperloop"
                     fileName="Technical FRS H10.pdf"
                     fileURL={techH10}
                     viewportParameters={{ scale: 1.0 }}

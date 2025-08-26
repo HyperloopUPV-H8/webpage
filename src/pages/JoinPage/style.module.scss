@@ -34,18 +34,15 @@
 }
 
 #partners__dossier {
-    @include shadows.gradient(#2486a4, 10px, 10px);
-
     p {
-        text-align: center;
+        text-align: left;
         font-size: 2rem;
     }
 }
 
 .partners__dossier__background {
-    background-color: white;
     display: flex;
-    align-items: center;
+    align-items: start;
     justify-content: center;
     flex-flow: column;
     gap: 3.5rem;
@@ -110,4 +107,157 @@
             )
             100% / 300%;
     }
+}
+
+.job-openings-section {
+    padding: 4rem 2rem;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: 50vh;
+}
+
+.job-openings-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.job-openings-title {
+    font-family: #{var.$primary-font};
+    font-size: 3rem;
+    text-align: left;
+    margin-bottom: 3rem;
+    background-image: linear-gradient(90deg, #ce8058, #2486a4);
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+    background-clip: text;
+    
+    @include media-queries.desktop {
+        font-size: 4rem;
+    }
+}
+
+.loading-state, .error-state, .empty-state {
+    text-align: center;
+    padding: 3rem;
+    font-size: 1.2rem;
+    color: #666;
+    
+    p {
+        font-size: 1.2rem;
+        margin: 0;
+    }
+}
+
+.error-state p {
+    color: #e53e3e;
+}
+
+.job-openings-list {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    position: relative;
+}
+
+@include media-queries.tablet {
+    .job-openings-section {
+        padding: 3rem 1rem;
+    }
+    
+    .job-openings-title {
+        font-size: 2.5rem;
+    }
+}
+
+@include media-queries.mobile {
+    .partners__dossier__background {
+        padding: 0;
+    }
+    
+    .partners__section {
+        margin: 20px !important;
+    }
+
+    .job-openings-section {
+        padding: 2rem 1rem;
+    }
+    
+    .job-openings-title {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+    
+    .job-openings-list {
+        gap: 1.5rem;
+    }
+}
+
+.subgroup-filter {
+  margin: 2rem 0;
+  width: 100%;
+}
+
+.filter-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: start;
+  margin-bottom: 2rem;
+}
+
+.filter-button {
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 1.5rem;
+  font-weight: 500;
+  transition: 0.3s ease;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.5);
+  }
+
+  &.active {
+    background: white;;
+    border-color: #ffffff;
+    color: #000000;
+  }
+}
+
+.job-openings-container {
+  width: 100%;
+}
+
+.subgroup-section {
+  margin-bottom: 3rem;
+  
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.subgroup-header {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.subgroup-title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: white;
+}
+
+.subgroup-description {
+  text-align: left !important;
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.6;
+  max-width: 600px;
 }

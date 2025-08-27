@@ -30,3 +30,8 @@ cmd/*
 !cmd/persistent
 !cmd/media
 !cmd/kill/*.go
+
+#Environment variables
+*.env
+*.env.production
+*.env.development

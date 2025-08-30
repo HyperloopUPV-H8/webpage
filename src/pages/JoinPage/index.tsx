@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
 import style from "./style.module.scss";
 import { getJobOpenings } from "../../contentful.ts";
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import JobOpening from "../../components/JobOpening";
 
 export default function JoinPage() {

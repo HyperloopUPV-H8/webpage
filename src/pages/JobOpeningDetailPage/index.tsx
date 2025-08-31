@@ -90,11 +90,11 @@ export default function JobOpeningDetailPage() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Apply Now
+                Inscribirse
               </a>
             )}
             <Link to="/join" className={style["back-button-secondary"]}>
-              View Other Positions
+              Ver Otros Puestos
             </Link>
           </div>
         </main>

@@ -104,6 +104,17 @@ export default function JoinPage() {
               </div>
             )}
 
+
+            <div className={style["apply-button-container"]}>
+              <a
+                href={'https://forms.gle/eXHGbGF634HQNczz6'}
+                className={style["job-opening__apply-button"]}
+                target="_blank"
+              >
+                Inscribirse
+              </a>
+            </div>
+
             {!loading && !error && jobOpenings.length > 0 && (
               <>
                 <div className={style["subgroup-filter"]}>
@@ -114,7 +125,7 @@ export default function JoinPage() {
                       }`}
                       onClick={() => setSelectedSubgroup("all")}
                     >
-                      All Positions
+                      Todas las posiciones
                     </button>
                     {subgroups.map((subgroup, index) => (
                       <button

@@ -1,6 +1,14 @@
+
 @use '../../sass/core/variables' as var;
 @use '../../sass/core/shadows';
 @use '../../sass/core/media-queries';
+
+.apply-button-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
 
 .partners__title {
     width: 100%;
@@ -157,6 +165,45 @@
     flex-direction: column;
     gap: 2rem;
     position: relative;
+}
+
+.job-opening__apply-button {
+    display: block;
+    background: #ffffff;
+    color: #000000;
+    padding: 16px 0;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    text-align: center;
+    transition: all 0.2s ease;
+    font-size: 2.5rem;
+    min-width: 280px;
+    width: 60%;
+    max-width: 800px;
+    margin: 0 auto;
+
+    &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+}
+
+@include media-queries.tablet {
+    .job-opening__apply-button {
+        max-width: 100%;
+        font-size: 2rem;
+        padding: 14px 0;
+    }
+}
+
+@include media-queries.mobile {
+    .job-opening__apply-button {
+        max-width: 100%;
+        min-width: 0;
+        font-size: 1.3rem;
+        padding: 12px 0;
+    }
 }
 
 @include media-queries.tablet {

@@ -40,7 +40,7 @@ export default function JobOpening({ jobOpening }: JobOpeningProps) {
           to={`/join/${slug}`}
           className={style["job-opening__view-button"]}
         >
-          View Details
+          Ver detalles
         </Link>
         {fields.formLink && (
           <a
@@ -49,7 +49,7 @@ export default function JobOpening({ jobOpening }: JobOpeningProps) {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Apply Now
+            Inscribirse
           </a>
         )}
       </div>

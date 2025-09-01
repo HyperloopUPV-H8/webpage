@@ -107,7 +107,7 @@ export default function JoinPage() {
 
             <div className={style["apply-button-container"]}>
               <a
-                href={'https://forms.gle/eXHGbGF634HQNczz6'}
+                href={'https://forms.gle/8uohgm8iK1X5TYot6'}
                 className={style["job-opening__apply-button"]}
                 target="_blank"
               >

@@ -57,3 +57,84 @@ export const getSingleJobOpening = async (entryId: string) => {
         throw error;
     }
 }
+
+export const getTiers = async () => {
+    try {
+        const response = await client.getEntries({
+            content_type: 'tier'
+        });
+        return response.items;
+    } catch (error) {
+        console.error('Error fetching tiers:', error);
+        throw error;
+    }
+}
+
+export const getPartners = async () => {
+    try {
+        const response = await client.getEntries({
+            content_type: 'partners',
+            include: 2
+        });
+        return response.items;
+    } catch (error) {
+        console.error('Error fetching partners:', error);
+        throw error;
+    }
+}
+
+export const getPartnersData = async () => {
+    try {
+        const [tiersData, partnersData] = await Promise.all([
+            getTiers(),
+            getPartners()
+        ]);
+
+        const tiersMap = new Map();
+        tiersData.forEach((tier: any) => {
+            tiersMap.set(tier.sys.id, {
+                name: tier.fields.name,
+                colorHex: tier.fields.colorHex
+            });
+        });
+
+        const groupedByTier = new Map();
+        
+        partnersData.forEach((partner: any) => {
+            const tierRef = partner.fields.status;
+            const tierId = tierRef?.sys?.id;
+            
+            if (tierId && tiersMap.has(tierId)) {
+                const tierData = tiersMap.get(tierId);
+                
+                if (!groupedByTier.has(tierId)) {
+                    groupedByTier.set(tierId, {
+                        name: tierData.name,
+                        partners: [],
+                        style: {
+                            color: tierData.colorHex,
+                            width: '100%'
+                        }
+                    });
+                }
+                
+                const partnerData = {
+                    name: partner.fields.name,
+                    logo: {
+                        url: partner.fields.image ? `https:${partner.fields.image.fields.file.url}` : '',
+                        width: '100%',
+                        height: '200px',
+                    },
+                    webpageURL: partner.fields.url || '#'
+                };
+                
+                groupedByTier.get(tierId).partners.push(partnerData);
+            }
+        });
+
+        return Array.from(groupedByTier.values());
+    } catch (error) {
+        console.error('Error fetching partners data:', error);
+        throw error;
+    }
+}

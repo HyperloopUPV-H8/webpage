@@ -1,55 +1,73 @@
-import dossierPartners from '../../assets/corporative/dossier.pdf';
-import style from './style.module.scss';
-import PartnersDisplay from '../../components/PartnersDisplay';
-import { Tier } from '../DashboardPage/PartnersEdit/store/dto';
-import { useEffect, useState } from 'react';
-import { useTranslation } from 'react-i18next';
+import dossierPartners from "../../assets/corporative/dossier.pdf";
+import style from "./style.module.scss";
+import PartnersDisplay from "../../components/PartnersDisplay";
+import { Tier } from "../DashboardPage/PartnersEdit/store/dto";
+import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
+import { getPartnersData } from "../../contentful";
 
 export default function PartnersPage() {
-    const [meta, setMeta] = useState<Tier[]>([]);
+  const [meta, setMeta] = useState<Tier[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
-    useEffect(() => {
-        fetch(
-            `https://${import.meta.env.VITE_BACKEND_URL}/${
-                import.meta.env.VITE_BACKEND_PARTNERS_METADATA_ENDPOINT
-            }`
-        ).then((response) => {
-            response.json().then(setMeta);
-        });
-    }, []);
+  useEffect(() => {
+    const fetchPartnersData = async () => {
+      try {
+        setLoading(true);
+        const data = await getPartnersData();
+        setMeta(data);
+        setError(null);
+      } catch (err) {
+        console.error("Error fetching partners data:", err);
+        setError("Failed to load partners data. Please try again later.");
+      } finally {
+        setLoading(false);
+      }
+    };
 
-    const { t } = useTranslation('partners');
+    fetchPartnersData();
+  }, []);
 
-    return (
-        <>
-            <div
-                className={`${style['partners__section']} ${style['section-1']}`}
+  const { t } = useTranslation("partners");
+
+  return (
+    <>
+      <div className={`${style["partners__section"]} ${style["section-1"]}`}>
+        <h1 className={style["partners__title"]}>Partners</h1>
+        <div id={style["partners__dossier"]}>
+          <div className={style["partners__dossier__background"]}>
+            <h2 className={style["partners__dossier__title"]}>
+              {t("we-need-you")}
+            </h2>
+            <p>{t("text-1")}</p>
+            <p>
+              <strong>{t("text-2")}</strong>
+            </p>
+            <a
+              id={style["partners__dossier_button"]}
+              download="HyperloopUPV-Dossier.pdf"
+              href={dossierPartners}
             >
-                <h1 className={style['partners__title']}>Partners</h1>
-                <div id={style['partners__dossier']}>
-                    <div className={style['partners__dossier__background']}>
-                        <h2 className={style['partners__dossier__title']}>
-                            {t('we-need-you')}
-                        </h2>
-                        <p>
-                            {t('text-1')}
-                        </p>
-                        <p>
-                            <strong>
-                                {t('text-2')}
-                            </strong>
-                        </p>
-                        <a
-                            id={style['partners__dossier_button']}
-                            download="HyperloopUPV-Dossier.pdf"
-                            href={dossierPartners}
-                        >
-                            Dossier Partners
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <PartnersDisplay metadata={meta} />
-        </>
-    );
+              Dossier Partners
+            </a>
+          </div>
+        </div>
+      </div>
+
+      {loading && (
+        <div className={style["loading-state"]}>
+          <p>Loading partners...</p>
+        </div>
+      )}
+
+      {error && (
+        <div className={style["error-state"]}>
+          <p>{error}</p>
+        </div>
+      )}
+
+      {!loading && !error && <PartnersDisplay metadata={meta} />}
+    </>
+  );
 }

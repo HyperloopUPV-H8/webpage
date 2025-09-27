@@ -24,13 +24,6 @@ webpage-ssr
 .env
 .prettierrc
 
-# Application
-cmd/*
-!cmd/*.go
-!cmd/persistent
-!cmd/media
-!cmd/kill/*.go
-
 #Environment variables
 *.env
 *.env.production

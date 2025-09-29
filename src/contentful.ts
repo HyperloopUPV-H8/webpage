@@ -138,7 +138,7 @@ export const getPartnersData = async () => {
             url: partner.fields.image?.fields?.file?.url
               ? `https:${partner.fields.image.fields.file.url}`
               : "",
-            height: isPremium ? "160px" : "100px",
+            height: isPremium ? "200px" : "100px",
             maxWidth: isPremium ? "3000px" : "200px",
           },
           webpageURL: partner.fields.url || "#",

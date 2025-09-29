@@ -14,7 +14,7 @@ export default function Footer() {
                 <div className={style.copyright}>
                     <div className={style.copyright_icon}>
                         <img src={CopyrightIcon} alt="Copyright" />
-                        <p>2015 - 2023 Hyperloop UPV</p>
+                        <p>2015 - 2025 Hyperloop UPV</p>
                     </div>
                     <p>All rights reserved</p>
                 </div>

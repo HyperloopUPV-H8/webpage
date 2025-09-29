@@ -39,6 +39,7 @@ type Logo struct {
 	URL    string  `json:"url"`
 	Width  *string `json:"width,omitempty"`
 	Height *string `json:"height,omitempty"`
+	MaxWidth *string `json:"maxWidth,omitempty"`
 }
 
 type TierUpdate struct {

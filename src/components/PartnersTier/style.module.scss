@@ -78,6 +78,10 @@
         transform: rotate(25deg);
         width: 40rem;
         height: 60rem;
+
+        @include media-queries.mobile {
+            top: -20rem
+        }
     }
 
     &.bottom {

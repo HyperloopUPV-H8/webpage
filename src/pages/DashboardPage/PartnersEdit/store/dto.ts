@@ -14,6 +14,7 @@ export type Logo = {
     url: string;
     width?: string;
     height?: string;
+    maxWidth?: string;
 };
 
 export type Style = {

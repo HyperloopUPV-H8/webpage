@@ -60,7 +60,7 @@ jobs:
               run: npm ci
 
             - name: Load .env
-              run: echo "${{ secrets.ENV }}" > .env
+              run: echo "${{ secrets.ENV_DEVELOPMENT }}" > .env
 
             - name: Build Webpage
               run: npm run build

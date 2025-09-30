@@ -41,6 +41,8 @@ export default function PartnersTier({ meta }: PartnersTierProps) {
                             style={{
                                 width: partner.logo.width,
                                 height: partner.logo.height,
+                                maxWidth: partner.logo.maxWidth,
+                                objectFit: 'contain',
                             }}
                         />
                     </a>
@@ -50,6 +52,7 @@ export default function PartnersTier({ meta }: PartnersTierProps) {
                 className={`${style.blur} ${style.bottom}`}
                 style={{
                     backgroundColor: meta.style.color,
+                    bottom: "50px",
                 }}
             ></div>
         </div>

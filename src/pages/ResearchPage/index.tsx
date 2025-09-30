@@ -3,7 +3,7 @@ import techH9 from '../../assets/documents/frs-tech-h9.pdf';
 import socioH9 from '../../assets/documents/frs-socio-h9.pdf';
 import techH10 from '../../assets/documents/frs-tech-h10.pdf'
 import FileButton from './FileButton';
-import innovationVideo from '../../assets/backgrounds/innovation-video.mov';
+import innovationVideo from '../../assets/backgrounds/innovation-video.mp4';
 import style from './style.module.scss';
 import { useTranslation } from 'react-i18next';
 
